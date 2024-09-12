@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom';
-import AppNavigation from '../components/AppNavigation';
+import Navigation from './Navigation';
 
 export default function RootLayout() {
   return (
     <div className="container">
-      <AppNavigation />
+      <Navigation />
       <main>
         <Outlet />
       </main>

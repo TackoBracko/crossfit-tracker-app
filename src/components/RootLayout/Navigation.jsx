@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-export default function AppNavigation() {
+export default function Navigation() {
   return (
     <>
       <header>
