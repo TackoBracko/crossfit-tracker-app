@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
 export default function ProtectedRoutes() {
-  const isLoggin = false;
+  const isLoggin = true;
 
   if (isLoggin) {
     return <Outlet />;

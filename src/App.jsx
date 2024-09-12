@@ -1,11 +1,28 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom';
 
 import RootLayout from './pages/Root';
 import HomePage from './pages/Home';
 import ProfilePage from './pages/Profile';
 import LogInPage from './pages/LogIn';
 import SignUpPage from './pages/SignUp';
-import ProtectedRoutes from './components/utils/ProtectedRoutes';
+
+const isUserLogged = false;
+
+const protectedRoutesLoader = () => {
+  if (!isUserLogged) {
+    return redirect('/login');
+  } else {
+    return null;
+  }
+};
+
+const publicRoutesLoader = () => {
+  if (isUserLogged) {
+    return redirect('/');
+  } else {
+    return null;
+  }
+};
 
 const router = createBrowserRouter([
   {
@@ -13,26 +30,24 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-        path: 'logInPage',
+        index: true,
+        loader: protectedRoutesLoader,
+        element: <HomePage />,
+      },
+      {
+        path: 'profile',
+        loader: protectedRoutesLoader,
+        element: <ProfilePage />,
+      },
+      {
+        path: 'login',
         element: <LogInPage />,
+        loader: publicRoutesLoader,
       },
       {
-        path: '',
-        element: <ProtectedRoutes />,
-        children: [
-          {
-            path: 'homepage',
-            element: <HomePage />,
-          },
-          {
-            path: 'profile',
-            element: <ProfilePage />,
-          },
-        ],
-      },
-      {
-        path: 'signUpPage',
+        path: 'signup',
         element: <SignUpPage />,
+        loader: publicRoutesLoader,
       },
     ],
   },

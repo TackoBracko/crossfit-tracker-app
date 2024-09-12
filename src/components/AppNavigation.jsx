@@ -7,16 +7,16 @@ export default function AppNavigation() {
         <nav>
           <ul>
             <li>
-              <NavLink to="homepage">Home</NavLink>
+              <NavLink to="">Home</NavLink>
             </li>
             <li>
               <NavLink to="profile">Profile</NavLink>
             </li>
             <li>
-              <NavLink to="logInPage">LogIn</NavLink>
+              <NavLink to="login">LogIn</NavLink>
             </li>
             <li>
-              <NavLink to="signUpPage">Sign Up</NavLink>
+              <NavLink to="signup">Sign Up</NavLink>
             </li>
           </ul>
         </nav>
