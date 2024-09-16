@@ -1,6 +1,6 @@
 import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom';
 
-import RootLayout from './components/RootLayout/Root';
+import RootLayout from './components/RootLayout/Index';
 import HomePage from './pages/Home';
 import ProfilePage from './pages/Profile';
 import LogInPage from './pages/LogIn';
