@@ -1,33 +1,29 @@
-.login_form {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000000;
+  color: #ffff;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  border: 1px solid #e4e4e7;
-  padding: 2rem;
-  max-width: 600px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 0.375rem;
-  background-color: #fff;
 }
 
-input[type='email'],
-input[type='password'],
-input[type='text'] {
-  height: 2.5em;
-  border: 1px solid #e4e4e7;
+img {
   width: 100%;
-  padding: 1rem;
-  box-sizing: border-box;
+  max-width: 100%;
 }
 
-button {
-  background-color: #000;
-  color: #fff;
-  padding: 0.25rem 0.5rem;
-  font-size: 1rem;
-  border-radius: 0.375rem;
-  cursor: pointer;
+li {
+  list-style: none;
+}
+
+li a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+@media (max-width: 480px) {
 }
