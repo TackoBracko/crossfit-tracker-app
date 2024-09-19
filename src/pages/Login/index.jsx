@@ -13,16 +13,14 @@ export default function LogInPage() {
       <div className={classes.formSection}>
         <Form>
           <div>
-            <label>Email</label>
-            <input type="email" name="email" required />
+            <input type="email" placeholder="Email" name="email" required />
           </div>
 
           <div>
-            <label>Password</label>
-            <input type="password" name="password" required />
+            <input type="password" placeholder="Password" name="password" required />
           </div>
 
-          <div className={classes.buttonContainer}>
+          <div>
             <button type="submit">Login </button>
           </div>
         </Form>
