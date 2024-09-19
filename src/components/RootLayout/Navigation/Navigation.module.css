@@ -1,8 +1,16 @@
+.navHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vh;
+}
+
 .nav {
   display: flex;
   height: 92px;
   width: 100vh;
   padding: 0 24px;
+  align-items: center;
 }
 
 .nav ul {

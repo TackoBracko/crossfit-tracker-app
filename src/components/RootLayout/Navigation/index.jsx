@@ -6,8 +6,8 @@ export default function Navigation() {
 
   return (
     <>
-      <header className={classes.nav}>
-        <nav>
+      <header className={classes.navHeader}>
+        <nav className={classes.nav}>
           <ul>
             {isUserLogged ? (
               <>
