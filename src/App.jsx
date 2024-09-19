@@ -1,12 +1,12 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom';
 
-import RootLayout from './components/RootLayout/Index';
+import RootLayout from './components/RootLayout';
 import HomePage from './pages/Home';
 import ProfilePage from './pages/Profile';
-import LogInPage from './pages/Login/Index';
+import LogInPage from './pages/Login';
 import SignUpPage from './pages/SignUp';
 
-/*const isUserLogged = false;
+const isUserLogged = false;
 
 const protectedRoutesLoader = () => {
   if (!isUserLogged) {
@@ -22,31 +22,35 @@ const publicRoutesLoader = () => {
   } else {
     return null;
   }
-};*/
+};
 
 const router = createBrowserRouter([
   {
     path: '/',
+    id: 'root',
     element: <RootLayout />,
+    loader: () => {
+      return isUserLogged;
+    },
     children: [
       {
         index: true,
-        //loader: protectedRoutesLoader,
+        loader: protectedRoutesLoader,
         element: <HomePage />,
       },
       {
         path: 'profile',
-        //loader: protectedRoutesLoader,
+        loader: protectedRoutesLoader,
         element: <ProfilePage />,
       },
       {
         path: 'login',
         element: <LogInPage />,
-        //loader: publicRoutesLoader,
+        loader: publicRoutesLoader,
       },
       {
         path: 'signup',
-        //loader: publicRoutesLoader,
+        loader: publicRoutesLoader,
         element: <SignUpPage />,
       },
     ],
