@@ -4,8 +4,6 @@ import classes from './Navigation.module.css';
 export default function Navigation() {
   const isUserLogged = useRouteLoaderData('root');
 
-  console.log(isUserLogged);
-
   return (
     <>
       <header className={classes.navHeader}>
