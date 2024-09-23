@@ -2,6 +2,8 @@ import { Form } from 'react-router-dom';
 import classes from './Login.module.css';
 
 export default function LogInPage() {
+  //const isEmailError = true;
+
   return (
     <>
       <div className={classes.loginHeader}>
