@@ -7,10 +7,10 @@
 
 .nav {
   display: flex;
+  align-items: center;
   height: 92px;
   width: 100vh;
   padding: 0 24px;
-  align-items: center;
 }
 
 .nav ul {
@@ -36,4 +36,20 @@
 .nav ul li a.active {
   text-decoration: underline 2px #d0fd3e;
   text-underline-offset: 8px;
+}
+
+.navHome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1c1c1e;
+  display: flex;
+}
+
+.navHome ul {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 24px;
 }

@@ -1,24 +1,26 @@
 import { NavLink, useRouteLoaderData } from 'react-router-dom';
 import classes from './Navigation.module.css';
+import homeIcon from '../../../assets/icons/Home.svg';
+import profileIcon from '../../../assets/icons/Ellipse.svg';
 
 export default function Navigation() {
   const isUserLogged = useRouteLoaderData('root');
 
   return (
     <>
-      <header className={classes.navHeader}>
+      <header className={isUserLogged ? classes.navHome : classes.navHeader}>
         <nav className={classes.nav}>
           <ul>
             {isUserLogged ? (
               <>
                 <li>
-                  <NavLink to="" className={({ isActive }) => (isActive ? classes.active : undefined)}>
-                    Home
+                  <NavLink to="">
+                    <img src={homeIcon} alt="homeIcon" />
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="profile" className={({ isActive }) => (isActive ? classes.active : undefined)}>
-                    Profile
+                  <NavLink to="profile">
+                    <img src={profileIcon} alt="profileIcon" />
                   </NavLink>
                 </li>
               </>
