@@ -8,37 +8,35 @@ export default function Navigation() {
 
   return (
     <>
-      <header className={isUserLogged ? classes.navHome : classes.navHeader}>
+      <header className={isUserLogged ? `${classes.header} ${classes.dark}` : classes.header}>
         <nav className={classes.nav}>
-          <ul>
-            {isUserLogged ? (
-              <>
-                <li>
-                  <NavLink to="">
-                    <img src={homeIcon} alt="homeIcon" />
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="profile">
-                    <img src={profileIcon} alt="profileIcon" />
-                  </NavLink>
-                </li>
-              </>
-            ) : (
-              <>
-                <li>
-                  <NavLink to="login" className={({ isActive }) => (isActive ? classes.active : undefined)}>
-                    LogIn
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="signup" className={({ isActive }) => (isActive ? classes.active : undefined)}>
-                    Sign Up
-                  </NavLink>
-                </li>
-              </>
-            )}
-          </ul>
+          {isUserLogged ? (
+            <ul className={classes.loggedNav}>
+              <li>
+                <NavLink to="">
+                  <img src={homeIcon} alt="Home Icon" />
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="profile">
+                  <img src={profileIcon} alt="Profile Icon" />
+                </NavLink>
+              </li>
+            </ul>
+          ) : (
+            <ul className={classes.activeNav}>
+              <li>
+                <NavLink to="login" className={({ isActive }) => (isActive ? classes.active : undefined)}>
+                  LogIn
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="signup" className={({ isActive }) => (isActive ? classes.active : undefined)}>
+                  Sign Up
+                </NavLink>
+              </li>
+            </ul>
+          )}
         </nav>
       </header>
     </>

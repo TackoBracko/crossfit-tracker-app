@@ -16,29 +16,28 @@ export default function LogInPage() {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    if (!email && !password) {
-      console.log('Inputs are empty');
+    const isEmailValid = email.trim() !== '' || email.includes('@');
+    const isPasswordValid = password.trim() !== '';
+
+    if (!isEmailValid && !isPasswordValid) {
       setErrorMessage(true);
 
       return;
     }
 
-    if (email.trim() === '' || !email.includes('@')) {
-      console.log('Error with email');
+    if (!isEmailValid) {
       setEmailError(true);
 
       return;
     }
 
-    if (password.trim() === '') {
-      console.log('Error with password');
+    if (!isPasswordValid) {
       setPasswordError(true);
 
       return;
     }
 
-    console.log({ email, password });
-    redirect('home');
+    redirect('/');
   };
 
   return (
@@ -49,8 +48,8 @@ export default function LogInPage() {
         </h3>
       </div>
 
-      <div className={classes.formSection}>
-        {errorMessage ? <p className={classes.errorText}>You need to fulfill inputs for email and password, they are required</p> : null}
+      <section className={classes.formSection}>
+        {errorMessage ? <p className={classes.errorText}>You need to fulfill inputs for email and password</p> : null}
         <Form onSubmit={handleSubmit}>
           <div>
             {emailError ? <p className={classes.errorText}>Email is required</p> : null}
@@ -66,7 +65,7 @@ export default function LogInPage() {
             <button type="submit">Login </button>
           </div>
         </Form>
-      </div>
+      </section>
     </>
   );
 }
