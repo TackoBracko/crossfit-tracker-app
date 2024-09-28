@@ -4,7 +4,7 @@ import RootLayout from './components/RootLayout';
 import HomePage from './pages/Home';
 import ProfilePage from './pages/Profile';
 import LogInPage from './pages/Login';
-import SignUpPage from './pages/SignUp';
+import SignUpPage from './pages/Signup';
 
 const isUserLogged = false;
 

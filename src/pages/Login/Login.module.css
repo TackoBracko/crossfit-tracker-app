@@ -6,6 +6,7 @@
   align-items: end;
   height: 460px;
   color: #ffffff;
+  text-transform: uppercase;
 }
 
 .loginHeader h3 {

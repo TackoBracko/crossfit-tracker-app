@@ -1,0 +1,44 @@
+.signupHeader {
+  background-image: url('./../../assets/pictures/SignupBackground.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 387px;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 24px;
+  gap: 12px;
+}
+
+.signupHeader h3 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.signupHeader p {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.formSection {
+  padding: 0 24px;
+  max-width: 100%;
+  margin-top: 30px;
+}
+
+.formSection form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.errorText {
+  position: absolute;
+  color: #ff2424;
+  padding-left: 16px;
+  font-weight: 400;
+  font-size: 11px;
+}
