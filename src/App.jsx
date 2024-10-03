@@ -6,7 +6,7 @@ import ProfilePage from './pages/Profile';
 import LogInPage from './pages/Login';
 import SignUpPage from './pages/Signup';
 
-const isUserLogged = false;
+const isUserLogged = true;
 
 const protectedRoutesLoader = () => {
   if (!isUserLogged) {
@@ -39,11 +39,6 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: 'profile',
-        loader: protectedRoutesLoader,
-        element: <ProfilePage />,
-      },
-      {
         path: 'login',
         element: <LogInPage />,
         loader: publicRoutesLoader,
@@ -54,6 +49,11 @@ const router = createBrowserRouter([
         element: <SignUpPage />,
       },
     ],
+  },
+  {
+    path: 'profile',
+    loader: protectedRoutesLoader,
+    element: <ProfilePage />,
   },
 ]);
 
