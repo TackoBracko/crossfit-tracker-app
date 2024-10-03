@@ -7,10 +7,31 @@ export default function SignUpPage() {
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
 
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
-  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(false);
+  const [error, setError] = useState({
+    email: false,
+    password: false,
+    confirmPassword: false,
+  });
+
+  //const [errorMessage, setErrorMessage] = useState(false);
+
+  const handleEmailBlur = () => {
+    setError((prevState) => {
+      return { ...prevState, email: false };
+    });
+  };
+
+  const handlePasswordBlur = () => {
+    setError((prevState) => {
+      return { ...prevState, password: false, confirmPassword: false };
+    });
+  };
+
+  const handleConfirmPasswordBlur = () => {
+    setError((prevState) => {
+      return { ...prevState, confirmPassword: false };
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,28 +42,28 @@ export default function SignUpPage() {
 
     const isEmailValid = email.trim() !== '' || email.includes('@');
     const isPasswordValid = password.trim() !== '';
-    const isConfirmPasswordValid = isPasswordValid === confirmPassword;
+    const isConfirmPasswordValid = password === confirmPassword;
 
-    if (!isEmailValid && !isPasswordValid && !isConfirmPasswordValid) {
-      setErrorMessage(true);
+    if (!isEmailValid || !isPasswordValid || !isConfirmPasswordValid) {
+      if (!isEmailValid) {
+        setError((prevState) => {
+          return { ...prevState, email: true };
+        });
+      }
 
-      return;
-    }
+      if (!isPasswordValid) {
+        setError((prevState) => {
+          return { ...prevState, password: true };
+        });
+      }
 
-    if (!isEmailValid) {
-      setEmailError(true);
+      if (!isConfirmPasswordValid) {
+        setError((prevState) => {
+          return { ...prevState, confirmPassword: true };
+        });
+      }
 
-      return;
-    }
-
-    if (!isPasswordValid) {
-      setPasswordError(true);
-
-      return;
-    }
-
-    if (!isConfirmPasswordValid) {
-      setConfirmPasswordError(true);
+      //setErrorMessage(true);
 
       return;
     }
@@ -53,27 +74,29 @@ export default function SignUpPage() {
   return (
     <>
       <div className={classes.signupHeader}>
-        <h3>Hello Rookies, </h3>
-        <p>enter your informations below or login with other account</p>
+        <h3>
+          Hello <span>Rookies</span>,
+        </h3>
+        <p>Enter your informations below or login with other account</p>
       </div>
 
       <section className={classes.formSection}>
-        {errorMessage ? <p className={classes.errorText}>You need to fulfill all inputs</p> : null}
+        {/*{errorMessage ? <p className={classes.errorText}>You need to fulfill all inputs</p> : null}*/}
 
         <Form onSubmit={handleSubmit}>
           <div>
-            {emailError ? <p className={classes.errorText}>You have entered an invalid email address</p> : null}
-            <input ref={emailRef} type="email" placeholder="Email" name="email" />
+            {error.email ? <p className={classes.errorText}>You have entered an invalid email address</p> : null}
+            <input ref={emailRef} type="email" placeholder="Email" name="email" onBlur={handleEmailBlur} />
           </div>
 
           <div>
-            {passwordError ? <p className={classes.errorText}>Password can not be empty</p> : null}
-            <input ref={passwordRef} type="password" placeholder="Password" name="password" />
+            {error.password ? <p className={classes.errorText}>Password can not be empty</p> : null}
+            <input ref={passwordRef} type="password" placeholder="Password" name="password" onBlur={handlePasswordBlur} />
           </div>
 
           <div>
-            {confirmPasswordError ? <p className={classes.errorText}>Passwords do not match</p> : null}
-            <input ref={confirmPasswordRef} type="password" placeholder="Password again" name="password again" />
+            {error.confirmPassword ? <p className={classes.errorText}>Passwords do not match</p> : null}
+            <input ref={confirmPasswordRef} type="password" placeholder="Password again" name="password again" onBlur={handleConfirmPasswordBlur} />
           </div>
 
           <div>

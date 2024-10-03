@@ -44,7 +44,7 @@ export default function LogInPage() {
     <>
       <div className={classes.loginHeader}>
         <h3>
-          Welcome back <span>Sarah</span>
+          Welcome back, <span>Sarah</span>
         </h3>
       </div>
 
