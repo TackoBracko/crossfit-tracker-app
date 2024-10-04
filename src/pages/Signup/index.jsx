@@ -13,8 +13,6 @@ export default function SignUpPage() {
     confirmPassword: false,
   });
 
-  //const [errorMessage, setErrorMessage] = useState(false);
-
   const handleEmailBlur = () => {
     setError((prevState) => {
       return { ...prevState, email: false };
@@ -63,8 +61,6 @@ export default function SignUpPage() {
         });
       }
 
-      //setErrorMessage(true);
-
       return;
     }
 
@@ -81,8 +77,6 @@ export default function SignUpPage() {
       </div>
 
       <section className={classes.formSection}>
-        {/*{errorMessage ? <p className={classes.errorText}>You need to fulfill all inputs</p> : null}*/}
-
         <Form onSubmit={handleSubmit}>
           <div>
             {error.email ? <p className={classes.errorText}>You have entered an invalid email address</p> : null}
