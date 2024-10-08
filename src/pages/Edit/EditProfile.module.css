@@ -1,0 +1,45 @@
+.editHeader {
+  display: flex;
+  align-items: center;
+  gap: 98px;
+  padding: 32px 24px;
+  margin-bottom: 20px;
+}
+
+.editHeader h2 {
+  font-size: 22px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.editFormSection {
+  margin: 24px;
+}
+
+.editProfileImg {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.editProfileImg img {
+  border-radius: 50%;
+  padding: 20px;
+  background-color: #d0fd3e;
+}
+
+.inputFields {
+  margin-bottom: 20px;
+}
+
+.inputFields input {
+  border: 1px solid #69696940;
+  margin-top: 10px;
+}
+
+.inputFields label {
+  font-size: 17px;
+}
+
+.saveBtn {
+  border: none;
+}

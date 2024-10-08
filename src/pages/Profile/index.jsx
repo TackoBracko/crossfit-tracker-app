@@ -19,7 +19,7 @@ export default function ProfilePage() {
           <h2>Profile</h2>
           <ul className={classes.edit}>
             <li>
-              <NavLink to="">
+              <NavLink to="/edit">
                 <img src={editBtn} alt="Button for editing profile" />
               </NavLink>
             </li>
@@ -49,7 +49,7 @@ export default function ProfilePage() {
         </div>
 
         <div>
-          <NavLink to="login">
+          <NavLink to="/login">
             <button className={classes.signoutBtn}>Sign out</button>
           </NavLink>
         </div>
