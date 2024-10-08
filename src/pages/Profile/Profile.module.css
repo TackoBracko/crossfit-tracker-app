@@ -1,0 +1,73 @@
+.profileNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 24px;
+  text-transform: uppercase;
+}
+
+.profileNav h2 {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.back,
+.edit {
+  list-style: none;
+}
+
+.back img,
+.edit img {
+  cursor: pointer;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileInfo h3 {
+  font-size: 32px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.profileInfo h3 span {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.profileInfo img {
+  max-width: 120px;
+  margin-bottom: 10px;
+  border: 3px solid;
+  background-image: linear-gradient(#d0fd3e, #ff2424);
+  border-radius: 50%;
+  border: none;
+  padding: 5px;
+}
+
+.profileDetails {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+}
+
+.measures {
+  display: flex;
+  margin: 24px;
+}
+
+.measures p:not(:last-child) {
+  border-right: 1px solid #2c2c2c;
+}
+
+.measures p:not(:first-child) {
+  padding-left: 10px;
+}
+
+.signoutBtn {
+  background-color: #ff2424;
+  border: none;
+}
