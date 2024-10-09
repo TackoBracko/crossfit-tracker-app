@@ -29,13 +29,44 @@ export default function EditiProfilePage() {
           </div>
 
           <div className={classes.inputFields}>
-            <label>Phone</label>
-            <input name="phone" type="number" />
+            <label>Email address</label>
+            <input name="email" type="email" />
           </div>
 
           <div className={classes.inputFields}>
-            <label>Email address</label>
-            <input name="email" type="email" />
+            <label>Password</label>
+            <input name="password" type="text" />
+          </div>
+
+          <div className={classes.inputFields}>
+            <label>Weight</label>
+            <div className={classes.weightContainer}>
+              <input name="weight" type="number" />
+              <span className={classes.unit}>kg</span>
+            </div>
+          </div>
+
+          <div className={classes.inputFields}>
+            <label>Height</label>
+            <div className={classes.weightContainer}>
+              <input name="height" type="number" />
+              <span className={classes.unit}>cm</span>
+            </div>
+          </div>
+
+          <div className={classes.inputFields}>
+            <label>Gender</label>
+            <div className={classes.customSelect}>
+              <select name="gender">
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </div>
+          </div>
+
+          <div className={classes.inputFields}>
+            <label>Age</label>
+            <input name="weight" type="number" />
           </div>
 
           <button type="submit" className={classes.saveBtn}>
