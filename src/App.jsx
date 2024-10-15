@@ -5,6 +5,7 @@ import HomePage from './pages/Home';
 import ProfilePage from './pages/Profile';
 import LogInPage from './pages/Login';
 import SignUpPage from './pages/Signup';
+import EditiProfilePage from './pages/Edit';
 
 const isUserLogged = true;
 
@@ -54,6 +55,11 @@ const router = createBrowserRouter([
     path: 'profile',
     loader: protectedRoutesLoader,
     element: <ProfilePage />,
+  },
+  {
+    path: 'edit',
+    loader: protectedRoutesLoader,
+    element: <EditiProfilePage />,
   },
 ]);
 

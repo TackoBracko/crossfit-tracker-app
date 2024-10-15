@@ -1,0 +1,89 @@
+.editHeader {
+  display: flex;
+  align-items: center;
+  padding: 32px 24px;
+  margin-bottom: 20px;
+  gap: 75px;
+}
+
+.editHeader h2 {
+  font-size: 22px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.editFormSection {
+  padding: 32px 24px;
+}
+
+.editProfileImg {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.editProfileImg img {
+  border-radius: 50%;
+  padding: 20px;
+  background-color: #d0fd3e;
+}
+
+.inputFields {
+  margin-bottom: 20px;
+}
+
+.inputFields label {
+  font-size: 17px;
+}
+
+.inputFields input {
+  border-bottom: 1px solid #69696940;
+  margin-top: 10px;
+}
+
+.inputFields span {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.unitContainer {
+  display: flex;
+  position: relative;
+}
+
+.weightContainer input {
+  flex: 1;
+}
+
+.unit {
+  position: absolute;
+  right: 10px;
+  top: 35%;
+  font-size: 17px;
+  font-weight: 500;
+  border: 1px solid;
+  border-radius: 4px;
+  background-color: #d0fd3e;
+  color: #000000;
+  padding: 4px;
+}
+
+.saveBtn {
+  border: none;
+}
+
+.customSelect {
+  position: relative;
+}
+
+.customSelect select {
+  border: none;
+  border-bottom: 1px solid #69696940;
+  width: 100%;
+  font-size: 17px;
+  font-weight: 500;
+  background-color: #000000;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 20px 16px;
+  margin-top: 10px;
+}
