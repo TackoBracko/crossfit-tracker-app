@@ -11,7 +11,7 @@ export default function EditiProfilePage() {
     password: '123456',
     weight: '55',
     height: '170',
-    gender: '',
+    gender: 'Female',
     age: '21',
   });
   const [isEditing, setIsEditing] = useState(false);
@@ -32,30 +32,31 @@ export default function EditiProfilePage() {
   return (
     <>
       <header className={classes.editHeader}>
-        <ul className={classes.back}>
-          <li>
-            <NavLink to="/profile">
-              <img src={backArrow} alt="Sign for back" />
-            </NavLink>
-          </li>
-        </ul>
-        <h2>Edit Profile</h2>
+        <NavLink to="/profile">
+          <img src={backArrow} alt="Sign for back" className={classes.backBtn} />
+        </NavLink>
+
+        <h1>Edit Profile</h1>
       </header>
 
-      <section className={classes.editFormSection}>
-        <div className={classes.editProfileImg}>
-          <img src={avatar} alt="Avatar" />
-        </div>
+      <div className={classes.editProfileImg}>
+        <img src={avatar} alt="Avatar" />
+      </div>
 
+      <section className={classes.editFormSection}>
         <Form className={classes.editForm} onSubmit={handleEditSubmit}>
           <div className={classes.inputFields}>
             <label>Full Name: </label>
-            {isEditing ? <input name="name" type="text" onChange={handleEditData} value={userEditData.name} /> : <span>{userEditData.name}</span>}
+            {isEditing ? <input name="name" type="text" onChange={handleEditData} value={userEditData.name} /> : <span> {userEditData.name}</span>}
           </div>
 
           <div className={classes.inputFields}>
             <label>Email address: </label>
-            {isEditing ? <input name="email" type="email" onChange={handleEditData} value={userEditData.email} /> : <span>{userEditData.email}</span>}
+            {isEditing ? (
+              <input name="email" type="email" onChange={handleEditData} value={userEditData.email} />
+            ) : (
+              <span> {userEditData.email}</span>
+            )}
           </div>
 
           <div className={classes.inputFields}>
@@ -63,7 +64,7 @@ export default function EditiProfilePage() {
             {isEditing ? (
               <input name="password" type="text" onChange={handleEditData} value={userEditData.password} />
             ) : (
-              <span>{userEditData.password}</span>
+              <span> {userEditData.password}</span>
             )}
           </div>
 
@@ -75,7 +76,7 @@ export default function EditiProfilePage() {
                 <span className={classes.unit}>kg</span>
               </div>
             ) : (
-              <span>{userEditData.weight} kg</span>
+              <span> {userEditData.weight} kg</span>
             )}
           </div>
 
@@ -87,14 +88,14 @@ export default function EditiProfilePage() {
                 <span className={classes.unit}>cm</span>
               </div>
             ) : (
-              <span>{userEditData.height} cm</span>
+              <span> {userEditData.height} cm</span>
             )}
           </div>
 
           <div className={classes.inputFields}>
             <label>Gender: </label>
             {isEditing ? (
-              <div className={classes.customSelect}>
+              <div className={classes.genderSelect}>
                 <select name="gender" value={userEditData.gender} onChange={handleEditData}>
                   <option value="">Select gender</option>
                   <option value="Male">Male</option>
@@ -102,7 +103,7 @@ export default function EditiProfilePage() {
                 </select>
               </div>
             ) : (
-              <span>{userEditData.gender}</span>
+              <span> {userEditData.gender}</span>
             )}
           </div>
 
@@ -111,7 +112,7 @@ export default function EditiProfilePage() {
             {isEditing ? (
               <input name="age" type="number" onChange={handleEditData} value={userEditData.age} />
             ) : (
-              <span>{userEditData.age} years</span>
+              <span> {userEditData.age} years</span>
             )}
           </div>
 
