@@ -13,6 +13,8 @@
   border-radius: 50%;
   padding: 10px;
   cursor: pointer;
+  width: 32px;
+  height: 32px;
 }
 
 .backBtn img {
@@ -31,16 +33,16 @@
   text-align: center;
 }
 
-.editFormSection {
-  padding: 32px 24px;
-}
-
-.editProfileImg img {
+.editProfileImg span {
+  border: 3px solid #d0fd3e;
   border-radius: 50%;
   padding: 20px;
-  background-color: #d0fd3e;
-  width: 120px;
-  height: 120px;
+  /*width: 120px;
+  height: 120px;*/
+}
+
+.editFormSection {
+  padding: 32px 24px;
 }
 
 .inputFields {
@@ -48,7 +50,7 @@
 }
 
 .inputFields label {
-  font-size: 11px;
+  font-size: 17px;
   color: #d0fd3e;
   padding-left: 16px;
 }
@@ -72,7 +74,7 @@
   position: absolute;
   right: 10px;
   top: 35%;
-  font-size: 17px;
+  font-size: 11px;
   font-weight: 500;
   border: 1px solid;
   border-radius: 4px;
@@ -91,7 +93,7 @@
   width: 100%;
   font-size: 17px;
   font-weight: 500;
-  background-color: #000000;
+  background-color: #1c1c1e;
   cursor: pointer;
   color: #ffffff;
   padding: 20px 16px;
