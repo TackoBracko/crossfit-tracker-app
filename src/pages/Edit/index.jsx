@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import avatar from './../../assets/icons/Avatar.svg';
+//import avatar from './../../assets/icons/Avatar.svg';
 import backArrow from './../../assets/icons/BackArrow.svg';
 import classes from './EditProfile.module.css';
 import { NavLink, Form } from 'react-router-dom';
@@ -14,11 +14,11 @@ export default function EditiProfilePage() {
     gender: 'Female',
     age: '21',
   });
-  const [isEditing, setIsEditing] = useState(false);
+
+  const nameInitial = userEditData.name.charAt(0);
 
   const handleEditSubmit = (e) => {
     e.preventDefault();
-    setIsEditing(!isEditing);
     console.log(userEditData);
   };
 
@@ -40,84 +40,61 @@ export default function EditiProfilePage() {
       </header>
 
       <div className={classes.editProfileImg}>
-        <img src={avatar} alt="Avatar" />
+        {/*<img src={avatar} alt="Avatar" />*/}
+        <span>{nameInitial}</span>
       </div>
 
       <section className={classes.editFormSection}>
         <Form className={classes.editForm} onSubmit={handleEditSubmit}>
           <div className={classes.inputFields}>
             <label>Full Name: </label>
-            {isEditing ? <input name="name" type="text" onChange={handleEditData} value={userEditData.name} /> : <span> {userEditData.name}</span>}
+            <input name="name" type="text" onChange={handleEditData} value={userEditData.name} />
           </div>
 
           <div className={classes.inputFields}>
             <label>Email address: </label>
-            {isEditing ? (
-              <input name="email" type="email" onChange={handleEditData} value={userEditData.email} />
-            ) : (
-              <span> {userEditData.email}</span>
-            )}
+            <input name="email" type="email" onChange={handleEditData} value={userEditData.email} />
           </div>
 
           <div className={classes.inputFields}>
             <label>Password: </label>
-            {isEditing ? (
-              <input name="password" type="text" onChange={handleEditData} value={userEditData.password} />
-            ) : (
-              <span> {userEditData.password}</span>
-            )}
+            <input name="password" type="text" onChange={handleEditData} value={userEditData.password} />
           </div>
 
           <div className={classes.inputFields}>
             <label>Weight: </label>
-            {isEditing ? (
-              <div className={classes.unitContainer}>
-                <input name="weight" type="number" onChange={handleEditData} value={userEditData.weight} />
-                <span className={classes.unit}>kg</span>
-              </div>
-            ) : (
-              <span> {userEditData.weight} kg</span>
-            )}
+            <div className={classes.unitContainer}>
+              <input name="weight" type="number" onChange={handleEditData} value={userEditData.weight} />
+              <span className={classes.unit}>kg</span>
+            </div>
           </div>
 
           <div className={classes.inputFields}>
             <label>Height: </label>
-            {isEditing ? (
-              <div className={classes.unitContainer}>
-                <input name="height" type="number" onChange={handleEditData} value={userEditData.height} />
-                <span className={classes.unit}>cm</span>
-              </div>
-            ) : (
-              <span> {userEditData.height} cm</span>
-            )}
+            <div className={classes.unitContainer}>
+              <input name="height" type="number" onChange={handleEditData} value={userEditData.height} />
+              <span className={classes.unit}>cm</span>
+            </div>
           </div>
 
           <div className={classes.inputFields}>
             <label>Gender: </label>
-            {isEditing ? (
-              <div className={classes.genderSelect}>
-                <select name="gender" value={userEditData.gender} onChange={handleEditData}>
-                  <option value="">Select gender</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                </select>
-              </div>
-            ) : (
-              <span> {userEditData.gender}</span>
-            )}
+            <div className={classes.genderSelect}>
+              <select name="gender" value={userEditData.gender} onChange={handleEditData}>
+                <option value="">Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
           </div>
 
           <div className={classes.inputFields}>
             <label>Age: </label>
-            {isEditing ? (
-              <input name="age" type="number" onChange={handleEditData} value={userEditData.age} />
-            ) : (
-              <span> {userEditData.age} years</span>
-            )}
+            <input name="age" type="number" onChange={handleEditData} value={userEditData.age} />
           </div>
 
           <button type="submit" className={classes.saveBtn}>
-            {isEditing ? 'Save profile' : 'Edit profile'}
+            Edit Profile
           </button>
         </Form>
       </section>
