@@ -1,4 +1,4 @@
-import profilePic from './../../assets/pictures/ProfilePic.png';
+//import profilePic from './../../assets/pictures/ProfilePic.png';
 import backArrow from './../../assets/icons/BackArrow.svg';
 import classes from './Profile.module.css';
 import { NavLink } from 'react-router-dom';
@@ -15,7 +15,8 @@ export default function ProfilePage() {
 
       <section className={classes.profileInfo}>
         <div className={classes.leftInfo}>
-          <img src={profilePic} alt="User profile picture" className={classes.profilePic} />
+          {/*<img src={profilePic} alt="User profile picture" className={classes.profilePic} />*/}
+          <span className={classes.profilePic}>S</span>
           <h3>
             <span>Sarah</span> Warner
           </h3>
@@ -41,9 +42,6 @@ export default function ProfilePage() {
           </li>
           <li>
             <NavLink to="">Privacy Policy</NavLink>
-          </li>
-          <li>
-            <NavLink to="">Settings</NavLink>
           </li>
         </ul>
 

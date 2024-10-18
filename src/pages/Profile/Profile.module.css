@@ -20,6 +20,8 @@
   border-radius: 50%;
   padding: 10px;
   cursor: pointer;
+  width: 32px;
+  height: 32px;
 }
 
 .backBtn img {
@@ -33,18 +35,16 @@
   align-items: center;
 }
 
-.profilePic {
-  border: 3px solid;
-  border-radius: 50%;
-  border: none;
-  padding: 3px;
-  background-image: linear-gradient(#d0fd3e, #ff2424);
-}
-
 .leftInfo {
   text-align: center;
   text-transform: uppercase;
   padding-right: 50px;
+}
+
+.profilePic {
+  border: 3px solid #d0fd3e;
+  border-radius: 50%;
+  padding: 10px;
 }
 
 .leftInfo h3 {
@@ -98,8 +98,8 @@
   border-top: 1px solid #2c2c2e;
   padding: 20px 0;
   margin-bottom: 20px;
-  position: absolute;
-  bottom: 0;
+  position: relative;
+  margin-top: 100%;
 }
 
 .signOut a {
