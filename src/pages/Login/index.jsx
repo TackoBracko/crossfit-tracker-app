@@ -10,6 +10,14 @@ export default function LogInPage() {
   const [passwordError, setPasswordError] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
 
+  const handleEmailBlur = () => {
+    setEmailError(false);
+  };
+
+  const handlePasswordBlur = () => {
+    setPasswordError(false);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -53,12 +61,12 @@ export default function LogInPage() {
         <Form onSubmit={handleSubmit}>
           <div>
             {emailError ? <p className={classes.errorText}>Email is required</p> : null}
-            <input ref={emailRef} type="email" placeholder="Email" name="email" />
+            <input ref={emailRef} type="email" placeholder="Email" name="email" onBlur={handleEmailBlur} />
           </div>
 
           <div>
             {passwordError ? <p className={classes.errorText}>Password is required</p> : null}
-            <input ref={passwordRef} type="password" placeholder="Password" name="password" />
+            <input ref={passwordRef} type="password" placeholder="Password" name="password" onBlur={handlePasswordBlur} />
           </div>
 
           <div>
