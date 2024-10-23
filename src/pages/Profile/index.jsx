@@ -16,7 +16,7 @@ export default function ProfilePage() {
       <section className={classes.profileInfo}>
         <div className={classes.leftInfo}>
           {/*<img src={profilePic} alt="User profile picture" className={classes.profilePic} />*/}
-          <span className={classes.profilePic}>S</span>
+          <p className={classes.profilePic}>S</p>
           <h3>
             <span>Sarah</span> Warner
           </h3>
@@ -24,13 +24,16 @@ export default function ProfilePage() {
 
         <div className={classes.rightInfo}>
           <p>
-            Weight: <span>55</span> kg
+            <span>Weight: </span>
+            <span> 55 </span> kg
           </p>
           <p>
-            Height: <span>170</span> cm
+            <span>Height: </span>
+            <span>170</span> cm
           </p>
           <p>
-            Age: <span>21</span> years
+            <span>Age: </span>
+            <span>21</span> years
           </p>
         </div>
       </section>

@@ -20,8 +20,9 @@
   border-radius: 50%;
   padding: 10px;
   cursor: pointer;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
+  text-align: center;
 }
 
 .backBtn img {
@@ -36,15 +37,28 @@
 }
 
 .leftInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   text-transform: uppercase;
-  padding-right: 50px;
+  padding-right: 24px;
+  gap: 10px;
 }
 
 .profilePic {
-  border: 3px solid #d0fd3e;
+  width: 120px;
+  height: 120px;
+  border: 3px solid transparent;
+  background:
+    linear-gradient(#151515, #151515) padding-box,
+    linear-gradient(to top, #d0fd3e, #ff2424) border-box;
   border-radius: 50%;
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
 }
 
 .leftInfo h3 {
@@ -61,16 +75,24 @@
 .rightInfo {
   border-left: 1px solid #2c2c2e;
   padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.rightInfo span:first-child {
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.rightInfo span {
+  font-size: 15px;
+  font-weight: 600;
 }
 
 .rightInfo p {
   font-size: 11px;
   font-weight: 400;
-}
-
-.rightInfo p span {
-  font-size: 15px;
-  font-weight: 600;
 }
 
 .rightInfo p:not(:last-child) {
@@ -97,9 +119,6 @@
   border-bottom: 1px solid #2c2c2e;
   border-top: 1px solid #2c2c2e;
   padding: 20px 0;
-  margin-bottom: 20px;
-  position: relative;
-  margin-top: 100%;
 }
 
 .signOut a {

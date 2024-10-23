@@ -13,8 +13,9 @@
   border-radius: 50%;
   padding: 10px;
   cursor: pointer;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
+  text-align: center;
 }
 
 .backBtn img {
@@ -29,16 +30,20 @@
 }
 
 .editProfileImg {
+  display: flex;
+  justify-content: center;
   margin-bottom: 20px;
-  text-align: center;
 }
 
-.editProfileImg span {
+.editProfileImg p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
   border: 3px solid #d0fd3e;
   border-radius: 50%;
-  padding: 20px;
-  /*width: 120px;
-  height: 120px;*/
+  font-size: 32px;
 }
 
 .editFormSection {
@@ -46,7 +51,22 @@
 }
 
 .inputFields {
+  position: relative;
+  color: #ffffff;
+  border: none;
+  border-bottom: 1px solid #2c2c2e;
+  outline: none;
+  width: 100%;
+  font-size: 17px;
+  font-weight: 500;
   margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+::placeholder {
+  font-weight: 400;
+  font-size: 13px;
+  color: #ffffff;
 }
 
 .inputFields label {
@@ -55,10 +75,9 @@
   padding-left: 16px;
 }
 
-.inputFields input {
+/*.inputFields input {
   border-bottom: 1px solid #69696940;
-  margin-top: 10px;
-}
+}*/
 
 .inputFields span {
   font-size: 17px;
@@ -73,7 +92,7 @@
 .unit {
   position: absolute;
   right: 10px;
-  top: 35%;
+  top: 30%;
   font-size: 11px;
   font-weight: 500;
   border: 1px solid;
@@ -89,7 +108,7 @@
 
 .genderSelect select {
   border: none;
-  border-bottom: 1px solid #69696940;
+  border-bottom: 1px solid #2c2c2e;
   width: 100%;
   font-size: 17px;
   font-weight: 500;
@@ -102,6 +121,13 @@
 
 .saveBtn {
   border: none;
-  position: relative;
-  margin-top: 100%;
+  margin-top: 32px;
+}
+
+.errorText {
+  position: absolute;
+  color: #ff2424;
+  padding-left: 16px;
+  font-weight: 400;
+  font-size: 11px;
 }

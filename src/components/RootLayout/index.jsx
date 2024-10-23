@@ -3,7 +3,7 @@ import Navigation from './Navigation';
 
 export default function RootLayout() {
   return (
-    <div className="container">
+    <div>
       <Navigation />
       <main>
         <Outlet />
