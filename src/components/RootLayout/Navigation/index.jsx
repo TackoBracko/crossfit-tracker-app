@@ -1,10 +1,15 @@
-import { NavLink, useRouteLoaderData } from 'react-router-dom';
+import {
+  NavLink,
+  //useRouteLoaderData,
+  useLoaderData,
+} from 'react-router-dom';
 import classes from './Navigation.module.css';
 import homeIcon from '../../../assets/icons/Home.svg';
 import profileIcon from '../../../assets/icons/Ellipse.svg';
 
 export default function Navigation() {
-  const isUserLogged = useRouteLoaderData('root');
+  //const isUserLogged = useRouteLoaderData('root');
+  const isUserLogged = useLoaderData('root');
 
   return (
     <>
