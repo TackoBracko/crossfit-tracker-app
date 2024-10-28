@@ -27,15 +27,21 @@ export default function EditiProfilePage() {
     });
   };
 
+  // eye icon
   const togglePasswordVisibility = () => {
     setShowPassword(showPassword ? false : true);
   };
 
+  // error
   const [error, setError] = useState({
     newName: false,
     newPassword: false,
+    newWeight: false,
+    newHeight: false,
+    newAge: false,
   });
 
+  //onBlur
   const handleNameBlur = () => {
     setError((prevState) => {
       return { ...prevState, newName: false };
@@ -48,13 +54,35 @@ export default function EditiProfilePage() {
     });
   };
 
+  const handleWeightBlur = () => {
+    setError((prevState) => {
+      return { ...prevState, newWeight: false };
+    });
+  };
+
+  const handleHeightBlur = () => {
+    setError((prevState) => {
+      return { ...prevState, newHeight: false };
+    });
+  };
+
+  const handleAgeBlur = () => {
+    setError((prevState) => {
+      return { ...prevState, newAge: false };
+    });
+  };
+
   const handleEditSubmit = (e) => {
     e.preventDefault();
 
     const isNameEntered = userEditData.name.trim() !== '';
     const isPasswordEntered = userEditData.password.trim() !== '' && userEditData.password.length > 5;
 
-    if (!isNameEntered || !isPasswordEntered) {
+    const isWeightEntered = userEditData.weight.trim() !== '' && userEditData.weight > 0;
+    const isHeightEntered = userEditData.height.trim() !== '' && userEditData.height > 0;
+    const isAgeEntered = userEditData.age.trim() !== '' && userEditData.age > 0;
+
+    if (!isNameEntered || !isPasswordEntered || !isWeightEntered || !isHeightEntered || !isAgeEntered) {
       if (!isNameEntered) {
         setError((prevState) => {
           return { ...prevState, newName: true };
@@ -64,6 +92,24 @@ export default function EditiProfilePage() {
       if (!isPasswordEntered) {
         setError((prevState) => {
           return { ...prevState, newPassword: true };
+        });
+      }
+
+      if (!isWeightEntered) {
+        setError((prevState) => {
+          return { ...prevState, newWeight: true };
+        });
+      }
+
+      if (!isHeightEntered) {
+        setError((prevState) => {
+          return { ...prevState, newHeight: true };
+        });
+      }
+
+      if (!isAgeEntered) {
+        setError((prevState) => {
+          return { ...prevState, newAge: true };
         });
       }
 
@@ -90,7 +136,7 @@ export default function EditiProfilePage() {
       </div>
 
       <section className={classes.editFormSection}>
-        <Form className={classes.editForm} onSubmit={handleEditSubmit}>
+        <Form className={classes.editForm} onSubmit={handleEditSubmit} noValidate>
           <div className={classes.inputFields}>
             <label>Full Name: </label>
             {error.newName ? <p className={classes.errorText}>You did not enter any name </p> : null}
@@ -114,11 +160,11 @@ export default function EditiProfilePage() {
                 value={userEditData.password}
                 onBlur={handlePasswordBlur}
               />
-              <span className={classes.unit}>
+              <span className={`${classes.unit} ${classes.visibility}`}>
                 {showPassword ? (
-                  <img onClick={togglePasswordVisibility} src={showIcon} alt="Icon Show Password" />
+                  <img onClick={togglePasswordVisibility} src={showIcon} alt="Icon Show Password" className={classes.eyeIcon} />
                 ) : (
-                  <img onClick={togglePasswordVisibility} src={hideIcon} alt="Icon Hide Password" />
+                  <img onClick={togglePasswordVisibility} src={hideIcon} alt="Icon Hide Password" className={classes.eyeIcon} />
                 )}
               </span>
             </div>
@@ -127,7 +173,15 @@ export default function EditiProfilePage() {
           <div className={classes.inputFields}>
             <label>Weight: </label>
             <div className={classes.unitContainer}>
-              <input name="weight" type="number" placeholder="Your weight" onChange={handleEditData} value={userEditData.weight} max={250} />
+              {error.newWeight ? <p className={classes.errorText}>Weight must be positive number </p> : null}
+              <input
+                name="weight"
+                type="number"
+                placeholder="Your weight"
+                onChange={handleEditData}
+                value={userEditData.weight}
+                onBlur={handleWeightBlur}
+              />
               <span className={classes.unit}>kg</span>
             </div>
           </div>
@@ -135,14 +189,14 @@ export default function EditiProfilePage() {
           <div className={classes.inputFields}>
             <label>Height: </label>
             <div className={classes.unitContainer}>
+              {error.newHeight ? <p className={classes.errorText}>Height must be positive number </p> : null}
               <input
                 name="height"
                 type="number"
                 placeholder="Your height"
                 onChange={handleEditData}
                 value={userEditData.height}
-                min={150}
-                max={220}
+                onBlur={handleHeightBlur}
               />
               <span className={classes.unit}>cm</span>
             </div>
@@ -161,7 +215,8 @@ export default function EditiProfilePage() {
 
           <div className={classes.inputFields}>
             <label>Age: </label>
-            <input name="age" type="number" placeholder="Your age" onChange={handleEditData} value={userEditData.age} min={7} max={77} />
+            {error.newAge ? <p className={classes.errorText}>Age must be positive number </p> : null}
+            <input name="age" type="number" placeholder="Your age" onChange={handleEditData} value={userEditData.age} onBlur={handleAgeBlur} />
           </div>
 
           <button type="submit" className={classes.saveBtn}>

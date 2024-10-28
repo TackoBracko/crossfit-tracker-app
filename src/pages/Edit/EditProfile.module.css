@@ -41,7 +41,10 @@
   justify-content: center;
   width: 120px;
   height: 120px;
-  border: 3px solid #d0fd3e;
+  border: 3px solid transparent;
+  background:
+    linear-gradient(#151515, #151515) padding-box,
+    linear-gradient(to top, #d0fd3e, #ff2424) border-box;
   border-radius: 50%;
   font-size: 32px;
 }
@@ -75,6 +78,10 @@
   padding-left: 16px;
 }
 
+.inputFields input[type='email'] {
+  opacity: 20%;
+}
+
 /*.inputFields input {
   border-bottom: 1px solid #69696940;
 }*/
@@ -99,7 +106,17 @@
   border-radius: 4px;
   background-color: #d0fd3e;
   color: #000000;
-  padding: 4px;
+  height: 26px;
+  padding: 0 4px;
+}
+
+.visibility {
+  border: none;
+  background: none;
+}
+
+.eyeIcon {
+  color: #d0fd3e;
 }
 
 .genderSelect {
