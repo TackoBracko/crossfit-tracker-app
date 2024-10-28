@@ -25,15 +25,15 @@ export default function ProfilePage() {
         <div className={classes.rightInfo}>
           <p>
             <span>Weight: </span>
-            <span> 55 </span> kg
+            <span> 55 kg </span>
           </p>
           <p>
             <span>Height: </span>
-            <span>170</span> cm
+            <span>170 cm</span>
           </p>
           <p>
             <span>Age: </span>
-            <span>21</span> years
+            <span>21 years</span>
           </p>
         </div>
       </section>

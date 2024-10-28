@@ -7,7 +7,7 @@ import LogInPage from './pages/Login';
 import SignUpPage from './pages/Signup';
 import EditProfilePage from './pages/Edit';
 
-const isUserLogged = false;
+const isUserLogged = true;
 
 const protectedRoutesLoader = () => {
   if (!isUserLogged) {
@@ -39,7 +39,7 @@ const router = createBrowserRouter(
         <Route path="login" element={<LogInPage />} loader={publicRoutesLoader} />
         <Route path="signup" element={<SignUpPage />} loader={publicRoutesLoader} />
       </Route>
-      ,
+
       <Route path="profile" element={<ProfilePage />} loader={protectedRoutesLoader} />
       <Route path="edit" element={<EditProfilePage />} loader={protectedRoutesLoader} />
     </>,
