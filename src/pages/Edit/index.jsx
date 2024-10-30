@@ -4,7 +4,9 @@ import backArrow from './../../assets/icons/BackArrow.svg';
 import hideIcon from './../../assets/icons/Hide.svg';
 import showIcon from './../../assets/icons/Show.svg';
 import classes from './EditProfile.module.css';
-import { NavLink, Form } from 'react-router-dom';
+import { Form } from 'react-router-dom';
+
+import Button from '../../components/Button';
 
 export default function EditiProfilePage() {
   const [userEditData, setUserEditData] = useState({
@@ -123,9 +125,9 @@ export default function EditiProfilePage() {
   return (
     <>
       <header className={classes.editHeader}>
-        <NavLink to="/profile">
+        <Button variation="secondary">
           <img src={backArrow} alt="Sign for back" className={classes.backBtn} />
-        </NavLink>
+        </Button>
 
         <h1>Edit Profile</h1>
       </header>
@@ -219,9 +221,9 @@ export default function EditiProfilePage() {
             <input name="age" type="number" placeholder="Your age" onChange={handleEditData} value={userEditData.age} onBlur={handleAgeBlur} />
           </div>
 
-          <button type="submit" className={classes.saveBtn}>
+          <Button variation="primary" type="submit" className={classes.saveBtn}>
             Edit Profile
-          </button>
+          </Button>
         </Form>
       </section>
     </>

@@ -2,6 +2,8 @@ import { Form, redirect } from 'react-router-dom';
 import classes from './Login.module.css';
 import { useRef, useState } from 'react';
 
+import Button from '../../components/Button';
+
 export default function LogInPage() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -69,9 +71,9 @@ export default function LogInPage() {
             <input ref={passwordRef} type="password" placeholder="Password" name="password" onBlur={handlePasswordBlur} />
           </div>
 
-          <div>
-            <button type="submit">Login </button>
-          </div>
+          <Button variation="primary" iconRight=">" type="submit">
+            Login
+          </Button>
         </Form>
       </section>
     </>
