@@ -3,13 +3,15 @@ import backArrow from './../../assets/icons/BackArrow.svg';
 import classes from './Profile.module.css';
 import { NavLink } from 'react-router-dom';
 
+import Button from '../../components/Button';
+
 export default function ProfilePage() {
   return (
     <>
       <header className={classes.profileHeader}>
-        <NavLink to="/" className={classes.backBtn}>
+        <Button variation="secondary">
           <img src={backArrow} alt="Back arrow" />
-        </NavLink>
+        </Button>
         <h1>Profile</h1>
       </header>
 
@@ -48,9 +50,7 @@ export default function ProfilePage() {
           </li>
         </ul>
 
-        <div className={classes.signOut}>
-          <NavLink to="/">Sign out</NavLink>
-        </div>
+        <Button variation="tertiary">Sign out</Button>
       </section>
     </>
   );
