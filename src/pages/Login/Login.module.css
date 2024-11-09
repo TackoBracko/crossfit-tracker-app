@@ -32,7 +32,15 @@
   margin-bottom: 24px;
 }
 
-input {
+.errorText {
+  position: absolute;
+  color: #ff2424;
+  padding-left: 16px;
+  font-weight: 400;
+  font-size: 11px;
+}
+
+/*input {
   position: relative;
   color: #ffffff;
   background-color: transparent;
@@ -51,7 +59,7 @@ input {
   color: #ffffff;
 }
 
-/*button {
+button {
   background-color: #d0fd3e;
   color: #000000;
   font-size: 17px;
@@ -63,11 +71,3 @@ input {
   cursor: pointer;
   width: 100%;
 }*/
-
-.errorText {
-  position: absolute;
-  color: #ff2424;
-  padding-left: 16px;
-  font-weight: 400;
-  font-size: 11px;
-}

@@ -3,6 +3,7 @@ import classes from '../Signup/Signup.module.css';
 import { useRef, useState } from 'react';
 
 import Button from '../../components/Button';
+import InputField from '../../components/Input';
 
 export default function SignUpPage() {
   const emailRef = useRef(null);
@@ -82,17 +83,23 @@ export default function SignUpPage() {
         <Form onSubmit={handleSubmit}>
           <div>
             {error.email ? <p className={classes.errorText}>You have entered an invalid email address</p> : null}
-            <input ref={emailRef} type="email" placeholder="Email" name="email" onBlur={handleEmailBlur} />
+            <InputField ref={emailRef} type="email" placeholder="Email" name="email" onBlur={handleEmailBlur} />
           </div>
 
           <div>
             {error.password ? <p className={classes.errorText}>Password can not be empty</p> : null}
-            <input ref={passwordRef} type="password" placeholder="Password" name="password" onBlur={handlePasswordBlur} />
+            <InputField ref={passwordRef} type="password" placeholder="Password" name="password" onBlur={handlePasswordBlur} />
           </div>
 
           <div>
             {error.confirmPassword ? <p className={classes.errorText}>Passwords do not match</p> : null}
-            <input ref={confirmPasswordRef} type="password" placeholder="Password again" name="password again" onBlur={handleConfirmPasswordBlur} />
+            <InputField
+              ref={confirmPasswordRef}
+              type="password"
+              placeholder="Repeat Password"
+              name="repeat password"
+              onBlur={handleConfirmPasswordBlur}
+            />
           </div>
 
           <Button variation="primary" iconRight=">" type="submit">

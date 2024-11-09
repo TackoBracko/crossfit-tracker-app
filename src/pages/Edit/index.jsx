@@ -7,6 +7,7 @@ import classes from './EditProfile.module.css';
 import { Form } from 'react-router-dom';
 
 import Button from '../../components/Button';
+import InputField from '../../components/Input';
 
 export default function EditiProfilePage() {
   const [userEditData, setUserEditData] = useState({
@@ -139,22 +140,22 @@ export default function EditiProfilePage() {
 
       <section className={classes.editFormSection}>
         <Form className={classes.editForm} onSubmit={handleEditSubmit} noValidate>
-          <div className={classes.inputFields}>
+          <div className={classes.inputDiv}>
             <label>Full Name: </label>
             {error.newName ? <p className={classes.errorText}>You did not enter any name </p> : null}
-            <input name="name" type="text" placeholder="Your name" onChange={handleEditData} value={userEditData.name} onBlur={handleNameBlur} />
+            <InputField name="name" type="text" placeholder="Your name" value={userEditData.name} onChange={handleEditData} onBlur={handleNameBlur} />
           </div>
 
-          <div className={classes.inputFields}>
+          <div className={classes.inputDiv}>
             <label>Email address: </label>
-            <input name="email" type="email" value={userEditData.email} disabled />
+            <InputField name="email" type="email" value={userEditData.email} disabled />
           </div>
 
-          <div className={classes.inputFields}>
+          <div className={classes.inputDiv}>
             <label>Password: </label>
             <div className={classes.unitContainer}>
               {error.newPassword ? <p className={classes.errorText}>Password has to be longer than 6 caracters</p> : null}
-              <input
+              <InputField
                 name="password"
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Your password"
@@ -172,11 +173,11 @@ export default function EditiProfilePage() {
             </div>
           </div>
 
-          <div className={classes.inputFields}>
+          <div className={classes.inputDiv}>
             <label>Weight: </label>
             <div className={classes.unitContainer}>
               {error.newWeight ? <p className={classes.errorText}>Weight must be positive number </p> : null}
-              <input
+              <InputField
                 name="weight"
                 type="number"
                 placeholder="Your weight"
@@ -188,11 +189,11 @@ export default function EditiProfilePage() {
             </div>
           </div>
 
-          <div className={classes.inputFields}>
+          <div className={classes.inputDiv}>
             <label>Height: </label>
             <div className={classes.unitContainer}>
               {error.newHeight ? <p className={classes.errorText}>Height must be positive number </p> : null}
-              <input
+              <InputField
                 name="height"
                 type="number"
                 placeholder="Your height"
@@ -204,7 +205,7 @@ export default function EditiProfilePage() {
             </div>
           </div>
 
-          <div className={classes.inputFields}>
+          <div className={classes.inputDiv}>
             <label>Gender: </label>
             <div className={classes.genderSelect}>
               <select name="gender" value={userEditData.gender} onChange={handleEditData}>
@@ -215,10 +216,10 @@ export default function EditiProfilePage() {
             </div>
           </div>
 
-          <div className={classes.inputFields}>
+          <div className={classes.inputDiv}>
             <label>Age: </label>
             {error.newAge ? <p className={classes.errorText}>Age must be positive number </p> : null}
-            <input name="age" type="number" placeholder="Your age" onChange={handleEditData} value={userEditData.age} onBlur={handleAgeBlur} />
+            <InputField name="age" type="number" placeholder="Your age" onChange={handleEditData} value={userEditData.age} onBlur={handleAgeBlur} />
           </div>
 
           <Button variation="primary" type="submit" className={classes.saveBtn}>

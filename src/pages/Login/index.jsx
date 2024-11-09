@@ -3,6 +3,7 @@ import classes from './Login.module.css';
 import { useRef, useState } from 'react';
 
 import Button from '../../components/Button';
+import InputField from '../../components/Input';
 
 export default function LogInPage() {
   const emailRef = useRef(null);
@@ -63,12 +64,12 @@ export default function LogInPage() {
         <Form onSubmit={handleSubmit}>
           <div>
             {emailError ? <p className={classes.errorText}>Email is required</p> : null}
-            <input ref={emailRef} type="email" placeholder="Email" name="email" onBlur={handleEmailBlur} />
+            <InputField ref={emailRef} type="email" placeholder="Email" name="email" onBlur={handleEmailBlur} />
           </div>
 
           <div>
             {passwordError ? <p className={classes.errorText}>Password is required</p> : null}
-            <input ref={passwordRef} type="password" placeholder="Password" name="password" onBlur={handlePasswordBlur} />
+            <InputField ref={passwordRef} type="password" placeholder="Password" name="password" onBlur={handlePasswordBlur} />
           </div>
 
           <Button variation="primary" iconRight=">" type="submit">
