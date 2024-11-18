@@ -1,16 +1,17 @@
 //import profilePic from './../../assets/pictures/ProfilePic.png';
-import backArrow from './../../assets/icons/BackArrow.svg';
+//import backArrow from './../../assets/icons/BackArrow.svg';
 import classes from './Profile.module.css';
 import { NavLink } from 'react-router-dom';
 
 import Button from '../../components/Button';
+import BackBtn from '../../components/Icons/BackBtnIcon';
 
 export default function ProfilePage() {
   return (
     <>
       <header className={classes.profileHeader}>
         <Button variation="secondary">
-          <img src={backArrow} alt="Back arrow" />
+          <BackBtn />
         </Button>
         <h1>Profile</h1>
       </header>

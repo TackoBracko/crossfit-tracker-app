@@ -1,0 +1,32 @@
+.inputBase {
+  position: relative;
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #2c2c2e;
+  outline: none;
+  width: 100%;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 20px 16px;
+}
+
+::placeholder {
+  font-weight: 400;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+label {
+  font-size: 17px;
+  color: #d0fd3e;
+  padding-left: 16px;
+}
+
+.errorText {
+  position: absolute;
+  color: #ff2424;
+  padding-left: 16px;
+  font-weight: 400;
+  font-size: 11px;
+}
