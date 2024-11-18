@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 
 import Button from '../../components/Button';
 import InputField from '../../components/Input';
+import RightIcon from '../../components/Icons/RightIcon';
 
 export default function SignUpPage() {
   const emailRef = useRef(null);
@@ -102,7 +103,7 @@ export default function SignUpPage() {
             />
           </div>
 
-          <Button variation="primary" iconRight=">" type="submit">
+          <Button variation="primary" iconRight={<RightIcon />} type="submit">
             Sign up
           </Button>
         </Form>

@@ -22,3 +22,11 @@ label {
   color: #d0fd3e;
   padding-left: 16px;
 }
+
+.errorText {
+  position: absolute;
+  color: #ff2424;
+  padding-left: 16px;
+  font-weight: 400;
+  font-size: 11px;
+}

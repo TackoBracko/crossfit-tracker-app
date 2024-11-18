@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 
 import Button from '../../components/Button';
 import InputField from '../../components/Input';
+import RightIcon from '../../components/Icons/RightIcon';
 
 export default function LogInPage() {
   const emailRef = useRef(null);
@@ -72,7 +73,7 @@ export default function LogInPage() {
             <InputField ref={passwordRef} type="password" placeholder="Password" name="password" onBlur={handlePasswordBlur} />
           </div>
 
-          <Button variation="primary" iconRight=">" type="submit">
+          <Button variation="primary" iconRight={<RightIcon />} type="submit">
             Login
           </Button>
         </Form>

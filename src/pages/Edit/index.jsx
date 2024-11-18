@@ -1,13 +1,16 @@
 import { useState } from 'react';
 //import avatar from './../../assets/icons/Avatar.svg';
-import backArrow from './../../assets/icons/BackArrow.svg';
-import hideIcon from './../../assets/icons/Hide.svg';
-import showIcon from './../../assets/icons/Show.svg';
+//import backArrow from './../../assets/icons/BackArrow.svg';
+//import hideIcon from './../../assets/icons/Hide.svg';
+//import showIcon from './../../assets/icons/Show.svg';
 import classes from './EditProfile.module.css';
 import { Form } from 'react-router-dom';
 
 import Button from '../../components/Button';
 import InputField from '../../components/Input';
+import BackBtn from '../../components/Icons/BackBtnIcon';
+import ShowPassword from '../../components/Icons/ShowPasswordIcon';
+import HidePassword from '../../components/Icons/HidePasswordIcon';
 
 export default function EditiProfilePage() {
   const [userEditData, setUserEditData] = useState({
@@ -30,6 +33,12 @@ export default function EditiProfilePage() {
     });
   };
 
+  const handleGenderToggle = (gender) => {
+    setUserEditData((prevData) => {
+      return { ...prevData, gender };
+    });
+  };
+
   // eye icon
   const togglePasswordVisibility = () => {
     setShowPassword(showPassword ? false : true);
@@ -45,33 +54,10 @@ export default function EditiProfilePage() {
   });
 
   //onBlur
-  const handleNameBlur = () => {
-    setError((prevState) => {
-      return { ...prevState, newName: false };
-    });
-  };
 
-  const handlePasswordBlur = () => {
-    setError((prevState) => {
-      return { ...prevState, newPassword: false };
-    });
-  };
-
-  const handleWeightBlur = () => {
-    setError((prevState) => {
-      return { ...prevState, newWeight: false };
-    });
-  };
-
-  const handleHeightBlur = () => {
-    setError((prevState) => {
-      return { ...prevState, newHeight: false };
-    });
-  };
-
-  const handleAgeBlur = () => {
-    setError((prevState) => {
-      return { ...prevState, newAge: false };
+  const handleOnBlur = (input) => {
+    setError((prevData) => {
+      return { ...prevData, [input]: false };
     });
   };
 
@@ -81,9 +67,9 @@ export default function EditiProfilePage() {
     const isNameEntered = userEditData.name.trim() !== '';
     const isPasswordEntered = userEditData.password.trim() !== '' && userEditData.password.length > 5;
 
-    const isWeightEntered = userEditData.weight.trim() !== '' && userEditData.weight > 0;
-    const isHeightEntered = userEditData.height.trim() !== '' && userEditData.height > 0;
-    const isAgeEntered = userEditData.age.trim() !== '' && userEditData.age > 0;
+    const isWeightEntered = userEditData.weight.trim() === '' || Number(userEditData.weight) >= 0;
+    const isHeightEntered = userEditData.height.trim() === '' || Number(userEditData.height) >= 0;
+    const isAgeEntered = userEditData.age.trim() === '' || Number(userEditData.age) >= 0;
 
     if (!isNameEntered || !isPasswordEntered || !isWeightEntered || !isHeightEntered || !isAgeEntered) {
       if (!isNameEntered) {
@@ -127,7 +113,7 @@ export default function EditiProfilePage() {
     <>
       <header className={classes.editHeader}>
         <Button variation="secondary">
-          <img src={backArrow} alt="Sign for back" className={classes.backBtn} />
+          <BackBtn />
         </Button>
 
         <h1>Edit Profile</h1>
@@ -141,85 +127,115 @@ export default function EditiProfilePage() {
       <section className={classes.editFormSection}>
         <Form className={classes.editForm} onSubmit={handleEditSubmit} noValidate>
           <div className={classes.inputDiv}>
-            <label>Full Name: </label>
-            {error.newName ? <p className={classes.errorText}>You did not enter any name </p> : null}
-            <InputField name="name" type="text" placeholder="Your name" value={userEditData.name} onChange={handleEditData} onBlur={handleNameBlur} />
+            {/* {error.newName ? <p className={classes.errorText}>You did not enter any name </p> : null}*/}
+            <InputField
+              name="name"
+              type="text"
+              label="Full name"
+              placeholder="Your name"
+              value={userEditData.name}
+              onChange={handleEditData}
+              onBlur={() => handleOnBlur('newName')}
+              error={error.newName ? 'You did not enter any name' : null}
+            />
           </div>
 
           <div className={classes.inputDiv}>
-            <label>Email address: </label>
-            <InputField name="email" type="email" value={userEditData.email} disabled />
+            <InputField name="email" type="email" label="Email address" value={userEditData.email} disabled />
           </div>
 
           <div className={classes.inputDiv}>
-            <label>Password: </label>
             <div className={classes.unitContainer}>
-              {error.newPassword ? <p className={classes.errorText}>Password has to be longer than 6 caracters</p> : null}
+              {/*{error.newPassword ? <p className={classes.errorText}>Password has to be longer than 6 caracters</p> : null}*/}
               <InputField
                 name="password"
                 type={showPassword ? 'text' : 'password'}
+                label="Password"
                 placeholder="Your password"
                 onChange={handleEditData}
                 value={userEditData.password}
-                onBlur={handlePasswordBlur}
+                onBlur={() => handleOnBlur('newPassword')}
+                error={error.newPassword ? 'Password has to be longer than 6 characters' : null}
               />
-              <span className={`${classes.unit} ${classes.visibility}`}>
+              <span className={`${classes.unit} ${classes.visibility}`} onClick={togglePasswordVisibility}>
+                {showPassword ? <ShowPassword /> : <HidePassword />}
+              </span>
+              {/*<span className={`${classes.unit} ${classes.visibility}`}>
                 {showPassword ? (
                   <img onClick={togglePasswordVisibility} src={showIcon} alt="Icon Show Password" className={classes.eyeIcon} />
                 ) : (
                   <img onClick={togglePasswordVisibility} src={hideIcon} alt="Icon Hide Password" className={classes.eyeIcon} />
                 )}
-              </span>
+              </span>*/}
             </div>
           </div>
 
           <div className={classes.inputDiv}>
-            <label>Weight: </label>
             <div className={classes.unitContainer}>
-              {error.newWeight ? <p className={classes.errorText}>Weight must be positive number </p> : null}
+              {/*{error.newWeight ? <p className={classes.errorText}>Weight cannot be negative number </p> : null}*/}
               <InputField
                 name="weight"
                 type="number"
+                label="Weight"
                 placeholder="Your weight"
                 onChange={handleEditData}
                 value={userEditData.weight}
-                onBlur={handleWeightBlur}
+                onBlur={() => handleOnBlur('newWeight')}
+                error={error.newWeight ? 'Weight cannot be negative number' : null}
               />
               <span className={classes.unit}>kg</span>
             </div>
           </div>
 
           <div className={classes.inputDiv}>
-            <label>Height: </label>
             <div className={classes.unitContainer}>
-              {error.newHeight ? <p className={classes.errorText}>Height must be positive number </p> : null}
+              {/*{error.newHeight ? <p className={classes.errorText}>Height cannot be negative number </p> : null}*/}
               <InputField
                 name="height"
                 type="number"
+                label="Height"
                 placeholder="Your height"
                 onChange={handleEditData}
                 value={userEditData.height}
-                onBlur={handleHeightBlur}
+                onBlur={() => handleOnBlur('newHeight')}
+                error={error.newHeight ? 'Height cannot be negative number' : null}
               />
               <span className={classes.unit}>cm</span>
             </div>
           </div>
 
-          <div className={classes.inputDiv}>
+          <div className={`${classes.inputDiv} ${classes.genderField}`}>
             <label>Gender: </label>
-            <div className={classes.genderSelect}>
-              <select name="gender" value={userEditData.gender} onChange={handleEditData}>
-                <option value="">Select gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
+            <div className={classes.genderSelection}>
+              <button
+                type="button"
+                className={`${classes.genderBtn} ${userEditData.gender === 'Male' ? classes.activeGender : ''}`}
+                onClick={() => handleGenderToggle('Male')}
+              >
+                Male
+              </button>
+              <button
+                type="button"
+                className={`${classes.genderBtn} ${userEditData.gender === 'Female' ? classes.activeGender : ''}`}
+                onClick={() => handleGenderToggle('Female')}
+              >
+                Female
+              </button>
             </div>
           </div>
 
           <div className={classes.inputDiv}>
-            <label>Age: </label>
-            {error.newAge ? <p className={classes.errorText}>Age must be positive number </p> : null}
-            <InputField name="age" type="number" placeholder="Your age" onChange={handleEditData} value={userEditData.age} onBlur={handleAgeBlur} />
+            {/*{error.newAge ? <p className={classes.errorText}>Age cannot be negative number </p> : null}*/}
+            <InputField
+              name="age"
+              type="number"
+              label="Age"
+              placeholder="Your age"
+              onChange={handleEditData}
+              value={userEditData.age}
+              onBlur={() => handleOnBlur('newAge')}
+              error={error.newAge ? 'Age cannot be negative number' : null}
+            />
           </div>
 
           <Button variation="primary" type="submit" className={classes.saveBtn}>
