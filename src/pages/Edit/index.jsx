@@ -238,7 +238,7 @@ export default function EditiProfilePage() {
             />
           </div>
 
-          <Button variation="primary" type="submit" className={classes.saveBtn}>
+          <Button variation="primary" type="submit">
             Edit Profile
           </Button>
         </Form>

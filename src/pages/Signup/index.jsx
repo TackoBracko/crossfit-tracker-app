@@ -1,4 +1,4 @@
-import { Form, redirect } from 'react-router-dom';
+import { Form, useNavigate } from 'react-router-dom';
 import classes from '../Signup/Signup.module.css';
 import { useRef, useState } from 'react';
 
@@ -10,6 +10,7 @@ export default function SignUpPage() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
+  const navigate = useNavigate();
 
   const [error, setError] = useState({
     email: false,
@@ -68,7 +69,7 @@ export default function SignUpPage() {
       return;
     }
 
-    redirect('/');
+    navigate('/infosetup');
   };
 
   return (
