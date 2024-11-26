@@ -7,6 +7,7 @@ import LogInPage from './pages/Login';
 import SignUpPage from './pages/Signup';
 import EditProfilePage from './pages/Edit';
 import InfoSetup from './pages/InfoSetup/InfoSetup';
+import { UserDataContextProvider } from './components/Context';
 
 const isUserLogged = false;
 
@@ -49,7 +50,11 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <UserDataContextProvider>
+      <RouterProvider router={router} />;
+    </UserDataContextProvider>
+  );
 }
 
 export default App;

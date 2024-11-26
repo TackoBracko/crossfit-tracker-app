@@ -1,31 +1,35 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { useNavigate, Form } from 'react-router-dom';
+import { Context } from '../../components/Context';
 
 import classes from './InfoSetup.module.css';
+import InputField from '../../components/Input';
 import Button from '../../components/Button';
 import RightIcon from '../../components/Icons/RightIcon';
-import { useNavigate, Form } from 'react-router-dom';
 
 export default function InfoSetup() {
+  const { user, handleUserData } = useContext(Context);
+
   const [userInfoSetup, setUserInfoSetup] = useState({
-    birthday: '',
-    weight: '',
-    height: '',
-    gender: '',
+    birthday: user.birthday,
+    weight: user.weight,
+    height: user.height,
+    gender: user.gender,
   });
 
   const navigate = useNavigate();
   const [error, setError] = useState(false);
 
+  const handleGenderToggle = (gender) => {
+    setUserInfoSetup((prevData) => {
+      return { ...prevData, gender };
+    });
+  };
+
   const handleSetupInfo = (e) => {
     const { name, value } = e.target;
     setUserInfoSetup((prevData) => {
       return { ...prevData, [name]: value };
-    });
-  };
-
-  const handleGenderToggle = (gender) => {
-    setUserInfoSetup((prevData) => {
-      return { ...prevData, gender };
     });
   };
 
@@ -37,6 +41,7 @@ export default function InfoSetup() {
       return;
     }
 
+    handleUserData(userInfoSetup);
     console.log(userInfoSetup);
     navigate('/');
   };
@@ -53,38 +58,39 @@ export default function InfoSetup() {
         <Form onSubmit={handleSetupInfoSubmit} noValidate>
           {error ? <p className={classes.errorText}>Please fill out all fields </p> : null}
 
-          <div className={classes.infoSetupDiv}>
-            <label>Birthday</label>
-            <input name="birthday" type="date" value={userInfoSetup.birthday} onChange={handleSetupInfo} className={classes.customDate} />
+          <div className={classes.inputDiv}>
+            <InputField label="Birthday" name="birthday" type="date" value={userInfoSetup.birthday} onChange={handleSetupInfo} />
           </div>
 
-          <div className={classes.infoSetupDiv}>
-            <label>Weight</label>
-            <input
-              name="weight"
-              type="number"
-              placeholder="Click here"
-              value={userInfoSetup.weight}
-              onChange={handleSetupInfo}
-              className={classes.hiddenInput}
-            />
-            <span className={classes.unit}>kg</span>
+          <div className={classes.inputDiv}>
+            <div className={classes.unitContainer}>
+              <InputField
+                label="Weight"
+                name="weight"
+                type="number"
+                placeholder="Click here"
+                value={userInfoSetup.weight}
+                onChange={handleSetupInfo}
+              />
+              <span className={classes.unit}>kg</span>
+            </div>
           </div>
 
-          <div className={classes.infoSetupDiv}>
-            <label>Height</label>
-            <input
-              name="height"
-              type="number"
-              placeholder="Click here"
-              value={userInfoSetup.height}
-              onChange={handleSetupInfo}
-              className={classes.hiddenInput}
-            />
-            <span className={classes.unit}>cm</span>
+          <div className={classes.inputDiv}>
+            <div className={classes.unitContainer}>
+              <InputField
+                label="Height"
+                name="height"
+                type="number"
+                placeholder="Click here"
+                value={userInfoSetup.height}
+                onChange={handleSetupInfo}
+              />
+              <span className={classes.unit}>cm</span>
+            </div>
           </div>
 
-          <div className={`${classes.infoSetupDiv} ${classes.genderField}`}>
+          <div className={`${classes.inputDiv} ${classes.genderField}`}>
             <label>Gender </label>
             <div className={classes.genderSelection}>
               <button

@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
+:root {
+  --primary-backgroud: #1c1c1e;
+  --primary-background-btn: #d0fd3e;
+  --primary-text: #ffffff;
+  --primary-btn-hover: #c1f519;
+  --secondary-backgroud-btn: #2c2c2c;
+  --secondary-text: #d0fd3e;
+  --secondary-btn-hover: #0f0f0f;
+  --tertiary-text: #000000;
+  --tertiary-btn-text: #ff2424;
+  --span-background: #d0fd3e;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,8 +20,8 @@
 }
 
 body {
-  background-color: #1c1c1e;
-  color: #ffff;
+  background-color: var(--primary-backgroud);
+  color: var(--primary-text);
   font-family: 'Quicksand', sans-serif;
   font-optical-sizing: auto;
   font-weight: 300 - 700;
@@ -26,5 +39,5 @@ li {
 
 li a {
   text-decoration: none;
-  color: #ffffff;
+  color: var(--primary-text);
 }
