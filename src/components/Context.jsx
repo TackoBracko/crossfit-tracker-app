@@ -14,11 +14,10 @@ export const UserDataContextProvider = ({ children }) => {
     age: '',
   });
 
-  const handleUserData = (e) => {
-    const { name, value } = e.target;
-    setUser((prevData) => {
-      return { ...prevData, [name]: value };
-    });
+  const handleUserData = (data) => {
+    console.log(data);
+    const updatedUser = { ...user, ...data };
+    setUser(updatedUser);
   };
 
   return <Context.Provider value={{ user, handleUserData }}>{children}</Context.Provider>;

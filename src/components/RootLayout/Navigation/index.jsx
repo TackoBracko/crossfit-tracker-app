@@ -1,15 +1,17 @@
 import {
   NavLink,
   //useRouteLoaderData,
-  useLoaderData,
+  //useLoaderData,
 } from 'react-router-dom';
 import classes from './Navigation.module.css';
 import homeIcon from '../../../assets/icons/Home.svg';
 import profileIcon from '../../../assets/icons/Ellipse.svg';
+import { useContext } from 'react';
+import { AuthContext } from '../../AuthContext';
 
 export default function Navigation() {
   //const isUserLogged = useRouteLoaderData('root');
-  const isUserLogged = useLoaderData('root');
+  const { isUserLogged } = useContext(AuthContext);
 
   return (
     <>

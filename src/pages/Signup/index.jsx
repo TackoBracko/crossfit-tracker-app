@@ -62,7 +62,7 @@ export default function SignUpPage() {
       return;
     }
 
-    handleUserData({ emailRef, passwordRef, confirmPasswordRef });
+    handleUserData({ email, password });
     navigate('/infosetup');
   };
 

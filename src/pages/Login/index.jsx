@@ -1,10 +1,11 @@
-import { Form, redirect } from 'react-router-dom';
+import { Form, useNavigate } from 'react-router-dom';
 import classes from './Login.module.css';
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 
 import Button from '../../components/Button';
 import InputField from '../../components/Input';
 import RightIcon from '../../components/Icons/RightIcon';
+import { AuthContext } from '../../components/AuthContext';
 
 export default function LogInPage() {
   const emailRef = useRef(null);
@@ -13,6 +14,9 @@ export default function LogInPage() {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
+
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleEmailBlur = () => {
     setEmailError(false);
@@ -49,7 +53,8 @@ export default function LogInPage() {
       return;
     }
 
-    redirect('/');
+    login();
+    navigate('/');
   };
 
   return (

@@ -6,9 +6,12 @@ import classes from './InfoSetup.module.css';
 import InputField from '../../components/Input';
 import Button from '../../components/Button';
 import RightIcon from '../../components/Icons/RightIcon';
+import { AuthContext } from '../../components/AuthContext';
 
 export default function InfoSetup() {
   const { user, handleUserData } = useContext(Context);
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [userInfoSetup, setUserInfoSetup] = useState({
     birthday: user.birthday,
@@ -17,7 +20,6 @@ export default function InfoSetup() {
     gender: user.gender,
   });
 
-  const navigate = useNavigate();
   const [error, setError] = useState(false);
 
   const handleGenderToggle = (gender) => {
@@ -43,7 +45,8 @@ export default function InfoSetup() {
 
     handleUserData(userInfoSetup);
     console.log(userInfoSetup);
-    navigate('/');
+    login();
+    navigate('/profile');
   };
 
   return (
