@@ -1,12 +1,16 @@
-import { Form, redirect } from 'react-router-dom';
+import { useContext, useRef, useState } from 'react';
+import { Form, useNavigate } from 'react-router-dom';
+import { Context } from '../../components/Context';
 import classes from '../Signup/Signup.module.css';
-import { useRef, useState } from 'react';
 
 import Button from '../../components/Button';
 import InputField from '../../components/Input';
 import RightIcon from '../../components/Icons/RightIcon';
 
 export default function SignUpPage() {
+  const { handleUserData } = useContext(Context);
+  const navigate = useNavigate();
+
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
@@ -17,25 +21,15 @@ export default function SignUpPage() {
     confirmPassword: false,
   });
 
-  const handleEmailBlur = () => {
-    setError((prevState) => {
-      return { ...prevState, email: false };
+  //onBlur
+
+  const handleOnBlur = (input) => {
+    setError((prevData) => {
+      return { ...prevData, [input]: false };
     });
   };
 
-  const handlePasswordBlur = () => {
-    setError((prevState) => {
-      return { ...prevState, password: false, confirmPassword: false };
-    });
-  };
-
-  const handleConfirmPasswordBlur = () => {
-    setError((prevState) => {
-      return { ...prevState, confirmPassword: false };
-    });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSignUpSubmit = (e) => {
     e.preventDefault();
 
     const email = emailRef.current.value;
@@ -68,7 +62,8 @@ export default function SignUpPage() {
       return;
     }
 
-    redirect('/');
+    handleUserData({ emailRef, passwordRef, confirmPasswordRef });
+    navigate('/infosetup');
   };
 
   return (
@@ -81,15 +76,15 @@ export default function SignUpPage() {
       </div>
 
       <section className={classes.formSection}>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSignUpSubmit}>
           <div>
             {error.email ? <p className={classes.errorText}>You have entered an invalid email address</p> : null}
-            <InputField ref={emailRef} type="email" placeholder="Email" name="email" onBlur={handleEmailBlur} />
+            <InputField ref={emailRef} type="email" placeholder="Email" name="email" onBlur={() => handleOnBlur('email')} />
           </div>
 
           <div>
             {error.password ? <p className={classes.errorText}>Password can not be empty</p> : null}
-            <InputField ref={passwordRef} type="password" placeholder="Password" name="password" onBlur={handlePasswordBlur} />
+            <InputField ref={passwordRef} type="password" placeholder="Password" name="password" onBlur={() => handleOnBlur('password')} />
           </div>
 
           <div>
@@ -99,7 +94,7 @@ export default function SignUpPage() {
               type="password"
               placeholder="Repeat Password"
               name="repeat password"
-              onBlur={handleConfirmPasswordBlur}
+              onBlur={() => handleOnBlur('confirmPassword')}
             />
           </div>
 

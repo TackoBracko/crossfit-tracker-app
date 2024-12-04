@@ -1,6 +1,6 @@
 .inputBase {
   position: relative;
-  color: #ffffff;
+  color: var(--primary-text);
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #2c2c2e;
@@ -14,18 +14,18 @@
 ::placeholder {
   font-weight: 400;
   font-size: 13px;
-  color: #ffffff;
+  color: var(--primary-text);
 }
 
 label {
   font-size: 17px;
-  color: #d0fd3e;
+  color: var(--secondary-text);
   padding-left: 16px;
 }
 
 .errorText {
   position: absolute;
-  color: #ff2424;
+  color: var(--tertiary-btn-text);
   padding-left: 16px;
   font-weight: 400;
   font-size: 11px;

@@ -3,7 +3,7 @@
   align-items: center;
   padding: 32px 24px;
   margin-bottom: 32px;
-  gap: 60px;
+  gap: 100px;
 }
 
 .editHeader h1 {
@@ -58,14 +58,14 @@
   font-weight: 500;
   border: 1px solid;
   border-radius: 4px;
-  background-color: #d0fd3e;
-  color: #000000;
+  background-color: var(--span-background);
+  color: var(--tertiary-text);
   padding: 0 4px;
 }
 
 .unitContainer span {
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .visibility {
@@ -90,15 +90,15 @@
   border: 1px solid #d0fd3e;
   font-size: 15px;
   font-weight: 500;
-  background-color: #1c1c1e;
+  background-color: var(--primary-background);
   cursor: pointer;
-  color: #ffffff;
+  color: var(--primary-text);
   padding: 4px;
 }
 
 .activeGender {
-  background-color: #d0fd3e;
-  color: #000000;
+  background-color: var(--span-background);
+  color: var(--tertiary-text);
 }
 
 /*

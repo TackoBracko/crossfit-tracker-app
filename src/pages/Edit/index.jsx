@@ -1,37 +1,29 @@
-import { useState } from 'react';
-//import avatar from './../../assets/icons/Avatar.svg';
-//import backArrow from './../../assets/icons/BackArrow.svg';
-//import hideIcon from './../../assets/icons/Hide.svg';
-//import showIcon from './../../assets/icons/Show.svg';
-import classes from './EditProfile.module.css';
+import { useContext, useState } from 'react';
 import { Form } from 'react-router-dom';
+import classes from './EditProfile.module.css';
 
 import Button from '../../components/Button';
 import InputField from '../../components/Input';
 import BackBtn from '../../components/Icons/BackBtnIcon';
 import ShowPassword from '../../components/Icons/ShowPasswordIcon';
 import HidePassword from '../../components/Icons/HidePasswordIcon';
+import { Context } from '../../components/Context';
 
 export default function EditiProfilePage() {
+  const { user, handleUserData } = useContext(Context);
+
   const [userEditData, setUserEditData] = useState({
-    name: 'Sarah',
-    email: 'sarah145@mail.com',
-    password: '123456',
-    weight: '55',
-    height: '170',
-    gender: '',
-    age: '21',
+    name: user.name,
+    email: user.email,
+    password: user.password,
+    weight: user.weight,
+    height: user.height,
+    gender: user.gender,
+    age: user.age,
   });
 
   const [nameInitial, setNameInitial] = useState(userEditData.name.charAt(0));
   const [showPassword, setShowPassword] = useState(false);
-
-  const handleEditData = (e) => {
-    const { name, value } = e.target;
-    setUserEditData((prevData) => {
-      return { ...prevData, [name]: value };
-    });
-  };
 
   const handleGenderToggle = (gender) => {
     setUserEditData((prevData) => {
@@ -58,6 +50,13 @@ export default function EditiProfilePage() {
   const handleOnBlur = (input) => {
     setError((prevData) => {
       return { ...prevData, [input]: false };
+    });
+  };
+
+  const handleEditData = (e) => {
+    const { name, value } = e.target;
+    setUserEditData((prevData) => {
+      return { ...prevData, [name]: value };
     });
   };
 
@@ -105,6 +104,7 @@ export default function EditiProfilePage() {
       return;
     }
 
+    handleUserData(userEditData);
     setNameInitial(userEditData.name.charAt(0).toUpperCase());
     console.log(userEditData);
   };
@@ -238,7 +238,7 @@ export default function EditiProfilePage() {
             />
           </div>
 
-          <Button variation="primary" type="submit" className={classes.saveBtn}>
+          <Button variation="primary" type="submit">
             Edit Profile
           </Button>
         </Form>

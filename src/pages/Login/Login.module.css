@@ -5,7 +5,7 @@
   display: flex;
   align-items: end;
   height: 460px;
-  color: #ffffff;
+  color: var(--primary-text);
   text-transform: uppercase;
 }
 
@@ -34,7 +34,7 @@
 
 .errorText {
   position: absolute;
-  color: #ff2424;
+  color: var(--tertiary-btn-text);
   padding-left: 16px;
   font-weight: 400;
   font-size: 11px;

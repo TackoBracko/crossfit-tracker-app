@@ -6,8 +6,10 @@ import ProfilePage from './pages/Profile';
 import LogInPage from './pages/Login';
 import SignUpPage from './pages/Signup';
 import EditProfilePage from './pages/Edit';
+import InfoSetup from './pages/InfoSetup/InfoSetup';
+import { UserDataContextProvider } from './components/Context';
 
-const isUserLogged = true;
+const isUserLogged = false;
 
 const protectedRoutesLoader = () => {
   if (!isUserLogged) {
@@ -40,6 +42,7 @@ const router = createBrowserRouter(
         <Route path="signup" element={<SignUpPage />} loader={publicRoutesLoader} />
       </Route>
 
+      <Route path="infosetup" element={<InfoSetup />} loader={publicRoutesLoader} />
       <Route path="profile" element={<ProfilePage />} loader={protectedRoutesLoader} />
       <Route path="edit" element={<EditProfilePage />} loader={protectedRoutesLoader} />
     </>,
@@ -47,7 +50,11 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <UserDataContextProvider>
+      <RouterProvider router={router} />;
+    </UserDataContextProvider>
+  );
 }
 
 export default App;
