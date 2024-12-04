@@ -1,11 +1,12 @@
 import { useContext } from 'react';
 import { AuthContext } from './AuthContext';
-import { Navigate, Outlet } from 'react-router-dom';
+import { useNavigate, Outlet } from 'react-router-dom';
 
 export const ProtectedRoutes = () => {
   const { isUserLogged } = useContext(AuthContext);
+  const navigate = useNavigate();
   if (!isUserLogged) {
-    return <Navigate to="login" />;
+    return navigate('/login');
   }
 
   return <Outlet />;
@@ -13,8 +14,9 @@ export const ProtectedRoutes = () => {
 
 export const PublicRoutes = () => {
   const { isUserLogged } = useContext(AuthContext);
+  const navigate = useNavigate();
   if (isUserLogged) {
-    return <Navigate to="profile" />;
+    return navigate('/profile');
   }
 
   return <Outlet />;
