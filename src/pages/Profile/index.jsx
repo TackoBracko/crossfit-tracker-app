@@ -7,9 +7,11 @@ import { useContext } from 'react';
 
 import Button from '../../components/Button';
 import BackBtn from '../../components/Icons/BackBtnIcon';
+import { AuthContext } from '../../components/AuthContext';
 
 export default function ProfilePage() {
   const { user } = useContext(Context);
+  const { logout } = useContext(AuthContext);
 
   return (
     <>
@@ -55,7 +57,9 @@ export default function ProfilePage() {
           </li>
         </ul>
 
-        <Button variation="tertiary">Sign out</Button>
+        <Button variation="tertiary" onClick={() => logout()}>
+          Sign out
+        </Button>
       </section>
     </>
   );
