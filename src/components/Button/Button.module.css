@@ -57,4 +57,5 @@
   color: var(--tertiary-btn-text);
   display: flex;
   font-size: 15px;
+  cursor: pointer;
 }

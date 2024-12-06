@@ -1,17 +1,25 @@
 //import profilePic from './../../assets/pictures/ProfilePic.png';
 //import backArrow from './../../assets/icons/BackArrow.svg';
 import classes from './Profile.module.css';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { UserContext } from '../../components/Context/UserContext';
+import { useContext } from 'react';
 
 import Button from '../../components/Button';
 import BackBtn from '../../components/Icons/BackBtnIcon';
+import { AuthContext } from '../../components/Context/AuthContext';
 
 export default function ProfilePage() {
+  const { user } = useContext(UserContext);
+  const { logout } = useContext(AuthContext);
+
   return (
     <>
       <header className={classes.profileHeader}>
         <Button variation="secondary">
-          <BackBtn />
+          <Link to="/">
+            <BackBtn />
+          </Link>
         </Button>
         <h1>Profile</h1>
       </header>
@@ -21,22 +29,22 @@ export default function ProfilePage() {
           {/*<img src={profilePic} alt="User profile picture" className={classes.profilePic} />*/}
           <p className={classes.profilePic}>S</p>
           <h3>
-            <span>Sarah</span> Warner
+            <span>{user.name}</span>
           </h3>
         </div>
 
         <div className={classes.rightInfo}>
           <p>
             <span>Weight: </span>
-            <span> 55 kg </span>
+            <span> {user.weight} kg </span>
           </p>
           <p>
             <span>Height: </span>
-            <span>170 cm</span>
+            <span> {user.height} cm</span>
           </p>
           <p>
             <span>Age: </span>
-            <span>21 years</span>
+            <span> {user.age} years</span>
           </p>
         </div>
       </section>
@@ -51,7 +59,9 @@ export default function ProfilePage() {
           </li>
         </ul>
 
-        <Button variation="tertiary">Sign out</Button>
+        <Button variation="tertiary" onClick={() => logout()}>
+          Sign out
+        </Button>
       </section>
     </>
   );

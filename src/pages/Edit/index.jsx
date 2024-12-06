@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
-import { Form } from 'react-router-dom';
+import { Form, Link } from 'react-router-dom';
+import { UserContext } from '../../components/Context/UserContext';
 import classes from './EditProfile.module.css';
 
 import Button from '../../components/Button';
@@ -7,10 +8,9 @@ import InputField from '../../components/Input';
 import BackBtn from '../../components/Icons/BackBtnIcon';
 import ShowPassword from '../../components/Icons/ShowPasswordIcon';
 import HidePassword from '../../components/Icons/HidePasswordIcon';
-import { Context } from '../../components/Context';
 
 export default function EditiProfilePage() {
-  const { user, handleUserData } = useContext(Context);
+  const { user, handleUserData } = useContext(UserContext);
 
   const [userEditData, setUserEditData] = useState({
     name: user.name,
@@ -113,7 +113,9 @@ export default function EditiProfilePage() {
     <>
       <header className={classes.editHeader}>
         <Button variation="secondary">
-          <BackBtn />
+          <Link to="/profile">
+            <BackBtn />
+          </Link>
         </Button>
 
         <h1>Edit Profile</h1>

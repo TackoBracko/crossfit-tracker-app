@@ -1,4 +1,4 @@
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, redirect } from 'react-router-dom';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 
 import RootLayout from './components/RootLayout';
 import HomePage from './pages/Home';
@@ -6,54 +6,44 @@ import ProfilePage from './pages/Profile';
 import LogInPage from './pages/Login';
 import SignUpPage from './pages/Signup';
 import EditProfilePage from './pages/Edit';
-import InfoSetup from './pages/InfoSetup/InfoSetup';
-import { UserDataContextProvider } from './components/Context';
-
-const isUserLogged = false;
-
-const protectedRoutesLoader = () => {
-  if (!isUserLogged) {
-    return redirect('/login');
-  } else {
-    return null;
-  }
-};
-
-const publicRoutesLoader = () => {
-  if (isUserLogged) {
-    return redirect('/');
-  } else {
-    return null;
-  }
-};
+import InfoSetup from './pages/InfoSetup';
+import { UserDataContextProvider } from './components/Context/UserContext';
+import { AuthProvider } from './components/Context/AuthContext';
+import { ProtectedRoutes, PublicRoutes } from './components/Context/AuthRoutesComponent';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route
-        path="/"
-        element={<RootLayout />}
-        loader={() => {
-          return isUserLogged;
-        }}
-      >
-        <Route index element={<HomePage />} loader={protectedRoutesLoader} />
-        <Route path="login" element={<LogInPage />} loader={publicRoutesLoader} />
-        <Route path="signup" element={<SignUpPage />} loader={publicRoutesLoader} />
+      <Route path="/" element={<RootLayout />} /*loader={() => {return isUserLogged;}}*/>
+        <Route element={<ProtectedRoutes />}>
+          <Route index element={<HomePage />} />
+        </Route>
+
+        <Route element={<PublicRoutes />}>
+          <Route path="login" element={<LogInPage />} />
+          <Route path="signup" element={<SignUpPage />} />
+        </Route>
       </Route>
 
-      <Route path="infosetup" element={<InfoSetup />} loader={publicRoutesLoader} />
-      <Route path="profile" element={<ProfilePage />} loader={protectedRoutesLoader} />
-      <Route path="edit" element={<EditProfilePage />} loader={protectedRoutesLoader} />
+      <Route element={<PublicRoutes />}>
+        <Route path="infosetup" element={<InfoSetup />} />
+      </Route>
+
+      <Route element={<ProtectedRoutes />}>
+        <Route path="profile" element={<ProfilePage />} />
+        <Route path="edit" element={<EditProfilePage />} />
+      </Route>
     </>,
   ),
 );
 
 function App() {
   return (
-    <UserDataContextProvider>
-      <RouterProvider router={router} />;
-    </UserDataContextProvider>
+    <AuthProvider>
+      <UserDataContextProvider>
+        <RouterProvider router={router} />;
+      </UserDataContextProvider>
+    </AuthProvider>
   );
 }
 
