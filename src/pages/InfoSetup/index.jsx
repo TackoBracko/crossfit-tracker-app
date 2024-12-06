@@ -1,15 +1,15 @@
 import { useContext, useState } from 'react';
 import { useNavigate, Form } from 'react-router-dom';
-import { Context } from '../../components/Context';
+import { UserContext } from '../../components/Context/UserContext';
 
 import classes from './InfoSetup.module.css';
 import InputField from '../../components/Input';
 import Button from '../../components/Button';
 import RightIcon from '../../components/Icons/RightIcon';
-import { AuthContext } from '../../components/AuthContext';
+import { AuthContext } from '../../components/Context/AuthContext';
 
 export default function InfoSetup() {
-  const { user, handleUserData } = useContext(Context);
+  const { user, handleUserData } = useContext(UserContext);
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 

@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { Context } from '../components/Context';
+import { UserContext } from '../components/Context/UserContext';
 
 export default function HomePage() {
-  const { user } = useContext(Context);
+  const { user } = useContext(UserContext);
 
   return (
     <>

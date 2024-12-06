@@ -1,23 +1,25 @@
 //import profilePic from './../../assets/pictures/ProfilePic.png';
 //import backArrow from './../../assets/icons/BackArrow.svg';
 import classes from './Profile.module.css';
-import { NavLink } from 'react-router-dom';
-import { Context } from '../../components/Context';
+import { Link, NavLink } from 'react-router-dom';
+import { UserContext } from '../../components/Context/UserContext';
 import { useContext } from 'react';
 
 import Button from '../../components/Button';
 import BackBtn from '../../components/Icons/BackBtnIcon';
-import { AuthContext } from '../../components/AuthContext';
+import { AuthContext } from '../../components/Context/AuthContext';
 
 export default function ProfilePage() {
-  const { user } = useContext(Context);
+  const { user } = useContext(UserContext);
   const { logout } = useContext(AuthContext);
 
   return (
     <>
       <header className={classes.profileHeader}>
         <Button variation="secondary">
-          <BackBtn to="/" />
+          <Link to="/">
+            <BackBtn />
+          </Link>
         </Button>
         <h1>Profile</h1>
       </header>

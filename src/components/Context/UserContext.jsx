@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 
-export const Context = createContext();
+export const UserContext = createContext();
 
 export const UserDataContextProvider = ({ children }) => {
   const [user, setUser] = useState({
@@ -20,5 +20,5 @@ export const UserDataContextProvider = ({ children }) => {
     setUser(updatedUser);
   };
 
-  return <Context.Provider value={{ user, handleUserData }}>{children}</Context.Provider>;
+  return <UserContext.Provider value={{ user, handleUserData }}>{children}</UserContext.Provider>;
 };

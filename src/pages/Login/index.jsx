@@ -5,7 +5,7 @@ import { useContext, useRef, useState } from 'react';
 import Button from '../../components/Button';
 import InputField from '../../components/Input';
 import RightIcon from '../../components/Icons/RightIcon';
-import { AuthContext } from '../../components/AuthContext';
+import { AuthContext } from '../../components/Context/AuthContext';
 
 export default function LogInPage() {
   const emailRef = useRef(null);

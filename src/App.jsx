@@ -7,9 +7,9 @@ import LogInPage from './pages/Login';
 import SignUpPage from './pages/Signup';
 import EditProfilePage from './pages/Edit';
 import InfoSetup from './pages/InfoSetup';
-import { UserDataContextProvider } from './components/Context';
-import { AuthProvider } from './components/AuthContext';
-import { ProtectedRoutes, PublicRoutes } from './components/RoutesComponent';
+import { UserDataContextProvider } from './components/Context/UserContext';
+import { AuthProvider } from './components/Context/AuthContext';
+import { ProtectedRoutes, PublicRoutes } from './components/Context/AuthRoutesComponent';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
