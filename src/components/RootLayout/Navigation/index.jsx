@@ -8,6 +8,8 @@ import homeIcon from '../../../assets/icons/Home.svg';
 import profileIcon from '../../../assets/icons/Ellipse.svg';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
+import DiaryIcon from '../../Icons/DiaryIcon';
+import MealPlansIcon from '../../Icons/MealPlansIcon';
 
 export default function Navigation() {
   //const isUserLogged = useRouteLoaderData('root');
@@ -22,6 +24,16 @@ export default function Navigation() {
               <li>
                 <NavLink to="">
                   <img src={homeIcon} alt="Home Icon" />
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="diary">
+                  <DiaryIcon />
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="meals">
+                  <MealPlansIcon />
                 </NavLink>
               </li>
               <li>

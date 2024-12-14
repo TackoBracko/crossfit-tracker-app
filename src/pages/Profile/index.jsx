@@ -12,6 +12,7 @@ import { AuthContext } from '../../components/Context/AuthContext';
 export default function ProfilePage() {
   const { user } = useContext(UserContext);
   const { logout } = useContext(AuthContext);
+  const profileInitial = user.name ? user.name.charAt(0).toUpperCase() : '';
 
   return (
     <>
@@ -27,7 +28,7 @@ export default function ProfilePage() {
       <section className={classes.profileInfo}>
         <div className={classes.leftInfo}>
           {/*<img src={profilePic} alt="User profile picture" className={classes.profilePic} />*/}
-          <p className={classes.profilePic}>S</p>
+          <p className={classes.profilePic}>{profileInitial}</p>
           <h3>
             <span>{user.name}</span>
           </h3>

@@ -1,7 +1,7 @@
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 
 import RootLayout from './components/RootLayout';
-import HomePage from './pages/Home';
+import HomePage from './pages/Home/Home';
 import ProfilePage from './pages/Profile';
 import LogInPage from './pages/Login';
 import SignUpPage from './pages/Signup';
@@ -10,6 +10,8 @@ import InfoSetup from './pages/InfoSetup';
 import { UserDataContextProvider } from './components/Context/UserContext';
 import { AuthProvider } from './components/Context/AuthContext';
 import { ProtectedRoutes, PublicRoutes } from './components/Context/AuthRoutesComponent';
+import Diary from './pages/Diary';
+import MealPlans from './pages/MealPlans';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +32,8 @@ const router = createBrowserRouter(
       </Route>
 
       <Route element={<ProtectedRoutes />}>
+        <Route path="diary" element={<Diary />} />
+        <Route path="meals" element={<MealPlans />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="edit" element={<EditProfilePage />} />
       </Route>
