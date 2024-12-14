@@ -1,0 +1,22 @@
+.homeHeader {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px;
+  margin-bottom: 32px;
+}
+
+.homeHeader h1 {
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+
+.homeHeader p {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--secondary-text);
+  text-transform: uppercase;
+}
