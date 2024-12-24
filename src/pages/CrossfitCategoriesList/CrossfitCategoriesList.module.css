@@ -1,0 +1,56 @@
+.categoryListHeader {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px;
+  gap: 20px;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.categoryListHeader h1 {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.categoryListHeader p {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.categoryListSection {
+  padding: 32px 24px;
+}
+
+.categoryListSection h3 {
+  color: var(--tertiary-text);
+  position: absolute;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 15px;
+}
+
+.exerciseBox {
+  transition: transform 0.3s ease;
+  padding-bottom: 20px;
+}
+
+.exerciseBox:hover {
+  transform: scale(1.1);
+}
+
+.categoryBackBtn {
+  border: none;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 32px;
+  padding: 10px;
+}
+
+.categoryBackBtn:hover {
+  background: var(--secondary-btn-hover);
+}
