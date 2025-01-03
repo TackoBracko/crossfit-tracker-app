@@ -21,6 +21,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<RootLayout />} /*loader={() => {return isUserLogged;}}*/>
         <Route element={<ProtectedRoutes />}>
           <Route index element={<HomePage />} />
+          <Route path="categories" element={<CrossfitCategories />} />
         </Route>
 
         <Route element={<PublicRoutes />}>
@@ -34,7 +35,6 @@ const router = createBrowserRouter(
       </Route>
 
       <Route element={<ProtectedRoutes />}>
-        <Route path="categories" element={<CrossfitCategories />} />
         <Route path="/categories/:categoryId" element={<CrossfitCategoriesList />} />
         <Route path="/categories/:categoryId/exercise/:exerciseId" element={<CrossfitMovement />} />
         <Route path="meals" element={<MealPlans />} />
@@ -49,7 +49,7 @@ function App() {
   return (
     <AuthProvider>
       <UserDataContextProvider>
-        <RouterProvider router={router} />;
+        <RouterProvider router={router} />
       </UserDataContextProvider>
     </AuthProvider>
   );

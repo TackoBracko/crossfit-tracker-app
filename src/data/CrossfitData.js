@@ -63,7 +63,7 @@ export const crossfitData = [
         id: 0,
         name: 'Clean',
         picture: squatClean,
-        video: 'https://youtu.be/Ty14ogq_Vok',
+        video: 'Ty14ogq_Vok',
         description:
           'The clean is a powerful weightlifting movement where the barbell is lifted from the ground to the front of the shoulders in a single, fluid motion. It begins with a strong pull from the floor, followed by an explosive hip extension to drive the bar upward, and ends with quickly dropping underneath to catch the bar in a front rack position. The clean develops full-body power, speed and coordination, making it a cornerstone of functional fitness and athletic training.',
         subCategories: [
@@ -73,7 +73,7 @@ export const crossfitData = [
             description:
               'The power clean is a weightlifting movement where the barbell is explosively lifted from the ground to the front of the shoulders without dropping into a full squat. It starts with a powerful pull from the floor, followed by an explosive hip extension to propel the bar upward, and finishes with a quick catch in the front rack position, typically with the knees slightly bent. The power clean builds explosive power, speed, and coordination, and is commonly used in functional fitness and athletic training to develop strength and agility.',
             picture: powerClean,
-            video: 'https://youtu.be/KwYJTpQ_x5A',
+            video: 'KwYJTpQ_x5A',
             category: 'Weightlifting',
           },
           {
@@ -82,7 +82,7 @@ export const crossfitData = [
             description:
               'In the clean, the hips and legs launch a weight upward from the ground to about belly button height and then the lifter retreats under the weight quickly to catch it. The full movement finishes with the hips and legs again working by squatting the weight and standing up to full extension.',
             picture: squatClean,
-            video: 'https://youtu.be/Ty14ogq_Vok',
+            video: 'Ty14ogq_Vok',
             category: 'Weightlifting',
           },
           {
@@ -91,7 +91,7 @@ export const crossfitData = [
             description:
               'The hang power clean is a variation of the clean where the barbell starts from a hanging position (above the knees) rather than the ground. From the hang position, the athlete explosively extends the hips and pulls the bar upward, catching it in the front rack position without dropping into a full squat. This movement focuses on developing explosive power, speed, and coordination while emphasizing the transition and pull phase of the clean.',
             picture: hangPowerClean,
-            video: 'https://youtu.be/0aP3tgKZcHQ',
+            video: '0aP3tgKZcHQ',
             category: 'Weightlifting',
           },
           {
@@ -100,7 +100,7 @@ export const crossfitData = [
             description:
               'The hang squat clean is a variation of the clean where the barbell starts from a hanging position (above the knees). From the hang position, the athlete explosively extends the hips, pulls the bar upward, and then drops under it into a full squat to catch the bar in the front rack position. The movement develops full-body power, strength, and mobility, emphasizing speed under the bar and the ability to stabilize in the squat position.',
             picture: hangSquatClean,
-            video: 'https://youtu.be/DaKC_BEN5bk',
+            video: 'DaKC_BEN5bk',
             category: 'Weightlifting',
           },
         ],
@@ -109,7 +109,7 @@ export const crossfitData = [
         id: 1,
         name: 'Snatch',
         picture: squatSnatch,
-        video: 'https://youtu.be/GhxhiehJcQY',
+        video: 'GhxhiehJcQY',
         description:
           'The snatch is a dynamic Olympic weightlifting exercise where a barbell is lifted from the ground to overhead in one explosive motion. It requires a combination of strength, speed, mobility, and precision, making it one of the most technical and athletic movements in weightlifting. The snatch develops full-body power, coordination, and balance, engaging muscles from the legs and core to the shoulders and arms.',
         subCategories: [
@@ -119,7 +119,7 @@ export const crossfitData = [
             description:
               'The power snatch is received in a partial overhead squat. Without the option of catching in a full squat, the athlete must pull the bar high and focus on a quick change of direction. Complete hip and knee extension followed by a fast turnover of the bar is critical.',
             picture: powerSnatch,
-            video: 'https://youtu.be/TL8SMp7RdXQ',
+            video: 'TL8SMp7RdXQ',
             category: 'Weightlifting',
           },
           {
@@ -128,7 +128,7 @@ export const crossfitData = [
             description:
               'The squat snatch is a weightlifting movement that involves lifting a barbell from the ground to overhead in one fluid motion, while catching the bar in a full squat position. This exercise requires a great deal of mobility, strength, and coordination.',
             picture: squatSnatch,
-            video: 'https://youtu.be/GhxhiehJcQY',
+            video: 'GhxhiehJcQY',
             category: 'Weightlifting',
           },
           {
@@ -137,7 +137,7 @@ export const crossfitData = [
             description:
               'The hang power snatch emphasizes the second and third pulls of the snatch, from the hang position with the bar at the hip to the finish of the lift with the bar overhead. The timing, powerful hip extension, and coordination remain similar to the power snatch.',
             picture: hangPowerSnatch,
-            video: 'https://youtu.be/bJYzOo1cNqY',
+            video: 'bJYzOo1cNqY',
             category: 'Weightlifting',
           },
           {
@@ -146,7 +146,7 @@ export const crossfitData = [
             description:
               'The hang snatch emphasizes the second and third pulls of the snatch, from the hang position with the bar at the hip to the full overhead squat receiving position and finally to the end of the lift with the bar overhead and the athlete standing.',
             picture: hangSquatSnatch,
-            video: 'https://youtu.be/IucshEToDyM',
+            video: 'IucshEToDyM',
             category: 'Weightlifting',
           },
         ],
@@ -157,7 +157,7 @@ export const crossfitData = [
         description:
           'In the most common variation of the clean and jerk, the athlete receives the load in a full front squat, then uses the split position in the jerk. For most athletes, these positions allow for the greatest loads to be lifted. During the clean, the athlete must pull the weight only as high as needed to move into the bottom of the squat. During the split jerk, the torso can remain vertical while demanding less shoulder and thoracic flexibility than a squat or power jerk. ',
         picture: cleanAndJerk,
-        video: 'https://youtu.be/PjY1rH4_MOA',
+        video: 'PjY1rH4_MOA',
         category: 'Weightlifting',
       },
       {
@@ -166,7 +166,7 @@ export const crossfitData = [
         description:
           'The back squat requires the structures of the lower body and core to work synergistically. Optimal performance requires an adequate range of motion at the ankles, hips, and knees; superior lower-body strength; and a tremendous amount of core stability.',
         picture: backSquat,
-        video: 'https://youtu.be/ultWZbUMPL8?si=7aIKde5oAUZn2A2d',
+        video: 'ultWZbUMPL8?si=7aIKde5oAUZn2A2d',
         category: 'Weightlifting',
       },
       {
@@ -175,7 +175,7 @@ export const crossfitData = [
         description:
           'The front squat builds exactly on the mechanics of the air squat. All that is added is a load supported in the front-rack position, where the weight sits squarely on the upper chest and shoulders, and the elbows point forward to bring the upper arms parallel to the floor. This “rack position,” critical to weightlifting, both demands and improves wrist and shoulder flexibility while the load, supported by the torso, both demands and improves midline stability.',
         picture: frontSquat,
-        video: 'https://www.youtube.com/watch?v=uYumuL_G_V0&pp=ygULZnJvbnQgc3F1YXQ%3D',
+        video: 'uYumuL_G_V0?si=6ODaDF94F1Jnfblz',
         category: 'Weightlifting',
       },
       {
@@ -184,7 +184,7 @@ export const crossfitData = [
         description:
           'The deadlift is a great way to build strong legs and butt. In a deadlift, you lift weight from the ground to thigh level using primarily your leg and hip muscles, but with the assistance of most of the large muscle groups of your body. The deadlift is usually performed with a bar and plates or a fixed barbell, but you can do it with dumbbells. ',
         picture: deadLift,
-        video: 'https://youtu.be/1ZXobu7JvvE',
+        video: '1ZXobu7JvvE',
         category: 'Weightlifting',
       },
       {
@@ -193,7 +193,7 @@ export const crossfitData = [
         description:
           'The bench press or chest press is a weight training exercise where a person presses a weight upwards while lying horizontally on a weight training bench. To improve upper body strength, power, and endurance for athletic, occupational, and functional performance as well as muscle development, the barbell bench press is frequently used.',
         picture: benchPress,
-        video: 'https://youtu.be/SCVCLChPQFY',
+        video: 'SCVCLChPQFY',
         category: 'Weightlifting',
       },
     ],
@@ -209,7 +209,7 @@ export const crossfitData = [
         description:
           'The back squat requires the structures of the lower body and core to work synergistically. Optimal performance requires an adequate range of motion at the ankles, hips, and knees; superior lower-body strength; and a tremendous amount of core stability.',
         picture: backSquat,
-        video: 'https://youtu.be/ultWZbUMPL8?si=7aIKde5oAUZn2A2d',
+        video: 'ultWZbUMPL8?si=sysMtCZxJ4UiUIhd',
         category: 'Legs',
       },
       {
@@ -218,7 +218,7 @@ export const crossfitData = [
         description:
           'The front squat builds exactly on the mechanics of the air squat. All that is added is a load supported in the front-rack position, where the weight sits squarely on the upper chest and shoulders, and the elbows point forward to bring the upper arms parallel to the floor. This “rack position,” critical to weightlifting, both demands and improves wrist and shoulder flexibility while the load, supported by the torso, both demands and improves midline stability.',
         picture: frontSquat,
-        video: 'https://www.youtube.com/watch?v=uYumuL_G_V0&pp=ygULZnJvbnQgc3F1YXQ%3D',
+        video: 'uYumuL_G_V0?si=6ODaDF94F1Jnfblz',
         category: 'Legs',
       },
       {
@@ -227,7 +227,7 @@ export const crossfitData = [
         description:
           'The overhead squat is the ultimate core exercise and peerless in developing effective athletic movement. This functional gem trains for efficient transfer of energy from large to small body parts and improves functional flexibility. Similarly, it develops the squat by amplifying and cruelly punishing faults in posture, movement, and stability. The overhead squat is to midline control, stability and balance what the clean and snatch are to power—unsurpassed.',
         picture: ohs,
-        video: 'https://youtu.be/pn8mqlG0nkE?si=CPZvCaA2EKomYoq6',
+        video: 'pn8mqlG0nkE?si=CPZvCaA2EKomYoq6',
         category: 'Legs',
       },
       {
@@ -236,7 +236,7 @@ export const crossfitData = [
         description:
           'The Goblet Squat is a fantastic exercise for your lower body, working your quads (front of your thigh), hamstrings (back of your thigh), and glutes (butt muscle), as well as helping to strengthen your core and lower back. This is a weighted squat exercise with single or double kettlebell',
         picture: gobletSquat,
-        video: 'https://youtu.be/f-Vf2yRRqOg',
+        video: 'f-Vf2yRRqOg',
         category: 'Legs',
       },
       {
@@ -245,7 +245,7 @@ export const crossfitData = [
         description:
           'The walking lunge is a fantastic, accessible tool for developing lower body strength, postural awareness, and balance. The basic movement pattern can be learned quickly and performed almost anywhere. It also serves as a gateway to many other variations. Once the fundamentals are mastered at body weight, load can be held at the hang, in the front rack, or overhead to increase the challenge of the movement.',
         picture: lunges,
-        video: 'https://youtu.be/DlhojghkaQ0',
+        video: 'DlhojghkaQ0',
         category: 'Legs',
       },
       {
@@ -254,7 +254,7 @@ export const crossfitData = [
         description:
           'Box jumps are a powerful and conditioning exercise. Box jumps involve jumping from the floor onto a box or other elevated surface. They are an excellent way to enhance explosive power, further develop strength through your lower body, improve vertical jump height, and generally improve athletic performance.',
         picture: boxJumps,
-        video: 'https://youtu.be/NBY9-kTuHEk',
+        video: 'NBY9-kTuHEk',
         category: 'Legs',
       },
       {
@@ -263,7 +263,7 @@ export const crossfitData = [
         description:
           'The movement begins as a front squat and follows through to a push press/shove that sends the ball up and forward to the target from which it rebounds back to the throwers outstretched arms where it is “absorbed” back into the squat.',
         picture: wallBall,
-        video: 'https://youtu.be/EqjGKsiIMCE',
+        video: 'EqjGKsiIMCE',
         category: 'Legs',
       },
       {
@@ -272,7 +272,7 @@ export const crossfitData = [
         description:
           'In the clean, the hips and legs launch a weight upward from the ground to about belly button height and then the lifter retreats under the weight quickly to catch it. The full movement finishes with the hips and legs again working by squatting the weight and standing up to full extension.',
         picture: squatClean,
-        video: 'https://youtu.be/Ty14ogq_Vok',
+        video: 'Ty14ogq_Vok',
         category: 'Legs',
       },
       {
@@ -281,7 +281,7 @@ export const crossfitData = [
         description:
           'The squat snatch is a weightlifting movement that involves lifting a barbell from the ground to overhead in one fluid motion, while catching the bar in a full squat position. This exercise requires a great deal of mobility, strength, and coordination.',
         picture: squatSnatch,
-        video: 'https://youtu.be/GhxhiehJcQY',
+        video: 'GhxhiehJcQY',
         category: 'Legs',
       },
       {
@@ -290,7 +290,7 @@ export const crossfitData = [
         description:
           'The deadlift is a great way to build strong legs and butt. In a deadlift, you lift weight from the ground to thigh level using primarily your leg and hip muscles, but with the assistance of most of the large muscle groups of your body. The deadlift is usually performed with a bar and plates or a fixed barbell, but you can do it with dumbbells. ',
         picture: deadLift,
-        video: 'https://youtu.be/1ZXobu7JvvE',
+        video: '1ZXobu7JvvE',
         category: 'Legs',
       },
       {
@@ -299,7 +299,7 @@ export const crossfitData = [
         description:
           "A Pistol Squat is a squat performed on one leg. It's an advanced strength movement. Pistol squats test the strength of your core, stabilizing muscles and the entire leg from glutes to ankles.",
         picture: pistols,
-        video: 'https://youtu.be/keSzg7MaoVQ',
+        video: 'keSzg7MaoVQ',
         category: 'Legs',
       },
       {
@@ -308,7 +308,7 @@ export const crossfitData = [
         description:
           'The box step up is similar in mechanics to any lunging variation. The athlete must use the strength of one leg to elevate themselves. The higher the box, the greater the demand on both strength and flexibility. ',
         picture: stepUps,
-        video: 'https://youtu.be/5qjqDHOUh-A',
+        video: '5qjqDHOUh-A',
         category: 'Legs',
       },
       {
@@ -317,7 +317,7 @@ export const crossfitData = [
         description:
           'The thruster is a powerful, full-body movement that combines a front squat and an overhead press into one fluid motion. The athlete starts with the barbell resting on their shoulders in a front-rack position, performs a deep front squat, and explosively drives upward, using the momentum from the squat to press the bar overhead to full arm extension. The thruster targets the legs, shoulders, and core while also building explosive power and endurance. It’s commonly used in CrossFit workouts due to its intensity and efficiency.',
         picture: thruster,
-        video: 'https://youtu.be/L219ltL15zk',
+        video: 'L219ltL15zk',
         category: 'Legs',
       },
       {
@@ -326,7 +326,7 @@ export const crossfitData = [
         description:
           'The kettlebell swing is a powerful hip-hinge movement that develops explosive power, endurance, and posterior chain strength. The athlete swings a kettlebell from between the legs to chest level (Russian swing) or overhead (American swing), driven by the hips rather than the arms.',
         picture: swing,
-        video: 'https://youtu.be/mKDIuUbH94Q',
+        video: 'mKDIuUbH94Q',
         category: 'Legs',
       },
     ],
@@ -342,7 +342,7 @@ export const crossfitData = [
         description:
           'The strict pull-up is a foundational upper-body strength exercise where the athlete pulls themselves up from a hanging position on a bar until their chin is above the bar, using only the strength of their arms and back. It is performed without any swinging or momentum, focusing on building raw strength and control in the upper body.',
         picture: strictPullUps,
-        video: 'https://youtu.be/HRV5YKKaeVw',
+        video: 'HRV5YKKaeVw',
         category: 'Arms',
       },
       {
@@ -351,7 +351,7 @@ export const crossfitData = [
         description:
           'The chest-to-bar pull-up is an advanced variation of the pull-up where the athlete pulls their body high enough so that their chest touches the bar. It can be performed strictly or with a kipping motion, requiring greater pulling strength, range of motion, and control compared to a standard pull-up.',
         picture: chestToBar,
-        video: 'https://youtu.be/AyPTCEXTjOo',
+        video: 'AyPTCEXTjOo',
         category: 'Arms',
       },
       {
@@ -360,7 +360,7 @@ export const crossfitData = [
         description:
           'The muscle-up is a high-skill gymnastics movement where the athlete transitions from a pull-up into a dip position on a bar or rings. Starting from a hanging position, the athlete pulls up explosively, transitions over the bar or rings, and finishes by pressing into a lockout position. Muscle-ups develop upper-body pulling and pressing strength, as well as coordination and body control.e-up is a high-skill gymnastics movement where the athlete transitions from a pull-up into a dip position on a bar or rings. Starting from a hanging position, the athlete pulls up explosively, transitions over the bar or rings, and finishes by pressing into a lockout position. Muscle-ups develop upper-body pulling and pressing strength, as well as coordination and body control.',
         picture: muscleUps,
-        video: 'https://youtu.be/OCg3UXgzftc',
+        video: 'OCg3UXgzftc',
         category: 'Arms',
       },
       {
@@ -369,7 +369,7 @@ export const crossfitData = [
         description:
           'The rope climb is a functional movement where the athlete ascends a vertical rope using both their arms and legs for assistance. The movement requires grip strength, upper-body pulling power, and efficient leg technique, such as the J-hook or S-hook, to conserve energy. Rope climbs build total-body strength and endurance, making them a staple in functional fitness workouts.',
         picture: ropeClimbs,
-        video: 'https://youtu.be/Pa4QUC9AvuA',
+        video: 'Pa4QUC9AvuA',
         category: 'Arms',
       },
       {
@@ -378,7 +378,7 @@ export const crossfitData = [
         description:
           'The barbell row is a strength exercise targeting the back and arms. It involves bending at the hips while keeping the back flat, holding a barbell with an overhand or underhand grip, and pulling it toward the torso. This movement builds upper-back strength, focusing on the lats, traps, and rear deltoids, while also engaging the core and biceps.',
         picture: barbellRow,
-        video: 'https://youtu.be/9Gf-Ourup_k',
+        video: '9Gf-Ourup_k',
         category: 'Arms',
       },
       {
@@ -387,7 +387,7 @@ export const crossfitData = [
         description:
           'The dumbbell row is a single-arm strength exercise performed with a dumbbell. The athlete braces one hand on a bench or support while pulling the dumbbell toward their torso with the other arm. This unilateral movement strengthens the lats, traps, and biceps while also improving balance and core stability.',
         picture: dumbbellRow,
-        video: 'https://youtu.be/xl1YiqQY2vA',
+        video: 'xl1YiqQY2vA',
         category: 'Arms',
       },
       {
@@ -396,7 +396,7 @@ export const crossfitData = [
         description:
           'The push-up is a classic bodyweight exercise that works the chest, shoulders, triceps, and core. Starting in a plank position, the athlete lowers their chest to the ground by bending their elbows, then pushes back up to full extension. It’s a foundational movement for upper-body strength and endurance.',
         picture: pushUps,
-        video: 'https://youtu.be/0pkjOk0EiAk',
+        video: '0pkjOk0EiAk',
         category: 'Arms',
       },
       {
@@ -405,7 +405,7 @@ export const crossfitData = [
         description:
           'The handstand push-up is an advanced gymnastics movement performed upside-down. While in a handstand position (against a wall or freestanding), the athlete lowers their head to the ground by bending their elbows, then presses back up to full extension. This movement builds upper-body pushing strength, balance, and coordination, with a strong focus on the shoulders, triceps, and core.',
         picture: hspu,
-        video: 'https://youtu.be/9wIkPCS4Mbo',
+        video: '9wIkPCS4Mbo',
         category: 'Arms',
       },
       {
@@ -414,7 +414,7 @@ export const crossfitData = [
         description:
           'The dip is a bodyweight movement performed on parallel bars or a similar surface. The athlete lowers their body by bending their elbows until their shoulders are just below their elbows, then pushes back up to full extension. Dips primarily target the triceps, chest, and shoulders, building strength and stability in the upper body.',
         picture: dips,
-        video: 'https://youtu.be/o2qX3Zb5mvg',
+        video: 'o2qX3Zb5mvg',
         category: 'Arms',
       },
       {
@@ -423,7 +423,7 @@ export const crossfitData = [
         description:
           'The bench press or chest press is a weight training exercise where a person presses a weight upwards while lying horizontally on a weight training bench. To improve upper body strength, power, and endurance for athletic, occupational, and functional performance as well as muscle development, the barbell bench press is frequently used.',
         picture: benchPress,
-        video: 'https://youtu.be/SCVCLChPQFY',
+        video: 'SCVCLChPQFY',
         category: 'Arms',
       },
       {
@@ -432,7 +432,7 @@ export const crossfitData = [
         description:
           'The strict press is a foundational barbell movement where the athlete presses the barbell overhead from the shoulders to full arm extension without using any leg drive. This movement focuses solely on upper-body strength, targeting the shoulders, triceps, and upper chest, while requiring core stability to maintain a neutral spine.',
         picture: strictPress,
-        video: 'https://youtu.be/5yWaNOvgFCM',
+        video: '5yWaNOvgFCM',
         category: 'Arms',
       },
       {
@@ -441,7 +441,7 @@ export const crossfitData = [
         description:
           'The push press builds on the strict press by incorporating a small dip and drive with the legs to help propel the barbell overhead. Starting with a slight knee bend, the athlete explosively extends their legs and presses the bar overhead to full arm extension. This movement combines lower-body power with upper-body strength, targeting the shoulders, triceps, and legs.',
         picture: pushPress,
-        video: 'https://youtu.be/iaBVSJm78ko',
+        video: 'iaBVSJm78ko',
         category: 'Arms',
       },
       {
@@ -450,7 +450,7 @@ export const crossfitData = [
         description:
           'The push jerk is a dynamic overhead movement that uses the legs for both driving the barbell upward and receiving it in a partial squat position. After a quick dip and explosive drive, the athlete drops under the bar into a bent-knee position and locks the bar overhead. This technique allows the athlete to lift heavier weights by utilizing speed, power, and coordination. It targets the shoulders, triceps, legs, and core.',
         picture: pushJerk,
-        video: 'https://youtu.be/VrHNJXoSyXw',
+        video: 'VrHNJXoSyXw',
         category: 'Arms',
       },
       {
@@ -459,7 +459,7 @@ export const crossfitData = [
         description:
           'A wall walk involves walking your feet up a wall and simultaneously moving your hands closer to the wall, transitioning from a plank position to an inverted handstand-like posture. It is performed slowly and with control, making it a safe and effective way to strengthen your upper body, improve core stability, and practice being upside-down.It is a movement that challenges your strength, stability, coordination, and mental focus, all while helping you develop key skills for advanced gymnastics and handstand work.',
         picture: wallWalk,
-        video: 'https://youtu.be/2TnX8j29tRY',
+        video: '2TnX8j29tRY',
         category: 'Arms',
       },
     ],
@@ -476,7 +476,7 @@ export const crossfitData = [
         description:
           'The deadlift is a great way to build strong legs and butt. In a deadlift, you lift weight from the ground to thigh level using primarily your leg and hip muscles, but with the assistance of most of the large muscle groups of your body. The deadlift is usually performed with a bar and plates or a fixed barbell, but you can do it with dumbbells. ',
         picture: deadLift,
-        video: 'https://youtu.be/1ZXobu7JvvE',
+        video: '1ZXobu7JvvE',
         category: 'Back',
       },
       {
@@ -485,7 +485,7 @@ export const crossfitData = [
         description:
           'The strict pull-up is a foundational upper-body strength exercise where the athlete pulls themselves up from a hanging position on a bar until their chin is above the bar, using only the strength of their arms and back. It is performed without any swinging or momentum, focusing on building raw strength and control in the upper body.',
         picture: strictPullUps,
-        video: 'https://youtu.be/HRV5YKKaeVw',
+        video: 'HRV5YKKaeVw',
         category: 'Back',
       },
       {
@@ -494,7 +494,7 @@ export const crossfitData = [
         description:
           'The chest-to-bar pull-up is an advanced variation of the pull-up where the athlete pulls their body high enough so that their chest touches the bar. It can be performed strictly or with a kipping motion, requiring greater pulling strength, range of motion, and control compared to a standard pull-up.',
         picture: chestToBar,
-        video: 'https://youtu.be/AyPTCEXTjOo',
+        video: 'AyPTCEXTjOo',
         category: 'Back',
       },
       {
@@ -503,7 +503,7 @@ export const crossfitData = [
         description:
           'The muscle-up is a high-skill gymnastics movement where the athlete transitions from a pull-up into a dip position on a bar or rings. Starting from a hanging position, the athlete pulls up explosively, transitions over the bar or rings, and finishes by pressing into a lockout position. Muscle-ups develop upper-body pulling and pressing strength, as well as coordination and body control.',
         picture: muscleUps,
-        video: 'https://youtu.be/OCg3UXgzftc',
+        video: 'OCg3UXgzftc',
         category: 'Back',
       },
       {
@@ -512,7 +512,7 @@ export const crossfitData = [
         description:
           'The rope climb is a functional movement where the athlete ascends a vertical rope using both their arms and legs for assistance. The movement requires grip strength, upper-body pulling power, and efficient leg technique ,such as the J-hook or S-hook, to conserve energy. Rope climbs build total-body strength and endurance, making them a staple in functional fitness workouts.',
         picture: ropeClimbs,
-        video: 'https://youtu.be/Pa4QUC9AvuA',
+        video: 'Pa4QUC9AvuA',
         category: 'Back',
       },
       {
@@ -521,7 +521,7 @@ export const crossfitData = [
         description:
           'The barbell row is a strength exercise targeting the back and arms. It involves bending at the hips while keeping the back flat, holding a barbell with an overhand or underhand grip, and pulling it toward the torso. This movement builds upper-back strength, focusing on the lats, traps, and rear deltoids, while also engaging the core and biceps.',
         picture: barbellRow,
-        video: 'https://youtu.be/9Gf-Ourup_k',
+        video: '9Gf-Ourup_k',
         category: 'Back',
       },
       {
@@ -530,7 +530,7 @@ export const crossfitData = [
         description:
           'The dumbbell row is a single-arm strength exercise performed with a dumbbell. The athlete braces one hand on a bench or support while pulling the dumbbell toward their torso with the other arm. This unilateral movement strengthens the lats, traps, and biceps while also improving balance and core stability.',
         picture: dumbbellRow,
-        video: 'https://youtu.be/xl1YiqQY2vA',
+        video: 'xl1YiqQY2vA',
         category: 'Back',
       },
       {
@@ -539,7 +539,7 @@ export const crossfitData = [
         description:
           'A wall walk involves walking your feet up a wall and simultaneously moving your hands closer to the wall, transitioning from a plank position to an inverted handstand-like posture. It is performed slowly and with control, making it a safe and effective way to strengthen your upper body, improve core stability, and practice being upside-down.It is a movement that challenges your strength, stability, coordination, and mental focus, all while helping you develop key skills for advanced gymnastics and handstand work.',
         picture: wallWalk,
-        video: 'https://youtu.be/2TnX8j29tRY',
+        video: '2TnX8j29tRY',
         category: 'Back',
       },
     ],
@@ -555,7 +555,7 @@ export const crossfitData = [
         description:
           'The kettlebell swing is a powerful hip-hinge movement that develops explosive power, endurance, and posterior chain strength. The athlete swings a kettlebell from between the legs to chest level (Russian swing) or overhead (American swing), driven by the hips rather than the arms.',
         picture: swing,
-        video: 'https://youtu.be/mKDIuUbH94Q',
+        video: 'mKDIuUbH94Q',
         category: 'Shoulders',
       },
       {
@@ -564,7 +564,7 @@ export const crossfitData = [
         description:
           'The handstand push-up is an advanced gymnastics movement performed upside-down. While in a handstand position (against a wall or freestanding), the athlete lowers their head to the ground by bending their elbows, then presses back up to full extension. This movement builds upper-body pushing strength, balance, and coordination, with a strong focus on the shoulders, triceps, and core.',
         picture: hspu,
-        video: 'https://youtu.be/9wIkPCS4Mbo',
+        video: '9wIkPCS4Mbo',
         category: 'Shoulders',
       },
       {
@@ -573,7 +573,7 @@ export const crossfitData = [
         description:
           'The split jerk is a dynamic weightlifting movement used to lift a barbell overhead with maximum efficiency and stability. It involves a powerful drive from the legs to propel the barbell overhead, followed by a split stance to stabilize the weight in the final position. The split jerk is an advanced movement that requires strength, coordination, and balance. ',
         picture: splitJerk,
-        video: 'https://youtu.be/GUDkOtraHHY',
+        video: 'GUDkOtraHHY',
         category: 'Shoulders',
       },
       {
@@ -582,7 +582,7 @@ export const crossfitData = [
         description:
           'The push jerk is a dynamic overhead movement that uses the legs for both driving the barbell upward and receiving it in a partial squat position. After a quick dip and explosive drive, the athlete drops under the bar into a bent-knee position and locks the bar overhead. This technique allows the athlete to lift heavier weights by utilizing speed, power, and coordination. It targets the shoulders, triceps, legs, and core.',
         picture: pushJerk,
-        video: 'https://youtu.be/VrHNJXoSyXw',
+        video: 'VrHNJXoSyXw',
         category: 'Shoulders',
       },
       {
@@ -591,7 +591,7 @@ export const crossfitData = [
         description:
           'The push press builds on the strict press by incorporating a small dip and drive with the legs to help propel the barbell overhead. Starting with a slight knee bend, the athlete explosively extends their legs and presses the bar overhead to full arm extension. This movement combines lower-body power with upper-body strength, targeting the shoulders, triceps, and legs.',
         picture: pushPress,
-        video: 'https://youtu.be/iaBVSJm78ko',
+        video: 'iaBVSJm78ko',
         category: 'Shoulders',
       },
       {
@@ -600,7 +600,7 @@ export const crossfitData = [
         description:
           'The bench press or chest press is a weight training exercise where a person presses a weight upwards while lying horizontally on a weight training bench. To improve upper body strength, power, and endurance for athletic, occupational, and functional performance as well as muscle development, the barbell bench press is frequently used.',
         picture: benchPress,
-        video: 'https://youtu.be/SCVCLChPQFY',
+        video: 'SCVCLChPQFY',
         category: 'Shoulders',
       },
       {
@@ -609,7 +609,7 @@ export const crossfitData = [
         description:
           'The dip is a bodyweight movement performed on parallel bars or a similar surface. The athlete lowers their body by bending their elbows until their shoulders are just below their elbows, then pushes back up to full extension. Dips primarily target the triceps, chest, and shoulders, building strength and stability in the upper body.',
         picture: dips,
-        video: 'https://youtu.be/o2qX3Zb5mvg',
+        video: 'o2qX3Zb5mvg',
         category: 'Shoulders',
       },
       {
@@ -618,7 +618,7 @@ export const crossfitData = [
         description:
           'The snatch is a dynamic Olympic weightlifting exercise where a barbell is lifted from the ground to overhead in one explosive motion. It requires a combination of strength, speed, mobility, and precision, making it one of the most technical and athletic movements in weightlifting. The snatch develops full-body power, coordination, and balance, engaging muscles from the legs and core to the shoulders and arms.',
         picture: squatSnatch,
-        video: 'https://youtu.be/GhxhiehJcQY',
+        video: 'GhxhiehJcQY',
         category: 'Shoulders',
       },
       {
@@ -627,7 +627,7 @@ export const crossfitData = [
         description:
           'The overhead squat is the ultimate core exercise and peerless in developing effective athletic movement. This functional gem trains for efficient transfer of energy from large to small body parts and improves functional flexibility. Similarly, it develops the squat by amplifying and cruelly punishing faults in posture, movement, and stability. The overhead squat is to midline control, stability and balance what the clean and snatch are to power—unsurpassed.',
         picture: ohs,
-        video: 'https://youtu.be/pn8mqlG0nkE?si=CPZvCaA2EKomYoq6',
+        video: 'pn8mqlG0nkE?si=CPZvCaA2EKomYoq6',
         category: 'Shoulders',
       },
       {
@@ -636,7 +636,7 @@ export const crossfitData = [
         description:
           'The thruster is a powerful, full-body movement that combines a front squat and an overhead press into one fluid motion. The athlete starts with the barbell resting on their shoulders in a front-rack position, performs a deep front squat, and explosively drives upward, using the momentum from the squat to press the bar overhead to full arm extension. The thruster targets the legs, shoulders, and core while also building explosive power and endurance. It’s commonly used in CrossFit workouts due to its intensity and efficiency.',
         picture: thruster,
-        video: 'https://youtu.be/L219ltL15zk',
+        video: 'L219ltL15zk',
         category: 'Shoulders',
       },
     ],
@@ -653,7 +653,7 @@ export const crossfitData = [
         description:
           'The kipping pull-up is a dynamic variation of the pull-up that uses momentum generated from a controlled swinging motion, a kip, to propel the body upward. This movement allows for higher repetition pull-ups, making it efficient in functional fitness workouts, while still engaging the back, shoulders, and core.',
         picture: kippingPullUps,
-        video: 'https://youtu.be/lzRo-4pq_AY',
+        video: 'lzRo-4pq_AY',
         category: 'Gymnastics',
       },
       {
@@ -662,7 +662,7 @@ export const crossfitData = [
         description:
           'The chest-to-bar pull-up is an advanced variation of the pull-up where the athlete pulls their body high enough so that their chest touches the bar. It can be performed strictly or with a kipping motion, requiring greater pulling strength, range of motion, and control compared to a standard pull-up.',
         picture: chestToBar,
-        video: 'https://youtu.be/AyPTCEXTjOo',
+        video: 'AyPTCEXTjOo',
         category: 'Gymnastics',
       },
       {
@@ -671,7 +671,7 @@ export const crossfitData = [
         description:
           'The butterfly pull-up is a highly efficient, cyclical pull-up variation used in functional fitness. It involves a continuous circular motion of the body to rapidly cycle between reps, minimizing time spent hanging on the bar. This technique requires significant coordination, timing, and shoulder strength, making it ideal for high-repetition workouts.',
         picture: butterflyPullUps,
-        video: 'https://youtu.be/U_MhBXnlInE',
+        video: 'U_MhBXnlInE',
         category: 'Gymnastics',
       },
       {
@@ -680,7 +680,7 @@ export const crossfitData = [
         description:
           'The muscle-up is a high-skill gymnastics movement where the athlete transitions from a pull-up into a dip position on a bar or rings. Starting from a hanging position, the athlete pulls up explosively, transitions over the bar or rings, and finishes by pressing into a lockout position. Muscle-ups develop upper-body pulling and pressing strength, as well as coordination and body control.',
         picture: muscleUps,
-        video: 'https://youtu.be/OCg3UXgzftc',
+        video: 'OCg3UXgzftc',
         category: 'Gymnastics',
       },
       {
@@ -689,7 +689,7 @@ export const crossfitData = [
         description:
           'A dynamic movement using a kipping motion to bring your toes to the pull-up bar. Start hanging from the bar, initiate a controlled kip by alternating between arch and hollow body positions, then use momentum and core strength to lift your legs and touch your toes to the bar. Reset into the kip for continuous reps.',
         picture: t2b,
-        video: 'https://youtu.be/6dHvTlsMvNY',
+        video: '6dHvTlsMvNY',
         category: 'Gymnastics',
       },
       {
@@ -698,7 +698,7 @@ export const crossfitData = [
         description:
           'The handstand push-up is an advanced gymnastics movement performed upside-down. While in a handstand position (against a wall or freestanding), the athlete lowers their head to the ground by bending their elbows, then presses back up to full extension. This movement builds upper-body pushing strength, balance, and coordination, with a strong focus on the shoulders, triceps, and core.',
         picture: hspu,
-        video: 'https://youtu.be/9wIkPCS4Mbo',
+        video: '9wIkPCS4Mbo',
         category: 'Gymnastics',
       },
       {
@@ -707,7 +707,7 @@ export const crossfitData = [
         description:
           'The handstand walk is an advanced gymnastics skill that tests balance, coordination, shoulder strength, and spatial awareness. It involves walking forward while inverted on your hands. Kick up into a handstand, shift your weight onto one hand, and step forward with the other. Alternate hands while keeping your core tight and body aligned, using your fingers to maintain balance. Gradually progress to longer distances.',
         picture: hsw,
-        video: 'https://youtu.be/FdgJ9jZIT-Q',
+        video: 'FdgJ9jZIT-Q',
         category: 'Gymnastics',
       },
       {
@@ -716,7 +716,7 @@ export const crossfitData = [
         description:
           'The rope climb is a functional movement where the athlete ascends a vertical rope using both their arms and legs for assistance. The movement requires grip strength, upper-body pulling power, and efficient leg technique ,such as the J-hook or S-hook to conserve energy. Rope climbs build total-body strength and endurance, making them a staple in functional fitness workouts.',
         picture: ropeClimbs,
-        video: 'https://youtu.be/Pa4QUC9AvuA',
+        video: 'Pa4QUC9AvuA',
         category: 'Gymnastics',
       },
       {
@@ -725,7 +725,7 @@ export const crossfitData = [
         description:
           "A Pistol Squat is a squat performed on one leg. It's an advanced strength movement often included in CrossFit workout regimens. Pistol squats test the strength of your core, stabilizing muscles and the entire leg from glutes to ankles.",
         picture: pistols,
-        video: 'https://youtu.be/keSzg7MaoVQ',
+        video: 'keSzg7MaoVQ',
         category: 'Gymnastics',
       },
       {
@@ -734,7 +734,7 @@ export const crossfitData = [
         description:
           'A wall walk involves walking your feet up a wall and simultaneously moving your hands closer to the wall, transitioning from a plank position to an inverted handstand-like posture. It is performed slowly and with control, making it a safe and effective way to strengthen your upper body, improve core stability, and practice being upside-down.It is a movement that challenges your strength, stability, coordination, and mental focus, all while helping you develop key skills for advanced gymnastics and handstand work.',
         picture: wallWalk,
-        video: 'https://youtu.be/2TnX8j29tRY',
+        video: '2TnX8j29tRY',
         category: 'Gymnastics',
       },
     ],
@@ -750,7 +750,7 @@ export const crossfitData = [
         description:
           'A jump rope movement where the rope passes under your feet twice in a single jump. Start with a smooth, controlled rhythm and maintain a slightly higher jump than single unders while keeping your wrists relaxed to generate speed. Focus on consistent timing and avoid excessive arm movement.',
         picture: doubleUnders,
-        video: 'https://youtu.be/82jNjDS19lg',
+        video: '82jNjDS19lg',
         category: 'Skills',
       },
       {
@@ -759,7 +759,7 @@ export const crossfitData = [
         description:
           'A basic jump rope movement where the rope passes under your feet once with each jump. Maintain a steady rhythm with small, controlled hops and use minimal wrist movement to keep the rope spinning smoothly. Ideal for building coordination and conditioning.',
         picture: singleUnder,
-        video: 'https://youtu.be/hCuXYrTOMxI',
+        video: 'hCuXYrTOMxI',
         category: 'Skills',
       },
       {
@@ -768,7 +768,7 @@ export const crossfitData = [
         description:
           'The handstand push-up is an advanced gymnastics movement performed upside-down. While in a handstand position (against a wall or freestanding), the athlete lowers their head to the ground by bending their elbows, then presses back up to full extension. This movement builds upper-body pushing strength, balance, and coordination, with a strong focus on the shoulders, triceps, and core.',
         picture: hspu,
-        video: 'https://youtu.be/9wIkPCS4Mbo',
+        video: '9wIkPCS4Mbo',
         category: 'Skills',
       },
       {
@@ -777,7 +777,7 @@ export const crossfitData = [
         description:
           'The handstand walk is an advanced gymnastics skill that tests balance, coordination, shoulder strength, and spatial awareness. It involves walking forward while inverted on your hands. Kick up into a handstand, shift your weight onto one hand, and step forward with the other. Alternate hands while keeping your core tight and body aligned, using your fingers to maintain balance. Gradually progress to longer distances.',
         picture: hsw,
-        video: 'https://youtu.be/FdgJ9jZIT-Q',
+        video: 'FdgJ9jZIT-Q',
         category: 'Skills',
       },
       {
@@ -786,7 +786,7 @@ export const crossfitData = [
         description:
           'The muscle-up is a high-skill gymnastics movement where the athlete transitions from a pull-up into a dip position on a bar or rings. Starting from a hanging position, the athlete pulls up explosively, transitions over the bar or rings, and finishes by pressing into a lockout position. Muscle-ups develop upper-body pulling and pressing strength, as well as coordination and body control.',
         picture: muscleUps,
-        video: 'https://youtu.be/OCg3UXgzftc',
+        video: 'OCg3UXgzftc',
         category: 'Skills',
       },
       {
@@ -795,7 +795,7 @@ export const crossfitData = [
         description:
           "A Pistol Squat is a squat performed on one leg. It's an advanced strength movement often included in CrossFit workout regimens. Pistol squats test the strength of your core, stabilizing muscles and the entire leg from glutes to ankles.",
         picture: pistols,
-        video: 'https://youtu.be/keSzg7MaoVQ',
+        video: 'keSzg7MaoVQ',
         category: 'Skills',
       },
       {
@@ -804,7 +804,7 @@ export const crossfitData = [
         description:
           'A dynamic movement using a kipping motion to bring your toes to the pull-up bar. Start hanging from the bar, initiate a controlled kip by alternating between arch and hollow body positions, then use momentum and core strength to lift your legs and touch your toes to the bar. Reset into the kip for continuous reps.',
         picture: t2b,
-        video: 'https://youtu.be/6dHvTlsMvNY',
+        video: '6dHvTlsMvNY',
         category: 'Skills',
       },
       {
@@ -813,7 +813,7 @@ export const crossfitData = [
         description:
           'The rope climb is a functional movement where the athlete ascends a vertical rope using both their arms and legs for assistance. The movement requires grip strength, upper-body pulling power, and efficient leg technique ,such as the J-hook or S-hook, to conserve energy. Rope climbs build total-body strength and endurance, making them a staple in functional fitness workouts.',
         picture: ropeClimbs,
-        video: 'https://youtu.be/Pa4QUC9AvuA',
+        video: 'Pa4QUC9AvuA',
         category: 'Skills',
       },
     ],
@@ -827,6 +827,7 @@ export const crossfitData = [
         id: 0,
         name: 'Calories on machines',
         picture: rower,
+        video: 'fxfhQMbATCw',
         description:
           'When CrossFit machines measure calories, they are not directly measuring how many calories you are burning in a workout. Instead, these calories are a standardized unit of work output. Machines like the Assault Bike and Concept2 Rower calculate the amount of energy you generate during exercise based on resistance, distance, and time. In essence, they are quantifying how hard you are working.',
         subCategories: [
@@ -836,7 +837,7 @@ export const crossfitData = [
             description:
               'Calories on the rower are measured based on the power and pace of each stroke. The harder and faster you pull, the more calories you burn. Focus on maintaining a strong pull, efficient leg drive, and consistent rhythm to maximize output. Proper technique and pacing are crucial for sustained calorie output. Sit on the rower, grip the handle, and use your legs to drive the movement while pulling the handle towards your chest, ensuring a full-body motion with each stroke.',
             picture: rower,
-            video: 'https://youtu.be/fxfhQMbATCw',
+            video: 'fxfhQMbATCw',
             category: 'Engine',
           },
           {
@@ -845,7 +846,7 @@ export const crossfitData = [
             description:
               'On the Assault Bike, calories are determined by how hard and fast you pedal while simultaneously driving the handlebars. The air resistance increases with effort, making it more challenging at higher intensities. Engage both your upper and lower body to distribute the workload evenly and maintain maximum efficiency. Pedal hard while simultaneously pushing and pulling the handlebars to engage both your upper and lower body for a full-body, high-intensity effort.',
             picture: assultBike,
-            video: 'https://youtu.be/yvXr-9uRd1o',
+            video: 'yvXr-9uRd1o',
             category: 'Engine',
           },
           {
@@ -854,7 +855,7 @@ export const crossfitData = [
             description:
               'Similar to the Assault Bike, calories on the Echo Bike are calculated based on air resistance. The smoother mechanics of the Echo Bike make it slightly more efficient, but the calorie output is still tied to your effort level. Focus on a strong push-pull motion with your arms and a steady pace with your legs to optimize calorie burn. Pedal steadily while using a push-pull motion with the handlebars, engaging both your legs and arms, and adjusting your pace for sustained intensity.',
             picture: echoBike,
-            video: 'https://youtu.be/9xfUu652CMg',
+            video: '9xfUu652CMg',
             category: 'Engine',
           },
           {
@@ -863,7 +864,7 @@ export const crossfitData = [
             description:
               'Calories on the Ski Erg depend on the force and consistency of your pull. Using a coordinated movement of your arms and core, pull the handles downward in a controlled but powerful motion while hinging at the hips. Engaging your legs slightly for stability and rhythm can help sustain power for more calories. Stand with your knees slightly bent, grab the handles, and pull them downward using your arms, core, and a slight push from your legs to generate force with each stroke.',
             picture: skiErg,
-            video: 'https://youtu.be/44YUR_dln0k',
+            video: '44YUR_dln0k',
             category: 'Engine',
           },
         ],
@@ -874,7 +875,7 @@ export const crossfitData = [
         description:
           'Burpees are a full-body exercise commonly used to build endurance, strength, and cardiovascular fitness. A burpee involves multiple movements performed in one fluid sequence. Begin in a standing position, squat down, place your hands on the ground, jump your feet back into a plank, perform a push-up, then jump your feet forward, and explosively jump into the air with a clap overhead.',
         picture: burpees,
-        video: 'https://youtu.be/auBLPXO8Fww',
+        video: 'auBLPXO8Fww',
         category: 'Engine',
       },
       {
@@ -883,7 +884,7 @@ export const crossfitData = [
         description:
           'A jump rope movement where the rope passes under your feet twice in a single jump. Start with a smooth, controlled rhythm and maintain a slightly higher jump than single unders while keeping your wrists relaxed to generate speed. Focus on consistent timing and avoid excessive arm movement.',
         picture: doubleUnders,
-        video: 'https://youtu.be/82jNjDS19lg',
+        video: '82jNjDS19lg',
         category: 'Engine',
       },
       {
@@ -892,7 +893,7 @@ export const crossfitData = [
         description:
           'A basic jump rope movement where the rope passes under your feet once with each jump. Maintain a steady rhythm with small, controlled hops and use minimal wrist movement to keep the rope spinning smoothly. Ideal for building coordination and conditioning.',
         picture: singleUnder,
-        video: 'https://youtu.be/hCuXYrTOMxI',
+        video: 'hCuXYrTOMxI',
         category: 'Engine',
       },
       {
@@ -901,7 +902,7 @@ export const crossfitData = [
         description:
           'The movement begins as a front squat and follows through to a push press/shove that sends the ball up and forward to the target from which it rebounds back to the throwers outstretched arms where it is “absorbed” back into the squat.',
         picture: wallBall,
-        video: 'https://youtu.be/EqjGKsiIMCE',
+        video: 'EqjGKsiIMCE',
         category: 'Engine',
       },
     ],
@@ -917,7 +918,7 @@ export const crossfitData = [
         description:
           'A static core exercise that targets the abdominals, lower back, and shoulders. The plank hold builds strength and endurance in the core, helping improve stability and posture. Start in a forearm plank position with your body in a straight line from head to heels, keeping your core tight, shoulders over your elbows, and avoiding any sagging or piking of the hips.',
         picture: plank,
-        video: 'https://youtu.be/EPiXN2bkLoQ',
+        video: 'EPiXN2bkLoQ',
         category: 'Core',
       },
       {
@@ -926,7 +927,7 @@ export const crossfitData = [
         description:
           'A core-strengthening movement that engages the entire trunk. The hollow hold emphasizes control and stability, particularly in the abdominal region, improving overall core strength and endurance. Lie on your back with your arms extended overhead and your legs straight. Lift your shoulders and legs off the ground while pressing your lower back into the floor, holding your body in a hollow shape, and keeping your core engaged.',
         picture: hollowHold,
-        video: 'https://youtu.be/p7j02V1fIzU',
+        video: 'p7j02V1fIzU',
         category: 'Core',
       },
       {
@@ -935,7 +936,7 @@ export const crossfitData = [
         description:
           'A dynamic core exercise using the Glute-Ham Developer (GHD) machine. This variation of sit-ups increases the range of motion and works the hip flexors, lower back, and abdominals, enhancing core strength and flexibility.  Using a Glute-Ham Developer (GHD) machine, sit with your feet secured, and lean back, engaging your core. Then, explosively sit up and bring your chest toward your thighs, making sure to control the movement on both the way down and up.',
         picture: ghd,
-        video: 'https://youtu.be/1pbZ8mX2D1U',
+        video: '1pbZ8mX2D1U',
         category: 'Core',
       },
       {
@@ -944,7 +945,7 @@ export const crossfitData = [
         description:
           'A full-body exercise that targets the core, particularly the abs. V-ups require coordination and control to bring both the torso and legs up simultaneously in a V shape, helping develop explosive strength in the core. Lie on your back with your arms extended overhead and legs straight. Simultaneously raise your legs and torso toward each other, reaching your hands to touch your feet, while keeping your legs straight. Lower back down and repeat the motion.',
         picture: vUps,
-        video: 'https://youtu.be/7UVgs18Y1P4',
+        video: '7UVgs18Y1P4',
         category: 'Core',
       },
       {
@@ -953,7 +954,7 @@ export const crossfitData = [
         description:
           'A complex, full-body movement that involves transitioning from lying down to standing while holding a weight overhead. It targets the shoulders, core, hips, and legs, enhancing strength, stability, mobility, and coordination. Start lying on your back, holding a kettlebell or dumbbell in one hand with your arm fully extended. Using the opposite arm to help push yourself up, rise to a standing position, and then reverse the movement back to lying down while keeping the weight overhead throughout.',
         picture: turkishGetUp,
-        video: 'https://youtu.be/saYKvqSscuY',
+        video: 'saYKvqSscuY',
         category: 'Core',
       },
       {
@@ -962,7 +963,7 @@ export const crossfitData = [
         description:
           'A rotational core exercise that targets the obliques (side abs) and helps improve overall core strength and rotational power. The twisting motion challenges the stabilizing muscles of the core and builds endurance for dynamic movements. Sit on the ground with your knees bent and feet off the floor (or on the floor for an easier variation), lean back slightly, and twist your torso from side to side while holding a weight or just clasping your hands, engaging your core throughout.',
         picture: russianTwist,
-        video: 'https://youtu.be/JyUqwkVpsi8',
+        video: 'JyUqwkVpsi8',
         category: 'Core',
       },
       {
@@ -971,7 +972,7 @@ export const crossfitData = [
         description:
           "A Pistol Squat is a squat performed on one leg. It's an advanced strength movement often included in CrossFit workout regimens. Pistol squats test the strength of your core, stabilizing muscles and the entire leg from glutes to ankles.",
         picture: pistols,
-        video: 'https://youtu.be/keSzg7MaoVQ',
+        video: 'keSzg7MaoVQ',
         category: 'Core',
       },
       {
@@ -980,7 +981,7 @@ export const crossfitData = [
         description:
           'A dynamic movement using a kipping motion to bring your toes to the pull-up bar. Start hanging from the bar, initiate a controlled kip by alternating between arch and hollow body positions, then use momentum and core strength to lift your legs and touch your toes to the bar. Reset into the kip for continuous reps.',
         picture: t2b,
-        video: 'https://youtu.be/6dHvTlsMvNY',
+        video: '6dHvTlsMvNY',
         category: 'Core',
       },
       {
@@ -989,7 +990,7 @@ export const crossfitData = [
         description:
           'A wall walk involves walking your feet up a wall and simultaneously moving your hands closer to the wall, transitioning from a plank position to an inverted handstand-like posture. It is performed slowly and with control, making it a safe and effective way to strengthen your upper body, improve core stability, and practice being upside-down.It is a movement that challenges your strength, stability, coordination, and mental focus, all while helping you develop key skills for advanced gymnastics and handstand work.',
         picture: wallWalk,
-        video: 'https://youtu.be/2TnX8j29tRY',
+        video: '2TnX8j29tRY',
         category: 'Core',
       },
     ],

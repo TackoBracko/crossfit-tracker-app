@@ -1,27 +1,27 @@
 import classes from './CrossfitCategories.module.css';
-import { NavLink, Link } from 'react-router-dom';
-import lifting from './../../assets/icons/CrossfitIcons/Lift.png';
-import legs from './../../assets/icons/CrossfitIcons/Legs.png';
-import arms from './../../assets/icons/CrossfitIcons/Arms.png';
-import shoulders from './../../assets/icons/CrossfitIcons/Shoulders.png';
-import back from './../../assets/icons/CrossfitIcons/Back3.png';
-import gymnastics from './../../assets/icons/CrossfitIcons/Gymnastics.png';
-import skills from './../../assets/icons/CrossfitIcons/Skills2.png';
-import engine from './../../assets/icons/CrossfitIcons/Engine2.png';
-import core from './../../assets/icons/CrossfitIcons/Abs.png';
-import BackBtn from '../../components/Icons/BackBtnIcon';
+import { NavLink } from 'react-router-dom';
+import lifting from './../../assets/icons/CrossfitIcons/Lifting.svg';
+import legs from './../../assets/icons/CrossfitIcons/Legs.svg';
+import arms from './../../assets/icons/CrossfitIcons/Arms.svg';
+import shoulders from './../../assets/icons/CrossfitIcons/Shoulder.svg';
+import back from './../../assets/icons/CrossfitIcons/Back.svg';
+import gymnastics from './../../assets/icons/CrossfitIcons/Gymnastics.svg';
+import skills from './../../assets/icons/CrossfitIcons/Skills.svg';
+import engine from './../../assets/icons/CrossfitIcons/Engine.svg';
+import core from './../../assets/icons/CrossfitIcons/Abs.svg';
+//import BackBtn from '../../components/Icons/BackBtnIcon';
 
 export default function CrossfitCategories() {
   return (
     <>
-      <header className={classes.categories}>
+      {/*<header className={classes.categories}>
         <Link to="/" className={classes.categoryBackBtn}>
           <BackBtn />
         </Link>
-        <h1>Crossfit Categories</h1>
-      </header>
+      </header>*/}
 
       <section className={classes.categorySection}>
+        <h1>Crossfit Categories</h1>
         <div className={classes.categoryBox}>
           <NavLink to="/categories/1">
             <div className={classes.categoryCard}>
@@ -52,8 +52,8 @@ export default function CrossfitCategories() {
         <div className={classes.categoryBox}>
           <NavLink to="/categories/4">
             <div className={classes.categoryCard}>
-              <img src={shoulders} alt="Shoulder Icon" />
-              <h3>Shoulders</h3>
+              <img src={back} alt="Back Icon" />
+              <h3>Back</h3>
             </div>
           </NavLink>
         </div>
@@ -61,8 +61,8 @@ export default function CrossfitCategories() {
         <div className={classes.categoryBox}>
           <NavLink to="/categories/5">
             <div className={classes.categoryCard}>
-              <img src={back} alt="Back Icon" />
-              <h3>Back</h3>
+              <img src={shoulders} alt="Shoulder Icon" />
+              <h3>Shoulders</h3>
             </div>
           </NavLink>
         </div>
