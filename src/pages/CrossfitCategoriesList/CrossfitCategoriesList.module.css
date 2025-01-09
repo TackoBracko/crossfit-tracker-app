@@ -47,7 +47,7 @@
   border-radius: 12px;
 }
 
-.categoryBackBtn {
+/*.categoryBackBtn {
   border: none;
   border-radius: 50px;
   background-color: rgba(0, 0, 0, 0.2);
@@ -57,4 +57,4 @@
 
 .categoryBackBtn:hover {
   background: var(--secondary-btn-hover);
-}
+}*/

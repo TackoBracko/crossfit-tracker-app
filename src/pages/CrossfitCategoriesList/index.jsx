@@ -1,7 +1,9 @@
 import { crossfitData } from '../../data/CrossfitData.js';
 import { Link, useParams } from 'react-router-dom';
 import classes from './CrossfitCategoriesList.module.css';
-import BackBtn from '../../components/Icons/BackBtnIcon.jsx';
+import Button from '../../components/Button/index.jsx';
+import LeftIcon from '../../components/Icons/LeftIcon.jsx';
+//import BackBtn from '../../components/Icons/BackBtnIcon.jsx';
 
 export default function CrossfitCategoriesList() {
   const { categoryId } = useParams();
@@ -13,8 +15,8 @@ export default function CrossfitCategoriesList() {
     <>
       <header className={classes.categoryListHeader}>
         <div className={classes.categoryHeader}>
-          <Link to="/categories" className={classes.categoryBackBtn}>
-            <BackBtn />
+          <Link to="/categories">
+            <Button variation="secondary" iconLeft={<LeftIcon />} />
           </Link>
           <h1>{selectedCategory.title}</h1>
         </div>
