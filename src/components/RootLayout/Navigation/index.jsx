@@ -4,11 +4,11 @@ import {
   //useLoaderData,
 } from 'react-router-dom';
 import classes from './Navigation.module.css';
-import homeIcon from '../../../assets/icons/Home.svg';
-import profileIcon from '../../../assets/icons/Ellipse.svg';
+import homeIcon from '../../../assets/icons/AppIcons/Home.svg';
+import profileIcon from '../../../assets/icons/AppIcons/Ellipse.svg';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
-import DiaryIcon from '../../Icons/DiaryIcon';
+import ExercisesIcon from '../../Icons/ExercisesIcon';
 import MealPlansIcon from '../../Icons/MealPlansIcon';
 
 export default function Navigation() {
@@ -27,8 +27,8 @@ export default function Navigation() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="diary">
-                  <DiaryIcon />
+                <NavLink to="categories">
+                  <ExercisesIcon />
                 </NavLink>
               </li>
               <li>

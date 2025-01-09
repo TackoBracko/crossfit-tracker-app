@@ -6,6 +6,7 @@ import Button from '../../components/Button';
 import InputField from '../../components/Input';
 import RightIcon from '../../components/Icons/RightIcon';
 import { AuthContext } from '../../components/Context/AuthContext';
+import { UserContext } from '../../components/Context/UserContext';
 
 export default function LogInPage() {
   const emailRef = useRef(null);
@@ -16,6 +17,7 @@ export default function LogInPage() {
   const [errorMessage, setErrorMessage] = useState(false);
 
   const { login } = useContext(AuthContext);
+  const { user } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleEmailBlur = () => {
@@ -61,7 +63,7 @@ export default function LogInPage() {
     <>
       <div className={classes.loginHeader}>
         <h3>
-          Welcome back, <span>Sarah</span>
+          Welcome back, <span>{user.name}</span>
         </h3>
       </div>
 
