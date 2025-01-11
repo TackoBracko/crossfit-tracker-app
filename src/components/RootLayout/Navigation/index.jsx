@@ -10,7 +10,7 @@ import ExercisesIcon from '../../Icons/ExercisesIcon';
 import MealPlansIcon from '../../Icons/MealPlansIcon';
 import HomeIcon from '../../Icons/HomeIcon';
 import ProfileIcon from '../../Icons/ProfileIcon';
-import UserPlanIcon from '../../Icons/UserPlanIcon';
+import UserCalendarIcon from '../../Icons/UserCalendarIcon';
 
 export default function Navigation() {
   //const isUserLogged = useRouteLoaderData('root');
@@ -38,8 +38,8 @@ export default function Navigation() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="userdailyplan">
-                  <UserPlanIcon />
+                <NavLink to="usercalendar">
+                  <UserCalendarIcon />
                 </NavLink>
               </li>
               <li>
