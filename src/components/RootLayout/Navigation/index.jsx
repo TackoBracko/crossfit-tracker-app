@@ -4,12 +4,13 @@ import {
   //useLoaderData,
 } from 'react-router-dom';
 import classes from './Navigation.module.css';
-import homeIcon from '../../../assets/icons/AppIcons/Home.svg';
-import profileIcon from '../../../assets/icons/AppIcons/Ellipse.svg';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import ExercisesIcon from '../../Icons/ExercisesIcon';
 import MealPlansIcon from '../../Icons/MealPlansIcon';
+import HomeIcon from '../../Icons/HomeIcon';
+import ProfileIcon from '../../Icons/ProfileIcon';
+import UserPlanIcon from '../../Icons/UserPlanIcon';
 
 export default function Navigation() {
   //const isUserLogged = useRouteLoaderData('root');
@@ -23,7 +24,7 @@ export default function Navigation() {
             <ul className={classes.loggedNav}>
               <li>
                 <NavLink to="">
-                  <img src={homeIcon} alt="Home Icon" />
+                  <HomeIcon />
                 </NavLink>
               </li>
               <li>
@@ -37,8 +38,13 @@ export default function Navigation() {
                 </NavLink>
               </li>
               <li>
+                <NavLink to="userdailyplan">
+                  <UserPlanIcon />
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to="profile">
-                  <img src={profileIcon} alt="Profile Icon" />
+                  <ProfileIcon />
                 </NavLink>
               </li>
             </ul>

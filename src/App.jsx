@@ -11,6 +11,7 @@ import CrossfitCategories from './pages/CrossfitCategories';
 import CrossfitCategoriesList from './pages/CrossfitCategoriesList';
 import CrossfitMovement from './pages/CrossfitMovement';
 import MealPlans from './pages/MealPlans';
+import UserDailyPlan from './pages/UserDailyPlan';
 import { UserDataContextProvider } from './components/Context/UserContext';
 import { AuthProvider } from './components/Context/AuthContext';
 import { ProtectedRoutes, PublicRoutes } from './components/Context/AuthRoutesComponent';
@@ -38,6 +39,7 @@ const router = createBrowserRouter(
         <Route path="/categories/:categoryId" element={<CrossfitCategoriesList />} />
         <Route path="/categories/:categoryId/exercise/:exerciseId" element={<CrossfitMovement />} />
         <Route path="meals" element={<MealPlans />} />
+        <Route path="userdailyplan" element={<UserDailyPlan />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="edit" element={<EditProfilePage />} />
       </Route>

@@ -24,28 +24,32 @@
 
 .secondary {
   background-color: var(--secondary-backgroud-btn);
-  padding: 10px;
   cursor: pointer;
   width: 36px;
   height: 36px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.secondary img {
-  width: 10px;
-  height: 15px;
+  border-radius: 50%;
+  border: none;
+  /*box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);*/
 }
 
 .secondary:hover {
   background-color: var(--secondary-btn-hover);
+  border: 1px solid var(--primary-btn-hover);
+  transform: scale(1.1);
 }
 
-.backBtnIcon {
+/*.secondary img {
+  width: 10px;
+  height: 15px;
+}*/
+
+/*.backBtnIcon {
   display: block;
   margin: auto;
-}
+}*/
 
 .tertiary {
   background: none;
