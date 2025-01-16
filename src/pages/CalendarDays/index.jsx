@@ -1,7 +1,7 @@
 import classes from './CalendarDays.module.css';
 
-export default function CalendarDays(props) {
-  const firstDayOfMonth = new Date(props.day.getFullYear(), props.day.getMonth(), 1);
+export default function CalendarDays({ day, changeSelectedDay }) {
+  const firstDayOfMonth = new Date(day.getFullYear(), day.getMonth(), 1);
   const weekdayOfFirstDay = firstDayOfMonth.getDay();
   const currentDays = [];
 
@@ -15,11 +15,11 @@ export default function CalendarDays(props) {
     }
 
     let calendarDay = {
-      currentMonth: firstDayOfMonth.getMonth() === props.day.getMonth(),
+      currentMonth: firstDayOfMonth.getMonth(),
       date: new Date(firstDayOfMonth),
       month: firstDayOfMonth.getMonth(),
       number: firstDayOfMonth.getDate(),
-      selected: firstDayOfMonth.toDateString() === props.day.toDateString(),
+      selected: firstDayOfMonth.toDateString(),
       year: firstDayOfMonth.getFullYear(),
     };
 
@@ -30,7 +30,7 @@ export default function CalendarDays(props) {
     <div className={classes.dates}>
       {currentDays.map((day, index) => {
         return (
-          <div key={index} onClick={() => props.changeSelectedDay(day)}>
+          <div key={index} onDoubleClick={() => changeSelectedDay(day)} className={classes.date}>
             <p>{day.number}</p>
           </div>
         );

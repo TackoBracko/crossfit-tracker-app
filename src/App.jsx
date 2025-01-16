@@ -23,6 +23,7 @@ const router = createBrowserRouter(
         <Route element={<ProtectedRoutes />}>
           <Route index element={<HomePage />} />
           <Route path="categories" element={<CrossfitCategories />} />
+          <Route path="usercalendar" element={<UserCalendar />} />
         </Route>
 
         <Route element={<PublicRoutes />}>
@@ -39,7 +40,6 @@ const router = createBrowserRouter(
         <Route path="/categories/:categoryId" element={<CrossfitCategoriesList />} />
         <Route path="/categories/:categoryId/exercise/:exerciseId" element={<CrossfitMovement />} />
         <Route path="meals" element={<MealPlans />} />
-        <Route path="usercalendar" element={<UserCalendar />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="edit" element={<EditProfilePage />} />
       </Route>

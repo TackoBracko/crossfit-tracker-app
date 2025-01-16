@@ -117,7 +117,7 @@ export default function EditiProfilePage() {
     <>
       <header className={classes.editHeader}>
         <Link to="/profile">
-          <Button variation="secondary" iconRight={<LeftIcon />} />
+          <Button variation="secondary" iconLeft={<LeftIcon />} />
         </Link>
 
         <h1>Edit Profile</h1>

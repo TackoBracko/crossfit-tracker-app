@@ -5,4 +5,10 @@
   padding: 10px;
   border-radius: 4px;
   cursor: pointer;
+  text-align: center;
+}
+
+.date:hover {
+  background-color: var(--primary-background-btn);
+  color: var(--tertiary-text);
 }

@@ -16,6 +16,22 @@ export default function UserCalendar() {
     togglePopUp(true);
   };
 
+  const changeToPrevMonth = () => {
+    setSelectedDay((pDate) => {
+      const pMonth = pDate.getMonth() - 1;
+      const pYear = pDate.getFullYear();
+      return new Date(pYear, pMonth);
+    });
+  };
+
+  const changeToNextMonth = () => {
+    setSelectedDay((pDate) => {
+      const nMonth = pDate.getMonth() + 1;
+      const nYear = pDate.getFullYear();
+      return new Date(nYear, nMonth);
+    });
+  };
+
   const togglePopUp = () => {
     setShowPopUp(!showPopUp);
   };
@@ -23,9 +39,13 @@ export default function UserCalendar() {
   return (
     <>
       <header className={classes.calendarHeader}>
-        <CalendarBackIcon />
+        <div onClick={changeToPrevMonth}>
+          <CalendarBackIcon />
+        </div>
         <h1>{months[selectedDate.getMonth()]}</h1>
-        <CalendarForwardIcon />
+        <div onClick={changeToNextMonth}>
+          <CalendarForwardIcon />
+        </div>
       </header>
 
       <section className={classes.calendarSection}>
@@ -38,12 +58,12 @@ export default function UserCalendar() {
       </section>
 
       {showPopUp && (
-        <div onClick={togglePopUp} className={classes.popupDisplay}>
+        <div className={classes.popupDisplay}>
           <div className={classes.popupText}>
-            <h2>Daily plan</h2>
             <button onClick={togglePopUp} className={classes.closeBtn}>
-              Close
+              X
             </button>
+            <h2>Daily plan</h2>
           </div>
         </div>
       )}

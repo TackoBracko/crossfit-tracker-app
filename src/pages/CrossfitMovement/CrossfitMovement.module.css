@@ -11,11 +11,19 @@
   position: absolute;
   top: 20px;
   left: 20px;
+  background-color: rgba(221, 221, 221, 1);
   border: none;
   border-radius: 50px;
-  background-color: rgba(221, 221, 221, 1);
-  width: 32px;
-  padding: 10px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.movementHeader a:hover {
+  background-color: var(--secondary-btn-hover);
 }
 
 .movementInfo {
@@ -109,10 +117,4 @@
 
 .subCategoryBox img {
   border-radius: 12px;
-}
-
-iframe {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
 }
