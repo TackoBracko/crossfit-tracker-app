@@ -1,0 +1,44 @@
+.menuItem {
+  padding: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.menuItem:hover {
+  color: var(--tertiary-text);
+  background-color: var(--primary-background-btn);
+}
+
+.subMenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #f0f0f0;
+  list-style: none;
+  padding: 4px;
+  margin-left: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-10px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.subMenuItem:hover {
+  background-color: var(--primary-background-btn);
+}
+
+.menuItem:hover .subMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.iconWrapper {
+  cursor: pointer;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

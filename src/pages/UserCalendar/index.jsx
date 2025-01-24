@@ -1,23 +1,41 @@
+import { useRef, useState } from 'react';
+import { crossfitData } from '../../data/CrossfitData';
 import classes from './UserCalendar.module.css';
-import { useState } from 'react';
+import style from './../../components/CalendarModal/CalendarModal.module.css';
 import CalendarBackIcon from '../../components/Icons/CalendarBackIcon';
 import CalendarForwardIcon from '../../components/Icons/CalendarForwardIcon';
 import CalendarDays from '../CalendarDays';
+import Modal from '../../components/CalendarModal';
+import DropDownArrow from '../../components/Icons/DropDownArrow';
 
 export default function UserCalendar() {
   const daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-  const [selectedDate, setSelectedDay] = useState(new Date());
-  const [showPopUp, setShowPopUp] = useState(false);
+  const modalRef = useRef();
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [isDropdownOpen, setIsDropDownOpen] = useState(false);
+  //const [notes, setNotes] = useState('');
+
+  const openModal = () => {
+    modalRef.current.open();
+  };
+
+  const closeModal = () => {
+    modalRef.current.close();
+  };
 
   const changeSelectedDay = (day) => {
-    setSelectedDay(new Date(day.year, day.month, day.number));
-    togglePopUp(true);
+    setSelectedDate(new Date(day.year, day.month, day.number));
+    openModal();
+  };
+
+  const toggleDropdown = () => {
+    setIsDropDownOpen(!isDropdownOpen);
   };
 
   const changeToPrevMonth = () => {
-    setSelectedDay((pDate) => {
+    setSelectedDate((pDate) => {
       const pMonth = pDate.getMonth() - 1;
       const pYear = pDate.getFullYear();
       return new Date(pYear, pMonth);
@@ -25,15 +43,11 @@ export default function UserCalendar() {
   };
 
   const changeToNextMonth = () => {
-    setSelectedDay((pDate) => {
+    setSelectedDate((pDate) => {
       const nMonth = pDate.getMonth() + 1;
       const nYear = pDate.getFullYear();
       return new Date(nYear, nMonth);
     });
-  };
-
-  const togglePopUp = () => {
-    setShowPopUp(!showPopUp);
   };
 
   return (
@@ -57,24 +71,44 @@ export default function UserCalendar() {
         <CalendarDays day={selectedDate} changeSelectedDay={changeSelectedDay} />
       </section>
 
-      {showPopUp && (
-        <div className={classes.popupDisplay}>
-          <div className={classes.popupText}>
-            <button onClick={togglePopUp} className={classes.closeBtn}>
-              X
-            </button>
-            <h2>Daily plan</h2>
+      <Modal ref={modalRef}>
+        <div className={style.modalOverlay}>
+          <div className={style.modalContent}>
+            <h2>Plan for {selectedDate.toDateString()} </h2>
+
+            <div className={style.dropdownMenu}>
+              <h3 onClick={toggleDropdown}>
+                Categories <DropDownArrow />
+              </h3>
+              {isDropdownOpen && (
+                <ul className={style.dropdownMenuList}>
+                  {crossfitData.map((category) => {
+                    return (
+                      <li key={category.id} onClick={() => console.log(`${category.title}`)}>
+                        {category.title}
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </div>
+
+            <div className={style.dropdownMenu}>
+              <h3>Exercises</h3>
+            </div>
+
+            <div className="textarea">
+              <h3>Notes</h3>
+              <textarea placeholder="Add your notes here..." />
+            </div>
+
+            <div className={style.modalBtn}>
+              <button>Add</button>
+              <button onClick={closeModal}>Cancle</button>
+            </div>
           </div>
         </div>
-      )}
-
-      <section className={classes.planSection}>
-        <h2>My Plan</h2>
-        <div className={`${classes.planSelector} ${classes.selected ? classes.selected : ''}`}>
-          <p>All workouts</p>
-          <p>Legs</p>
-        </div>
-      </section>
+      </Modal>
     </>
   );
 }

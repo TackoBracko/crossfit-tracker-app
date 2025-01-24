@@ -47,6 +47,19 @@
   border-radius: 12px;
 }
 
+/*
+.imgContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+.imgContainer img {
+  width: 300px;
+  height: 200px;
+}
+*/
+
 /*.categoryBackBtn {
   border: none;
   border-radius: 50px;
