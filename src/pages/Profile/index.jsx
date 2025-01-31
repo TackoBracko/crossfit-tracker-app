@@ -1,13 +1,8 @@
-//import profilePic from './../../assets/pictures/ProfilePic.png';
-//import backArrow from './../../assets/icons/BackArrow.svg';
-//import BackBtn from '../../components/Icons/BackBtnIcon';
 import classes from './Profile.module.css';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { UserContext } from '../../components/Context/UserContext';
 import { useContext } from 'react';
-
 import Button from '../../components/Button';
-import LeftIcon from '../../components/Icons/LeftIcon';
 import { AuthContext } from '../../components/Context/AuthContext';
 
 export default function ProfilePage() {
@@ -18,9 +13,6 @@ export default function ProfilePage() {
   return (
     <>
       <header className={classes.profileHeader}>
-        <Link to="/">
-          <Button variation="secondary" iconLeft={<LeftIcon />} />
-        </Link>
         <h1>Profile</h1>
       </header>
 

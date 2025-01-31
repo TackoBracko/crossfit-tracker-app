@@ -46,11 +46,6 @@
     transform 0.3s;
 }
 
-.loggedNav li a:hover {
-  border: 1px solid var(--primary-btn-hover);
-  transform: scale(1.1);
-}
-
 .loggedNav li a.active {
   border: 1px solid var(--primary-btn-hover);
 }

@@ -1,10 +1,11 @@
 .profileHeader {
   display: flex;
-  align-items: center;
+  justify-content: center;
   padding: 32px 24px;
   gap: 70px;
   text-transform: uppercase;
   margin-bottom: 32px;
+  margin-top: 80px;
 }
 
 .profileHeader h1 {

@@ -8,8 +8,6 @@ import InputField from '../../components/Input';
 import ShowPassword from '../../components/Icons/ShowPasswordIcon';
 import HidePassword from '../../components/Icons/HidePasswordIcon';
 import LeftIcon from '../../components/Icons/LeftIcon';
-//import BackBtn from '../../components/Icons/BackBtnIcon';
-//import RightIcon from '../../components/Icons/RightIcon';
 
 export default function EditiProfilePage() {
   const { user, handleUserData } = useContext(UserContext);

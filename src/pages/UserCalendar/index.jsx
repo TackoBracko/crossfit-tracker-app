@@ -1,21 +1,33 @@
 import { useRef, useState } from 'react';
-import { crossfitData } from '../../data/CrossfitData';
+import { crossfitData } from './../../data/CrossfitData.js';
 import classes from './UserCalendar.module.css';
 import style from './../../components/CalendarModal/CalendarModal.module.css';
 import CalendarBackIcon from '../../components/Icons/CalendarBackIcon';
 import CalendarForwardIcon from '../../components/Icons/CalendarForwardIcon';
 import CalendarDays from '../CalendarDays';
 import Modal from '../../components/CalendarModal';
-import DropDownArrow from '../../components/Icons/DropDownArrow';
 
-export default function UserCalendar() {
-  const daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+export default function Calendar() {
+  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
   const modalRef = useRef();
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [isDropdownOpen, setIsDropDownOpen] = useState(false);
-  //const [notes, setNotes] = useState('');
+
+  const [currentDay, setCurrentDay] = useState(new Date());
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [filteredExercises, setFilteredExercises] = useState([]);
+
+  const changeCurrentDay = (day) => {
+    setCurrentDay(new Date(day.year, day.month, day.number));
+    openModal();
+  };
+
+  const nextMonth = () => {
+    setCurrentDay((prev) => new Date(prev.getFullYear(), prev.getMonth() + 1, 1));
+  };
+
+  const previousMonth = () => {
+    setCurrentDay((prev) => new Date(prev.getFullYear(), prev.getMonth() - 1, 1));
+  };
 
   const openModal = () => {
     modalRef.current.open();
@@ -25,13 +37,120 @@ export default function UserCalendar() {
     modalRef.current.close();
   };
 
+  const closeModalOutside = (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  };
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    const selectedCategoryData = crossfitData.find((data) => data.title === category);
+    const filteredExercisesData = selectedCategoryData ? selectedCategoryData.exercises : [];
+    setFilteredExercises(filteredExercisesData);
+  };
+
+  return (
+    <>
+      <header className={classes.calendarHeader}>
+        <div onClick={previousMonth}>
+          <CalendarBackIcon />
+        </div>
+        <h1>{months[currentDay.getMonth()]}</h1>
+        <div onClick={nextMonth}>
+          <CalendarForwardIcon />
+        </div>
+      </header>
+
+      <section className={classes.calendarSection}>
+        <div className={classes.daysName}>
+          {daysOfWeek.map((weekDay, index) => {
+            return <div key={index}>{weekDay}</div>;
+          })}
+        </div>
+        <CalendarDays currentDay={currentDay} changeCurrentDay={changeCurrentDay} />
+      </section>
+
+      <Modal ref={modalRef}>
+        <div className={style.modalOverlay} onClick={closeModalOutside}>
+          <div className={style.modalContent}>
+            <h2>
+              Plan for {currentDay.getDate()} {currentDay.toLocaleString('en-US', { month: 'long' })} {currentDay.getFullYear()}
+            </h2>
+            <div className={style.modalInput}>
+              <label>Category</label>
+              <select className={style.dropdownMenu} onChange={(e) => handleCategoryChange(e.target.value)}>
+                <option>Choose a Category</option>
+                {crossfitData.map((category) => (
+                  <option key={category.id} value={category.title}>
+                    {category.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className={style.modalInput}>
+              <label>Exercises for {selectedCategory} </label>
+              <select className={style.dropdownMenu}>
+                <option>Choose a Exercise</option>
+                {filteredExercises.map((exercise) => (
+                  <option key={exercise.id}>{exercise.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className={style.modalInput}>
+              <label>Notes</label>
+              <textarea className={style.textarea}></textarea>
+            </div>
+
+            <div className={style.modalBtn}>
+              <button className={style.primaryBtn}>Add</button>
+              <button className={style.cancelBtn} onClick={closeModal}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </Modal>
+    </>
+  );
+}
+
+/*
+export default function UserCalendar() {
+  const daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  const modalRef = useRef();
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [filteredExercises, setFilteredExercises] = useState([]);
+
+  const openModal = () => {
+    modalRef.current.open();
+  };
+
+  const closeModal = () => {
+    modalRef.current.close();
+  };
+
+  const closeModalOutside = (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  };
+
   const changeSelectedDay = (day) => {
     setSelectedDate(new Date(day.year, day.month, day.number));
     openModal();
   };
 
-  const toggleDropdown = () => {
-    setIsDropDownOpen(!isDropdownOpen);
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    const selectedCategoryData = crossfitData.find((data) => data.title === category);
+    const filteredExercisesData = selectedCategoryData ? selectedCategoryData.exercises : [];
+    setFilteredExercises(filteredExercisesData);
   };
 
   const changeToPrevMonth = () => {
@@ -72,39 +191,43 @@ export default function UserCalendar() {
       </section>
 
       <Modal ref={modalRef}>
-        <div className={style.modalOverlay}>
+        <div className={style.modalOverlay} onClick={closeModalOutside}>
           <div className={style.modalContent}>
-            <h2>Plan for {selectedDate.toDateString()} </h2>
-
-            <div className={style.dropdownMenu}>
-              <h3 onClick={toggleDropdown}>
-                Categories <DropDownArrow />
-              </h3>
-              {isDropdownOpen && (
-                <ul className={style.dropdownMenuList}>
-                  {crossfitData.map((category) => {
-                    return (
-                      <li key={category.id} onClick={() => console.log(`${category.title}`)}>
-                        {category.title}
-                      </li>
-                    );
-                  })}
-                </ul>
-              )}
+            <h2>
+              Plan for {selectedDate.getDate()} {selectedDate.toLocaleString('en-US', { month: 'long' })} {selectedDate.getFullYear()}
+            </h2>
+            <div className={style.modalInput}>
+              <label>Category</label>
+              <select className={style.dropdownMenu} onChange={(e) => handleCategoryChange(e.target.value)}>
+                <option>Choose a Category</option>
+                {crossfitData.map((category) => (
+                  <option key={category.id} value={category.title}>
+                    {category.title}
+                  </option>
+                ))}
+              </select>
             </div>
 
-            <div className={style.dropdownMenu}>
-              <h3>Exercises</h3>
+            <div className={style.modalInput}>
+              <label>Exercises for {selectedCategory} </label>
+              <select className={style.dropdownMenu}>
+                <option>Choose a Exercise</option>
+                {filteredExercises.map((exercise) => (
+                  <option key={exercise.id}>{exercise.name}</option>
+                ))}
+              </select>
             </div>
 
-            <div className="textarea">
-              <h3>Notes</h3>
-              <textarea placeholder="Add your notes here..." />
+            <div className={style.modalInput}>
+              <label>Notes</label>
+              <textarea className={style.textarea}></textarea>
             </div>
 
             <div className={style.modalBtn}>
-              <button>Add</button>
-              <button onClick={closeModal}>Cancle</button>
+              <button className={style.primaryBtn}>Add</button>
+              <button className={style.cancelBtn} onClick={closeModal}>
+                Cancel
+              </button>
             </div>
           </div>
         </div>
@@ -112,3 +235,4 @@ export default function UserCalendar() {
     </>
   );
 }
+*/

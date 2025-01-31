@@ -68,3 +68,7 @@ a {
   text-decoration: none;
   color: var(--primary-text);
 }
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}

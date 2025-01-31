@@ -1,9 +1,10 @@
 import classes from './CalendarDays.module.css';
 
-export default function CalendarDays({ day, changeSelectedDay }) {
-  const firstDayOfMonth = new Date(day.getFullYear(), day.getMonth(), 1);
+export default function CalendarDays({ currentDay, changeCurrentDay }) {
+  const firstDayOfMonth = new Date(currentDay.getFullYear(), currentDay.getMonth(), 1);
   const weekdayOfFirstDay = firstDayOfMonth.getDay();
   const currentDays = [];
+  const todayDate = new Date();
 
   for (let day = 0; day < 42; day++) {
     if (day === 0 && weekdayOfFirstDay === 0) {
@@ -15,11 +16,11 @@ export default function CalendarDays({ day, changeSelectedDay }) {
     }
 
     let calendarDay = {
-      currentMonth: firstDayOfMonth.getMonth(),
+      currentMonth: firstDayOfMonth.getMonth() === currentDay.getMonth(),
       date: new Date(firstDayOfMonth),
       month: firstDayOfMonth.getMonth(),
       number: firstDayOfMonth.getDate(),
-      selected: firstDayOfMonth.toDateString(),
+      selected: todayDate.toDateString() === firstDayOfMonth.toDateString(),
       year: firstDayOfMonth.getFullYear(),
     };
 
@@ -28,13 +29,15 @@ export default function CalendarDays({ day, changeSelectedDay }) {
 
   return (
     <div className={classes.dates}>
-      {currentDays.map((day, index) => {
-        return (
-          <div key={index} onDoubleClick={() => changeSelectedDay(day)} className={classes.date}>
-            <p>{day.number}</p>
-          </div>
-        );
-      })}
+      {currentDays.map((day, index) => (
+        <div
+          key={index}
+          className={`${classes.date} ${day.currentMonth ? classes.allDates : ''} ${day.selected ? classes.currentDate : ''}`}
+          onClick={() => changeCurrentDay(day)}
+        >
+          <p>{day.number}</p>
+        </div>
+      ))}
     </div>
   );
 }

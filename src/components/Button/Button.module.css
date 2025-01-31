@@ -30,25 +30,15 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
 }
 
 .secondary:hover {
   background-color: var(--secondary-btn-hover);
-  border: 1px solid var(--primary-btn-hover);
+  border-color: var(--primary-btn-hover);
   transform: scale(1.1);
 }
-
-/*.secondary img {
-  width: 10px;
-  height: 15px;
-}*/
-
-/*.backBtnIcon {
-  display: block;
-  margin: auto;
-}*/
 
 .tertiary {
   background: none;

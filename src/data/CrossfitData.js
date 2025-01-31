@@ -52,12 +52,23 @@ import vUps from './../assets/pictures/movements_img/Vups.jpg';
 import wallBall from './../assets/pictures/movements_img/WallBall.png';
 import wallWalk from './../assets/pictures/movements_img/WallWalk.jpg';
 
+import lifting from './../assets/icons/CrossfitIcons/Lifting.svg';
+import legs from './../assets/icons/CrossfitIcons/Legs.svg';
+import arms from './../assets/icons/CrossfitIcons/Arms.svg';
+import shoulders from './../assets/icons/CrossfitIcons/Shoulder.svg';
+import back from './../assets/icons/CrossfitIcons/Back.svg';
+import gymnastics from './../assets/icons/CrossfitIcons/Gymnastics.svg';
+import skills from './../assets/icons/CrossfitIcons/Skills.svg';
+import engine from './../assets/icons/CrossfitIcons/Engine.svg';
+import core from './../assets/icons/CrossfitIcons/Abs.svg';
+
 export const crossfitData = [
   {
     id: 1,
     title: 'Weightlifting',
     categoryDescription:
       'Build strength and power through precise, goal-oriented weightlifting exercises designed to improve technique and muscle growth',
+    icon: lifting,
     exercises: [
       {
         id: 0,
@@ -202,6 +213,7 @@ export const crossfitData = [
     id: 2,
     title: 'Legs',
     categoryDescription: 'Boost your lower body strength and mobility with targeted leg exercises that enhance endurance, stability and power',
+    icon: legs,
     exercises: [
       {
         id: 0,
@@ -335,6 +347,7 @@ export const crossfitData = [
     id: 3,
     title: 'Arms',
     categoryDescription: 'Build upper body strength and definition with dynamic arm workouts tailored for all fitness levels',
+    icon: arms,
     exercises: [
       {
         id: 0,
@@ -469,6 +482,7 @@ export const crossfitData = [
     title: 'Back',
     categoryDescription:
       'Strengthen your posture and build a powerful back with exercises designed to improve stability, mobility and upper body balance',
+    icon: back,
     exercises: [
       {
         id: 0,
@@ -548,6 +562,7 @@ export const crossfitData = [
     id: 5,
     title: 'Shoulders',
     categoryDescription: 'Strengthen and sculpt your shoulders with exercises designed to improve mobility, stability and upper body power',
+    icon: shoulders,
     exercises: [
       {
         id: 0,
@@ -646,6 +661,7 @@ export const crossfitData = [
     title: 'Gymnastics',
     categoryDescription:
       'Master body control, flexibility and strength with gymnastics-inspired movements that challenge your coordination and skill',
+    icon: gymnastics,
     exercises: [
       {
         id: 0,
@@ -743,6 +759,7 @@ export const crossfitData = [
     id: 7,
     title: 'Skills',
     categoryDescription: 'Refine your technique and develop advanced movements that require precision, strength and coordination',
+    icon: skills,
     exercises: [
       {
         id: 0,
@@ -822,6 +839,7 @@ export const crossfitData = [
     id: 8,
     title: 'Engine',
     categoryDescription: 'Build stamina and power through workouts designed to challenge your cardio system and improve endurance',
+    icon: engine,
     exercises: [
       {
         id: 0,
@@ -911,6 +929,7 @@ export const crossfitData = [
     id: 9,
     title: 'Core',
     categoryDescription: 'Enhance your core stability and overall balance with effective, focused core exercises',
+    icon: core,
     exercises: [
       {
         id: 0,

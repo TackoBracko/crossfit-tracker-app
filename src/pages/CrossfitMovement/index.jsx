@@ -1,9 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState } from 'react';
-import { crossfitData } from '../../data/CrossfitData.js';
+import { crossfitData } from './../../data/CrossfitData.js';
 import classes from './CrossfitMovement.module.css';
-import BackBtn from '../../components/Icons/BackBtnIcon.jsx';
 import Button from '../../components/Button/index.jsx';
+import LeftIcon from '../../components/Icons/LeftIcon.jsx';
 import UserCalendar from '../UserCalendar/index.jsx';
 
 export default function CrossfitMovement() {
@@ -22,7 +22,7 @@ export default function CrossfitMovement() {
     <>
       <header className={classes.movementHeader}>
         <Link to={`/categories/${categoryId}`}>
-          <BackBtn />
+          <Button variation="secondary" iconLeft={<LeftIcon />} />
         </Link>
         <img src={selectedExercise.picture} alt={selectedExercise.name} />
       </header>
