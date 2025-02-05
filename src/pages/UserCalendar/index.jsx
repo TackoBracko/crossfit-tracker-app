@@ -17,10 +17,47 @@ export default function Calendar() {
   const [filteredExercises, setFilteredExercises] = useState([]);
   const [moreExercise, setMoreExercise] = useState([]);
   const [notes, setNotes] = useState('');
+  const [savedWorkout, setSavedWorkout] = useState({});
+
+  const currentDate = `${currentDay.getDate()} ${currentDay.toLocaleString('en-US', { month: 'long' })} ${currentDay.getFullYear()}`;
 
   const changeCurrentDay = (day) => {
     setCurrentDay(new Date(day.year, day.month, day.number));
-    openModal();
+
+    if (!savedWorkout.currentDate) {
+      openModal();
+    }
+  };
+
+  const handleCategoryChange = (category) => {
+    const selectedCategoryData = crossfitData.find((data) => data.title === category);
+    const filteredExercisesData = selectedCategoryData ? selectedCategoryData.exercises : [];
+    setSelectedCategory(category);
+    setFilteredExercises(filteredExercisesData);
+  };
+
+  const handleMoreExercise = (e) => {
+    const options = [...e.target.selectedOptions];
+    const values = options.map((exercise) => exercise.value);
+
+    setMoreExercise(values);
+    setNotes(values);
+  };
+
+  const handleSavedWorkouts = (e) => {
+    e.preventDefault();
+    const todayWorkout = {
+      date: currentDate,
+      title: selectedCategory,
+      exercise: moreExercise,
+      note: notes,
+    };
+
+    setSavedWorkout(todayWorkout);
+    console.log(todayWorkout);
+
+    clearModal();
+    closeModal();
   };
 
   const nextMonth = () => {
@@ -36,6 +73,7 @@ export default function Calendar() {
   };
 
   const closeModal = () => {
+    clearModal();
     modalRef.current.close();
   };
 
@@ -45,19 +83,11 @@ export default function Calendar() {
     }
   };
 
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
-    const selectedCategoryData = crossfitData.find((data) => data.title === category);
-    const filteredExercisesData = selectedCategoryData ? selectedCategoryData.exercises : [];
-    setFilteredExercises(filteredExercisesData);
-  };
-
-  const handleMoreExercise = (e) => {
-    const options = [...e.target.selectedOptions];
-    const values = options.map((exercise) => exercise.value);
-
-    setMoreExercise(values);
-    setNotes(values.join('\n'));
+  const clearModal = () => {
+    setSelectedCategory('');
+    setFilteredExercises([]);
+    setMoreExercise([]);
+    setNotes('');
   };
 
   return (
@@ -81,48 +111,57 @@ export default function Calendar() {
         <CalendarDays currentDay={currentDay} changeCurrentDay={changeCurrentDay} />
       </section>
 
-      <Modal ref={modalRef}>
-        <div className={style.modalOverlay} onClick={closeModalOutside}>
-          <div className={style.modalContent}>
-            <h2>
-              Plan for {currentDay.getDate()} {currentDay.toLocaleString('en-US', { month: 'long' })} {currentDay.getFullYear()}
-            </h2>
-            <div className={style.modalInput}>
-              <label>Category</label>
-              <select className={style.dropdownMenu} onChange={(e) => handleCategoryChange(e.target.value)}>
-                <option>Choose a Category</option>
-                {crossfitData.map((category) => (
-                  <option key={category.id} value={category.title}>
-                    {category.title}
-                  </option>
-                ))}
-              </select>
-            </div>
+      {savedWorkout.date === currentDate ? (
+        <div>
+          <h3>Your workout plan for {savedWorkout.date}</h3>
+          <p>Title: {savedWorkout.title}</p>
+          <p>Exercises: {savedWorkout.exercise}</p>
+          <p>Notes: {savedWorkout.note}</p>
+        </div>
+      ) : (
+        <Modal ref={modalRef}>
+          <div className={style.modalOverlay} onClick={closeModalOutside}>
+            <div className={style.modalContent}>
+              <h2>Plan for {currentDate}</h2>
+              <div className={style.modalInput}>
+                <label>Category</label>
+                <select className={style.dropdownMenu} onChange={(e) => handleCategoryChange(e.target.value)}>
+                  <option>Choose a Category</option>
+                  {crossfitData.map((category) => (
+                    <option key={category.id} value={category.title}>
+                      {category.title}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-            <div className={style.modalInput}>
-              <label>Exercises for {selectedCategory} </label>
-              <select className={style.dropdownMenu} multiple={true} value={moreExercise} onChange={handleMoreExercise}>
-                <option>Choose a Exercise</option>
-                {filteredExercises.map((exercise) => (
-                  <option key={exercise.id}>{exercise.name}</option>
-                ))}
-              </select>
-            </div>
+              <div className={style.modalInput}>
+                <label>Exercises for {selectedCategory} </label>
+                <select className={style.dropdownMenu} multiple={true} value={moreExercise} onChange={handleMoreExercise}>
+                  <option>Choose a Exercise</option>
+                  {filteredExercises.map((exercise) => (
+                    <option key={exercise.id}>{exercise.name}</option>
+                  ))}
+                </select>
+              </div>
 
-            <div className={style.modalInput}>
-              <label>Notes (you can edit your exercises)</label>
-              <textarea className={style.textarea} value={notes} onChange={(e) => setNotes(e.target.value)} />
-            </div>
+              <div className={style.modalInput}>
+                <label>Notes (you can edit your exercises)</label>
+                <textarea className={style.textarea} value={notes} onChange={(e) => setNotes(e.target.value)} />
+              </div>
 
-            <div className={style.modalBtn}>
-              <button className={style.primaryBtn}>Add</button>
-              <button className={style.cancelBtn} onClick={closeModal}>
-                Cancel
-              </button>
+              <div className={style.modalBtn}>
+                <button className={style.primaryBtn} onClick={handleSavedWorkouts}>
+                  Add
+                </button>
+                <button className={style.cancelBtn} onClick={closeModal}>
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </Modal>
+        </Modal>
+      )}
     </>
   );
 }
