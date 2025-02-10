@@ -1,6 +1,6 @@
 import classes from './CalendarDays.module.css';
 
-export default function CalendarDays({ currentDay, changeCurrentDay }) {
+export default function CalendarDays({ currentDay, changeCurrentDay, savedWorkout }) {
   const firstDayOfMonth = new Date(currentDay.getFullYear(), currentDay.getMonth(), 1);
   const weekdayOfFirstDay = firstDayOfMonth.getDay();
   const currentDays = [];
@@ -29,15 +29,21 @@ export default function CalendarDays({ currentDay, changeCurrentDay }) {
 
   return (
     <div className={classes.dates}>
-      {currentDays.map((day, index) => (
-        <div
-          key={index}
-          className={`${classes.date} ${day.currentMonth ? classes.allDates : ''} ${day.selected ? classes.currentDate : ''}`}
-          onClick={() => changeCurrentDay(day)}
-        >
-          <p>{day.number}</p>
-        </div>
-      ))}
+      {currentDays.map((day, index) => {
+        const dayHasWorkout = savedWorkout.find((workout) => {
+          return new Date(workout.date).toDateString() === day.date.toDateString();
+        });
+
+        return (
+          <div
+            key={index}
+            className={`${classes.date} ${day.currentMonth ? classes.allDates : ''} ${day.selected ? classes.currentDate : ''} ${dayHasWorkout ? classes.workoutDay : ''}`}
+            onClick={() => changeCurrentDay(day)}
+          >
+            <p>{day.number}</p>
+          </div>
+        );
+      })}
     </div>
   );
 }

@@ -17,14 +17,21 @@ export default function Calendar() {
   const [filteredExercises, setFilteredExercises] = useState([]);
   const [moreExercise, setMoreExercise] = useState([]);
   const [notes, setNotes] = useState('');
-  const [savedWorkout, setSavedWorkout] = useState({});
+  const [savedWorkout, setSavedWorkout] = useState([]);
+  const [workoutPlan, setWorkoutPlan] = useState([]);
+  const [workoutTitle, setWorkoutTitle] = useState('');
 
   const currentDate = `${currentDay.getDate()} ${currentDay.toLocaleString('en-US', { month: 'long' })} ${currentDay.getFullYear()}`;
+  const todayWorkout = savedWorkout.find((workout) => workout.date === currentDate);
+
+  const dateHasWorkout = savedWorkout.find((workout) => {
+    return workout.date === currentDate;
+  });
 
   const changeCurrentDay = (day) => {
     setCurrentDay(new Date(day.year, day.month, day.number));
 
-    if (!savedWorkout.currentDate) {
+    if (!dateHasWorkout) {
       openModal();
     }
   };
@@ -40,21 +47,31 @@ export default function Calendar() {
     const options = [...e.target.selectedOptions];
     const values = options.map((exercise) => exercise.value);
 
-    setMoreExercise(values);
-    setNotes(values);
+    setMoreExercise((prevExercise) => [...prevExercise, ...values]);
+    setNotes((prevNote) => [...prevNote, ...values]);
   };
 
-  const handleSavedWorkouts = (e) => {
-    e.preventDefault();
+  const handleAddExercise = () => {
+    if (selectedCategory && moreExercise.length > 0 && workoutTitle.trim() !== '') {
+      const newExercise = {
+        title: workoutTitle,
+        category: selectedCategory,
+        exercise: moreExercise,
+        notes: notes,
+      };
+
+      setWorkoutPlan((prevPlan) => [...prevPlan, newExercise]);
+    }
+  };
+
+  const handleCreateWorkout = () => {
     const todayWorkout = {
+      title: workoutTitle,
       date: currentDate,
-      title: selectedCategory,
-      exercise: moreExercise,
-      note: notes,
+      workout: workoutPlan,
     };
 
-    setSavedWorkout(todayWorkout);
-    console.log(todayWorkout);
+    setSavedWorkout((prevData) => [...prevData, todayWorkout]);
 
     clearModal();
     closeModal();
@@ -88,6 +105,8 @@ export default function Calendar() {
     setFilteredExercises([]);
     setMoreExercise([]);
     setNotes('');
+    setWorkoutPlan([]);
+    setWorkoutTitle('');
   };
 
   return (
@@ -108,21 +127,26 @@ export default function Calendar() {
             return <div key={index}>{weekDay}</div>;
           })}
         </div>
-        <CalendarDays currentDay={currentDay} changeCurrentDay={changeCurrentDay} />
+        <CalendarDays currentDay={currentDay} changeCurrentDay={changeCurrentDay} savedWorkout={savedWorkout} />
       </section>
 
-      {savedWorkout.date === currentDate ? (
-        <div>
-          <h3>Your workout plan for {savedWorkout.date}</h3>
-          <p>Title: {savedWorkout.title}</p>
-          <p>Exercises: {savedWorkout.exercise}</p>
-          <p>Notes: {savedWorkout.note}</p>
-        </div>
-      ) : (
+      {!dateHasWorkout ? (
         <Modal ref={modalRef}>
           <div className={style.modalOverlay} onClick={closeModalOutside}>
             <div className={style.modalContent}>
               <h2>Plan for {currentDate}</h2>
+
+              <div className={style.modalInput}>
+                <label>Workout Title</label>
+                <input
+                  className={style.workoutTitle}
+                  type="text"
+                  value={workoutTitle}
+                  onChange={(e) => setWorkoutTitle(e.target.value)}
+                  placeholder="Workout name"
+                />
+              </div>
+
               <div className={style.modalInput}>
                 <label>Category</label>
                 <select className={style.dropdownMenu} onChange={(e) => handleCategoryChange(e.target.value)}>
@@ -137,7 +161,7 @@ export default function Calendar() {
 
               <div className={style.modalInput}>
                 <label>Exercises for {selectedCategory} </label>
-                <select className={style.dropdownMenu} multiple={true} value={moreExercise} onChange={handleMoreExercise}>
+                <select className={style.dropdownMenu} multiple value={moreExercise} onChange={handleMoreExercise}>
                   <option>Choose a Exercise</option>
                   {filteredExercises.map((exercise) => (
                     <option key={exercise.id}>{exercise.name}</option>
@@ -151,16 +175,49 @@ export default function Calendar() {
               </div>
 
               <div className={style.modalBtn}>
-                <button className={style.primaryBtn} onClick={handleSavedWorkouts}>
-                  Add
+                <button className={style.primaryBtn} onClick={handleAddExercise}>
+                  Add Exercise
                 </button>
                 <button className={style.cancelBtn} onClick={closeModal}>
                   Cancel
                 </button>
               </div>
+
+              <div>
+                {workoutPlan.length > 0 && (
+                  <div>
+                    <h3>Preview:</h3>
+                    {workoutPlan.map((workout, index) => {
+                      return (
+                        <div key={index}>
+                          <p>Title: {workout.title}</p>
+                          <p>Exercises: {workout.exercise.join(', ')}</p>
+                          <p>Note: {workout.notes.join(', ')}</p>
+                        </div>
+                      );
+                    })}
+                    <button onClick={handleCreateWorkout}>Create Workout</button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </Modal>
+      ) : (
+        <>
+          {todayWorkout && (
+            <div>
+              <h3>Your workout plan for {todayWorkout.date}</h3>
+              <h4>{todayWorkout.title}</h4>
+              {todayWorkout.workout.map((exercise, index) => (
+                <div key={index}>
+                  <p>Exercises: {exercise.exercise.join(', ')}</p>
+                  <p>Notes: {exercise.notes.join(', ')}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
       )}
     </>
   );
