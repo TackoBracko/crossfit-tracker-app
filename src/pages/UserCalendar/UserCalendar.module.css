@@ -25,6 +25,15 @@
   margin-bottom: 10px;
 }
 
+.workoutPlan {
+  background-color: #b4a0ff;
+  border-radius: 12px;
+  margin-left: 20px;
+  padding: 12px;
+  color: #f6f1f1;
+  width: 50%;
+}
+
 /*
 .popupDisplay {
   position: fixed;

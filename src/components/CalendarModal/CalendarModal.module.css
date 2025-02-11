@@ -39,7 +39,7 @@
 
 .dropdownMenu,
 .textarea,
-.workoutTitless {
+.workoutTitle {
   width: 100%;
   padding: 10px;
   font-size: 14px;
@@ -48,6 +48,10 @@
   background: #fff;
   transition: 0.3s;
   margin-top: 10px;
+}
+
+.workoutTitle {
+  padding-left: 12px;
 }
 
 .dropdownMenu:focus,
@@ -83,4 +87,18 @@
 
 dialog::backdrop {
   backdrop-filter: blur(2px);
+}
+
+.workoutPreview h3 {
+  color: var(--secondary-text);
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.previewInfo {
+  background-color: #b4a0ff;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  padding: 12px;
+  color: #f6f1f1;
 }

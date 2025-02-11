@@ -6,6 +6,7 @@ import CalendarBackIcon from '../../components/Icons/CalendarBackIcon';
 import CalendarForwardIcon from '../../components/Icons/CalendarForwardIcon';
 import CalendarDays from '../CalendarDays';
 import Modal from '../../components/CalendarModal';
+import Button from '../../components/Button/index.jsx';
 
 export default function Calendar() {
   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -15,14 +16,13 @@ export default function Calendar() {
   const [currentDay, setCurrentDay] = useState(new Date());
   const [selectedCategory, setSelectedCategory] = useState('');
   const [filteredExercises, setFilteredExercises] = useState([]);
-  const [moreExercise, setMoreExercise] = useState([]);
+  const [selectedExercise, setSelectedExercise] = useState([]);
   const [notes, setNotes] = useState('');
   const [savedWorkout, setSavedWorkout] = useState([]);
   const [workoutPlan, setWorkoutPlan] = useState([]);
   const [workoutTitle, setWorkoutTitle] = useState('');
 
   const currentDate = `${currentDay.getDate()} ${currentDay.toLocaleString('en-US', { month: 'long' })} ${currentDay.getFullYear()}`;
-  const todayWorkout = savedWorkout.find((workout) => workout.date === currentDate);
 
   const dateHasWorkout = savedWorkout.find((workout) => {
     return workout.date === currentDate;
@@ -47,20 +47,25 @@ export default function Calendar() {
     const options = [...e.target.selectedOptions];
     const values = options.map((exercise) => exercise.value);
 
-    setMoreExercise((prevExercise) => [...prevExercise, ...values]);
+    setSelectedExercise((prevExercise) => [...prevExercise, ...values]);
     setNotes((prevNote) => [...prevNote, ...values]);
   };
 
   const handleAddExercise = () => {
-    if (selectedCategory && moreExercise.length > 0 && workoutTitle.trim() !== '') {
+    if (selectedCategory && selectedExercise.length > 0) {
       const newExercise = {
         title: workoutTitle,
         category: selectedCategory,
-        exercise: moreExercise,
+        exercise: selectedExercise,
         notes: notes,
       };
 
       setWorkoutPlan((prevPlan) => [...prevPlan, newExercise]);
+
+      setWorkoutTitle('');
+      setSelectedExercise([]);
+      setFilteredExercises([]);
+      setNotes('');
     }
   };
 
@@ -72,7 +77,7 @@ export default function Calendar() {
     };
 
     setSavedWorkout((prevData) => [...prevData, todayWorkout]);
-
+    console.log(todayWorkout);
     clearModal();
     closeModal();
   };
@@ -103,10 +108,9 @@ export default function Calendar() {
   const clearModal = () => {
     setSelectedCategory('');
     setFilteredExercises([]);
-    setMoreExercise([]);
+    setSelectedExercise([]);
     setNotes('');
     setWorkoutPlan([]);
-    setWorkoutTitle('');
   };
 
   return (
@@ -138,13 +142,7 @@ export default function Calendar() {
 
               <div className={style.modalInput}>
                 <label>Workout Title</label>
-                <input
-                  className={style.workoutTitle}
-                  type="text"
-                  value={workoutTitle}
-                  onChange={(e) => setWorkoutTitle(e.target.value)}
-                  placeholder="Workout name"
-                />
+                <input className={style.workoutTitle} type="text" value={workoutTitle} onChange={(e) => setWorkoutTitle(e.target.value)} />
               </div>
 
               <div className={style.modalInput}>
@@ -161,7 +159,7 @@ export default function Calendar() {
 
               <div className={style.modalInput}>
                 <label>Exercises for {selectedCategory} </label>
-                <select className={style.dropdownMenu} multiple value={moreExercise} onChange={handleMoreExercise}>
+                <select className={style.dropdownMenu} multiple value={selectedExercise} onChange={handleMoreExercise}>
                   <option>Choose a Exercise</option>
                   {filteredExercises.map((exercise) => (
                     <option key={exercise.id}>{exercise.name}</option>
@@ -183,36 +181,36 @@ export default function Calendar() {
                 </button>
               </div>
 
-              <div>
-                {workoutPlan.length > 0 && (
-                  <div>
-                    <h3>Preview:</h3>
-                    {workoutPlan.map((workout, index) => {
-                      return (
-                        <div key={index}>
-                          <p>Title: {workout.title}</p>
-                          <p>Exercises: {workout.exercise.join(', ')}</p>
-                          <p>Note: {workout.notes.join(', ')}</p>
-                        </div>
-                      );
-                    })}
-                    <button onClick={handleCreateWorkout}>Create Workout</button>
-                  </div>
-                )}
-              </div>
+              {workoutPlan.length > 0 && (
+                <div className={style.workoutPreview}>
+                  <h3>Preview:</h3>
+                  {workoutPlan.map((workout, index) => {
+                    return (
+                      <div key={index} className={style.previewInfo}>
+                        <p>Title: {workout.title}</p>
+                        <p>Exercises: {workout.exercise.join(', ')}</p>
+                        <p>Note: {workout.notes.join(', ')}</p>
+                      </div>
+                    );
+                  })}
+                  <Button variation="primary" onClick={handleCreateWorkout}>
+                    Create Workout
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </Modal>
       ) : (
         <>
-          {todayWorkout && (
-            <div>
-              <h3>Your workout plan for {todayWorkout.date}</h3>
-              <h4>{todayWorkout.title}</h4>
-              {todayWorkout.workout.map((exercise, index) => (
+          {dateHasWorkout && (
+            <div className={classes.workoutPlan}>
+              <h3>Your workout plan for {dateHasWorkout.date}</h3>
+              {dateHasWorkout.workout.map((workout, index) => (
                 <div key={index}>
-                  <p>Exercises: {exercise.exercise.join(', ')}</p>
-                  <p>Notes: {exercise.notes.join(', ')}</p>
+                  <h4>{workout.title}</h4>
+                  <p>Exercises: {workout.exercise.join(', ')}</p>
+                  <p>Notes: {workout.notes.join(', ')}</p>
                 </div>
               ))}
             </div>
