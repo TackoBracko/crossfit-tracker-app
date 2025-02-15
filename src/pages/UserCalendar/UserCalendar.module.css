@@ -28,10 +28,20 @@
 .workoutPlan {
   background-color: #b4a0ff;
   border-radius: 12px;
-  margin-left: 20px;
+  margin: 32px 24px;
   padding: 12px;
+  color: var(--tertiary-text);
+}
+
+.workoutPlan h4 {
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+
+.workoutTitle {
   color: #f6f1f1;
-  width: 50%;
+  margin: 24px;
+  font-size: 24px;
 }
 
 /*

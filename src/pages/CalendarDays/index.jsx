@@ -30,14 +30,15 @@ export default function CalendarDays({ currentDay, changeCurrentDay, savedWorkou
   return (
     <div className={classes.dates}>
       {currentDays.map((day, index) => {
+        const currentDate = `${day.number}_${day.currentMonth + 1}_${day.year}`;
         const dayHasWorkout = savedWorkout.find((workout) => {
-          return new Date(workout.date).toDateString() === day.date.toDateString();
+          return workout.date === currentDate;
         });
 
         return (
           <div
             key={index}
-            className={`${classes.date} ${day.currentMonth ? classes.allDates : ''} ${day.selected ? classes.currentDate : ''} ${dayHasWorkout ? classes.workoutDay : ''}`}
+            className={`${classes.day} ${day.currentMonth ? classes.allDays : ''} ${day.selected ? classes.currentDay : ''} ${dayHasWorkout ? classes.workoutDay : ''}`}
             onClick={() => changeCurrentDay(day)}
           >
             <p>{day.number}</p>

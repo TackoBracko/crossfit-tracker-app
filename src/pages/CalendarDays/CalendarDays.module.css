@@ -6,7 +6,7 @@
   justify-items: center;
 }
 
-.date {
+.day {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,19 +15,19 @@
   padding: 10px 12px;
 }
 
-.date:hover {
+.day:hover {
   background-color: #f4f4f4;
   color: var(--tertiary-text);
   border-radius: 50%;
 }
 
-.currentDate {
+.currentDay {
   background-color: #b4a0ff;
   border-radius: 50%;
   padding: 10px 12px;
 }
 
-.allDates {
+.allDays {
   color: var(--primary-text);
   padding: 10px 12px;
 }
