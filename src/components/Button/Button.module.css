@@ -1,21 +1,20 @@
 .base {
-  display: flex;
+  /*display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 10px; */
   font-size: 17px;
   font-weight: 500;
   border-radius: 50px;
   border: none;
   padding: 14px 20px;
   cursor: pointer;
-  width: 100%;
-  cursor: pointer;
 }
 
 .primary {
   background-color: var(--primary-background-btn);
   color: var(--tertiary-text);
+  width: 100%;
 }
 
 .primary:hover {
@@ -23,33 +22,23 @@
 }
 
 .secondary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--secondary-backgroud-btn);
   cursor: pointer;
   width: 36px;
   height: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 50%;
-  border: none;
-  /*box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);*/
+  border: 1px solid transparent;
+  cursor: pointer;
 }
 
 .secondary:hover {
   background-color: var(--secondary-btn-hover);
-  border: 1px solid var(--primary-btn-hover);
+  border-color: var(--primary-btn-hover);
   transform: scale(1.1);
 }
-
-/*.secondary img {
-  width: 10px;
-  height: 15px;
-}*/
-
-/*.backBtnIcon {
-  display: block;
-  margin: auto;
-}*/
 
 .tertiary {
   background: none;

@@ -8,8 +8,6 @@ import InputField from '../../components/Input';
 import ShowPassword from '../../components/Icons/ShowPasswordIcon';
 import HidePassword from '../../components/Icons/HidePasswordIcon';
 import LeftIcon from '../../components/Icons/LeftIcon';
-//import BackBtn from '../../components/Icons/BackBtnIcon';
-//import RightIcon from '../../components/Icons/RightIcon';
 
 export default function EditiProfilePage() {
   const { user, handleUserData } = useContext(UserContext);
@@ -117,7 +115,7 @@ export default function EditiProfilePage() {
     <>
       <header className={classes.editHeader}>
         <Link to="/profile">
-          <Button variation="secondary" iconRight={<LeftIcon />} />
+          <Button variation="secondary" iconLeft={<LeftIcon />} />
         </Link>
 
         <h1>Edit Profile</h1>

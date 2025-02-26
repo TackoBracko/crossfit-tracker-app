@@ -1,9 +1,8 @@
-import { crossfitData } from '../../data/CrossfitData.js';
+import { crossfitData } from './../../data/CrossfitData.js';
 import { Link, useParams } from 'react-router-dom';
 import classes from './CrossfitCategoriesList.module.css';
 import Button from '../../components/Button/index.jsx';
 import LeftIcon from '../../components/Icons/LeftIcon.jsx';
-//import BackBtn from '../../components/Icons/BackBtnIcon.jsx';
 
 export default function CrossfitCategoriesList() {
   const { categoryId } = useParams();

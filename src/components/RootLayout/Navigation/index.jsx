@@ -23,27 +23,27 @@ export default function Navigation() {
           {isUserLogged ? (
             <ul className={classes.loggedNav}>
               <li>
-                <NavLink to="">
+                <NavLink to="" className={({ isActive }) => (isActive ? classes.active : undefined)}>
                   <HomeIcon />
                 </NavLink>
               </li>
               <li>
-                <NavLink to="categories">
+                <NavLink to="categories" className={({ isActive }) => (isActive ? classes.active : undefined)}>
                   <ExercisesIcon />
                 </NavLink>
               </li>
               <li>
-                <NavLink to="meals">
+                <NavLink to="meals" className={({ isActive }) => (isActive ? classes.active : undefined)}>
                   <MealPlansIcon />
                 </NavLink>
               </li>
               <li>
-                <NavLink to="usercalendar">
+                <NavLink to="usercalendar" className={({ isActive }) => (isActive ? classes.active : undefined)}>
                   <UserCalendarIcon />
                 </NavLink>
               </li>
               <li>
-                <NavLink to="profile">
+                <NavLink to="profile" className={({ isActive }) => (isActive ? classes.active : undefined)}>
                   <ProfileIcon />
                 </NavLink>
               </li>

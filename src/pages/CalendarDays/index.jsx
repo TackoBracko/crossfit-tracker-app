@@ -1,9 +1,10 @@
 import classes from './CalendarDays.module.css';
 
-export default function CalendarDays(props) {
-  const firstDayOfMonth = new Date(props.day.getFullYear(), props.day.getMonth(), 1);
+export default function CalendarDays({ currentDay, changeCurrentDay, savedWorkout }) {
+  const firstDayOfMonth = new Date(currentDay.getFullYear(), currentDay.getMonth(), 1);
   const weekdayOfFirstDay = firstDayOfMonth.getDay();
   const currentDays = [];
+  const todayDate = new Date();
 
   for (let day = 0; day < 42; day++) {
     if (day === 0 && weekdayOfFirstDay === 0) {
@@ -15,11 +16,11 @@ export default function CalendarDays(props) {
     }
 
     let calendarDay = {
-      currentMonth: firstDayOfMonth.getMonth() === props.day.getMonth(),
+      currentMonth: firstDayOfMonth.getMonth() === currentDay.getMonth(),
       date: new Date(firstDayOfMonth),
       month: firstDayOfMonth.getMonth(),
       number: firstDayOfMonth.getDate(),
-      selected: firstDayOfMonth.toDateString() === props.day.toDateString(),
+      selected: todayDate.toDateString() === firstDayOfMonth.toDateString(),
       year: firstDayOfMonth.getFullYear(),
     };
 
@@ -29,8 +30,15 @@ export default function CalendarDays(props) {
   return (
     <div className={classes.dates}>
       {currentDays.map((day, index) => {
+        const currentDate = `${day.number}_${day.month + 1}_${day.year}`;
+        const dayHasWorkout = savedWorkout[currentDate];
+
         return (
-          <div key={index} onClick={() => props.changeSelectedDay(day)}>
+          <div
+            key={index}
+            className={`${classes.day} ${day.currentMonth ? classes.allDays : ''} ${day.selected ? classes.currentDay : ''} ${dayHasWorkout && day.currentMonth ? classes.workoutDay : ''}`}
+            onClick={() => changeCurrentDay(day)}
+          >
             <p>{day.number}</p>
           </div>
         );
