@@ -20,12 +20,12 @@ export default function Calendar() {
   const [filteredExercises, setFilteredExercises] = useState([]);
   const [selectedExercise, setSelectedExercise] = useState([]);
   const [notes, setNotes] = useState('');
+  const [previewNotes, setPreviewNotes] = useState('');
   const [savedWorkout, setSavedWorkout] = useState({});
   const [workoutPlan, setWorkoutPlan] = useState([]);
   const [workoutTitle, setWorkoutTitle] = useState('');
-  const [editWorkout, setEditWorkout] = useState(null);
-  const [editPreviewWorkout, setEditPreviewWorkout] = useState(null);
-  const [modalType, setModalType] = useState(null);
+  const [editWorkout, setEditWorkout] = useState();
+  const [editPreviewWorkout, setEditPreviewWorkout] = useState();
 
   const currentDate = `${currentDay.getDate()}_${currentDay.getMonth() + 1}_${currentDay.getFullYear()}`;
   const dateHasWorkout = savedWorkout[currentDate];
@@ -36,7 +36,7 @@ export default function Calendar() {
 
     if (!dateHasWorkout) {
       console.log('opening add modal');
-      openModal('add');
+      openModal();
     }
   };
 
@@ -61,7 +61,7 @@ export default function Calendar() {
 
   //ADD/CREATE
 
-  const handleAddExercise = () => {
+  const handleAddWorkout = () => {
     if (selectedCategory && selectedExercise.length > 0) {
       const newExercise = {
         id: uuidv4(),
@@ -72,7 +72,10 @@ export default function Calendar() {
       };
 
       setWorkoutPlan((prevPlan) => [...prevPlan, newExercise]);
-      setSelectedExercise([]);
+
+      setEditPreviewWorkout(null);
+      setPreviewNotes('');
+      setFilteredExercises([]);
       setNotes('');
 
       console.log(newExercise.title);
@@ -90,6 +93,7 @@ export default function Calendar() {
 
     setSavedWorkout((prevData) => ({ ...prevData, [currentDate]: todayWorkout }));
     closeModal();
+    clearModal();
 
     console.log(todayWorkout.title);
     console.log(todayWorkout);
@@ -106,25 +110,18 @@ export default function Calendar() {
       setSelectedCategory(workout.category);
       setSelectedExercise(workout.exercise);
       setNotes(workout.notes);
+      setPreviewNotes(workout.notes);
+      setEditPreviewWorkout(workout);
 
-      openModal('edit');
+      openModal();
     }
   };
 
-  const handleEditPreviewWorkout = (workout) => {
-    if (workout) {
-      console.log('workout for preview:', workout);
-      setEditPreviewWorkout(workout);
-      setWorkoutTitle(workout.title);
-      setSelectedCategory(workout.category);
-      setSelectedExercise(workout.exercise);
-      setNotes(workout.notes);
-
-      console.log('opening preview modal');
-      console.log('Edit Preview Workout:', editPreviewWorkout, workout);
-      openModal('preview');
-    } else {
-      console.error('no workout preview');
+  const handleEditPreviewWorkout = (id) => {
+    const workoutToEdit = workoutPlan.find((plan) => plan.id === id);
+    if (workoutToEdit) {
+      setEditPreviewWorkout(workoutToEdit);
+      setPreviewNotes(workoutToEdit.notes);
     }
   };
 
@@ -137,7 +134,7 @@ export default function Calendar() {
         title: workoutTitle,
         category: selectedCategory,
         exercise: selectedExercise,
-        notes: notes,
+        notes: previewNotes,
       };
 
       setSavedWorkout((prevData) => ({
@@ -147,45 +144,50 @@ export default function Calendar() {
           workout: prevData[currentDate].workout.map((workout) => (workout.id === updatedWorkout.id ? updatedWorkout : workout)),
         },
       }));
+
+      //setWorkoutPlan([...workoutPlan, updatedWorkout]);
     }
 
-    setEditWorkout(null);
+    setEditWorkout();
     clearModal();
     closeModal();
   };
 
-  const handleSavePreviewWorkout = () => {
-    setWorkoutPlan((prevPlan) =>
-      prevPlan.map((plan) =>
-        plan.id === editPreviewWorkout.id
-          ? {
-              ...plan,
-              title: workoutTitle,
-              category: selectedCategory,
-              exercise: selectedExercise,
-              notes: notes,
-            }
-          : plan,
-      ),
-    );
+  const handleSavePreviewChanges = () => {
+    if (editPreviewWorkout) {
+      setWorkoutPlan((prevPlan) => prevPlan.map((plan) => (plan.id === editPreviewWorkout.id ? { ...plan, notes: editPreviewWorkout.notes } : plan)));
+    }
 
-    setEditPreviewWorkout(editPreviewWorkout);
+    setEditPreviewWorkout(null);
     setWorkoutTitle('');
     setSelectedCategory('');
     setSelectedExercise([]);
     setNotes('');
   };
 
+  const handleAddChanges = () => {
+    setPreviewNotes(notes);
+  };
+
   //DELETE
 
   const handleDeleteWorkout = (id) => {
-    setSavedWorkout((prevData) => ({
+    setSavedWorkout((prevData) => {
+      const updatedWorkoutList = prevData[currentDate].workout.filter((training) => training.id !== id);
+
+      return {
+        ...prevData,
+        [currentDate]: updatedWorkoutList.length > 0 ? { ...prevData[currentDate], workout: updatedWorkoutList } : undefined,
+      };
+    });
+
+    /*setSavedWorkout((prevData) => ({
       ...prevData,
       [currentDate]: {
         ...prevData[currentDate],
         workout: prevData[currentDate].workout.filter((training) => training.id !== id),
       },
-    }));
+    }));*/
   };
 
   const handleDeletePreviewWorkout = (id) => {
@@ -202,9 +204,7 @@ export default function Calendar() {
     setCurrentDay((prev) => new Date(prev.getFullYear(), prev.getMonth() - 1, 1));
   };
 
-  const openModal = (type) => {
-    console.log('opening modal of type:', type);
-    setModalType(type);
+  const openModal = () => {
     if (modalRef.current) {
       modalRef.current.open();
     } else {
@@ -212,16 +212,14 @@ export default function Calendar() {
     }
   };
 
-  const closeModal = (type) => {
+  const closeModal = () => {
     console.log('closing modal');
-    setModalType(type);
     if (modalRef.current) {
       modalRef.current.close();
       console.log('modal successfully close');
     }
 
     clearModal();
-    setEditPreviewWorkout(null);
   };
 
   /*const closeModalOutside = (e) => {
@@ -236,6 +234,7 @@ export default function Calendar() {
     setSelectedExercise([]);
     setNotes('');
     setWorkoutPlan([]);
+    setPreviewNotes('');
   };
 
   return (
@@ -263,84 +262,96 @@ export default function Calendar() {
         <Modal ref={modalRef}>
           <div className={style.modalOverlay}>
             <div className={style.modalContent}>
-              {modalType === 'add' && (
-                <>
-                  <h2>Plan for {currentDate}</h2>
+              <h2>Plan for {currentDate}</h2>
 
-                  <div className={style.modalInput}>
-                    <label>Workout Title</label>
-                    <input className={style.workoutTitle} type="text" value={workoutTitle} onChange={(e) => setWorkoutTitle(e.target.value)} />
-                  </div>
+              <div className={style.modalInput}>
+                <label>Workout Title</label>
+                <input className={style.workoutTitle} type="text" value={workoutTitle} onChange={(e) => setWorkoutTitle(e.target.value)} />
+              </div>
 
-                  <div className={style.modalInput}>
-                    <label>Category</label>
-                    <select className={style.dropdownMenu} value={selectedCategory} onChange={(e) => handleCategoryChange(e.target.value)}>
-                      <option disabled value="">
-                        Choose a Category
-                      </option>
-                      {crossfitData.map((category) => (
-                        <option key={category.id} value={category.title}>
-                          {category.title}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+              <div className={style.modalInput}>
+                <label>Category</label>
+                <select className={style.dropdownMenu} value={selectedCategory} onChange={(e) => handleCategoryChange(e.target.value)}>
+                  <option disabled value="">
+                    Choose a Category
+                  </option>
+                  {crossfitData.map((category) => (
+                    <option key={category.id} value={category.title}>
+                      {category.title}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-                  <div className={style.modalInput}>
-                    <label>Exercises for {selectedCategory} </label>
-                    <select className={style.dropdownMenu} onChange={handleMoreExercise}>
-                      <option disabled selected value={selectedExercise}>
-                        Choose a Exercise
-                      </option>
-                      {filteredExercises.map((exercise) => (
-                        <option key={exercise.id} value={exercise.name}>
-                          {exercise.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+              <div className={style.modalInput}>
+                <label>Exercises for {selectedCategory} </label>
+                <select className={style.dropdownMenu} onChange={handleMoreExercise}>
+                  <option disabled selected value={selectedExercise}>
+                    Choose a Exercise
+                  </option>
+                  {filteredExercises.map((exercise) => (
+                    <option key={exercise.id} value={exercise.name}>
+                      {exercise.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-                  <div className={style.modalInput}>
-                    <label>Notes (you can edit your exercises)</label>
-                    <textarea className={style.textarea} value={notes} onChange={(e) => setNotes(e.target.value)} />
-                  </div>
+              <div className={style.modalInput}>
+                <label>Notes (you can edit your exercises)</label>
+                <textarea className={style.textarea} value={notes} onChange={(e) => setNotes(e.target.value)} />
+              </div>
 
-                  <div className={style.modalBtn}>
-                    <button className={style.primaryBtn} onClick={handleAddExercise}>
-                      Add Exercise
-                    </button>
-                    <button className={style.cancelBtn} onClick={closeModal}>
-                      Cancel
-                    </button>
-                  </div>
+              <div className={style.modalBtn}>
+                <button className={style.primaryBtn} onClick={handleAddWorkout}>
+                  Save
+                </button>
+                <button className={style.cancelBtn} onClick={closeModal}>
+                  Cancel
+                </button>
+              </div>
 
-                  {workoutPlan.length > 0 && (
-                    <div className={style.workoutPreview}>
-                      <h3>Preview:</h3>
-                      {workoutPlan.map((workout, index) => {
-                        return (
-                          <div key={index} className={style.previewInfo}>
-                            <p>Title: {workout.title}</p>
-                            <p>Exercises: {workout.exercise.join(', ')}</p>
-                            <p style={{ whiteSpace: 'pre-line' }}>Note: {workout.notes}</p>
+              {workoutPlan.length > 0 && (
+                <div className={style.workoutPreview}>
+                  <h3>Preview:</h3>
+                  {workoutPlan.map((workout, index) => {
+                    return (
+                      <div key={index} className={style.previewInfo}>
+                        <p style={{ whiteSpace: 'pre-line' }}>
+                          Notes:
+                          {editPreviewWorkout && editPreviewWorkout.id === workout.id ? (
+                            <textarea
+                              className={style.textarea}
+                              value={editPreviewWorkout.notes}
+                              onChange={(e) => setEditPreviewWorkout({ ...editPreviewWorkout, notes: e.target.value })}
+                            />
+                          ) : (
+                            workout.notes
+                          )}
+                        </p>
 
-                            <div className={style.modalBtn}>
-                              <button className={style.cancelBtn} onClick={() => handleDeletePreviewWorkout(workout.id)}>
-                                Delete
-                              </button>
-                              <button className={style.primaryBtn} onClick={() => handleEditPreviewWorkout(workout)}>
-                                Change/Edit preview
-                              </button>
-                            </div>
-                          </div>
-                        );
-                      })}
-                      <Button variation="primary" onClick={handleCreateWorkout}>
-                        Create Workout
-                      </Button>
-                    </div>
-                  )}
-                </>
+                        <div className={style.modalBtn}>
+                          <button className={style.cancelBtn} onClick={() => handleDeletePreviewWorkout(workout.id)}>
+                            Delete
+                          </button>
+
+                          {!editPreviewWorkout || editPreviewWorkout.id !== workout.id ? (
+                            <button className={style.primaryBtn} onClick={() => handleEditPreviewWorkout(workout.id)}>
+                              Edit preview
+                            </button>
+                          ) : (
+                            <button className={style.primaryBtn} onClick={handleSavePreviewChanges}>
+                              Save changes
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                  <Button variation="primary" onClick={handleCreateWorkout}>
+                    Create Workout
+                  </Button>
+                </div>
               )}
             </div>
           </div>
@@ -358,7 +369,7 @@ export default function Calendar() {
 
               <div className={style.modalBtn}>
                 <button className={style.primaryBtn} onClick={() => handleEditWorkout(workout)}>
-                  Edit Exercise
+                  Edit Workout
                 </button>
                 <button className={style.cancelBtn} onClick={() => handleDeleteWorkout(workout.id)}>
                   Delete
@@ -369,7 +380,7 @@ export default function Calendar() {
         </div>
       )}
 
-      {modalType === 'edit' && editWorkout && (
+      {editWorkout && (
         <Modal ref={modalRef}>
           <div className={style.modalOverlay}>
             <div className={style.modalContent}>
@@ -409,75 +420,30 @@ export default function Calendar() {
               </div>
 
               <div className={style.modalInput}>
-                <label>Notes (you can edit your exercises)</label>
+                <label>Notes (you can edit or change your exercises)</label>
                 <textarea className={style.textarea} value={notes} onChange={(e) => setNotes(e.target.value)} />
               </div>
 
               <div className={style.modalBtn}>
-                <button className={style.primaryBtn} onClick={handleSaveEditWorkout}>
-                  Save changes
+                <button className={style.primaryBtn} onClick={handleAddChanges}>
+                  Add changes
                 </button>
                 <button className={style.cancelBtn} onClick={closeModal}>
                   Cancel
                 </button>
               </div>
-            </div>
-          </div>
-        </Modal>
-      )}
 
-      {modalType === 'preview' && editPreviewWorkout && (
-        <Modal ref={modalRef}>
-          <div className={style.modalOverlay}>
-            <div className={style.modalContent}>
-              <h2>Edit Preview Before You Create Workout</h2>
-
-              <div className={style.modalInput}>
-                <label>Workout Title</label>
-                <input className={style.workoutTitle} type="text" value={workoutTitle} onChange={(e) => setWorkoutTitle(e.target.value)} />
+              <div className={style.workoutPreview}>
+                <h3>Preview</h3>
+                <div className={style.previewInfo}>
+                  <p style={{ whiteSpace: 'pre-line' }}>
+                    <textarea className={style.textarea} value={previewNotes} onChange={(e) => setPreviewNotes(e.target.value)} />
+                  </p>
+                </div>
               </div>
-
-              <div className={style.modalInput}>
-                <label>Category</label>
-                <select className={style.dropdownMenu} value={selectedCategory} onChange={(e) => handleCategoryChange(e.target.value)}>
-                  <option disabled value="">
-                    Choose a Category
-                  </option>
-                  {crossfitData.map((category) => (
-                    <option key={category.id} value={category.title}>
-                      {category.title}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className={style.modalInput}>
-                <label>Exercises</label>
-                <select className={style.dropdownMenu} onChange={handleMoreExercise}>
-                  <option disabled value={selectedExercise}>
-                    Choose a Exercise
-                  </option>
-                  {filteredExercises.map((exercise) => (
-                    <option key={exercise.id} value={exercise.name}>
-                      {exercise.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className={style.modalInput}>
-                <label>Notes</label>
-                <textarea className={style.textarea} value={notes} onChange={(e) => setNotes(e.target.value)} />
-              </div>
-
-              <div className={style.modalBtn}>
-                <button className={style.primaryBtn} onClick={handleSavePreviewWorkout}>
-                  Save Changes
-                </button>
-                <button className={style.cancelBtn} onClick={closeModal}>
-                  Cancel
-                </button>
-              </div>
+              <button className={style.primaryBtn} onClick={handleSaveEditWorkout}>
+                Save changes
+              </button>
             </div>
           </div>
         </Modal>
