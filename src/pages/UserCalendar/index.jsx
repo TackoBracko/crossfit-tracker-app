@@ -1,6 +1,7 @@
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { crossfitData } from './../../data/CrossfitData.js';
+import { NavLink } from 'react-router-dom';
 import classes from './UserCalendar.module.css';
 import style from './../../components/CalendarModal/CalendarModal.module.css';
 import CalendarBackIcon from '../../components/Icons/CalendarBackIcon';
@@ -8,12 +9,14 @@ import CalendarForwardIcon from '../../components/Icons/CalendarForwardIcon';
 import CalendarDays from '../CalendarDays';
 import Modal from '../../components/CalendarModal';
 import Button from '../../components/Button/index.jsx';
+import { WorkoutDetailsContext } from '../../components/Context/WorkoutDetailsContext.jsx';
 
 export default function Calendar() {
   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   const modalRef = useRef();
+  const { setWorkoutDetails } = useContext(WorkoutDetailsContext);
 
   const [currentDay, setCurrentDay] = useState(new Date());
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -98,6 +101,10 @@ export default function Calendar() {
     console.log(todayWorkout.title);
     console.log(todayWorkout);
     console.log(todayWorkout.id);
+  };
+
+  const handleWorkoutDetails = (workout) => {
+    setWorkoutDetails(workout);
   };
 
   //EDITING
@@ -319,7 +326,7 @@ export default function Calendar() {
                       <div key={index} className={style.previewInfo}>
                         <p style={{ whiteSpace: 'pre-line' }}>
                           Notes:
-                          {editPreviewWorkout && editPreviewWorkout.id === workout.id ? (
+                          {editPreviewWorkout && editPreviewWorkout.id ? (
                             <textarea
                               className={style.textarea}
                               value={editPreviewWorkout.notes}
@@ -363,7 +370,9 @@ export default function Calendar() {
           <h3 className={classes.workoutTitle}>Your workout plan for {dateHasWorkout.date}</h3>
           {dateHasWorkout.workout.map((workout, index) => (
             <div key={index} className={classes.workoutPlan}>
-              <h4>{workout.title}</h4>
+              <NavLink to={`/workout/${workout.id}`} onClick={() => handleWorkoutDetails(workout)}>
+                <h4>{workout.title}</h4>
+              </NavLink>
               <p>Exercises: {workout.exercise.join(', ')}</p>
               <p style={{ whiteSpace: 'pre-line' }}>Notes: {workout.notes}</p>
 

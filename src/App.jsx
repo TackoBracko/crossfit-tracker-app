@@ -12,9 +12,11 @@ import CrossfitCategoriesList from './pages/CrossfitCategoriesList';
 import CrossfitMovement from './pages/CrossfitMovement';
 import MealPlans from './pages/MealPlans';
 import UserCalendar from './pages/UserCalendar';
+import WorkoutDetailsPage from './pages/WorkoutDetails';
 import { UserDataContextProvider } from './components/Context/UserContext';
 import { AuthProvider } from './components/Context/AuthContext';
 import { ProtectedRoutes, PublicRoutes } from './components/Context/AuthRoutesComponent';
+import { WorkoutDetailsProvider } from './components/Context/WorkoutDetailsContext';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +28,7 @@ const router = createBrowserRouter(
           <Route path="usercalendar" element={<UserCalendar />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="meals" element={<MealPlans />} />
+          <Route path="/workout/:id" element={<WorkoutDetailsPage />} />
         </Route>
 
         <Route element={<PublicRoutes />}>
@@ -51,7 +54,9 @@ function App() {
   return (
     <AuthProvider>
       <UserDataContextProvider>
-        <RouterProvider router={router} />
+        <WorkoutDetailsProvider>
+          <RouterProvider router={router} />
+        </WorkoutDetailsProvider>
       </UserDataContextProvider>
     </AuthProvider>
   );
