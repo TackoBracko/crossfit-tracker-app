@@ -47,7 +47,20 @@
   border-radius: 12px;
 }
 
-.categoryBackBtn {
+/*
+.imgContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+.imgContainer img {
+  width: 300px;
+  height: 200px;
+}
+*/
+
+/*.categoryBackBtn {
   border: none;
   border-radius: 50px;
   background-color: rgba(0, 0, 0, 0.2);
@@ -57,4 +70,4 @@
 
 .categoryBackBtn:hover {
   background: var(--secondary-btn-hover);
-}
+}*/

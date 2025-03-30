@@ -67,28 +67,14 @@ export default function InfoSetup() {
 
           <div className={classes.inputDiv}>
             <div className={classes.unitContainer}>
-              <InputField
-                label="Weight"
-                name="weight"
-                type="number"
-                placeholder="Click here"
-                value={userInfoSetup.weight}
-                onChange={handleSetupInfo}
-              />
+              <InputField label="Weight" name="weight" type="number" value={userInfoSetup.weight} onChange={handleSetupInfo} />
               <span className={classes.unit}>kg</span>
             </div>
           </div>
 
           <div className={classes.inputDiv}>
             <div className={classes.unitContainer}>
-              <InputField
-                label="Height"
-                name="height"
-                type="number"
-                placeholder="Click here"
-                value={userInfoSetup.height}
-                onChange={handleSetupInfo}
-              />
+              <InputField label="Height" name="height" type="number" value={userInfoSetup.height} onChange={handleSetupInfo} />
               <span className={classes.unit}>cm</span>
             </div>
           </div>

@@ -4,12 +4,13 @@ import {
   //useLoaderData,
 } from 'react-router-dom';
 import classes from './Navigation.module.css';
-import homeIcon from '../../../assets/icons/AppIcons/Home.svg';
-import profileIcon from '../../../assets/icons/AppIcons/Ellipse.svg';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import ExercisesIcon from '../../Icons/ExercisesIcon';
 import MealPlansIcon from '../../Icons/MealPlansIcon';
+import HomeIcon from '../../Icons/HomeIcon';
+import ProfileIcon from '../../Icons/ProfileIcon';
+import UserCalendarIcon from '../../Icons/UserCalendarIcon';
 
 export default function Navigation() {
   //const isUserLogged = useRouteLoaderData('root');
@@ -22,23 +23,28 @@ export default function Navigation() {
           {isUserLogged ? (
             <ul className={classes.loggedNav}>
               <li>
-                <NavLink to="">
-                  <img src={homeIcon} alt="Home Icon" />
+                <NavLink to="" className={({ isActive }) => (isActive ? classes.active : undefined)}>
+                  <HomeIcon />
                 </NavLink>
               </li>
               <li>
-                <NavLink to="categories">
+                <NavLink to="categories" className={({ isActive }) => (isActive ? classes.active : undefined)}>
                   <ExercisesIcon />
                 </NavLink>
               </li>
               <li>
-                <NavLink to="meals">
+                <NavLink to="meals" className={({ isActive }) => (isActive ? classes.active : undefined)}>
                   <MealPlansIcon />
                 </NavLink>
               </li>
               <li>
-                <NavLink to="profile">
-                  <img src={profileIcon} alt="Profile Icon" />
+                <NavLink to="usercalendar" className={({ isActive }) => (isActive ? classes.active : undefined)}>
+                  <UserCalendarIcon />
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="profile" className={({ isActive }) => (isActive ? classes.active : undefined)}>
+                  <ProfileIcon />
                 </NavLink>
               </li>
             </ul>

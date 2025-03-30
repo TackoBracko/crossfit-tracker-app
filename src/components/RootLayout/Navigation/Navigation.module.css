@@ -33,3 +33,19 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.loggedNav li a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transform:
+    border 0.3s,
+    transform 0.3s;
+}
+
+.loggedNav li a.active {
+  border: 1px solid var(--primary-btn-hover);
+}

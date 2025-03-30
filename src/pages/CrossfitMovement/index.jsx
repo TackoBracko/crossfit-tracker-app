@@ -1,8 +1,10 @@
 import { useParams, Link } from 'react-router-dom';
-import { crossfitData } from '../../data/CrossfitData.js';
+import { crossfitData } from './../../data/CrossfitData.js';
 import classes from './CrossfitMovement.module.css';
-//import play from './../../assets/icons/AppIcons/Play.svg';
-import BackBtn from '../../components/Icons/BackBtnIcon.jsx';
+import Button from '../../components/Button/index.jsx';
+import LeftIcon from '../../components/Icons/LeftIcon.jsx';
+//import { useState } from 'react';
+//import UserCalendar from '../UserCalendar/index.jsx';
 
 export default function CrossfitMovement() {
   const { categoryId, exerciseId } = useParams();
@@ -10,11 +12,17 @@ export default function CrossfitMovement() {
   const selectedCategory = crossfitData.find((category) => category.id === parseInt(categoryId));
   const selectedExercise = selectedCategory.exercises.find((exercise) => exercise.id === parseInt(exerciseId));
 
+  /*const [showCalendarPopUp, setShowCalendarPopUp] = useState(false);
+
+  const toggleCalendarPopUp = () => {
+    setShowCalendarPopUp(!showCalendarPopUp);
+  };*/
+
   return (
     <>
       <header className={classes.movementHeader}>
         <Link to={`/categories/${categoryId}`}>
-          <BackBtn />
+          <Button variation="secondary" iconLeft={<LeftIcon />} />
         </Link>
         <img src={selectedExercise.picture} alt={selectedExercise.name} />
       </header>
@@ -33,7 +41,6 @@ export default function CrossfitMovement() {
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           />
-          {/*<img src={play} alt="Play Video Icon" />*/}
         </div>
         <p className={classes.videoDescription}>{selectedExercise.description}</p>
       </section>
@@ -45,7 +52,9 @@ export default function CrossfitMovement() {
             {selectedExercise.subCategories.map((subCategory) => (
               <div key={subCategory.id} className={classes.subCategoryBox}>
                 <h4>{subCategory.name}</h4>
-                <img src={subCategory.picture} alt={subCategory.name} />
+                <div className={classes.imgContainer}>
+                  <img src={subCategory.picture} alt={subCategory.name} />
+                </div>
                 <div className={classes.subCategoryVideo}>
                   <p>Watch video:</p>
                   <iframe
@@ -58,7 +67,6 @@ export default function CrossfitMovement() {
                     referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                   />
-                  {/*<img src={play} alt="Play Video Icon" />*/}
                 </div>
                 <p className={classes.subVideoDescription}>{subCategory.description}</p>
               </div>
@@ -68,4 +76,22 @@ export default function CrossfitMovement() {
       </section>
     </>
   );
+}
+
+{
+  /*<Button variation="primary" onClick={toggleCalendarPopUp}>
+          Add to calendar
+        </Button>
+
+      {showCalendarPopUp && (
+        <div className={classes.popupDisplay}>
+          <div className={classes.popupText}>
+            <button onClick={toggleCalendarPopUp} className={classes.closeBtn}>
+              X
+            </button>
+            <h2>Choose a Date</h2>
+            <UserCalendar />
+          </div>
+        </div>
+      )}*/
 }
