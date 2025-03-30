@@ -1,10 +1,14 @@
 import classes from './CalendarDays.module.css';
+import { WorkoutDetailsContext } from '../../components/Context/WorkoutDetailsContext';
+import { useContext } from 'react';
 
-export default function CalendarDays({ currentDay, changeCurrentDay, savedWorkout }) {
+export default function CalendarDays({ currentDay, changeCurrentDay }) {
   const firstDayOfMonth = new Date(currentDay.getFullYear(), currentDay.getMonth(), 1);
   const weekdayOfFirstDay = firstDayOfMonth.getDay();
   const currentDays = [];
   const todayDate = new Date();
+
+  const { allWorkouts } = useContext(WorkoutDetailsContext);
 
   for (let day = 0; day < 42; day++) {
     if (day === 0 && weekdayOfFirstDay === 0) {
@@ -31,7 +35,7 @@ export default function CalendarDays({ currentDay, changeCurrentDay, savedWorkou
     <div className={classes.dates}>
       {currentDays.map((day, index) => {
         const currentDate = `${day.number}_${day.month + 1}_${day.year}`;
-        const dayHasWorkout = savedWorkout[currentDate];
+        const dayHasWorkout = allWorkouts[currentDate];
 
         return (
           <div

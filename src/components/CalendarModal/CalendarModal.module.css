@@ -67,11 +67,11 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 25px;
 }
 
 .primaryBtn,
-.cancelBtn {
+.cancelBtn,
+.createWorkoutBtn {
   color: var(--tertiary-text);
   padding: 10px 20px;
   border-radius: 6px;
@@ -101,9 +101,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 20px;
   margin: 10px 0;
+  position: relative;
 }
 
 dialog::backdrop {
@@ -112,4 +113,29 @@ dialog::backdrop {
 
 .notesText {
   white-space: pre-line;
+}
+
+.previewBtn {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  top: 5px;
+  justify-content: space-between;
+  left: 0;
+}
+
+.exIcon,
+.editIcon,
+.saveIcon {
+  border: none;
+  border-radius: 5px;
+}
+
+.exIcon:hover {
+  background: var(--tertiary-btn-text);
+}
+
+.editIcon:hover,
+.saveIcon:hover {
+  background: var(--primary-background-btn);
 }

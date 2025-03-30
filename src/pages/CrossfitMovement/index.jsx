@@ -1,10 +1,10 @@
 import { useParams, Link } from 'react-router-dom';
-import { useState } from 'react';
 import { crossfitData } from './../../data/CrossfitData.js';
 import classes from './CrossfitMovement.module.css';
 import Button from '../../components/Button/index.jsx';
 import LeftIcon from '../../components/Icons/LeftIcon.jsx';
-import UserCalendar from '../UserCalendar/index.jsx';
+//import { useState } from 'react';
+//import UserCalendar from '../UserCalendar/index.jsx';
 
 export default function CrossfitMovement() {
   const { categoryId, exerciseId } = useParams();
@@ -12,11 +12,11 @@ export default function CrossfitMovement() {
   const selectedCategory = crossfitData.find((category) => category.id === parseInt(categoryId));
   const selectedExercise = selectedCategory.exercises.find((exercise) => exercise.id === parseInt(exerciseId));
 
-  const [showCalendarPopUp, setShowCalendarPopUp] = useState(false);
+  /*const [showCalendarPopUp, setShowCalendarPopUp] = useState(false);
 
   const toggleCalendarPopUp = () => {
     setShowCalendarPopUp(!showCalendarPopUp);
-  };
+  };*/
 
   return (
     <>
@@ -43,22 +43,7 @@ export default function CrossfitMovement() {
           />
         </div>
         <p className={classes.videoDescription}>{selectedExercise.description}</p>
-        <Button variation="primary" onClick={toggleCalendarPopUp}>
-          Add to calendar
-        </Button>
       </section>
-
-      {showCalendarPopUp && (
-        <div className={classes.popupDisplay}>
-          <div className={classes.popupText}>
-            <button onClick={toggleCalendarPopUp} className={classes.closeBtn}>
-              X
-            </button>
-            <h2>Choose a Date</h2>
-            <UserCalendar />
-          </div>
-        </div>
-      )}
 
       <section className={classes.subCategorySection}>
         {selectedExercise.subCategories && (
@@ -84,9 +69,6 @@ export default function CrossfitMovement() {
                   />
                 </div>
                 <p className={classes.subVideoDescription}>{subCategory.description}</p>
-                <Button variation="primary" type="submit">
-                  Add to calendar
-                </Button>
               </div>
             ))}
           </div>
@@ -94,4 +76,22 @@ export default function CrossfitMovement() {
       </section>
     </>
   );
+}
+
+{
+  /*<Button variation="primary" onClick={toggleCalendarPopUp}>
+          Add to calendar
+        </Button>
+
+      {showCalendarPopUp && (
+        <div className={classes.popupDisplay}>
+          <div className={classes.popupText}>
+            <button onClick={toggleCalendarPopUp} className={classes.closeBtn}>
+              X
+            </button>
+            <h2>Choose a Date</h2>
+            <UserCalendar />
+          </div>
+        </div>
+      )}*/
 }
