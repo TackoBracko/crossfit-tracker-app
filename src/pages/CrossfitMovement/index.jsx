@@ -8,6 +8,7 @@ import LeftIcon from '../../components/Icons/LeftIcon.jsx';
 
 export default function CrossfitMovement() {
   const { categoryId, exerciseId } = useParams();
+  console.log(exerciseId);
 
   const selectedCategory = crossfitData.find((category) => category.id === parseInt(categoryId));
   const selectedExercise = selectedCategory.exercises.find((exercise) => exercise.id === parseInt(exerciseId));
@@ -46,15 +47,15 @@ export default function CrossfitMovement() {
       </section>
 
       <section className={classes.subCategorySection}>
-        {selectedExercise.subCategories && (
+        {selectedExercise.subCategory && (
           <div className={classes.subCategory}>
             <h3>Subcategories:</h3>
-            {selectedExercise.subCategories.map((subCategory) => (
+            {selectedExercise.subCategory.map((subCategory) => (
               <div key={subCategory.id} className={classes.subCategoryBox}>
-                <h4>{subCategory.name}</h4>
-                <div className={classes.imgContainer}>
+                <Link to={`/categories/${categoryId}/exercise/${exerciseId}/subcategory/${subCategory.id}`}>
+                  <h4>{subCategory.name}</h4>
                   <img src={subCategory.picture} alt={subCategory.name} />
-                </div>
+                </Link>
                 <div className={classes.subCategoryVideo}>
                   <p>Watch video:</p>
                   <iframe

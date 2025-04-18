@@ -1,14 +1,15 @@
 import { useParams, Link } from 'react-router-dom';
 import { crossfitData } from '../../data/CrossfitData.js';
-import classes from '../CrossfitMovement';
+import classes from '../CrossfitMovement/CrossfitMovement.module.css';
 import BackBtn from '../../components/Icons/BackBtnIcon.jsx';
 
 export default function CrossfitSubCategory() {
-  const { categoryId, exerciseId, subCategoryId } = useParams();
+  const { categoryId, exerciseId, subcategoryId } = useParams();
+  console.log(subcategoryId);
 
   const selectedCategory = crossfitData.find((category) => category.id === parseInt(categoryId));
   const selectedExercise = selectedCategory.exercises.find((exercise) => exercise.id === parseInt(exerciseId));
-  const selectedSubCategory = selectedExercise.subCategories.find((subcategory) => subcategory.id === parseInt(subCategoryId));
+  const selectedSubCategory = selectedExercise.subCategory.find((subcategory) => subcategory.id === parseInt(subcategoryId));
 
   return (
     <>
@@ -33,7 +34,6 @@ export default function CrossfitSubCategory() {
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           />
-          {/*<img src={play} alt="Play Video Icon" />*/}
         </div>
         <p className={classes.videoDescription}>{selectedSubCategory.description}</p>
       </section>

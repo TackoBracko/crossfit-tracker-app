@@ -24,14 +24,14 @@ export default function UserCalendar() {
 
   const [currentDay, setCurrentDay] = useState(new Date());
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [filteredExercises, setFilteredExercises] = useState([]);
+  //const [filteredExercises, setFilteredExercises] = useState([]);
   const [selectedExercise, setSelectedExercise] = useState([]);
   const [notes, setNotes] = useState('');
   const [previewNotes, setPreviewNotes] = useState('');
   //const [savedWorkout, setSavedWorkout] = useState({});
   const [workoutPlan, setWorkoutPlan] = useState([]);
   const [workoutTitle, setWorkoutTitle] = useState('');
-  const [editWorkout, setEditWorkout] = useState();
+  const [editWorkout, setEditWorkout] = useState(null);
   const [editPreviewWorkout, setEditPreviewWorkout] = useState(null);
 
   const currentDate = `${currentDay.getDate()}_${currentDay.getMonth() + 1}_${currentDay.getFullYear()}`;
@@ -48,12 +48,12 @@ export default function UserCalendar() {
     }
   };
 
-  const handleCategoryChange = (category) => {
+  /*const handleCategoryChange = (category) => {
     const selectedCategoryData = crossfitData.find((data) => data.title === category);
     const filteredExercisesData = selectedCategoryData ? selectedCategoryData.exercises : [];
     setSelectedCategory(category);
-    setFilteredExercises(filteredExercisesData);
-  };
+    //setFilteredExercises(filteredExercisesData);
+  };*/
 
   const handleMoreExercise = (e) => {
     const options = [...e.target.selectedOptions];
@@ -67,26 +67,59 @@ export default function UserCalendar() {
     setNotes((prevNote) => (prevNote ? `${prevNote}\n${exercises.join('\n')}` : exercises.join('\n')));
   };
 
+  const handleCalendarFunctionality = (selectedExercise, workoutTitle, notes, currentDate) => {
+    let categoriesList = [];
+
+    crossfitData.map((category) => {
+      const exercises = category.exercises.map((exercise) => {
+        if (exercise.subCategory) {
+          return exercise.subCategory.map((subcategory) => ({
+            id: subcategory.id,
+            name: subcategory.name,
+            category: category.title,
+            subCategory: exercise.name,
+          }));
+        } else {
+          return [
+            {
+              id: exercise.id,
+              name: exercise.name,
+              category: category.title,
+              subCategory: 'Do not have',
+            },
+          ];
+        }
+      });
+
+      categoriesList = categoriesList.concat(...exercises);
+    });
+
+    const selectedExercisesData = selectedExercise.map((exerciseName) => {
+      const exerciseData = categoriesList.find((ex) => ex.name === exerciseName);
+      return {
+        id: exerciseData.id,
+        name: exerciseData.name,
+        category: exerciseData.category,
+        subCategory: exerciseData.subCategory,
+      };
+    });
+
+    const allCategoriesUsed = [...new Set(selectedExercisesData.map((ex) => ex.category))];
+    return {
+      id: uuidv4(),
+      title: workoutTitle,
+      category: allCategoriesUsed,
+      exercises: selectedExercisesData,
+      notes: notes,
+      date: currentDate,
+    };
+  };
+
   //ADD/CREATE
 
   const handlePreviewWorkout = () => {
     if (selectedCategory && selectedExercise.length > 0) {
-      const categoryData = crossfitData.find((category) => category.title === selectedCategory);
-      const newWorkout = {
-        id: uuidv4(),
-        title: workoutTitle,
-        category: selectedCategory,
-        exercises: selectedExercise.map((exercise) => {
-          const exerciseData = categoryData.exercises.find((ex) => ex.name === exercise);
-          return {
-            id: exerciseData.id,
-            name: exerciseData.name,
-            category: exerciseData.category,
-          };
-        }),
-        notes: notes,
-        date: currentDate,
-      };
+      const newWorkout = handleCalendarFunctionality(selectedExercise, workoutTitle, notes, currentDate);
 
       setWorkoutPlan((prevPlan) => {
         const previewPlan = prevPlan.map((plan) =>
@@ -102,14 +135,9 @@ export default function UserCalendar() {
         return prevPlan.some((plan) => plan.date === currentDate) ? previewPlan : [...prevPlan, newWorkout];
       });
 
-      /*setWorkoutPlan((prevPlan) => [...prevPlan, newWorkout]);
-      setPreviewNotes((prevNotes) => {
-        return `${prevNotes}\n${selectedExercise.join(', ')} - ${notes}`;
-      });*/
-
       setEditPreviewWorkout(null);
       setPreviewNotes('');
-      setFilteredExercises([]);
+      setSelectedCategory([]);
       setSelectedExercise([]);
       setNotes('');
 
@@ -145,7 +173,7 @@ export default function UserCalendar() {
       setEditWorkout(workout);
       setWorkoutTitle(workout.title);
       setSelectedCategory(workout.category);
-      setSelectedExercise(workout.exercises);
+      setSelectedExercise(workout.exercises.map((exercise) => exercise.name));
       setNotes(workout.notes);
       setPreviewNotes(workout.notes);
       setEditPreviewWorkout(workout);
@@ -166,38 +194,49 @@ export default function UserCalendar() {
 
   const handleSaveEditWorkout = () => {
     if (editWorkout) {
+      const newWorkout = handleCalendarFunctionality(selectedExercise, workoutTitle, notes, currentDate);
+
       const updatedWorkout = {
         ...editWorkout,
-        title: workoutTitle,
+        title: newWorkout.title,
         category: selectedCategory,
-        exercises: selectedExercise,
-        notes: previewNotes,
+        exercises: [...newWorkout.exercises],
+        notes: newWorkout.notes,
       };
 
       changeWorkout(currentDate, updatedWorkout);
-
-      /*setSavedWorkout((prevData) => ({
-        ...prevData,
-        [currentDate]: {
-          ...prevData[currentDate],
-          workout: prevData[currentDate].workout.map((workout) => (workout.id === updatedWorkout.id ? updatedWorkout : workout)),
-        },
-      }));*/
+      console.log(updatedWorkout);
     }
 
     setEditWorkout();
     clearModal();
     closeModal();
+
+    /*setSavedWorkout((prevData) => ({
+        ...prevData,
+        [currentDate]: {
+          ...prevData[currentDate],
+          workout: prevData[currentDate].workout.map((workout) => (workout.id === updatedWorkout.id ? updatedWorkout : workout)),
+        },
+      }
+      
+     */
   };
 
   const handleSavePreviewChanges = () => {
     if (editPreviewWorkout) {
-      setWorkoutPlan((prevPlan) => prevPlan.map((plan) => (plan.id === editPreviewWorkout.id ? { ...plan, notes: editPreviewWorkout.notes } : plan)));
+      const updatePreviewWorkout = editPreviewWorkout.exercises.filter((exercise) => editPreviewWorkout.notes.includes(exercise.name));
+
+      setWorkoutPlan((prevPlan) =>
+        prevPlan.map((plan) =>
+          plan.id === editPreviewWorkout.id ? { ...plan, notes: editPreviewWorkout.notes, exercises: updatePreviewWorkout } : plan,
+        ),
+      );
     }
 
     setEditPreviewWorkout(null);
     setWorkoutTitle('');
-    setSelectedCategory('');
+    setSelectedCategory([]);
     setSelectedExercise([]);
     setNotes('');
   };
@@ -263,8 +302,7 @@ export default function UserCalendar() {
   };*/
 
   const clearModal = () => {
-    setSelectedCategory('');
-    setFilteredExercises([]);
+    setSelectedCategory([]);
     setSelectedExercise([]);
     setNotes('');
     setWorkoutPlan([]);
@@ -306,7 +344,7 @@ export default function UserCalendar() {
 
               <div className={style.modalInput}>
                 <label>Category</label>
-                <select className={style.dropdownMenu} value={selectedCategory} onChange={(e) => handleCategoryChange(e.target.value)}>
+                <select className={style.dropdownMenu} value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
                   <option disabled value="">
                     Choose a Category
                   </option>
@@ -320,15 +358,28 @@ export default function UserCalendar() {
 
               <div className={style.modalInput}>
                 <label>Exercises for {selectedCategory}</label>
-                <select className={style.dropdownMenu} onChange={handleMoreExercise}>
-                  <option disabled value={selectedExercise}>
+                <select className={style.dropdownMenu} onChange={handleMoreExercise} value="">
+                  <option disabled value="">
                     Choose an Exercise
                   </option>
-                  {filteredExercises.map((exercise) => (
-                    <option key={exercise.id} value={exercise.name}>
-                      {exercise.name}
-                    </option>
-                  ))}
+
+                  {crossfitData
+                    .find((cat) => cat.title === selectedCategory)
+                    ?.exercises.map((exercise) =>
+                      exercise.subCategory ? (
+                        <optgroup key={exercise.id} label={exercise.name}>
+                          {exercise.subCategory.map((subcategory) => (
+                            <option key={subcategory.id} value={subcategory.name}>
+                              {subcategory.name}
+                            </option>
+                          ))}
+                        </optgroup>
+                      ) : (
+                        <option key={exercise.id} value={exercise.name}>
+                          {exercise.name}
+                        </option>
+                      ),
+                    )}
                 </select>
               </div>
 
@@ -369,7 +420,7 @@ export default function UserCalendar() {
                         </div>
 
                         <p style={{ whiteSpace: 'pre-line' }}>
-                          {editPreviewWorkout && editPreviewWorkout.id ? (
+                          {editPreviewWorkout && editPreviewWorkout.id === workout.id ? (
                             <textarea
                               className={style.textarea}
                               value={editPreviewWorkout.notes}
@@ -401,7 +452,7 @@ export default function UserCalendar() {
 
               <div className={style.modalInput}>
                 <label>Category</label>
-                <select className={style.dropdownMenu} value={selectedCategory} onChange={(e) => handleCategoryChange(e.target.value)}>
+                <select className={style.dropdownMenu} value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
                   <option disabled value="">
                     Choose a Category
                   </option>
@@ -415,15 +466,28 @@ export default function UserCalendar() {
 
               <div className={style.modalInput}>
                 <label>Exercises for {selectedCategory}</label>
-                <select className={style.dropdownMenu} onChange={handleMoreExercise}>
-                  <option disabled value={selectedExercise}>
+                <select className={style.dropdownMenu} onChange={handleMoreExercise} value="">
+                  <option disabled value="">
                     Choose an Exercise
                   </option>
-                  {filteredExercises.map((exercise) => (
-                    <option key={exercise.id} value={exercise.name}>
-                      {exercise.name}
-                    </option>
-                  ))}
+
+                  {crossfitData
+                    .find((cat) => cat.title === selectedCategory)
+                    ?.exercises.map((exercise) =>
+                      exercise.subCategory ? (
+                        <optgroup key={exercise.id} label={exercise.name}>
+                          {exercise.subCategory.map((subcategory) => (
+                            <option key={subcategory.id} value={subcategory.name}>
+                              {subcategory.name}
+                            </option>
+                          ))}
+                        </optgroup>
+                      ) : (
+                        <option key={exercise.id} value={exercise.name}>
+                          {exercise.name}
+                        </option>
+                      ),
+                    )}
                 </select>
               </div>
 
@@ -527,7 +591,7 @@ export default function UserCalendar() {
 
               <div className={style.modalInput}>
                 <label>Category</label>
-                <select className={style.dropdownMenu} value={selectedCategory} onChange={(e) => handleCategoryChange(e.target.value)}>
+                <select className={style.dropdownMenu} value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
                   <option disabled value="">
                     Choose a Category
                   </option>
@@ -540,16 +604,29 @@ export default function UserCalendar() {
               </div>
 
               <div className={style.modalInput}>
-                <label>Exercises for {selectedCategory} </label>
-                <select className={style.dropdownMenu} onChange={handleMoreExercise}>
-                  <option disabled value={selectedExercise}>
-                    Choose a Exercise
+                <label>Exercises for {selectedCategory}</label>
+                <select className={style.dropdownMenu} onChange={handleMoreExercise} value="">
+                  <option disabled value="">
+                    Choose an Exercise
                   </option>
-                  {filteredExercises.map((exercise) => (
-                    <option key={exercise.id} value={exercise.name}>
-                      {exercise.name}
-                    </option>
-                  ))}
+
+                  {crossfitData
+                    .find((cat) => cat.title === selectedCategory)
+                    ?.exercises.map((exercise) =>
+                      exercise.subCategory ? (
+                        <optgroup key={exercise.id} label={exercise.name}>
+                          {exercise.subCategory.map((subcategory) => (
+                            <option key={subcategory.id} value={`${subcategory.name}`}>
+                              {subcategory.name}
+                            </option>
+                          ))}
+                        </optgroup>
+                      ) : (
+                        <option key={exercise.id} value={exercise.name}>
+                          {exercise.name}
+                        </option>
+                      ),
+                    )}
                 </select>
               </div>
 
