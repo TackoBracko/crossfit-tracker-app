@@ -10,17 +10,14 @@ import InfoSetup from './pages/InfoSetup';
 import CrossfitCategories from './pages/CrossfitCategories';
 import CrossfitCategoriesList from './pages/CrossfitCategoriesList';
 import CrossfitMovement from './pages/CrossfitMovement';
+import CrossfitSubCategory from './pages/CrossfitSubCategory';
 import MealPlans from './pages/MealPlans';
 import UserCalendar from './pages/UserCalendar';
 import WorkoutDetailsPage from './pages/WorkoutDetails';
 import { UserDataContextProvider } from './components/Context/UserContext';
 import { AuthProvider } from './components/Context/AuthContext';
 import { ProtectedRoutes, PublicRoutes } from './components/Context/AuthRoutesComponent';
-
-import CrossfitSubCategory from './pages/CrossfitSubCategory';
-
 import { WorkoutDetailsProvider } from './components/Context/WorkoutDetailsContext';
-
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -48,11 +45,9 @@ const router = createBrowserRouter(
       <Route element={<ProtectedRoutes />}>
         <Route path="/categories/:categoryId" element={<CrossfitCategoriesList />} />
         <Route path="/categories/:categoryId/exercise/:exerciseId" element={<CrossfitMovement />} />
-        <Route path="/categories/:categoryId/exercise/:exerciseId/subcategory/:subcategoryId" element={CrossfitSubCategory} />
+        <Route path="/categories/:categoryId/exercise/:exerciseId/subcategory/:subcategoryId" element={<CrossfitSubCategory />} />
         <Route path="meals" element={<MealPlans />} />
         <Route path="profile" element={<ProfilePage />} />
-
- main
         <Route path="edit" element={<EditProfilePage />} />
       </Route>
     </>,

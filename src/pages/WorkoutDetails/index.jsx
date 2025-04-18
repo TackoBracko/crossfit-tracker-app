@@ -9,6 +9,28 @@ import { crossfitData } from '../../data/CrossfitData';
 export default function WorkoutDetailsPage() {
   const { workoutDetails } = useContext(WorkoutDetailsContext);
 
+  const handleWorkoutDetails = workoutDetails.exercises.map((exercise) => {
+    const categoryData = crossfitData.find((category) => category.title === exercise.category);
+    const categoryId = categoryData ? categoryData.id : '';
+    const isSubExercise = exercise.subCategory && exercise.subCategory !== 'Do not have';
+
+    if (isSubExercise) {
+      const mainExercise = categoryData && categoryData.exercises.find((ex) => ex.name === exercise.subCategory);
+
+      return (
+        <li key={exercise.id}>
+          <NavLink to={`/categories/${categoryId}/exercise/${mainExercise.id}/subcategory/${exercise.id}`}>{exercise.name}</NavLink>
+        </li>
+      );
+    } else {
+      return (
+        <li key={exercise.id}>
+          <NavLink to={`/categories/${categoryId}/exercise/${exercise.id}`}>{exercise.name}</NavLink>
+        </li>
+      );
+    }
+  });
+
   return (
     <>
       <header className={classes.detailsHeader}>
@@ -19,19 +41,7 @@ export default function WorkoutDetailsPage() {
       </header>
       <section>
         <h4>Exercises:</h4>
-        <ul>
-          {workoutDetails.exercises.map((exercise) => {
-            const categoryData = crossfitData.find((category) => category.title === exercise.category);
-            const categoryId = categoryData ? categoryData.id : '';
-            return (
-              <>
-                <li key={exercise.id}>
-                  <NavLink to={`/categories/${categoryId}/exercise/${exercise.id}`}>{exercise.name}</NavLink>
-                </li>
-              </>
-            );
-          })}
-        </ul>
+        <ul>{handleWorkoutDetails}</ul>
 
         <h4>Notes:</h4>
         <p style={{ whiteSpace: 'pre-line' }}>{workoutDetails.notes}</p>
