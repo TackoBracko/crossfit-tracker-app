@@ -104,11 +104,9 @@ export default function UserCalendar() {
       };
     });
 
-    const allCategoriesUsed = [...new Set(selectedExercisesData.map((ex) => ex.category))];
     return {
       id: uuidv4(),
       title: workoutTitle,
-      category: allCategoriesUsed,
       exercises: selectedExercisesData,
       notes: notes,
       date: currentDate,
