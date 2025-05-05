@@ -9,6 +9,10 @@ export default function Button({ children, variation, iconLeft, iconRight, onCli
     variationStyleBtn = classes.secondary;
   } else if (variation === 'tertiary') {
     variationStyleBtn = classes.tertiary;
+  } else if (variation === 'quaternary') {
+    variationStyleBtn = classes.quaternary;
+  } else if (variation === 'fifth') {
+    variationStyleBtn = classes.fifth;
   }
 
   return (

@@ -5,27 +5,37 @@ import classes from './WorkoutDetailsPage.module.css';
 import { WorkoutDetailsContext } from '../../components/Context/WorkoutDetailsContext';
 import { useContext } from 'react';
 import { crossfitData } from '../../data/CrossfitData';
+import PlayIcon from '../../components/Icons/PlayBtnIcon';
+import TimerIcon from '../../components/Icons/TimerBtnIcon';
+import CaloriesIcon from '../../components/Icons/CaloriesBtnIcon';
+import ExercisesIcon from '../../components/Icons/ExercisesIcon';
 
 export default function WorkoutDetailsPage() {
   const { workoutDetails } = useContext(WorkoutDetailsContext);
 
   const handleWorkoutDetails = workoutDetails.exercises.map((exercise) => {
-    const categoryData = crossfitData.find((category) => category.title === exercise.category);
-    const categoryId = categoryData ? categoryData.id : '';
-    const isSubExercise = exercise.subCategory && exercise.subCategory !== 'Do not have';
+    const categoryData = crossfitData.find((category) => category.id === exercise.categoryId);
+    const categoryId = categoryData.id;
+    const mainExercise = categoryData.exercises.find((ex) => ex.id === exercise.subCategory);
 
-    if (isSubExercise) {
-      const mainExercise = categoryData && categoryData.exercises.find((ex) => ex.name === exercise.subCategory);
-
+    if (exercise.subCategory) {
       return (
         <li key={exercise.id}>
-          <NavLink to={`/categories/${categoryId}/exercise/${mainExercise.id}/subcategory/${exercise.id}`}>{exercise.name}</NavLink>
+          <NavLink to={`/categories/${categoryId}/exercise/${mainExercise.id}/${exercise.id}`} className={classes.exerciseLink}>
+            <div>
+              <span>{exercise.name}</span>
+            </div>
+          </NavLink>
         </li>
       );
     } else {
       return (
         <li key={exercise.id}>
-          <NavLink to={`/categories/${categoryId}/exercise/${exercise.id}`}>{exercise.name}</NavLink>
+          <NavLink to={`/categories/${categoryId}/exercise/${exercise.id}`} className={classes.exerciseLink}>
+            <div>
+              <span>{exercise.name}</span>
+            </div>
+          </NavLink>
         </li>
       );
     }
@@ -37,15 +47,70 @@ export default function WorkoutDetailsPage() {
         <NavLink to="/usercalendar">
           <Button variation="secondary" iconLeft={<LeftIcon />} />
         </NavLink>
-        <h1>Workout details for {workoutDetails.title}</h1>
+        <h1 className={classes.workoutTitle}>
+          Workout details for <span>{workoutDetails.title}</span>
+        </h1>
       </header>
-      <section>
-        <h4>Exercises:</h4>
-        <ul>{handleWorkoutDetails}</ul>
 
-        <h4>Notes:</h4>
-        <p style={{ whiteSpace: 'pre-line' }}>{workoutDetails.notes}</p>
+      <section className={classes.detailsMetrics}>
+        <div className={classes.text}>
+          <p>The goal is simple: build week over week. Strength lifts will gradually get heavier and accessory work will build in volume</p>
+        </div>
+
+        <div className={classes.timerBar}>
+          <div className={classes.timerBlock}>
+            <span className={classes.timerName}>Workout Timer</span>
+            <div className={classes.timerValue}>
+              <span className={classes.timerClock}>00:00</span>
+              <PlayIcon />
+            </div>
+          </div>
+
+          <div className={classes.timerBlock}>
+            <span className={classes.timerName}>Rest Timer</span>
+            <div className={classes.timerValue}>
+              <span className={classes.timerClock}>00:00</span>
+              <PlayIcon />
+            </div>
+          </div>
+        </div>
+
+        <div className={classes.metrics}>
+          <div className={classes.metricItem}>
+            <TimerIcon />
+            <span className={classes.metricValue}>0m 00s</span>
+          </div>
+
+          <div className={classes.metricItem}>
+            <ExercisesIcon />
+            <span className={classes.metricValue}>0 kg</span>
+          </div>
+
+          <div className={classes.metricItem}>
+            <CaloriesIcon />
+            <span className={classes.metricValue}>0 cal</span>
+          </div>
+        </div>
       </section>
+
+      <div className={classes.detailsContent}>
+        <h4>
+          Exercises <span>(click for info)</span>
+        </h4>
+        <ul className={classes.exercisesList}>{handleWorkoutDetails}</ul>
+
+        <h4>Notes</h4>
+        <ul>
+          {workoutDetails.exercises.map((exercise) => (
+            <li key={exercise.id} className={classes.exerciseItem}>
+              <img src={exercise.picture} alt={exercise.name} className={classes.exercisePic} />
+              <div>
+                <p style={{ whiteSpace: 'pre-line' }}>{exercise.note}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }

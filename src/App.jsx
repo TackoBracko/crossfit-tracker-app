@@ -45,7 +45,7 @@ const router = createBrowserRouter(
       <Route element={<ProtectedRoutes />}>
         <Route path="/categories/:categoryId" element={<CrossfitCategoriesList />} />
         <Route path="/categories/:categoryId/exercise/:exerciseId" element={<CrossfitMovement />} />
-        <Route path="/categories/:categoryId/exercise/:exerciseId/subcategory/:subcategoryId" element={<CrossfitSubCategory />} />
+        <Route path="/categories/:categoryId/exercise/:exerciseId/:subcategoryId" element={<CrossfitSubCategory />} />
         <Route path="meals" element={<MealPlans />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="edit" element={<EditProfilePage />} />

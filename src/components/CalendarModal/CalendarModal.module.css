@@ -3,12 +3,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 500px;
-  max-width: 90%;
-  height: auto;
-  padding: 30px;
+  width: 600px;
+  max-width: 95%;
+  min-height: 70vh;
+  padding: 40px 30px;
   background: #3a3a3a;
-  border-radius: 16px;
+  border-radius: 20px;
+  gap: 20px;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -63,12 +64,14 @@
   background: #fff;
 }
 
-.modalBtn {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+dialog::backdrop {
+  backdrop-filter: blur(2px);
 }
 
+.notesText {
+  white-space: pre-line;
+}
+/*
 .primaryBtn,
 .cancelBtn,
 .createWorkoutBtn {
@@ -86,6 +89,16 @@
 
 .cancelBtn:hover {
   background: #e7152a;
+}*/
+
+/*
+.previewBtn {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  top: 5px;
+  justify-content: space-between;
+  left: 0;
 }
 
 .workoutPreview h3 {
@@ -107,23 +120,6 @@
   position: relative;
 }
 
-dialog::backdrop {
-  backdrop-filter: blur(2px);
-}
-
-.notesText {
-  white-space: pre-line;
-}
-
-.previewBtn {
-  display: flex;
-  width: 100%;
-  position: absolute;
-  top: 5px;
-  justify-content: space-between;
-  left: 0;
-}
-
 .exIcon,
 .editIcon,
 .saveIcon {
@@ -138,4 +134,4 @@ dialog::backdrop {
 .editIcon:hover,
 .saveIcon:hover {
   background: var(--primary-background-btn);
-}
+}*/
