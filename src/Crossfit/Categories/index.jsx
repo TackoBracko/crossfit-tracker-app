@@ -1,5 +1,5 @@
 import classes from './CrossfitCategories.module.css';
-import { crossfitData } from './../../data/CrossfitData.js';
+import { crossfitData } from '../data/CrossfitData';
 import { NavLink } from 'react-router-dom';
 
 export default function CrossfitCategories() {

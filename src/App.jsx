@@ -1,19 +1,19 @@
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 
 import RootLayout from './components/RootLayout';
-import HomePage from './pages/Home';
-import ProfilePage from './pages/Profile';
 import LogInPage from './pages/Login';
 import SignUpPage from './pages/Signup';
-import EditProfilePage from './pages/Edit';
 import InfoSetup from './pages/InfoSetup';
-import CrossfitCategories from './pages/CrossfitCategories';
-import CrossfitCategoriesList from './pages/CrossfitCategoriesList';
-import CrossfitMovement from './pages/CrossfitMovement';
-import CrossfitSubCategory from './pages/CrossfitSubCategory';
+import HomePage from './pages/Home';
+import ProfilePage from './pages/Profile';
+import EditProfilePage from './pages/Edit';
 import MealPlans from './pages/MealPlans';
-import UserCalendar from './pages/UserCalendar';
-import WorkoutDetailsPage from './pages/WorkoutDetails';
+import CrossfitCategories from './Crossfit/Categories';
+import CrossfitCategoriesList from './Crossfit/ExercisesList';
+import CrossfitExercise from './Crossfit/Exercise';
+import CrossfitSubExercise from './Crossfit/SubExercise';
+import UserCalendar from './Calendar/UserCalendar';
+import WorkoutDetails from './Calendar/WorkoutDetails';
 import { UserDataContextProvider } from './components/Context/UserContext';
 import { AuthProvider } from './components/Context/AuthContext';
 import { ProtectedRoutes, PublicRoutes } from './components/Context/AuthRoutesComponent';
@@ -29,7 +29,7 @@ const router = createBrowserRouter(
           <Route path="usercalendar" element={<UserCalendar />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="meals" element={<MealPlans />} />
-          <Route path="/workout/:id" element={<WorkoutDetailsPage />} />
+          <Route path="/workout/:id" element={<WorkoutDetails />} />
         </Route>
 
         <Route element={<PublicRoutes />}>
@@ -44,8 +44,8 @@ const router = createBrowserRouter(
 
       <Route element={<ProtectedRoutes />}>
         <Route path="/categories/:categoryId" element={<CrossfitCategoriesList />} />
-        <Route path="/categories/:categoryId/exercise/:exerciseId" element={<CrossfitMovement />} />
-        <Route path="/categories/:categoryId/exercise/:exerciseId/:subcategoryId" element={<CrossfitSubCategory />} />
+        <Route path="/categories/:categoryId/exercise/:exerciseId" element={<CrossfitExercise />} />
+        <Route path="/categories/:categoryId/exercise/:exerciseId/:subcategoryId" element={<CrossfitSubExercise />} />
         <Route path="meals" element={<MealPlans />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="edit" element={<EditProfilePage />} />

@@ -1,16 +1,16 @@
-import { NavLink } from 'react-router-dom';
 import Button from '../../components/Button';
 import LeftIcon from '../../components/Icons/LeftIcon';
-import classes from './WorkoutDetailsPage.module.css';
+import classes from './WorkoutDetails.module.css';
+import { NavLink } from 'react-router-dom';
 import { WorkoutDetailsContext } from '../../components/Context/WorkoutDetailsContext';
 import { useContext } from 'react';
-import { crossfitData } from '../../data/CrossfitData';
-import PlayIcon from '../../components/Icons/PlayBtnIcon';
-import TimerIcon from '../../components/Icons/TimerBtnIcon';
-import CaloriesIcon from '../../components/Icons/CaloriesBtnIcon';
-import ExercisesIcon from '../../components/Icons/ExercisesIcon';
+import { crossfitData } from './../../Crossfit/data/CrossfitData';
+import PlayIcon from './../../components/Icons/PlayBtnIcon';
+import TimerIcon from './../../components/Icons/TimerBtnIcon';
+import CaloriesIcon from './../../components/Icons/CaloriesBtnIcon';
+import ExercisesIcon from './../../components/Icons/ExercisesIcon';
 
-export default function WorkoutDetailsPage() {
+export default function WorkoutDetails() {
   const { workoutDetails } = useContext(WorkoutDetailsContext);
 
   const handleWorkoutDetails = workoutDetails.exercises.map((exercise) => {
@@ -47,7 +47,7 @@ export default function WorkoutDetailsPage() {
         <NavLink to="/usercalendar">
           <Button variation="secondary" iconLeft={<LeftIcon />} />
         </NavLink>
-        <h1 className={classes.workoutTitle}>
+        <h1 className={classes.workoutDetailsTitle}>
           Workout details for <span>{workoutDetails.title}</span>
         </h1>
       </header>
@@ -105,7 +105,7 @@ export default function WorkoutDetailsPage() {
             <li key={exercise.id} className={classes.exerciseItem}>
               <img src={exercise.picture} alt={exercise.name} className={classes.exercisePic} />
               <div>
-                <p style={{ whiteSpace: 'pre-line' }}>{exercise.note}</p>
+                <p>{exercise.note}</p>
               </div>
             </li>
           ))}

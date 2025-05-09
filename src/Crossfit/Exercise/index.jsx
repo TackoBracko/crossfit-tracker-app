@@ -1,10 +1,10 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { crossfitData } from './../../data/CrossfitData.js';
-import classes from './CrossfitMovement.module.css';
+import { crossfitData } from '../data/CrossfitData.js';
+import classes from './CrossfitExercise.module.css';
 import Button from '../../components/Button/index.jsx';
 import LeftIcon from '../../components/Icons/LeftIcon.jsx';
 
-export default function CrossfitMovement() {
+export default function CrossfitExercise() {
   const { categoryId, exerciseId } = useParams();
   console.log(exerciseId);
   const navigate = useNavigate();
