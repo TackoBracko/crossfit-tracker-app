@@ -2,7 +2,13 @@ import classes from './Input.module.css';
 
 import { forwardRef } from 'react';
 
-const InputField = forwardRef(function InputRef({ name, label, placeholder, type, onBlur, onChange, value, error, disable }, ref) {
+const InputField = forwardRef(function InputRef({ name, label, placeholder, type, onBlur, onChange, value, error, disable, variation }, ref) {
+  let variationStylaInput = '';
+
+  if (variation === 'inputModal') {
+    variationStylaInput = classes.inputModal;
+  }
+
   return (
     <div>
       {label && <label htmlFor="input"> {label}</label>}
@@ -17,7 +23,7 @@ const InputField = forwardRef(function InputRef({ name, label, placeholder, type
         onChange={onChange}
         value={value}
         disabled={disable}
-        className={classes.inputBase}
+        className={`${classes.inputBase} ${variationStylaInput}`}
       />
     </div>
   );

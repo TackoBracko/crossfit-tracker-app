@@ -9,6 +9,17 @@
   font-size: 17px;
   font-weight: 500;
   padding: 20px 16px;
+  transition: border-color 0.2sec;
+}
+
+.inputModal {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: #f5f5f5;
+  transition: 0.3s;
+  color: var(--tertiary-text);
 }
 
 ::placeholder {
@@ -18,9 +29,11 @@
 }
 
 label {
+  display: block;
   font-size: 17px;
   color: var(--secondary-text);
   padding-left: 16px;
+  margin-bottom: 10px;
 }
 
 .errorText {
@@ -29,4 +42,8 @@ label {
   padding-left: 16px;
   font-weight: 400;
   font-size: 11px;
+}
+
+.inputError {
+  border-bottom-color: red;
 }

@@ -1,5 +1,5 @@
 .signupHeader {
-  background-image: url('./../../assets/pictures/AppPictures/SignupBackground.png');
+  background-image: url('./../../../assets/pictures/AppPictures/SignupBackground.png');
   background-size: cover;
   background-position: center;
   display: flex;

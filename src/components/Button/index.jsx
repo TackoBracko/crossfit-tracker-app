@@ -13,6 +13,8 @@ export default function Button({ children, variation, iconLeft, iconRight, onCli
     variationStyleBtn = classes.quaternary;
   } else if (variation === 'fifth') {
     variationStyleBtn = classes.fifth;
+  } else if (variation === 'sixth') {
+    variationStyleBtn = classes.sixth;
   }
 
   return (
