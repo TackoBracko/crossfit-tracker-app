@@ -1,4 +1,4 @@
-import assultBike from './../assets/pictures/movements_img/assault.avif';
+import assultBike from './../assets/pictures/movements_img/Assault.avif';
 import backSquat from './../assets/pictures/movements_img/BackSquat.png';
 import barbellRow from './../assets/pictures/movements_img/BarbellRow.webp';
 import benchPress from './../assets/pictures/movements_img/BenchPress.jpg';
@@ -77,7 +77,7 @@ export const crossfitData = [
         video: 'Ty14ogq_Vok',
         description:
           'The clean is a powerful weightlifting movement where the barbell is lifted from the ground to the front of the shoulders in a single, fluid motion. It begins with a strong pull from the floor, followed by an explosive hip extension to drive the bar upward, and ends with quickly dropping underneath to catch the bar in a front rack position. The clean develops full-body power, speed and coordination, making it a cornerstone of functional fitness and athletic training.',
-        subCategory: [
+        subExercise: [
           {
             id: 1,
             name: 'Power Clean',
@@ -123,7 +123,7 @@ export const crossfitData = [
         video: 'GhxhiehJcQY',
         description:
           'The snatch is a dynamic Olympic weightlifting exercise where a barbell is lifted from the ground to overhead in one explosive motion. It requires a combination of strength, speed, mobility, and precision, making it one of the most technical and athletic movements in weightlifting. The snatch develops full-body power, coordination, and balance, engaging muscles from the legs and core to the shoulders and arms.',
-        subCategory: [
+        subExercise: [
           {
             id: 1,
             name: 'Power Snatch',
@@ -848,7 +848,7 @@ export const crossfitData = [
         video: 'fxfhQMbATCw',
         description:
           'When CrossFit machines measure calories, they are not directly measuring how many calories you are burning in a workout. Instead, these calories are a standardized unit of work output. Machines like the Assault Bike and Concept2 Rower calculate the amount of energy you generate during exercise based on resistance, distance, and time. In essence, they are quantifying how hard you are working.',
-        subCategory: [
+        subExercise: [
           {
             id: 1,
             name: 'Row (Concept2 Rower)',

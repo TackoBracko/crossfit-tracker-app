@@ -1,0 +1,38 @@
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 20px;
+  justify-items: center;
+  cursor: pointer;
+}
+
+.day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(107, 103, 103);
+}
+
+.day:hover {
+  background-color: #f4f4f4;
+  color: var(--tertiary-text);
+  border-radius: 50%;
+}
+
+.currentDay {
+  background-color: #b4a0ff;
+  border-radius: 50%;
+  padding: 10px 12px;
+}
+
+.allDays {
+  color: var(--primary-text);
+  padding: 10px 12px;
+}
+
+.workoutDay {
+  background-color: #e4f061;
+  border-radius: 50%;
+  padding: 10px 12px;
+  color: var(--tertiary-text);
+}

@@ -1,14 +1,13 @@
 import { Form, useNavigate } from 'react-router-dom';
-import classes from './Login.module.css';
 import { useContext, useRef, useState } from 'react';
-
+import { AuthContext } from '../../Context/AuthContext';
+import { UserContext } from '../../Context/UserContext';
+import classes from './Login.module.css';
 import Button from '../../components/Button';
 import InputField from '../../components/Input';
 import RightIcon from '../../components/Icons/RightIcon';
-import { AuthContext } from '../../components/Context/AuthContext';
-import { UserContext } from '../../components/Context/UserContext';
 
-export default function LogInPage() {
+export default function Login() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 

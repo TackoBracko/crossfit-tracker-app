@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import classes from './Navigation.module.css';
 import { useContext } from 'react';
-import { AuthContext } from '../../Context/AuthContext';
+import { AuthContext } from '../../../Context/AuthContext';
 import ExercisesIcon from '../../Icons/ExercisesIcon';
 import MealPlansIcon from '../../Icons/MealPlansIcon';
 import HomeIcon from '../../Icons/HomeIcon';
@@ -28,7 +28,7 @@ export default function Navigation() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="categories" className={({ isActive }) => (isActive ? classes.active : undefined)}>
+                <NavLink to="category" className={({ isActive }) => (isActive ? classes.active : undefined)}>
                   <ExercisesIcon />
                 </NavLink>
               </li>
@@ -38,7 +38,7 @@ export default function Navigation() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="usercalendar" className={({ isActive }) => (isActive ? classes.active : undefined)}>
+                <NavLink to="calendar" className={({ isActive }) => (isActive ? classes.active : undefined)}>
                   <UserCalendarIcon />
                 </NavLink>
               </li>
@@ -51,12 +51,12 @@ export default function Navigation() {
           ) : (
             <ul className={classes.activeNav}>
               <li>
-                <NavLink to="login" className={({ isActive }) => (isActive ? classes.active : undefined)}>
+                <NavLink to="log-in" className={({ isActive }) => (isActive ? classes.active : undefined)}>
                   LogIn
                 </NavLink>
               </li>
               <li>
-                <NavLink to="signup" className={({ isActive }) => (isActive ? classes.active : undefined)}>
+                <NavLink to="sign-up" className={({ isActive }) => (isActive ? classes.active : undefined)}>
                   Sign Up
                 </NavLink>
               </li>

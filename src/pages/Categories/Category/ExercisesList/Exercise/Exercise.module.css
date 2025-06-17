@@ -1,0 +1,126 @@
+.movementHeader button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(221, 221, 221, 1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.movementHeader button:hover {
+  background-color: transparent;
+  border-color: var(--primary-btn-hover);
+  color: var(--primary-btn-hover);
+}
+
+.movementInfo {
+  padding: 32px 24px;
+}
+
+.movementInfo h1 {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.movementVideo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.subCategoryVideo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  padding-top: 10px;
+}
+
+.subCategoryVideo.column {
+  flex-direction: column;
+}
+
+.movementVideo p,
+.subCategoryVideo p {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--secondary-text);
+}
+
+.videoDescription {
+  font-size: 15px;
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+
+.subVideoDescription {
+  margin-bottom: 32px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--primary-text);
+}
+
+.movementVideo img,
+.subCategoryVideo img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.movementVideo img,
+.subCategoryVideo a {
+  width: 86px;
+  height: 29px;
+  border: 1px solid #2c2c2e;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movementVideo img:hover {
+  background: var(--primary-btn-hover);
+}
+
+.subCategorySection {
+  padding: 32px 24px;
+}
+
+.subCategory h3 {
+  color: var(--secondary-text);
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+.subCategoryBox {
+  padding-bottom: 20px;
+}
+
+.subCategoryBox h4 {
+  padding-bottom: 10px;
+}
+
+.subCategoryBox img {
+  border-radius: 12px;
+}
+
+.imgContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+.imgContainer img {
+  width: 300px;
+  height: 200px;
+}

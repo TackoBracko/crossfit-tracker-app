@@ -1,13 +1,13 @@
 import { useContext, useRef, useState } from 'react';
 import { Form, useNavigate } from 'react-router-dom';
-import { UserContext } from '../../components/Context/UserContext';
-import classes from '../Signup/Signup.module.css';
+import { UserContext } from '../../Context/UserContext';
+import classes from './Signup.module.css';
 
 import Button from '../../components/Button';
 import InputField from '../../components/Input';
 import RightIcon from '../../components/Icons/RightIcon';
 
-export default function SignUpPage() {
+export default function Signup() {
   const { handleUserData } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -63,7 +63,7 @@ export default function SignUpPage() {
     }
 
     handleUserData({ email, password });
-    navigate('/infosetup');
+    navigate('/on-bording');
   };
 
   return (

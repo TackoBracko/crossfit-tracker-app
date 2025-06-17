@@ -1,0 +1,41 @@
+.workoutBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px auto;
+}
+
+.workoutPlan {
+  background-color: #b4a0ff;
+  border-radius: 12px;
+  padding: 16px;
+  color: var(--tertiary-text);
+  max-width: 500px;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.workoutDayTitle {
+  color: #f6f1f1;
+  margin: 24px;
+  font-size: 20px;
+}
+
+.workoutTitle {
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+
+.workoutExercise {
+  font-size: 16px;
+  white-space: pre-line;
+}
+
+.workoutBtn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+  margin-top: 20px;
+}

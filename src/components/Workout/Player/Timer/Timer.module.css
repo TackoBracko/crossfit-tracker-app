@@ -1,0 +1,50 @@
+.timerBar {
+  display: flex;
+  flex-direction: column;
+  background: var(--secondary-background-btn);
+}
+
+.timerBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.timerValue {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  gap: 10px;
+}
+
+.timerValue button {
+  color: var(--primary-text);
+}
+
+.timerValue button:hover {
+  color: var(--primary-background-btn);
+}
+
+.timerName {
+  color: #8e8e93;
+  padding-bottom: 4px;
+}
+
+@media (min-width: 481px) {
+  .timerBar {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .timerBlock {
+    flex: 1;
+    border-bottom: none;
+    border-right: 1px solid #3a3a3c;
+  }
+
+  .timerValue {
+    font-size: 24px;
+  }
+}

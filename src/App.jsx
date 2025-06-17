@@ -1,54 +1,54 @@
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 
 import RootLayout from './components/RootLayout';
-import HomePage from './pages/Home';
-import ProfilePage from './pages/Profile';
-import LogInPage from './pages/Login';
-import SignUpPage from './pages/Signup';
-import EditProfilePage from './pages/Edit';
-import InfoSetup from './pages/InfoSetup';
-import CrossfitCategories from './pages/CrossfitCategories';
-import CrossfitCategoriesList from './pages/CrossfitCategoriesList';
-import CrossfitMovement from './pages/CrossfitMovement';
-import CrossfitSubCategory from './pages/CrossfitSubCategory';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Onbording from './pages/Onbording';
+import Home from './pages/User/Home';
+import Profile from './pages/User/Profile';
+import EditProfile from './pages/User/Edit';
 import MealPlans from './pages/MealPlans';
-import UserCalendar from './pages/UserCalendar';
-import WorkoutDetailsPage from './pages/WorkoutDetails';
-import { UserDataContextProvider } from './components/Context/UserContext';
-import { AuthProvider } from './components/Context/AuthContext';
-import { ProtectedRoutes, PublicRoutes } from './components/Context/AuthRoutesComponent';
-import { WorkoutDetailsProvider } from './components/Context/WorkoutDetailsContext';
+import Category from './pages/Categories/Category';
+import ExercisesList from './pages/Categories/Category/ExercisesList';
+import Exercise from './pages/Categories/Category/ExercisesList/Exercise';
+import SubExercise from './pages/Categories/Category/ExercisesList/Exercise/SubExercise';
+import Calendar from './components/Calendar';
+import WorkoutDetails from './components/Workout/Details';
+import Player from './components/Workout/Player';
+import { UserDataContextProvider } from './Context/UserContext';
+import { AuthProvider } from './Context/AuthContext';
+import { ProtectedRoutes, PublicRoutes } from './Context/AuthRoutesComponent';
+import { WorkoutDetailsProvider } from './Context/WorkoutDetailsContext';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<RootLayout />} /*loader={() => {return isUserLogged;}}*/>
         <Route element={<ProtectedRoutes />}>
-          <Route index element={<HomePage />} />
-          <Route path="categories" element={<CrossfitCategories />} />
-          <Route path="usercalendar" element={<UserCalendar />} />
-          <Route path="profile" element={<ProfilePage />} />
+          <Route index element={<Home />} />
+          <Route path="category" element={<Category />} />
+          <Route path="calendar" element={<Calendar />} />
+          <Route path="profile" element={<Profile />} />
           <Route path="meals" element={<MealPlans />} />
-          <Route path="/workout/:id" element={<WorkoutDetailsPage />} />
+          <Route path="/workouts/:id" element={<WorkoutDetails />} />
         </Route>
 
         <Route element={<PublicRoutes />}>
-          <Route path="login" element={<LogInPage />} />
-          <Route path="signup" element={<SignUpPage />} />
+          <Route path="log-in" element={<Login />} />
+          <Route path="sign-up" element={<Signup />} />
         </Route>
       </Route>
 
       <Route element={<PublicRoutes />}>
-        <Route path="infosetup" element={<InfoSetup />} />
+        <Route path="on-bording" element={<Onbording />} />
       </Route>
 
       <Route element={<ProtectedRoutes />}>
-        <Route path="/categories/:categoryId" element={<CrossfitCategoriesList />} />
-        <Route path="/categories/:categoryId/exercise/:exerciseId" element={<CrossfitMovement />} />
-        <Route path="/categories/:categoryId/exercise/:exerciseId/subcategory/:subcategoryId" element={<CrossfitSubCategory />} />
-        <Route path="meals" element={<MealPlans />} />
-        <Route path="profile" element={<ProfilePage />} />
-        <Route path="edit" element={<EditProfilePage />} />
+        <Route path="/category/:categoryId" element={<ExercisesList />} />
+        <Route path="/category/:categoryId/exercises/:exerciseId" element={<Exercise />} />
+        <Route path="/category/:categoryId/exercises/:exerciseId/:subexerciseId" element={<SubExercise />} />
+        <Route path="edit" element={<EditProfile />} />
+        <Route path="player" element={<Player />} />
       </Route>
     </>,
   ),
