@@ -1,8 +1,8 @@
 import classes from './Timer.module.css';
-import Button from '../../../Button';
-import PlayIcon from '../../../Icons/PlayBtnIcon';
-import PauseIcon from '../../../Icons/PauseBtnIcon';
-import ResetIcon from '../../../Icons/ResetBtnIcon';
+import Button from '../../../components/Button';
+import PlayIcon from '../../../components/Icons/PlayBtnIcon';
+import PauseIcon from '../../../components/Icons/PauseBtnIcon';
+import ResetIcon from '../../../components/Icons/ResetBtnIcon';
 import { useEffect, useState } from 'react';
 
 export default function Timer() {

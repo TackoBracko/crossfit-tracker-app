@@ -1,5 +1,5 @@
-import Button from '../../Button';
-import LeftIcon from '../../Icons/LeftIcon';
+import Button from './../../../components/Button';
+import LeftIcon from './../../../components/Icons/LeftIcon';
 import classes from './WorkoutDetails.module.css';
 import { NavLink } from 'react-router-dom';
 import { WorkoutDetailsContext } from '../../../Context/WorkoutDetailsContext';
@@ -64,7 +64,7 @@ export default function WorkoutDetails() {
           {workoutDetails.exercises.map((exercise) => (
             <li key={exercise.id} className={classes.exerciseItem}>
               <div>
-                <p>{exercise.note}</p>
+                <p>{exercise.notes}</p>
               </div>
               <img src={exercise.picture} alt={exercise.name} className={classes.exercisePic} />
             </li>
