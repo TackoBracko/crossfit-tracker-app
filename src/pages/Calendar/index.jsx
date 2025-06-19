@@ -3,15 +3,15 @@ import { v4 as uuidv4 } from 'uuid';
 import { crossfitData } from '../../data/CrossfitData.js';
 import { WorkoutDetailsContext } from '../../Context/WorkoutDetailsContext.jsx';
 import classes from './Calendar.module.css';
-import Modal from './../Modal';
-import CalendarBackIcon from '../Icons/CalendarBackIcon.jsx';
-import CalendarForwardIcon from '../Icons/CalendarForwardIcon.jsx';
-import Planner from './Planner';
-import DayWithWorkout from './DayWithWorkout/index.jsx';
-import LayoutContent from './WorkoutModalContent/LayoutContent';
-import CreateContent from './WorkoutModalContent/CreateContent';
-import HeaderContent from './WorkoutModalContent/HeaderContent';
-import EditContent from './WorkoutModalContent/EditContent';
+import Modal from './../../components/Modal';
+import CalendarBackIcon from '../../components/Icons/CalendarBackIcon.jsx';
+import CalendarForwardIcon from '../../components/Icons/CalendarForwardIcon.jsx';
+import Planner from './../../components/Calendar/Planner';
+import DayWithWorkout from './../../components/Calendar/DayWithWorkout';
+import LayoutContent from './../../components/Calendar/WorkoutModalContent/LayoutContent';
+import CreateContent from './../../components/Calendar/WorkoutModalContent/CreateContent';
+import HeaderContent from './../../components/Calendar/WorkoutModalContent/HeaderContent';
+import EditContent from './../../components/Calendar/WorkoutModalContent/EditContent';
 
 export default function Calendar() {
   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];

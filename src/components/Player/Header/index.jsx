@@ -1,6 +1,6 @@
 import classes from './Header.module.css';
-import Button from '../../../Button';
-import LeftIcon from '../../../Icons/LeftIcon';
+import Button from '../../Button';
+import LeftIcon from '../../Icons/LeftIcon';
 import { useNavigate } from 'react-router-dom';
 
 export default function Header({ exercise }) {

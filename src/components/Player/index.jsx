@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import Timer from './Timer';
+import Timer from '../../pages/Workout/Timer';
 import Header from './Header';
-import { WorkoutDetailsContext } from '../../../Context/WorkoutDetailsContext';
+import { WorkoutDetailsContext } from '../../Context/WorkoutDetailsContext';
 
 export default function Player() {
   const { workoutDetails } = useContext(WorkoutDetailsContext);
