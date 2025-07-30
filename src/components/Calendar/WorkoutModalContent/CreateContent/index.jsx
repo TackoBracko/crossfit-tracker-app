@@ -16,6 +16,7 @@ export default function CreateContent({
   error,
   setError,
   closeCreateModal,
+  metricsBlock,
 }) {
   return (
     <>
@@ -69,53 +70,70 @@ export default function CreateContent({
         </select>
       </div>
 
-      {selectedExercise.length > 0 && (
+      {selectedExercise && (
         <>
           <p className={classes.selectedExercise}>Selected exercise: {selectedExercise}</p>
-          <InputField name="sets" type="text" label="Sets" value={exerciseMetrics.sets} onChange={handleExerciseMetrics} variation="inputModal" />
-          <InputField name="reps" type="text" label="Reps" value={exerciseMetrics.reps} onChange={handleExerciseMetrics} variation="inputModal" />
-          <InputField
-            name="weight"
-            type="text"
-            label="Weight (kg)"
-            value={exerciseMetrics.weight}
-            onChange={handleExerciseMetrics}
-            variation="inputModal"
-          />
-          <div className={classes.workoutBtn}>
-            <Button variation="primary" onClick={handleAddSelectedExercise}>
-              Add exercise
-            </Button>
+          <div className={classes.inputGroup}>
+            <InputField
+              name="sets"
+              type="text"
+              label="Sets"
+              value={exerciseMetrics.sets}
+              onChange={handleExerciseMetrics}
+              variation="inputForModal"
+            />
+            <InputField
+              name="reps"
+              type="text"
+              label="Reps"
+              value={exerciseMetrics.reps}
+              onChange={handleExerciseMetrics}
+              variation="inputForModal"
+            />
+            <InputField
+              name="weight"
+              type="text"
+              label="Weight"
+              value={exerciseMetrics.weight}
+              onChange={handleExerciseMetrics}
+              variation="inputForModal"
+            />
+            <InputField
+              name="work"
+              type="text"
+              label="Work time"
+              value={exerciseMetrics.work}
+              onChange={handleExerciseMetrics}
+              variation="inputForModal"
+            />
+            <InputField
+              name="rest"
+              type="text"
+              label="Rest time"
+              value={exerciseMetrics.rest}
+              onChange={handleExerciseMetrics}
+              variation="inputForModal"
+            />
+
+            <div className={classes.workoutBtn}>
+              <Button variation="primary" onClick={handleAddSelectedExercise}>
+                Add exercise
+              </Button>
+            </div>
           </div>
         </>
       )}
 
       {selectedExercisesList.length > 0 && (
         <div>
-          <ul className={classes.textArea}>
-            {selectedExercisesList.map((exercise, idx) => (
-              <li key={idx}>
-                {exercise.name}
-                {(exercise.sets > 0 || exercise.reps > 0) && (
-                  <>
-                    {' '}
-                    {exercise.sets > 0 && exercise.reps > 0
-                      ? ` ${exercise.sets} sets x ${exercise.reps} reps`
-                      : exercise.sets > 0
-                        ? `${exercise.sets} sets`
-                        : exercise.reps > 0
-                          ? `${exercise.reps} reps`
-                          : ''}
-                    {exercise.weight ? ` @ ${exercise.weight} kg` : ''}
-                  </>
-                )}
-              </li>
+          <ul className={classes.exercisePreviewList}>
+            {selectedExercisesList.map((exercise, id) => (
+              <li key={id}>{metricsBlock(exercise)}</li>
             ))}
           </ul>
         </div>
       )}
 
-      {error.workoutplan && <p className={classes.errorText}>Cannot create empty workout</p>}
       <div className={classes.workoutBtn}>
         <Button variation="primary" onClick={handleCreateWorkout}>
           Create Workout
@@ -124,6 +142,7 @@ export default function CreateContent({
           Cancel
         </Button>
       </div>
+      {error.workoutplan && <p className={classes.errorText}>Cannot create empty workout</p>}
     </>
   );
 }

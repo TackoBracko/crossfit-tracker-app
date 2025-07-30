@@ -5,8 +5,8 @@ import { forwardRef } from 'react';
 const InputField = forwardRef(function InputRef({ name, label, placeholder, type, onBlur, onChange, value, error, disable, variation }, ref) {
   let variationStylaInput = '';
 
-  if (variation === 'inputModal') {
-    variationStylaInput = classes.inputModal;
+  if (variation === 'inputForModal') {
+    variationStylaInput = classes.inputForModal;
   }
 
   return (

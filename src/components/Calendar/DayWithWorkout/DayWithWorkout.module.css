@@ -13,11 +13,12 @@
   max-width: 500px;
   width: 100%;
   margin-left: 10px;
+  margin-top: 10px;
 }
 
 .workoutDayTitle {
   color: #f6f1f1;
-  margin: 24px;
+  margin: 24px 24px 0 24px;
   font-size: 20px;
 }
 

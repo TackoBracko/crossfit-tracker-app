@@ -29,13 +29,15 @@ export default function Calendar() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedExercise, setSelectedExercise] = useState('');
   const [selectedExercisesList, setSelectedExercisesList] = useState([]);
-  const [exerciseMetrics, setExerciseMetrics] = useState({ sets: '', reps: '', weight: '' });
+  const [exerciseMetrics, setExerciseMetrics] = useState({ sets: '', reps: '', weight: '', work: '', rest: '' });
   const [editWorkout, setEditWorkout] = useState(null);
-  const [notes, setNotes] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingExercise, setEditingExercise] = useState(null);
   const [error, setError] = useState({
     title: false,
     workoutplan: false,
   });
+  //const [notes, setNotes] = useState('');
 
   const changeCurrentDay = (day) => {
     const newDate = new Date(day.year, day.month, day.number);
@@ -59,37 +61,58 @@ export default function Calendar() {
     });
   };
 
+  const metricsBlock = (exercise) => {
+    let metricsNote = exercise.name;
+
+    if (exercise.sets > 0 && exercise.reps > 0) {
+      metricsNote += ` ${exercise.sets} sets x ${exercise.reps} reps`;
+    } else if (exercise.sets > 0) {
+      metricsNote += ` ${exercise.sets} sets`;
+    } else if (exercise.reps > 0) {
+      metricsNote += ` ${exercise.reps} reps`;
+    }
+    if (exercise.weight) {
+      metricsNote += ` @ ${exercise.weight} kg`;
+    }
+    if (exercise.work) {
+      metricsNote += ` | work: ${exercise.work}s`;
+    }
+    if (exercise.rest) {
+      metricsNote += ` | rest: ${exercise.rest}s`;
+    }
+    return metricsNote;
+  };
+
   const handleAddSelectedExercise = () => {
     const newExercise = {
+      id: uuidv4(),
       name: selectedExercise,
       sets: Number(exerciseMetrics.sets),
       reps: Number(exerciseMetrics.reps),
       weight: exerciseMetrics.weight,
+      work: exerciseMetrics.work,
+      rest: exerciseMetrics.rest,
+      note: metricsBlock({
+        name: selectedExercise,
+        sets: Number(exerciseMetrics.sets),
+        reps: Number(exerciseMetrics.reps),
+        weight: exerciseMetrics.weight,
+        work: exerciseMetrics.work,
+        rest: exerciseMetrics.rest,
+      }),
     };
 
-    let line = newExercise.name;
-    if (newExercise.sets > 0 && newExercise.reps > 0) {
-      line += ` ${newExercise.sets} sets x ${newExercise.reps} reps`;
-    } else if (newExercise.sets > 0) {
-      line += ` ${newExercise.sets} sets`;
-    } else if (newExercise.reps > 0) {
-      line += ` ${newExercise.reps} reps`;
-    }
-    if (newExercise.weight) {
-      line += ` @ ${newExercise.weight} kg`;
-    }
-
     setSelectedExercisesList((prev) => [...prev, newExercise]);
-    setNotes((prevNote) => (prevNote ? `${prevNote}\n${line}` : line));
+    //setNotes((prevNote) => (prevNote ? `${prevNote}\n${newExercise.note}` : newExercise.note));
 
-    setExerciseMetrics({ sets: '', reps: '', weight: '' });
+    setExerciseMetrics({ sets: '', reps: '', weight: '', work: '', rest: '' });
     setSelectedExercise('');
   };
 
-  const handleWorkoutBuild = (workoutTitle, notes, currentDate, selectedExercisesList) => {
+  const handleWorkoutBuild = (workoutTitle, currentDate, selectedExercisesList) => {
     let categoriesList = [];
 
-    crossfitData.map((category) => {
+    crossfitData.forEach((category) => {
       const exercises = category.exercises.map((exercise) => {
         if (exercise.subExercise) {
           return exercise.subExercise.map((subexercise) => ({
@@ -130,7 +153,10 @@ export default function Calendar() {
         sets: exercise.sets,
         reps: exercise.reps,
         weight: exercise.weight,
-        note: notes.split('\n').find((note) => note.includes(exercise.name)) || '',
+        work: exercise.work,
+        rest: exercise.rest,
+        note: metricsBlock(exercise),
+        //note: notes.split('\n').find((note) => note.includes(exercise.name)) || '',
       };
     });
 
@@ -138,12 +164,12 @@ export default function Calendar() {
       id: uuidv4(),
       title: workoutTitle,
       exercises: selectedExercisesData,
-      notes: notes,
+      //notes: notes,
       date: currentDate,
     };
   };
 
-  //ADD/CREATE
+  //CREATE
 
   const handleCreateWorkout = () => {
     const errorTitle = !workoutTitle.trim();
@@ -157,7 +183,7 @@ export default function Calendar() {
       return;
     }
 
-    const newWorkout = handleWorkoutBuild(workoutTitle, notes, currentDate, selectedExercisesList);
+    const newWorkout = handleWorkoutBuild(workoutTitle, currentDate, selectedExercisesList);
 
     const todayWorkout = {
       id: uuidv4(),
@@ -189,36 +215,83 @@ export default function Calendar() {
       setSelectedExercise('');
       setSelectedExercisesList(
         workout.exercises.map((ex) => ({
+          id: ex.id,
           name: ex.name,
           sets: ex.sets,
           reps: ex.reps,
           weight: ex.weight,
+          work: ex.work,
+          rest: ex.rest,
         })),
       );
-      setNotes(workout.notes);
+      //setNotes(workout.notes);
       openEditModal();
     }
   };
 
-  const handleSaveEditWorkout = () => {
-    if (editWorkout) {
-      const newEditedWorkout = handleWorkoutBuild(workoutTitle, notes, currentDate, selectedExercisesList);
-
-      const updatedWorkout = {
-        ...editWorkout,
-        title: newEditedWorkout.title,
-        category: selectedCategory,
-        exercises: newEditedWorkout.exercises.filter((ex) => notes.includes(ex.name)),
-        notes: newEditedWorkout.notes,
-      };
-
-      changeWorkout(currentDate, updatedWorkout);
-      console.log(updatedWorkout);
+  const handleSaveEditedWorkout = () => {
+    if (selectedExercisesList.length === 0) {
+      deleteWorkout(currentDate, editWorkout.id);
+      setEditWorkout(null);
+      closeEditModal();
+      return;
     }
 
+    const newEditedWorkout = handleWorkoutBuild(workoutTitle, currentDate, selectedExercisesList);
+    const updatedWorkout = {
+      ...editWorkout,
+      id: editWorkout.id,
+      title: newEditedWorkout.title,
+      category: selectedCategory,
+      exercises: newEditedWorkout.exercises,
+      //exercises: newEditedWorkout.exercises.filter((ex) => notes.includes(ex.name)),
+      notes: newEditedWorkout.notes,
+    };
+
+    changeWorkout(currentDate, updatedWorkout);
+    addWorkoutsToContext(updatedWorkout);
     setEditWorkout(null);
-    clearModal();
     closeEditModal();
+    clearModal();
+    console.log(updatedWorkout);
+  };
+
+  const handleEditExercise = (id) => {
+    const exerciseToEdit = selectedExercisesList.find((exercise) => exercise.id === id);
+    if (exerciseToEdit) {
+      setSelectedExercise(exerciseToEdit.name);
+      setExerciseMetrics({
+        sets: exerciseToEdit.sets,
+        reps: exerciseToEdit.reps,
+        weight: exerciseToEdit.weight,
+        work: exerciseToEdit.work,
+        rest: exerciseToEdit.rest,
+      });
+      setIsEditing(true);
+      setEditingExercise(id);
+    }
+  };
+
+  const handleSaveEditedExercise = () => {
+    if (editingExercise !== null && selectedExercise) {
+      const updatedExercise = {
+        id: editingExercise,
+        name: selectedExercise,
+        sets: Number(exerciseMetrics.sets),
+        reps: Number(exerciseMetrics.reps),
+        weight: exerciseMetrics.weight,
+        work: exerciseMetrics.work,
+        rest: exerciseMetrics.rest,
+      };
+
+      setSelectedExercisesList((prevEx) => prevEx.map((exercise) => (exercise.id === editingExercise ? updatedExercise : exercise)));
+
+      setEditingExercise(null);
+      setIsEditing(false);
+      setSelectedExercise('');
+      setExerciseMetrics({ sets: '', reps: '', weight: '', work: '', rest: '' });
+      console.log(updatedExercise);
+    }
   };
 
   //DELETE
@@ -227,7 +300,11 @@ export default function Calendar() {
     deleteWorkout(currentDate, id);
   };
 
-  //modal
+  const handleDeleteExercise = (id) => {
+    setSelectedExercisesList((prevEx) => prevEx.filter((exercise) => exercise.id !== id));
+  };
+
+  //MODAL
 
   const nextMonth = () => {
     setCurrentDay((prev) => new Date(prev.getFullYear(), prev.getMonth() + 1, 1));
@@ -271,9 +348,13 @@ export default function Calendar() {
     setSelectedCategory('');
     setSelectedExercise('');
     setSelectedExercisesList([]);
-    setExerciseMetrics({ sets: '', reps: '', weight: '' });
-    setNotes('');
+    setExerciseMetrics({ sets: '', reps: '', weight: '', work: '', rest: '' });
+    //setNotes('');
     setWorkoutTitle('');
+    setError({
+      title: false,
+      workoutplan: false,
+    });
   };
 
   return (
@@ -321,6 +402,7 @@ export default function Calendar() {
             error={error}
             setError={setError}
             closeCreateModal={closeCreateModal}
+            metricsBlock={metricsBlock}
           />
         </LayoutContent>
       </Modal>
@@ -346,10 +428,15 @@ export default function Calendar() {
               handleExerciseMetrics={handleExerciseMetrics}
               handleExerciseSelect={handleExerciseSelect}
               handleAddSelectedExercise={handleAddSelectedExercise}
-              handleSaveEditWorkout={handleSaveEditWorkout}
-              notes={notes}
-              setNotes={setNotes}
+              handleSaveEditedWorkout={handleSaveEditedWorkout}
+              handleEditExercise={handleEditExercise}
+              handleSaveEditedExercise={handleSaveEditedExercise}
+              handleDeleteExercise={handleDeleteExercise}
+              //notes={notes}
+              //setNotes={setNotes}
               closeEditModal={closeEditModal}
+              isEditing={isEditing}
+              metricsBlock={metricsBlock}
             />
           </LayoutContent>
         </Modal>

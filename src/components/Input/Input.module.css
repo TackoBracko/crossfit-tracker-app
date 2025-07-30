@@ -12,7 +12,7 @@
   transition: border-color 0.2sec;
 }
 
-.inputModal {
+.inputForModal {
   width: 100%;
   padding: 12px;
   border: 2px solid #ccc;
