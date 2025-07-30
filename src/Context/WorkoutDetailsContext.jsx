@@ -44,6 +44,8 @@ export const WorkoutDetailsProvider = ({ children }) => {
         workout: prevData[currentDate].workout.map((workout) => (workout.id === updatedWorkout.id ? updatedWorkout : workout)),
       },
     }));
+
+    setWorkoutDetails((prevData) => (prevData && prevData.id === updatedWorkout.id ? updatedWorkout : prevData));
   };
 
   const addWorkoutsToContext = (workout) => {
@@ -52,7 +54,9 @@ export const WorkoutDetailsProvider = ({ children }) => {
   };
 
   return (
-    <WorkoutDetailsContext.Provider value={{ allWorkouts, createWorkout, workoutDetails, changeWorkout, deleteWorkout, addWorkoutsToContext }}>
+    <WorkoutDetailsContext.Provider
+      value={{ allWorkouts, createWorkout, workoutDetails, changeWorkout, deleteWorkout, addWorkoutsToContext, setWorkoutDetails }}
+    >
       {children}
     </WorkoutDetailsContext.Provider>
   );

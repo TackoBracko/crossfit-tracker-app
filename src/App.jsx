@@ -14,11 +14,12 @@ import Exercise from './pages/Categories/Category/ExercisesList/Exercise';
 import SubExercise from './pages/Categories/Category/ExercisesList/Exercise/SubExercise';
 import Calendar from './pages/Calendar';
 import WorkoutDetails from './pages/Workout/Details';
-import Player from './components/Player';
+import Timer from './pages/Workout/Timer';
 import { UserDataContextProvider } from './Context/UserContext';
 import { AuthProvider } from './Context/AuthContext';
 import { ProtectedRoutes, PublicRoutes } from './Context/AuthRoutesComponent';
 import { WorkoutDetailsProvider } from './Context/WorkoutDetailsContext';
+import { TimerProvider } from './Context/TimerContext';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -48,7 +49,7 @@ const router = createBrowserRouter(
         <Route path="/category/:categoryId/exercises/:exerciseId" element={<Exercise />} />
         <Route path="/category/:categoryId/exercises/:exerciseId/:subexerciseId" element={<SubExercise />} />
         <Route path="edit" element={<EditProfile />} />
-        <Route path="player" element={<Player />} />
+        <Route path="timer" element={<Timer />} />
       </Route>
     </>,
   ),
@@ -59,7 +60,9 @@ function App() {
     <AuthProvider>
       <UserDataContextProvider>
         <WorkoutDetailsProvider>
-          <RouterProvider router={router} />
+          <TimerProvider>
+            <RouterProvider router={router} />
+          </TimerProvider>
         </WorkoutDetailsProvider>
       </UserDataContextProvider>
     </AuthProvider>

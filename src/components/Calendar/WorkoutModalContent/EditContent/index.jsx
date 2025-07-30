@@ -7,14 +7,20 @@ export default function EditContent({
   selectedCategory,
   setSelectedCategory,
   selectedExercise,
+  selectedExercisesList,
   handleExerciseSelect,
   exerciseMetrics,
   handleExerciseMetrics,
   handleAddSelectedExercise,
-  notes,
-  setNotes,
-  handleSaveEditWorkout,
+  handleSaveEditedWorkout,
+  //notes,
+  //setNotes,
+  handleEditExercise,
+  handleSaveEditedExercise,
+  handleDeleteExercise,
   closeEditModal,
+  isEditing,
+  metricsBlock,
 }) {
   return (
     <>
@@ -68,31 +74,82 @@ export default function EditContent({
       {selectedExercise && (
         <>
           <p className={classes.selectedExercise}>Selected exercise: {selectedExercise}</p>
-          <InputField name="sets" type="number" label="Sets" value={exerciseMetrics.sets} onChange={handleExerciseMetrics} variation="inputModal" />
-          <InputField name="reps" type="number" label="Reps" value={exerciseMetrics.reps} onChange={handleExerciseMetrics} variation="inputModal" />
-          <InputField
-            name="weight"
-            type="text"
-            label="Weight (kg)"
-            value={exerciseMetrics.weight}
-            onChange={handleExerciseMetrics}
-            variation="inputModal"
-          />
+          <div className={classes.inputGroup}>
+            <InputField
+              name="sets"
+              type="number"
+              label="Sets"
+              value={exerciseMetrics.sets}
+              onChange={handleExerciseMetrics}
+              variation="inputForModal"
+            />
+            <InputField
+              name="reps"
+              type="number"
+              label="Reps"
+              value={exerciseMetrics.reps}
+              onChange={handleExerciseMetrics}
+              variation="inputForModal"
+            />
+            <InputField
+              name="weight"
+              type="text"
+              label="Weight (kg)"
+              value={exerciseMetrics.weight}
+              onChange={handleExerciseMetrics}
+              variation="inputForModal"
+            />
+            <InputField
+              name="work"
+              type="text"
+              label="Duration"
+              value={exerciseMetrics.work}
+              onChange={handleExerciseMetrics}
+              variation="inputForModal"
+            />
+            <InputField
+              name="rest"
+              type="text"
+              label="Rest Duration"
+              value={exerciseMetrics.rest}
+              onChange={handleExerciseMetrics}
+              variation="inputForModal"
+            />
+          </div>
+
           <div className={classes.workoutBtn}>
-            <Button variation="primary" onClick={handleAddSelectedExercise}>
-              Add exercise to preview
+            <Button variation="primary" onClick={isEditing ? handleSaveEditedExercise : handleAddSelectedExercise}>
+              {isEditing ? 'Add Changes' : 'Add Exercise'}
             </Button>
           </div>
         </>
       )}
 
-      <div className={classes.workoutInput}>
-        <label>Notes (you can edit your workout manually)</label>
-        <textarea className={classes.textArea} value={notes} onChange={(e) => setNotes(e.target.value)} />
-      </div>
+      {selectedExercisesList.length > 0 ? (
+        <ul className={classes.exercisePreviewList}>
+          {selectedExercisesList.map((exercise, id) => (
+            <li key={id} className={classes.exerciseItem}>
+              {metricsBlock(exercise)}
+
+              <div className={classes.exerciseListBtn}>
+                <Button variation="primary" onClick={() => handleEditExercise(exercise.id)}>
+                  Edit
+                </Button>
+                <Button variation="quaternary" onClick={() => handleDeleteExercise(exercise.id)}>
+                  Delete
+                </Button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div className={classes.boxAlert}>
+          <p className={classes.textAlert}>This workout is empty. You can add new exercises or save it to remove it from the calendar</p>
+        </div>
+      )}
 
       <div className={classes.workoutBtn}>
-        <Button variation="primary" onClick={handleSaveEditWorkout}>
+        <Button variation="primary" onClick={handleSaveEditedWorkout}>
           Save changes
         </Button>
         <Button variation="quaternary" onClick={closeEditModal}>

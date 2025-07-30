@@ -46,33 +46,26 @@ export default function WorkoutDetails() {
         </h1>
       </header>
 
-      <section className={classes.detailsMetrics}>
-        <div className={classes.text}>
-          <p>The goal is simple: build week over week. Strength lifts will gradually get heavier and accessory work will build in volume</p>
-        </div>
-      </section>
-
       <section className={classes.detailsContent}>
         <h4>
           Exercises <span>(click for info)</span>
         </h4>
         <ul className={classes.exercisesList}>{handleWorkoutDetails}</ul>
+      </section>
 
+      <section className={classes.detailsContent}>
         <h4>Exercises details</h4>
-
-        <ul>
+        <ul className={classes.exercisesList}>
           {workoutDetails.exercises.map((exercise) => (
             <li key={exercise.id} className={classes.exerciseItem}>
-              <div>
-                <p>{exercise.notes}</p>
-              </div>
+              {exercise.note}
               <img src={exercise.picture} alt={exercise.name} className={classes.exercisePic} />
             </li>
           ))}
         </ul>
       </section>
 
-      <NavLink to="/player">
+      <NavLink to="/timer">
         <Button variation="primary">Start Workout</Button>
       </NavLink>
     </>
