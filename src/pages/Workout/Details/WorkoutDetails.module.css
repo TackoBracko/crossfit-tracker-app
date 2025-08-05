@@ -63,14 +63,6 @@
   background: var(--secondary-background-btn);
 }
 
-.selectorWrapper {
-  margin-top: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 @media (min-width: 481px) {
   .exerciseItem {
     flex-direction: row-reverse;
