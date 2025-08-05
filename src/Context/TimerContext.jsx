@@ -25,6 +25,7 @@ export const TimerProvider = ({ children }) => {
   const setsTotal = currentExercise.sets || 1;
   const workDur = Number(currentExercise.work) || 1;
   const restDur = Number(currentExercise.rest) || 1;
+  const [workoutDone, setWorkoutDone] = useState(false);
 
   useEffect(() => {
     let intervalId;
@@ -84,16 +85,22 @@ export const TimerProvider = ({ children }) => {
     if (isRestOn && restTime >= restDur) {
       startAndStopRest();
       resetWorkout();
+      resetRest();
 
       if (currentSet < setsTotal) {
         setCurrentSet((set) => set + 1);
         startAndStopWorkout();
       } else {
         if (currentIdx < exercises.length - 1) {
-          setCurrentIdx((set) => set + 1);
-          setCurrentSet(1);
-          resetWorkout();
-          resetRest();
+          setTimeout(() => {
+            setCurrentIdx((set) => set + 1);
+            setCurrentSet(1);
+            resetWorkout();
+            resetRest();
+            startAndStopWorkout();
+          }, 10000);
+        } else {
+          setWorkoutDone(true);
         }
       }
     }
@@ -111,6 +118,12 @@ export const TimerProvider = ({ children }) => {
     resetRest,
   ]);
 
+  useEffect(() => {
+    setWorkoutDone(false);
+    setCurrentIdx(0);
+    setCurrentSet(1);
+  }, [workoutDetails]);
+
   return (
     <TimerContext.Provider
       value={{
@@ -126,6 +139,7 @@ export const TimerProvider = ({ children }) => {
         startAndStopRest,
         resetWorkout,
         resetRest,
+        workoutDone,
       }}
     >
       {children}
