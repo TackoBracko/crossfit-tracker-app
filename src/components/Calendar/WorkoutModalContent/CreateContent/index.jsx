@@ -17,6 +17,7 @@ export default function CreateContent({
   setError,
   closeCreateModal,
   metricsBlock,
+  hasWeight,
 }) {
   return (
     <>
@@ -73,7 +74,7 @@ export default function CreateContent({
       {selectedExercise && (
         <>
           <p className={classes.selectedExercise}>Selected exercise: {selectedExercise}</p>
-          <div className={classes.inputGroup}>
+          <div className={`${classes.inputGroup} ${hasWeight ? classes.fourInputs : classes.threeInputs}`}>
             <InputField
               name="sets"
               type="text"
@@ -85,19 +86,22 @@ export default function CreateContent({
             <InputField
               name="reps"
               type="text"
-              label="Reps"
+              label="Reps/Cal"
               value={exerciseMetrics.reps}
               onChange={handleExerciseMetrics}
               variation="inputForModal"
             />
-            <InputField
-              name="weight"
-              type="text"
-              label="Weight"
-              value={exerciseMetrics.weight}
-              onChange={handleExerciseMetrics}
-              variation="inputForModal"
-            />
+            {hasWeight && (
+              <InputField
+                name="weight"
+                type="text"
+                label="Weight"
+                value={exerciseMetrics.weight}
+                onChange={handleExerciseMetrics}
+                variation="inputForModal"
+                placeholder="e.g. 50"
+              />
+            )}
             <InputField
               name="work"
               type="text"
@@ -105,6 +109,7 @@ export default function CreateContent({
               value={exerciseMetrics.work}
               onChange={handleExerciseMetrics}
               variation="inputForModal"
+              placeholder="in seconds (e.g. 60)"
             />
             <InputField
               name="rest"
@@ -113,9 +118,10 @@ export default function CreateContent({
               value={exerciseMetrics.rest}
               onChange={handleExerciseMetrics}
               variation="inputForModal"
+              placeholder="in seconds (e.g. 60)"
             />
 
-            <div className={classes.workoutBtn}>
+            <div className={classes.addExerciseBtn}>
               <Button variation="primary" onClick={handleAddSelectedExercise}>
                 Add exercise
               </Button>
@@ -127,8 +133,8 @@ export default function CreateContent({
       {selectedExercisesList.length > 0 && (
         <div>
           <ul className={classes.exercisePreviewList}>
-            {selectedExercisesList.map((exercise, id) => (
-              <li key={id}>{metricsBlock(exercise)}</li>
+            {selectedExercisesList.map((exercise) => (
+              <li key={exercise.id}>{metricsBlock(exercise)}</li>
             ))}
           </ul>
         </div>
