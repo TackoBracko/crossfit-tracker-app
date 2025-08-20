@@ -86,6 +86,7 @@ export const crossfitData = [
             picture: powerClean,
             video: 'KwYJTpQ_x5A',
             category: 'Weightlifting',
+            hasWeight: true,
           },
           {
             id: 2,
@@ -95,6 +96,7 @@ export const crossfitData = [
             picture: squatClean,
             video: 'Ty14ogq_Vok',
             category: 'Weightlifting',
+            hasWeight: true,
           },
           {
             id: 3,
@@ -104,6 +106,7 @@ export const crossfitData = [
             picture: hangPowerClean,
             video: '0aP3tgKZcHQ',
             category: 'Weightlifting',
+            hasWeight: true,
           },
           {
             id: 4,
@@ -113,6 +116,7 @@ export const crossfitData = [
             picture: hangSquatClean,
             video: 'DaKC_BEN5bk',
             category: 'Weightlifting',
+            hasWeight: true,
           },
         ],
       },
@@ -132,6 +136,7 @@ export const crossfitData = [
             picture: powerSnatch,
             video: 'TL8SMp7RdXQ',
             category: 'Weightlifting',
+            hasWeight: true,
           },
           {
             id: 2,
@@ -141,6 +146,7 @@ export const crossfitData = [
             picture: squatSnatch,
             video: 'GhxhiehJcQY',
             category: 'Weightlifting',
+            hasWeight: true,
           },
           {
             id: 3,
@@ -150,6 +156,7 @@ export const crossfitData = [
             picture: hangPowerSnatch,
             video: 'bJYzOo1cNqY',
             category: 'Weightlifting',
+            hasWeight: true,
           },
           {
             id: 4,
@@ -159,6 +166,7 @@ export const crossfitData = [
             picture: hangSquatSnatch,
             video: 'IucshEToDyM',
             category: 'Weightlifting',
+            hasWeight: true,
           },
         ],
       },
@@ -170,6 +178,7 @@ export const crossfitData = [
         picture: cleanAndJerk,
         video: 'PjY1rH4_MOA',
         category: 'Weightlifting',
+        hasWeight: true,
       },
       {
         id: 3,
@@ -179,6 +188,7 @@ export const crossfitData = [
         picture: backSquat,
         video: 'ultWZbUMPL8?si=7aIKde5oAUZn2A2d',
         category: 'Weightlifting',
+        hasWeight: true,
       },
       {
         id: 4,
@@ -188,6 +198,7 @@ export const crossfitData = [
         picture: frontSquat,
         video: 'uYumuL_G_V0?si=6ODaDF94F1Jnfblz',
         category: 'Weightlifting',
+        hasWeight: true,
       },
       {
         id: 5,
@@ -197,6 +208,7 @@ export const crossfitData = [
         picture: deadLift,
         video: '1ZXobu7JvvE',
         category: 'Weightlifting',
+        hasWeight: true,
       },
       {
         id: 6,
@@ -206,6 +218,7 @@ export const crossfitData = [
         picture: benchPress,
         video: 'SCVCLChPQFY',
         category: 'Weightlifting',
+        hasWeight: true,
       },
     ],
   },
@@ -223,6 +236,7 @@ export const crossfitData = [
         picture: backSquat,
         video: 'ultWZbUMPL8?si=sysMtCZxJ4UiUIhd',
         category: 'Legs',
+        hasWeight: true,
       },
       {
         id: 1,
@@ -232,6 +246,7 @@ export const crossfitData = [
         picture: frontSquat,
         video: 'uYumuL_G_V0?si=6ODaDF94F1Jnfblz',
         category: 'Legs',
+        hasWeight: true,
       },
       {
         id: 2,
@@ -241,6 +256,7 @@ export const crossfitData = [
         picture: ohs,
         video: 'pn8mqlG0nkE?si=CPZvCaA2EKomYoq6',
         category: 'Legs',
+        hasWeight: true,
       },
       {
         id: 3,
@@ -250,6 +266,7 @@ export const crossfitData = [
         picture: gobletSquat,
         video: 'f-Vf2yRRqOg',
         category: 'Legs',
+        hasWeight: true,
       },
       {
         id: 4,
@@ -259,6 +276,7 @@ export const crossfitData = [
         picture: lunges,
         video: 'DlhojghkaQ0',
         category: 'Legs',
+        hasWeight: true,
       },
       {
         id: 5,
@@ -268,6 +286,7 @@ export const crossfitData = [
         picture: boxJumps,
         video: 'NBY9-kTuHEk',
         category: 'Legs',
+        hasWeight: false,
       },
       {
         id: 6,
@@ -277,6 +296,7 @@ export const crossfitData = [
         picture: wallBall,
         video: 'EqjGKsiIMCE',
         category: 'Legs',
+        hasWeight: false,
       },
       {
         id: 7,
@@ -286,6 +306,7 @@ export const crossfitData = [
         picture: squatClean,
         video: 'Ty14ogq_Vok',
         category: 'Legs',
+        hasWeight: true,
       },
       {
         id: 8,
@@ -295,6 +316,7 @@ export const crossfitData = [
         picture: squatSnatch,
         video: 'GhxhiehJcQY',
         category: 'Legs',
+        hasWeight: true,
       },
       {
         id: 9,
@@ -304,6 +326,7 @@ export const crossfitData = [
         picture: deadLift,
         video: '1ZXobu7JvvE',
         category: 'Legs',
+        hasWeight: true,
       },
       {
         id: 10,
@@ -313,6 +336,7 @@ export const crossfitData = [
         picture: pistols,
         video: 'keSzg7MaoVQ',
         category: 'Legs',
+        hasWeight: false,
       },
       {
         id: 11,
@@ -322,6 +346,7 @@ export const crossfitData = [
         picture: stepUps,
         video: '5qjqDHOUh-A',
         category: 'Legs',
+        hasWeight: true,
       },
       {
         id: 12,
@@ -331,6 +356,7 @@ export const crossfitData = [
         picture: thruster,
         video: 'L219ltL15zk',
         category: 'Legs',
+        hasWeight: true,
       },
       {
         id: 13,
@@ -340,6 +366,7 @@ export const crossfitData = [
         picture: swing,
         video: 'mKDIuUbH94Q',
         category: 'Legs',
+        hasWeight: true,
       },
     ],
   },
@@ -357,6 +384,7 @@ export const crossfitData = [
         picture: strictPullUps,
         video: 'HRV5YKKaeVw',
         category: 'Arms',
+        hasWeight: false,
       },
       {
         id: 1,
@@ -366,6 +394,7 @@ export const crossfitData = [
         picture: chestToBar,
         video: 'AyPTCEXTjOo',
         category: 'Arms',
+        hasWeight: false,
       },
       {
         id: 2,
@@ -375,6 +404,7 @@ export const crossfitData = [
         picture: muscleUps,
         video: 'OCg3UXgzftc',
         category: 'Arms',
+        hasWeight: false,
       },
       {
         id: 3,
@@ -384,6 +414,7 @@ export const crossfitData = [
         picture: ropeClimbs,
         video: 'Pa4QUC9AvuA',
         category: 'Arms',
+        hasWeight: false,
       },
       {
         id: 4,
@@ -393,6 +424,7 @@ export const crossfitData = [
         picture: barbellRow,
         video: '9Gf-Ourup_k',
         category: 'Arms',
+        hasWeight: true,
       },
       {
         id: 5,
@@ -402,6 +434,7 @@ export const crossfitData = [
         picture: dumbbellRow,
         video: 'xl1YiqQY2vA',
         category: 'Arms',
+        hasWeight: true,
       },
       {
         id: 6,
@@ -411,6 +444,7 @@ export const crossfitData = [
         picture: pushUps,
         video: '0pkjOk0EiAk',
         category: 'Arms',
+        hasWeight: false,
       },
       {
         id: 7,
@@ -420,6 +454,7 @@ export const crossfitData = [
         picture: hspu,
         video: '9wIkPCS4Mbo',
         category: 'Arms',
+        hasWeight: false,
       },
       {
         id: 8,
@@ -429,6 +464,7 @@ export const crossfitData = [
         picture: dips,
         video: 'o2qX3Zb5mvg',
         category: 'Arms',
+        hasWeight: false,
       },
       {
         id: 9,
@@ -438,6 +474,7 @@ export const crossfitData = [
         picture: benchPress,
         video: 'SCVCLChPQFY',
         category: 'Arms',
+        hasWeight: true,
       },
       {
         id: 10,
@@ -447,6 +484,7 @@ export const crossfitData = [
         picture: strictPress,
         video: '5yWaNOvgFCM',
         category: 'Arms',
+        hasWeight: true,
       },
       {
         id: 11,
@@ -456,6 +494,7 @@ export const crossfitData = [
         picture: pushPress,
         video: 'iaBVSJm78ko',
         category: 'Arms',
+        hasWeight: true,
       },
       {
         id: 12,
@@ -465,6 +504,7 @@ export const crossfitData = [
         picture: pushJerk,
         video: 'VrHNJXoSyXw',
         category: 'Arms',
+        hasWeight: true,
       },
       {
         id: 13,
@@ -474,6 +514,7 @@ export const crossfitData = [
         picture: wallWalk,
         video: '2TnX8j29tRY',
         category: 'Arms',
+        hasWeight: false,
       },
     ],
   },
@@ -492,6 +533,7 @@ export const crossfitData = [
         picture: deadLift,
         video: '1ZXobu7JvvE',
         category: 'Back',
+        hasWeight: true,
       },
       {
         id: 1,
@@ -501,6 +543,7 @@ export const crossfitData = [
         picture: strictPullUps,
         video: 'HRV5YKKaeVw',
         category: 'Back',
+        hasWeight: false,
       },
       {
         id: 2,
@@ -510,6 +553,7 @@ export const crossfitData = [
         picture: chestToBar,
         video: 'AyPTCEXTjOo',
         category: 'Back',
+        hasWeight: false,
       },
       {
         id: 3,
@@ -519,6 +563,7 @@ export const crossfitData = [
         picture: muscleUps,
         video: 'OCg3UXgzftc',
         category: 'Back',
+        hasWeight: false,
       },
       {
         id: 4,
@@ -528,6 +573,7 @@ export const crossfitData = [
         picture: ropeClimbs,
         video: 'Pa4QUC9AvuA',
         category: 'Back',
+        hasWeight: false,
       },
       {
         id: 5,
@@ -537,6 +583,7 @@ export const crossfitData = [
         picture: barbellRow,
         video: '9Gf-Ourup_k',
         category: 'Back',
+        hasWeight: true,
       },
       {
         id: 6,
@@ -546,6 +593,7 @@ export const crossfitData = [
         picture: dumbbellRow,
         video: 'xl1YiqQY2vA',
         category: 'Back',
+        hasWeight: true,
       },
       {
         id: 7,
@@ -555,6 +603,7 @@ export const crossfitData = [
         picture: wallWalk,
         video: '2TnX8j29tRY',
         category: 'Back',
+        hasWeight: false,
       },
     ],
   },
@@ -572,6 +621,7 @@ export const crossfitData = [
         picture: swing,
         video: 'mKDIuUbH94Q',
         category: 'Shoulders',
+        hasWeight: true,
       },
       {
         id: 1,
@@ -581,6 +631,7 @@ export const crossfitData = [
         picture: hspu,
         video: '9wIkPCS4Mbo',
         category: 'Shoulders',
+        hasWeight: false,
       },
       {
         id: 2,
@@ -590,6 +641,7 @@ export const crossfitData = [
         picture: splitJerk,
         video: 'GUDkOtraHHY',
         category: 'Shoulders',
+        hasWeight: true,
       },
       {
         id: 3,
@@ -599,6 +651,7 @@ export const crossfitData = [
         picture: pushJerk,
         video: 'VrHNJXoSyXw',
         category: 'Shoulders',
+        hasWeight: true,
       },
       {
         id: 4,
@@ -608,6 +661,7 @@ export const crossfitData = [
         picture: pushPress,
         video: 'iaBVSJm78ko',
         category: 'Shoulders',
+        hasWeight: true,
       },
       {
         id: 5,
@@ -617,6 +671,7 @@ export const crossfitData = [
         picture: benchPress,
         video: 'SCVCLChPQFY',
         category: 'Shoulders',
+        hasWeight: true,
       },
       {
         id: 6,
@@ -626,33 +681,27 @@ export const crossfitData = [
         picture: dips,
         video: 'o2qX3Zb5mvg',
         category: 'Shoulders',
+        hasWeight: false,
       },
       {
         id: 7,
-        name: 'Snatch',
-        description:
-          'The snatch is a dynamic Olympic weightlifting exercise where a barbell is lifted from the ground to overhead in one explosive motion. It requires a combination of strength, speed, mobility, and precision, making it one of the most technical and athletic movements in weightlifting. The snatch develops full-body power, coordination, and balance, engaging muscles from the legs and core to the shoulders and arms.',
-        picture: squatSnatch,
-        video: 'GhxhiehJcQY',
-        category: 'Shoulders',
-      },
-      {
-        id: 8,
         name: 'Overhead Squat',
         description:
           'The overhead squat is the ultimate core exercise and peerless in developing effective athletic movement. This functional gem trains for efficient transfer of energy from large to small body parts and improves functional flexibility. Similarly, it develops the squat by amplifying and cruelly punishing faults in posture, movement, and stability. The overhead squat is to midline control, stability and balance what the clean and snatch are to power—unsurpassed.',
         picture: ohs,
         video: 'pn8mqlG0nkE?si=CPZvCaA2EKomYoq6',
         category: 'Shoulders',
+        hasWeight: true,
       },
       {
-        id: 9,
+        id: 8,
         name: 'Thruster',
         description:
           'The thruster is a powerful, full-body movement that combines a front squat and an overhead press into one fluid motion. The athlete starts with the barbell resting on their shoulders in a front-rack position, performs a deep front squat, and explosively drives upward, using the momentum from the squat to press the bar overhead to full arm extension. The thruster targets the legs, shoulders, and core while also building explosive power and endurance. It’s commonly used in CrossFit workouts due to its intensity and efficiency.',
         picture: thruster,
         video: 'L219ltL15zk',
         category: 'Shoulders',
+        hasWeight: true,
       },
     ],
   },
@@ -671,6 +720,7 @@ export const crossfitData = [
         picture: kippingPullUps,
         video: 'lzRo-4pq_AY',
         category: 'Gymnastics',
+        hasWeight: false,
       },
       {
         id: 1,
@@ -680,6 +730,7 @@ export const crossfitData = [
         picture: chestToBar,
         video: 'AyPTCEXTjOo',
         category: 'Gymnastics',
+        hasWeight: false,
       },
       {
         id: 2,
@@ -689,6 +740,7 @@ export const crossfitData = [
         picture: butterflyPullUps,
         video: 'U_MhBXnlInE',
         category: 'Gymnastics',
+        hasWeight: false,
       },
       {
         id: 3,
@@ -698,6 +750,7 @@ export const crossfitData = [
         picture: muscleUps,
         video: 'OCg3UXgzftc',
         category: 'Gymnastics',
+        hasWeight: false,
       },
       {
         id: 4,
@@ -707,6 +760,7 @@ export const crossfitData = [
         picture: t2b,
         video: '6dHvTlsMvNY',
         category: 'Gymnastics',
+        hasWeight: false,
       },
       {
         id: 5,
@@ -716,6 +770,7 @@ export const crossfitData = [
         picture: hspu,
         video: '9wIkPCS4Mbo',
         category: 'Gymnastics',
+        hasWeight: false,
       },
       {
         id: 6,
@@ -725,6 +780,7 @@ export const crossfitData = [
         picture: hsw,
         video: 'FdgJ9jZIT-Q',
         category: 'Gymnastics',
+        hasWeight: false,
       },
       {
         id: 7,
@@ -734,6 +790,7 @@ export const crossfitData = [
         picture: ropeClimbs,
         video: 'Pa4QUC9AvuA',
         category: 'Gymnastics',
+        hasWeight: false,
       },
       {
         id: 8,
@@ -743,6 +800,7 @@ export const crossfitData = [
         picture: pistols,
         video: 'keSzg7MaoVQ',
         category: 'Gymnastics',
+        hasWeight: false,
       },
       {
         id: 9,
@@ -752,6 +810,7 @@ export const crossfitData = [
         picture: wallWalk,
         video: '2TnX8j29tRY',
         category: 'Gymnastics',
+        hasWeight: false,
       },
     ],
   },
@@ -769,6 +828,7 @@ export const crossfitData = [
         picture: doubleUnders,
         video: '82jNjDS19lg',
         category: 'Skills',
+        hasWeight: false,
       },
       {
         id: 1,
@@ -778,6 +838,7 @@ export const crossfitData = [
         picture: singleUnder,
         video: 'hCuXYrTOMxI',
         category: 'Skills',
+        hasWeight: false,
       },
       {
         id: 2,
@@ -787,6 +848,7 @@ export const crossfitData = [
         picture: hspu,
         video: '9wIkPCS4Mbo',
         category: 'Skills',
+        hasWeight: false,
       },
       {
         id: 3,
@@ -796,6 +858,7 @@ export const crossfitData = [
         picture: hsw,
         video: 'FdgJ9jZIT-Q',
         category: 'Skills',
+        hasWeight: false,
       },
       {
         id: 4,
@@ -805,6 +868,7 @@ export const crossfitData = [
         picture: muscleUps,
         video: 'OCg3UXgzftc',
         category: 'Skills',
+        hasWeight: false,
       },
       {
         id: 5,
@@ -814,6 +878,7 @@ export const crossfitData = [
         picture: pistols,
         video: 'keSzg7MaoVQ',
         category: 'Skills',
+        hasWeight: false,
       },
       {
         id: 6,
@@ -823,6 +888,7 @@ export const crossfitData = [
         picture: t2b,
         video: '6dHvTlsMvNY',
         category: 'Skills',
+        hasWeight: false,
       },
       {
         id: 7,
@@ -832,6 +898,7 @@ export const crossfitData = [
         picture: ropeClimbs,
         video: 'Pa4QUC9AvuA',
         category: 'Skills',
+        hasWeight: false,
       },
     ],
   },
@@ -857,6 +924,7 @@ export const crossfitData = [
             picture: rower,
             video: 'fxfhQMbATCw',
             category: 'Engine',
+            hasWeight: false,
           },
           {
             id: 2,
@@ -866,6 +934,7 @@ export const crossfitData = [
             picture: assultBike,
             video: 'yvXr-9uRd1o',
             category: 'Engine',
+            hasWeight: false,
           },
           {
             id: 3,
@@ -875,6 +944,7 @@ export const crossfitData = [
             picture: echoBike,
             video: '9xfUu652CMg',
             category: 'Engine',
+            hasWeight: false,
           },
           {
             id: 4,
@@ -884,6 +954,7 @@ export const crossfitData = [
             picture: skiErg,
             video: '44YUR_dln0k',
             category: 'Engine',
+            hasWeight: false,
           },
         ],
       },
@@ -895,6 +966,7 @@ export const crossfitData = [
         picture: burpees,
         video: 'auBLPXO8Fww',
         category: 'Engine',
+        hasWeight: false,
       },
       {
         id: 2,
@@ -904,6 +976,7 @@ export const crossfitData = [
         picture: doubleUnders,
         video: '82jNjDS19lg',
         category: 'Engine',
+        hasWeight: false,
       },
       {
         id: 3,
@@ -913,15 +986,17 @@ export const crossfitData = [
         picture: singleUnder,
         video: 'hCuXYrTOMxI',
         category: 'Engine',
+        hasWeight: false,
       },
       {
         id: 4,
-        name: 'Wall Balls',
+        name: 'Wall Ball',
         description:
           'The movement begins as a front squat and follows through to a push press/shove that sends the ball up and forward to the target from which it rebounds back to the throwers outstretched arms where it is “absorbed” back into the squat.',
         picture: wallBall,
         video: 'EqjGKsiIMCE',
         category: 'Engine',
+        hasWeight: false,
       },
     ],
   },
@@ -939,6 +1014,7 @@ export const crossfitData = [
         picture: plank,
         video: 'EPiXN2bkLoQ',
         category: 'Core',
+        hasWeight: false,
       },
       {
         id: 1,
@@ -948,6 +1024,7 @@ export const crossfitData = [
         picture: hollowHold,
         video: 'p7j02V1fIzU',
         category: 'Core',
+        hasWeight: false,
       },
       {
         id: 2,
@@ -957,6 +1034,7 @@ export const crossfitData = [
         picture: ghd,
         video: '1pbZ8mX2D1U',
         category: 'Core',
+        hasWeight: false,
       },
       {
         id: 3,
@@ -966,6 +1044,7 @@ export const crossfitData = [
         picture: vUps,
         video: '7UVgs18Y1P4',
         category: 'Core',
+        hasWeight: false,
       },
       {
         id: 4,
@@ -975,6 +1054,7 @@ export const crossfitData = [
         picture: turkishGetUp,
         video: 'saYKvqSscuY',
         category: 'Core',
+        hasWeight: true,
       },
       {
         id: 5,
@@ -984,33 +1064,28 @@ export const crossfitData = [
         picture: russianTwist,
         video: 'JyUqwkVpsi8',
         category: 'Core',
+        hasWeight: false,
       },
+
       {
         id: 6,
-        name: 'Pistols',
-        description:
-          "A Pistol Squat is a squat performed on one leg. It's an advanced strength movement often included in CrossFit workout regimens. Pistol squats test the strength of your core, stabilizing muscles and the entire leg from glutes to ankles.",
-        picture: pistols,
-        video: 'keSzg7MaoVQ',
-        category: 'Core',
-      },
-      {
-        id: 7,
         name: 'Toes-to-Bar',
         description:
           'A dynamic movement using a kipping motion to bring your toes to the pull-up bar. Start hanging from the bar, initiate a controlled kip by alternating between arch and hollow body positions, then use momentum and core strength to lift your legs and touch your toes to the bar. Reset into the kip for continuous reps.',
         picture: t2b,
         video: '6dHvTlsMvNY',
         category: 'Core',
+        hasWeight: false,
       },
       {
-        id: 8,
+        id: 7,
         name: 'Wall Walk',
         description:
           'A wall walk involves walking your feet up a wall and simultaneously moving your hands closer to the wall, transitioning from a plank position to an inverted handstand-like posture. It is performed slowly and with control, making it a safe and effective way to strengthen your upper body, improve core stability, and practice being upside-down.It is a movement that challenges your strength, stability, coordination, and mental focus, all while helping you develop key skills for advanced gymnastics and handstand work.',
         picture: wallWalk,
         video: '2TnX8j29tRY',
         category: 'Core',
+        hasWeight: false,
       },
     ],
   },

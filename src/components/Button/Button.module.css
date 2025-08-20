@@ -62,7 +62,7 @@
 
 .fifth {
   background-color: var(--primary-text);
-  margin: 24px 0 0 24px;
+  margin-left: 10px;
 }
 
 .fifth:hover {

@@ -29,6 +29,11 @@
   margin-top: 10px;
 }
 
+.addExerciseBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .errorText {
   color: var(--tertiary-btn-text);
   text-align: center;
@@ -39,6 +44,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  align-items: flex-end;
 }
 
 .inputGroup > :nth-child(-n + 3) {
@@ -47,6 +53,10 @@
 
 .inputGroup > :nth-child(n + 4) {
   flex: 1 1 calc((100% - 10px) / 2);
+}
+
+.inputGroup > * {
+  flex: 1 1 calc((100% - 40px) / 4);
 }
 
 .exerciseItem {

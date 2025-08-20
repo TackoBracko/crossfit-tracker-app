@@ -9,11 +9,20 @@ export default function DayWithWorkout({ dateHasWorkout, addWorkoutsToContext, h
         <h3 className={classes.workoutDayTitle}>Your workout plan for {dateHasWorkout.date}</h3>
         {dateHasWorkout.workout.map((workout, index) => (
           <div key={index} className={classes.workoutPlan}>
-            <NavLink to={`/workouts/${workout.id}`} key={workout.id} onClick={() => addWorkoutsToContext(workout)}>
+            <div className={classes.workoutControls}>
               <h4 className={classes.workoutTitle}>{workout.title}</h4>
-            </NavLink>
+              <div className={classes.workoutBtns}>
+                <Button variation="primary" onClick={() => handleEditWorkout(workout)}>
+                  EDIT
+                </Button>
 
-            <div>
+                <Button variation="quaternary" onClick={() => handleDeleteWorkout(workout.id)}>
+                  X
+                </Button>
+              </div>
+            </div>
+
+            <div className={classes.workoutExercises}>
               <p>Exercises:</p>
               <ul>
                 {workout.exercises.map((exercise) => (
@@ -21,19 +30,13 @@ export default function DayWithWorkout({ dateHasWorkout, addWorkoutsToContext, h
                 ))}
               </ul>
             </div>
-
-            <div className={classes.workoutBtn}>
-              <Button variation="primary" onClick={() => handleEditWorkout(workout)}>
-                Edit Workout
-              </Button>
-
-              <Button variation="quaternary" onClick={() => handleDeleteWorkout(workout.id)}>
-                Delete
-              </Button>
-            </div>
+            <NavLink to={`/workouts/${workout.id}`} key={workout.id} onClick={() => addWorkoutsToContext(workout)}>
+              <Button variation="primary">Start workout</Button>
+            </NavLink>
           </div>
         ))}
-        <Button onClick={openCreateModal} variation="fifth" className={classes.createWorkoutBtn}>
+
+        <Button onClick={openCreateModal} variation="fifth">
           Create new workout
         </Button>
       </div>

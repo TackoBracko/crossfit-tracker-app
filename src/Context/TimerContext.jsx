@@ -9,6 +9,10 @@ export const TimerProvider = ({ children }) => {
   const [isWorkoutRunning, setIsWorkoutRunning] = useState(false);
   const [restTime, setRestTime] = useState(0);
   const [isRestOn, setIsRestOn] = useState(false);
+  const [workoutDone, setWorkoutDone] = useState(false);
+  const [transitionTime, setTransitionTime] = useState(0);
+  const [isTransitionOn, setIsTransitionOn] = useState(false);
+  const [finishWorkoutBtn, setFinishWorkoutBtn] = useState(false);
 
   const [currentIdx, setCurrentIdx] = useState(0);
   const [currentSet, setCurrentSet] = useState(1);
@@ -23,9 +27,13 @@ export const TimerProvider = ({ children }) => {
     rest: '',
   };
   const setsTotal = currentExercise.sets || 1;
-  const workDur = Number(currentExercise.work) || 1;
-  const restDur = Number(currentExercise.rest) || 1;
-  const [workoutDone, setWorkoutDone] = useState(false);
+  const workDur = Number(currentExercise.work) || 0;
+  const restDur = Number(currentExercise.rest) || 0;
+
+  const handleFinishWorkout = () => {
+    setFinishWorkoutBtn(false);
+    setWorkoutDone(true);
+  };
 
   useEffect(() => {
     let intervalId;
@@ -71,15 +79,78 @@ export const TimerProvider = ({ children }) => {
     setIsRestOn(false);
   }, []);
 
+  //transition
+
+  useEffect(() => {
+    let intervalId;
+    if (isTransitionOn) {
+      intervalId = setInterval(() => {
+        setTransitionTime((prev) => prev - 1);
+      }, 1000);
+    }
+    return () => clearInterval(intervalId);
+  }, [isTransitionOn]);
+
+  const stopWatchNextExercise = () => {
+    if (currentIdx < exercises.length - 1) {
+      setCurrentIdx((i) => i + 1);
+      setCurrentSet(1);
+      setWorkoutTime(0);
+      setIsWorkoutRunning(false);
+      resetWorkout();
+      resetRest();
+      setFinishWorkoutBtn(false);
+    }
+  };
+
   //next exercise
 
   useEffect(() => {
-    if (isWorkoutRunning && workoutTime >= workDur) {
-      startAndStopWorkout();
+    if (!isWorkoutRunning || workDur <= 0 || workoutTime < workDur) return;
+    startAndStopWorkout();
+    if (restDur > 0) {
       resetRest();
       startAndStopRest();
+      return;
     }
-  }, [workoutTime, isWorkoutRunning, workDur, startAndStopWorkout, resetRest, startAndStopRest]);
+
+    resetWorkout();
+    resetRest();
+
+    if (currentSet < setsTotal) {
+      setCurrentSet((s) => s + 1);
+      startAndStopWorkout();
+    } else {
+      if (currentIdx < exercises.length - 1) {
+        setTransitionTime(10);
+        setIsTransitionOn(true);
+
+        setTimeout(() => {
+          setIsTransitionOn(false);
+          setTransitionTime(0);
+          setCurrentIdx((i) => i + 1);
+          setCurrentSet(1);
+          resetWorkout();
+          resetRest();
+        }, 10000);
+      } else {
+        setFinishWorkoutBtn(true);
+      }
+    }
+  }, [
+    workoutTime,
+    isWorkoutRunning,
+    workDur,
+    startAndStopWorkout,
+    resetRest,
+    startAndStopRest,
+    restDur,
+    currentSet,
+    setsTotal,
+    currentIdx,
+    exercises.length,
+    resetWorkout,
+  ]);
 
   useEffect(() => {
     if (isRestOn && restTime >= restDur) {
@@ -92,15 +163,19 @@ export const TimerProvider = ({ children }) => {
         startAndStopWorkout();
       } else {
         if (currentIdx < exercises.length - 1) {
+          setTransitionTime(10);
+          setIsTransitionOn(true);
+
           setTimeout(() => {
+            setIsTransitionOn(false);
+            setTransitionTime(0);
             setCurrentIdx((set) => set + 1);
             setCurrentSet(1);
             resetWorkout();
             resetRest();
-            startAndStopWorkout();
           }, 10000);
         } else {
-          setWorkoutDone(true);
+          setFinishWorkoutBtn(true);
         }
       }
     }
@@ -120,9 +195,12 @@ export const TimerProvider = ({ children }) => {
 
   useEffect(() => {
     setWorkoutDone(false);
+    setIsWorkoutRunning(false);
     setCurrentIdx(0);
     setCurrentSet(1);
-  }, [workoutDetails]);
+    setFinishWorkoutBtn(false);
+    setWorkoutTime(0);
+  }, [resetRest, workoutDetails]);
 
   return (
     <TimerContext.Provider
@@ -140,6 +218,11 @@ export const TimerProvider = ({ children }) => {
         resetWorkout,
         resetRest,
         workoutDone,
+        transitionTime,
+        isTransitionOn,
+        finishWorkoutBtn,
+        handleFinishWorkout,
+        stopWatchNextExercise,
       }}
     >
       {children}

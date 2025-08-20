@@ -38,6 +38,37 @@ export default function Calendar() {
     workoutplan: false,
   });
   //const [notes, setNotes] = useState('');
+  const [hasWeight, setHasWeight] = useState(true);
+  const noWeightNeededExercises = [
+    'Box Jumps',
+    'Wall Ball',
+    'Pistols',
+    'Pull-Ups (strict pull-ups)',
+    'Chest-to-Bar Pull-Ups',
+    'Muscule-Ups',
+    'Rope Climb',
+    'Push-Ups',
+    'Dips',
+    'Handstand Push-Ups',
+    'Wall Walk',
+    'Kipping Pull-Ups',
+    'Butterfly Pull-Ups',
+    'Toes-to-Bar',
+    'Handstand Walk',
+    'Double Under',
+    'Single Under',
+    'Row (Concept2 Rower)',
+    'Assault Bike',
+    'Echo Bike',
+    'Ski Erg',
+    'Burpees',
+    'Plank Hold',
+    'Hollow Hold',
+    'GHD Sit-Ups',
+    'V-Ups',
+    'Turkish Get-Up',
+    'Russian Twists',
+  ];
 
   const changeCurrentDay = (day) => {
     const newDate = new Date(day.year, day.month, day.number);
@@ -51,7 +82,11 @@ export default function Calendar() {
   };
 
   const handleExerciseSelect = (e) => {
-    setSelectedExercise(e.target.value);
+    const exerciseHasWeight = e.target.value;
+    setSelectedExercise(exerciseHasWeight);
+
+    const requiresWeight = !noWeightNeededExercises.includes(exerciseHasWeight);
+    setHasWeight(requiresWeight);
   };
 
   const handleExerciseMetrics = (e) => {
@@ -164,8 +199,9 @@ export default function Calendar() {
       id: uuidv4(),
       title: workoutTitle,
       exercises: selectedExercisesData,
-      //notes: notes,
+      category: selectedCategory,
       date: currentDate,
+      //notes: notes,
     };
   };
 
@@ -270,6 +306,9 @@ export default function Calendar() {
       setIsEditing(true);
       setEditingExercise(id);
     }
+
+    const requiresWeight = !noWeightNeededExercises.includes(exerciseToEdit.name);
+    setHasWeight(requiresWeight);
   };
 
   const handleSaveEditedExercise = () => {
@@ -315,6 +354,7 @@ export default function Calendar() {
   };
 
   const openCreateModal = () => {
+    clearModal();
     console.log('Modal ref:', createModalRef.current);
     if (createModalRef.current) {
       createModalRef.current.open();
@@ -349,12 +389,15 @@ export default function Calendar() {
     setSelectedExercise('');
     setSelectedExercisesList([]);
     setExerciseMetrics({ sets: '', reps: '', weight: '', work: '', rest: '' });
-    //setNotes('');
     setWorkoutTitle('');
     setError({
       title: false,
       workoutplan: false,
     });
+    setHasWeight(true);
+    setIsEditing(false);
+    setEditingExercise(null);
+    //setNotes('');
   };
 
   return (
@@ -403,6 +446,7 @@ export default function Calendar() {
             setError={setError}
             closeCreateModal={closeCreateModal}
             metricsBlock={metricsBlock}
+            hasWeight={hasWeight}
           />
         </LayoutContent>
       </Modal>
@@ -437,6 +481,7 @@ export default function Calendar() {
               closeEditModal={closeEditModal}
               isEditing={isEditing}
               metricsBlock={metricsBlock}
+              hasWeight={hasWeight}
             />
           </LayoutContent>
         </Modal>

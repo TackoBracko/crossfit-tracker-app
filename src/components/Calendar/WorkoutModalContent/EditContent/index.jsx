@@ -21,6 +21,7 @@ export default function EditContent({
   closeEditModal,
   isEditing,
   metricsBlock,
+  hasWeight,
 }) {
   return (
     <>
@@ -86,23 +87,25 @@ export default function EditContent({
             <InputField
               name="reps"
               type="number"
-              label="Reps"
+              label="Reps/Cal"
               value={exerciseMetrics.reps}
               onChange={handleExerciseMetrics}
               variation="inputForModal"
             />
-            <InputField
-              name="weight"
-              type="text"
-              label="Weight (kg)"
-              value={exerciseMetrics.weight}
-              onChange={handleExerciseMetrics}
-              variation="inputForModal"
-            />
+            {hasWeight && (
+              <InputField
+                name="weight"
+                type="text"
+                label="Weight (kg)"
+                value={exerciseMetrics.weight}
+                onChange={handleExerciseMetrics}
+                variation="inputForModal"
+              />
+            )}
             <InputField
               name="work"
               type="text"
-              label="Duration"
+              label="Work"
               value={exerciseMetrics.work}
               onChange={handleExerciseMetrics}
               variation="inputForModal"
@@ -110,17 +113,17 @@ export default function EditContent({
             <InputField
               name="rest"
               type="text"
-              label="Rest Duration"
+              label="Rest"
               value={exerciseMetrics.rest}
               onChange={handleExerciseMetrics}
               variation="inputForModal"
             />
-          </div>
 
-          <div className={classes.workoutBtn}>
-            <Button variation="primary" onClick={isEditing ? handleSaveEditedExercise : handleAddSelectedExercise}>
-              {isEditing ? 'Add Changes' : 'Add Exercise'}
-            </Button>
+            <div className={classes.addExerciseBtn}>
+              <Button variation="primary" onClick={isEditing ? handleSaveEditedExercise : handleAddSelectedExercise}>
+                {isEditing ? 'Add Changes' : 'Add Exercise'}
+              </Button>
+            </div>
           </div>
         </>
       )}
