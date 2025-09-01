@@ -36,9 +36,11 @@ export default function DayWithWorkout({ dateHasWorkout, addWorkoutsToContext, h
           </div>
         ))}
 
-        <Button onClick={openCreateModal} variation="fifth">
-          Create new workout
-        </Button>
+        <div className={classes.newWorkoutBtn}>
+          <Button onClick={openCreateModal} variation="fifth">
+            Create new workout
+          </Button>
+        </div>
       </div>
     </>
   );

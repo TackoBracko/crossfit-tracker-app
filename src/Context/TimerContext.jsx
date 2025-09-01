@@ -193,14 +193,19 @@ export const TimerProvider = ({ children }) => {
     resetRest,
   ]);
 
-  useEffect(() => {
+  const resetAllTimer = () => {
     setWorkoutDone(false);
     setIsWorkoutRunning(false);
+    setIsRestOn(false);
+    setIsTransitionOn(false);
+    setFinishWorkoutBtn(false);
+
+    setWorkoutTime(0);
+    setRestTime(0);
+    setTransitionTime(0);
     setCurrentIdx(0);
     setCurrentSet(1);
-    setFinishWorkoutBtn(false);
-    setWorkoutTime(0);
-  }, [resetRest, workoutDetails]);
+  };
 
   return (
     <TimerContext.Provider
@@ -223,6 +228,7 @@ export const TimerProvider = ({ children }) => {
         finishWorkoutBtn,
         handleFinishWorkout,
         stopWatchNextExercise,
+        resetAllTimer,
       }}
     >
       {children}

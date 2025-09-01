@@ -6,41 +6,40 @@
 .setCounter {
   text-align: center;
   color: var(--primary-text);
-  margin: 24px 0;
+  margin: 16px;
 }
 
 .exerciseMetrics {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 20px 10px 20px 10px;
+  gap: 8px;
+  margin: 16px;
 }
 
 .metrics {
   flex: 1 1 100%;
   border: 1px solid var(--primary-background-btn);
-  padding: 5px;
-  border-radius: 12px;
+  padding: 8px;
+  border-radius: 16px;
   text-align: center;
 }
 
 .dualTimers {
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 0 16px;
+  align-items: stretch;
+  gap: 8px;
+  margin: 16px;
 }
 
 .timerBlock {
   background: var(--tertiary-text);
-  border-radius: 12px;
-  padding: 16px;
-  width: 45%;
+  border-radius: 16px;
+  padding: 16px 8px;
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1 1 0;
   opacity: 0.6;
 }
 
@@ -48,10 +47,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .timerBlock > div > span {
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 .timerBlock.active {
@@ -59,15 +59,27 @@
   border: 2px solid var(--primary-background-btn);
 }
 
+.metricsNavBtn {
+  width: 100%;
+  max-width: 520px;
+  margin: 16px auto;
+  padding: 16px 8px;
+  display: flex;
+}
+
+.metricsNavBtn button {
+  flex: 1;
+}
+
 .progressBar {
   width: 120px;
   height: 120px;
-  margin-bottom: 12px;
 }
 
 .timerControls {
   display: flex;
   gap: 8px;
+  margin-top: auto;
 }
 
 .timerControls button {
@@ -86,15 +98,14 @@
 }
 
 .nextExerciseBox {
-  margin: 20px 0 20px 20px;
   display: flex;
   align-items: center;
-  flex: 1 1 0;
-  padding: 12px;
+  padding: 16px 8px;
   background: var(--tertiary-text);
   opacity: 0.6;
-  border-radius: 12px;
-  width: 90%;
+  border-radius: 16px;
+  margin: 16px;
+  cursor: pointer;
 }
 
 .nextExerciseBox img {
@@ -111,6 +122,15 @@
 
 .nextExerciseBoxText p {
   color: var(--secondary-text);
+}
+
+.finishWorkoutBtn {
+  width: 100%;
+  max-width: 520px;
+  margin: 16px auto;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
 }
 
 :global(.CircularProgressbar-text) {

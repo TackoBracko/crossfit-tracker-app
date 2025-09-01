@@ -33,7 +33,12 @@
 .secondary:hover {
   background-color: var(--secondary-btn-hover);
   border-color: var(--primary-btn-hover);
-  transform: scale(1.1);
+}
+
+.secondary svg {
+  display: block;
+  width: 16px;
+  height: 16px;
 }
 
 .tertiary {
@@ -62,7 +67,7 @@
 
 .fifth {
   background-color: var(--primary-text);
-  margin-left: 10px;
+  flex: 1 1 auto;
 }
 
 .fifth:hover {

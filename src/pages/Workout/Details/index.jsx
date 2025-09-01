@@ -65,9 +65,11 @@ export default function WorkoutDetails() {
         </ul>
       </section>
 
-      <NavLink to="/timer">
-        <Button variation="primary">Start Workout</Button>
-      </NavLink>
+      <div className={classes.startWorkoutBtn}>
+        <NavLink to="/timer" className={classes.startWorkoutLink}>
+          <Button variation="primary">Start Workout</Button>
+        </NavLink>
+      </div>
     </>
   );
 }

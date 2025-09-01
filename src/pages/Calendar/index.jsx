@@ -38,37 +38,7 @@ export default function Calendar() {
     workoutplan: false,
   });
   //const [notes, setNotes] = useState('');
-  const [hasWeight, setHasWeight] = useState(true);
-  const noWeightNeededExercises = [
-    'Box Jumps',
-    'Wall Ball',
-    'Pistols',
-    'Pull-Ups (strict pull-ups)',
-    'Chest-to-Bar Pull-Ups',
-    'Muscule-Ups',
-    'Rope Climb',
-    'Push-Ups',
-    'Dips',
-    'Handstand Push-Ups',
-    'Wall Walk',
-    'Kipping Pull-Ups',
-    'Butterfly Pull-Ups',
-    'Toes-to-Bar',
-    'Handstand Walk',
-    'Double Under',
-    'Single Under',
-    'Row (Concept2 Rower)',
-    'Assault Bike',
-    'Echo Bike',
-    'Ski Erg',
-    'Burpees',
-    'Plank Hold',
-    'Hollow Hold',
-    'GHD Sit-Ups',
-    'V-Ups',
-    'Turkish Get-Up',
-    'Russian Twists',
-  ];
+  const [hasWeight, setHasWeight] = useState(false);
 
   const changeCurrentDay = (day) => {
     const newDate = new Date(day.year, day.month, day.number);
@@ -82,11 +52,13 @@ export default function Calendar() {
   };
 
   const handleExerciseSelect = (e) => {
-    const exerciseHasWeight = e.target.value;
-    setSelectedExercise(exerciseHasWeight);
+    const selectedExercise = e.target.value;
+    setSelectedExercise(selectedExercise);
 
-    const requiresWeight = !noWeightNeededExercises.includes(exerciseHasWeight);
-    setHasWeight(requiresWeight);
+    const exerciseSelect = crossfitData
+      .flatMap((category) => category.exercises.flatMap((exercise) => (exercise.subExercise ? exercise.subExercise : [exercise])))
+      .find((ex) => ex.name === selectedExercise);
+    setHasWeight(exerciseSelect && exerciseSelect.hasWeight ? true : false);
   };
 
   const handleExerciseMetrics = (e) => {
@@ -106,7 +78,8 @@ export default function Calendar() {
     } else if (exercise.reps > 0) {
       metricsNote += ` ${exercise.reps} reps`;
     }
-    if (exercise.weight) {
+
+    if (exercise.hasWeight && exercise.weight) {
       metricsNote += ` @ ${exercise.weight} kg`;
     }
     if (exercise.work) {
@@ -127,6 +100,7 @@ export default function Calendar() {
       weight: exerciseMetrics.weight,
       work: exerciseMetrics.work,
       rest: exerciseMetrics.rest,
+      hasWeight: hasWeight,
       note: metricsBlock({
         name: selectedExercise,
         sets: Number(exerciseMetrics.sets),
@@ -134,6 +108,7 @@ export default function Calendar() {
         weight: exerciseMetrics.weight,
         work: exerciseMetrics.work,
         rest: exerciseMetrics.rest,
+        hasWeight: hasWeight,
       }),
     };
 
@@ -157,6 +132,7 @@ export default function Calendar() {
             category: category.title,
             subExercise: exercise.id,
             picture: subexercise.picture,
+            hasWeight: subexercise.hasWeight,
           }));
         } else {
           return [
@@ -167,6 +143,7 @@ export default function Calendar() {
               category: category.title,
               subExercise: null,
               picture: exercise.picture,
+              hasWeight: exercise.hasWeight,
             },
           ];
         }
@@ -190,6 +167,7 @@ export default function Calendar() {
         weight: exercise.weight,
         work: exercise.work,
         rest: exercise.rest,
+        hasWeight: exerciseData.hasWeight,
         note: metricsBlock(exercise),
         //note: notes.split('\n').find((note) => note.includes(exercise.name)) || '',
       };
@@ -258,6 +236,7 @@ export default function Calendar() {
           weight: ex.weight,
           work: ex.work,
           rest: ex.rest,
+          hasWeight: ex.hasWeight ? ex.hasWeight : false,
         })),
       );
       //setNotes(workout.notes);
@@ -306,9 +285,6 @@ export default function Calendar() {
       setIsEditing(true);
       setEditingExercise(id);
     }
-
-    const requiresWeight = !noWeightNeededExercises.includes(exerciseToEdit.name);
-    setHasWeight(requiresWeight);
   };
 
   const handleSaveEditedExercise = () => {
@@ -394,7 +370,7 @@ export default function Calendar() {
       title: false,
       workoutplan: false,
     });
-    setHasWeight(true);
+    setHasWeight(false);
     setIsEditing(false);
     setEditingExercise(null);
     //setNotes('');

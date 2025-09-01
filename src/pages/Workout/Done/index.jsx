@@ -2,7 +2,6 @@ import Button from '../../../components/Button';
 import classes from './WorkoutDone.module.css';
 import { useContext } from 'react';
 import { WorkoutDetailsContext } from '../../../Context/WorkoutDetailsContext';
-import { NavLink } from 'react-router-dom';
 
 export default function WorkoutDone({ closeDoneModal }) {
   const { workoutDetails } = useContext(WorkoutDetailsContext);
@@ -12,20 +11,20 @@ export default function WorkoutDone({ closeDoneModal }) {
         <h1>🎉 WORKOUT COMPLETED 💪</h1>
         <h3>{workoutDetails.title}</h3>
 
-        <div className={classes.workoutDoneSummary}>
-          <ul className={classes.exercisesList}>
-            {workoutDetails.exercises.map((exercise) => (
-              <li key={exercise.id} className={classes.exerciseCard}>
-                {exercise.note}
-                <img src={exercise.picture} alt={exercise.name} className={classes.exercisePic} />
-              </li>
-            ))}
-          </ul>
-          <NavLink to="/workouts/:id">
-            <Button onClick={closeDoneModal} className={classes.closeDoneModal}>
-              Close
-            </Button>
-          </NavLink>
+        <ul className={classes.exercisesList}>
+          {workoutDetails.exercises.map((exercise) => (
+            <li key={exercise.id} className={classes.exerciseCard}>
+              <img src={exercise.picture} alt={exercise.name} className={classes.exercisePic} />
+              <div className={classes.exerciseNote}>
+                <div className={classes.note}>{exercise.note}</div>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <div className={classes.closeDoneWraper}>
+          <Button variation="fifth" onClick={closeDoneModal} className={classes.closeDoneModalBtn}>
+            Close
+          </Button>
         </div>
       </section>
     </>
