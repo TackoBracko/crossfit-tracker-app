@@ -6,6 +6,7 @@ import Header from './Header';
 import WorkoutDone from '../Done';
 import Modal from '../../../components/Modal';
 import { useContext, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { TimerContext } from '../../../Context/TimerContext';
 import { WorkoutDetailsContext } from '../../../Context/WorkoutDetailsContext';
 import { CircularProgressbar } from 'react-circular-progressbar';
@@ -30,8 +31,10 @@ export default function Timer() {
     finishWorkoutBtn,
     handleFinishWorkout,
     stopWatchNextExercise,
+    resetAllTimer,
   } = useContext(TimerContext);
   const { workoutDetails } = useContext(WorkoutDetailsContext);
+  const navigate = useNavigate();
 
   const nextExercise = exercises[currentIdx + 1] || { name: '', picture: '' };
   const setsTotal = currentExercise.sets || 1;
@@ -56,6 +59,8 @@ export default function Timer() {
   const closeWorkoutDoneModal = () => {
     if (workoutDoneModalRef.current) {
       workoutDoneModalRef.current.close();
+      resetAllTimer();
+      navigate(`/workouts/${workoutDetails.id}`);
     }
   };
 
@@ -131,7 +136,9 @@ export default function Timer() {
               </>
             ) : (
               <span>
-                {setsTotal} sets x {currentExercise.reps} reps of {currentExercise.name}
+                {currentExercise.sets && currentExercise.reps
+                  ? `${currentExercise.sets} sets x ${currentExercise.reps} reps of ${currentExercise.name}`
+                  : currentExercise.name}
               </span>
             )}
           </div>
@@ -161,17 +168,24 @@ export default function Timer() {
       </div>
 
       {hasJustMetrics && !isWorkoutRunning && workoutTime > 0 && (
-        <div>
-          {currentIdx < exercises.length - 1 && <Button onClick={stopWatchNextExercise}>Next exercise</Button>}
-          <Button onClick={handleFinishWorkout}>Finish workout</Button>
+        <div className={classes.metricsNavBtn}>
+          {currentIdx < exercises.length - 1 ? (
+            <Button variation="fifth" onClick={stopWatchNextExercise}>
+              Next exercise
+            </Button>
+          ) : (
+            <Button variation="fifth" onClick={handleFinishWorkout}>
+              Finish workout
+            </Button>
+          )}
         </div>
       )}
 
       {nextExercise.name && (
-        <div className={`${classes.nextExerciseBox} ${isTransitionOn ? classes.transitionTimeBox : ''}`}>
+        <div onClick={stopWatchNextExercise} className={`${classes.nextExerciseBox} ${isTransitionOn ? classes.transitionTimeBox : ''}`}>
           <img src={nextExercise.picture} alt={nextExercise.name} />
           <div className={classes.nextExerciseBoxText}>
-            <span>Up next</span>
+            <span>Up next (or you can skip it)</span>
             <p>{nextExercise.name}</p>
             {isTransitionOn && <span className={classes.transitionCountdown}>Starts in {transitionTime}s</span>}
           </div>
@@ -179,8 +193,10 @@ export default function Timer() {
       )}
 
       {finishWorkoutBtn && (
-        <div>
-          <Button onClick={handleFinishWorkout}>Finish Workout</Button>
+        <div className={classes.finishWorkoutBtn}>
+          <Button variation="fifth" onClick={handleFinishWorkout}>
+            Finish Workout
+          </Button>
         </div>
       )}
 
