@@ -7,7 +7,7 @@
 
 .workoutTitle {
   width: 100%;
-  padding: 20px 16px;
+  padding: 16px;
   font-size: 16px;
   border: 2px solid #ccc;
   border-radius: 8px;
@@ -20,6 +20,10 @@
 .workoutInput {
   width: 100%;
   margin-bottom: 10px;
+}
+
+.workoutInput label {
+  padding-left: 0;
 }
 
 .errorText {

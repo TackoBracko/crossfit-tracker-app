@@ -134,12 +134,12 @@ export default function EditContent({
             <li key={id} className={classes.exerciseItem}>
               {metricsBlock(exercise)}
 
-              <div className={classes.exerciseListBtn}>
+              <div className={classes.exerciseListBtns}>
                 <Button variation="primary" onClick={() => handleEditExercise(exercise.id)}>
                   Edit
                 </Button>
                 <Button variation="quaternary" onClick={() => handleDeleteExercise(exercise.id)}>
-                  Delete
+                  X
                 </Button>
               </div>
             </li>

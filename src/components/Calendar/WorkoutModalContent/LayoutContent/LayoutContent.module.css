@@ -1,31 +1,38 @@
 .modalContent {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
   width: 600px;
-  max-width: 95%;
-  min-height: 70vh;
-  padding: 40px 30px;
+  max-width: 100%;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  padding: 32px 24px;
   background: #3a3a3a;
   border-radius: 20px;
-  gap: 20px;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  -webkit-overflow-scrolling: touch;
+}
+
+.modalContent::-webkit-scrollbar {
+  display: none;
+}
+
+.modalContent {
+  scrollbar-width: none;
 }
 
 .modalLayout {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
   z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
 }
 
 dialog::backdrop {
