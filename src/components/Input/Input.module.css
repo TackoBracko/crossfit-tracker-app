@@ -8,18 +8,8 @@
   width: 100%;
   font-size: 17px;
   font-weight: 500;
-  padding: 20px 16px;
+  padding: 16px;
   transition: border-color 0.2sec;
-}
-
-.inputForModal {
-  width: 100%;
-  padding: 12px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  background: #f5f5f5;
-  transition: 0.3s;
-  color: var(--tertiary-text);
 }
 
 ::placeholder {
@@ -46,4 +36,15 @@ label {
 
 .inputError {
   border-bottom-color: red;
+}
+
+.inputForModal {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: #f5f5f5;
+  transition: 0.3s;
+  color: var(--tertiary-text);
 }
