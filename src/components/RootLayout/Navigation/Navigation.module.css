@@ -7,15 +7,14 @@
 
 .nav {
   height: 92px;
-  padding: 32px 24px;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 16px;
+  padding: var(--p-gap);
+  font-size: var(--font-sm);
+  font-weight: var(--font-semibold);
 }
 
 .activeNav {
   display: flex;
-  gap: 32px;
+  gap: var(--gap-lg);
 }
 
 .activeNav li a.active {
@@ -24,7 +23,7 @@
 }
 
 .dark {
-  background-color: #1c1c1e;
+  background-color: var(--primary-background);
 }
 
 .loggedNav {
@@ -40,7 +39,7 @@
   align-items: center;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: var(--rounded-3xl);
   transform:
     border 0.3s,
     transform 0.3s;

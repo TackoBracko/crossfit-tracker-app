@@ -1,7 +1,7 @@
 .dates {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 20px;
+  gap: var(--gap-lg);
   justify-items: center;
   cursor: pointer;
 }
@@ -13,13 +13,13 @@
   color: rgb(107, 103, 103);
   width: 36px;
   height: 36px;
-  border-radius: 50%;
+  border-radius: var(--rounded-3xl);
 }
 
 .day:hover {
-  background-color: #f4f4f4;
+  background-color: var(--primary-text);
   color: var(--tertiary-text);
-  border-radius: 50%;
+  border-radius: var(--rounded-3xl);
 }
 
 .currentDay {
@@ -31,6 +31,6 @@
 }
 
 .workoutDay {
-  background-color: #e4f061;
+  background-color: var(--span-background);
   color: var(--tertiary-text);
 }

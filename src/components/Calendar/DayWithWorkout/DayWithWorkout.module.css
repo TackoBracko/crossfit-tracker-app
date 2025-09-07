@@ -1,21 +1,20 @@
 .workoutBox {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-top: 24px;
-  padding: 16px 8px;
+  gap: var(--gap-xs);
+  margin-top: var(--m-base);
+  padding: var(--p-exercise);
   width: 100%;
 }
 
 .workoutPlan {
   background-color: #b4a0ff;
-  border-radius: 16px;
-  padding: 16px 8px;
+  border-radius: var(--rounded-xl);
+  padding: var(--p-exercise);
   color: var(--tertiary-text);
   width: 100%;
   max-width: 520px;
   margin: 0 auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .workoutTitle {
@@ -28,24 +27,25 @@
 .workoutControls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--gap-xs);
 }
 
 .workoutBtns {
   display: flex;
-  gap: 8px;
+  gap: var(--gap-xs);
   flex: 0 0 auto;
 }
 
 .workoutExercises {
-  margin: 8px 0 12px;
+  padding: var(--p-exercise);
 }
 
 .newWorkoutBtn {
   width: 100%;
   max-width: 520px;
-  margin: 0 auto 70px;
   display: flex;
+  margin: 0 auto;
+  margin-bottom: var(--m-xl);
 }
 
 @media (min-width: 425px) {

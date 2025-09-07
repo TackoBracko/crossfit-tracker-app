@@ -13,8 +13,6 @@ export default function EditContent({
   handleExerciseMetrics,
   handleAddSelectedExercise,
   handleSaveEditedWorkout,
-  //notes,
-  //setNotes,
   handleEditExercise,
   handleSaveEditedExercise,
   handleDeleteExercise,
@@ -129,22 +127,23 @@ export default function EditContent({
       )}
 
       {selectedExercisesList.length > 0 ? (
-        <ul className={classes.exercisePreviewList}>
-          {selectedExercisesList.map((exercise, id) => (
-            <li key={id} className={classes.exerciseItem}>
-              {metricsBlock(exercise)}
-
-              <div className={classes.exerciseListBtns}>
-                <Button variation="primary" onClick={() => handleEditExercise(exercise.id)}>
-                  Edit
-                </Button>
-                <Button variation="quaternary" onClick={() => handleDeleteExercise(exercise.id)}>
-                  X
-                </Button>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div>
+          <ul className={classes.exercisePreviewList}>
+            {selectedExercisesList.map((exercise) => (
+              <li key={exercise.id} className={classes.exerciseItem}>
+                {metricsBlock(exercise)}
+                <div className={classes.exerciseListBtns}>
+                  <Button variation="primary" onClick={() => handleEditExercise(exercise.id)}>
+                    Edit
+                  </Button>
+                  <Button variation="quaternary" onClick={() => handleDeleteExercise(exercise.id)}>
+                    X
+                  </Button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       ) : (
         <div className={classes.boxAlert}>
           <p className={classes.textAlert}>This workout is empty. You can add new exercises or save it to remove it from the calendar</p>

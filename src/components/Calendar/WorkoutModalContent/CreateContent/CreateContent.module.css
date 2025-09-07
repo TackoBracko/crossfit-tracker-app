@@ -6,18 +6,28 @@
   padding-left: 0;
 }
 
-.dropdownMenu,
+.dropdownMenu {
+  width: 100%;
+  padding: var(--p-base);
+  font-size: var(--font-sm);
+  border: 2px solid #ccc;
+  border-radius: var(--rounded-lg);
+  background: var(--primary-text);
+  transition: 0.3s;
+  margin-top: var(--m-sm);
+}
+
 .exercisePreviewList {
   width: 100%;
-  padding: 16px;
-  font-size: 16px;
+  padding: var(--p-base);
+  font-size: var(--font-sm);
   border: 2px solid #ccc;
-  border-radius: 8px;
-  background: #f5f5f5;
+  border-radius: var(--rounded-lg);
+  background: var(--primary-text);
   transition: 0.3s;
-  margin-top: 10px;
-  max-height: 200px;
-  overflow-y: auto;
+  margin-top: var(--m-sm);
+  max-height: 240px;
+  overflow: auto;
 }
 
 .selectedExercise {
@@ -30,90 +40,74 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  gap: 12px;
-  margin-bottom: 70px;
+  gap: var(--gap-sm);
+  margin-bottom: var(--m-xl);
 }
 
 .addExerciseBtn {
   display: flex;
   justify-content: flex-end;
-  margin-top: 12px;
+  margin-top: var(--m-xs);
 }
 
 .errorText {
   color: var(--tertiary-btn-text);
   text-align: center;
-  font-weight: 400;
+  font-weight: var(--font-normal);
 }
 
 .inputGroup label {
   padding-left: 0;
 }
 
-/*.inputGroup {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: flex-end;
-}*/
-
-/*.inputGroup > :nth-child(-n + 3) {
-  flex: 1 1 calc((100% - 20px) / 3);
-}
-
-.inputGroup > :nth-child(n + 4) {
-  flex: 1 1 calc((100% - 10px) / 2);
-}
-
-.inputGroup > * {
-  flex: 1 1 calc((100% - 40px) / 4);
-}*/
-
 .exerciseItem {
   display: flex;
   flex-direction: column;
-  padding: 10px 0;
   border-bottom: 1px solid #ccc;
-  gap: 20px;
+  gap: var(--gap-lg);
 }
 
 .exerciseListBtns {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--gap-sm);
 }
 
 .boxAlert {
   border: 1px solid var(--primary-text);
-  border-radius: 4px;
+  border-radius: var(--rounded-sm);
 }
 
 .textAlert {
   color: var(--tertiary-btn-text);
   text-align: center;
-  padding: 10px;
+  padding: var(--p-xs);
 }
 
 @media (min-width: 480px) {
   .exercisePreviewList {
-    padding: 16px 12px;
-    font-size: 14px;
+    padding: var(--p-exercise);
+    font-size: var(--font-base);
   }
-
-  /*.exerciseItem {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }*/
 
   .exerciseListBtns {
     flex-direction: row;
     width: 100%;
-    gap: 6px;
-    margin-top: 4px;
+    gap: var(--gap-sm);
+    margin-top: var(--m-xs);
   }
 
   .exerciseListBtns button {
     width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .exercisePreviewList {
+    max-height: 320px;
+  }
+
+  .exerciseItem {
+    padding: var(--p-base);
   }
 }

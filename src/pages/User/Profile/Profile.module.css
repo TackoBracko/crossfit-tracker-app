@@ -1,22 +1,22 @@
 .profileHeader {
   display: flex;
   justify-content: center;
-  padding: 32px 24px;
-  gap: 70px;
+  padding: var(--p-gap);
+  gap: var(--gap-xl);
   text-transform: uppercase;
-  margin-bottom: 32px;
-  margin-top: 80px;
+  margin-bottom: var(--m-lg);
+  margin-top: var(--m-2xl);
 }
 
 .profileHeader h1 {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: var(--font-xl);
+  font-weight: var(--font-bold);
   text-transform: uppercase;
 }
 
 .profileInfo {
   display: flex;
-  padding: 32px 24px;
+  padding: var(--p-gap);
   align-items: center;
 }
 
@@ -27,8 +27,8 @@
   justify-content: center;
   text-align: center;
   text-transform: uppercase;
-  padding-right: 24px;
-  gap: 10px;
+  padding-right: var(--p-xl);
+  gap: var(--gap-sm);
 }
 
 .profilePic {
@@ -38,58 +38,58 @@
   background:
     linear-gradient(#151515, #151515) padding-box,
     linear-gradient(to top, #d0fd3e, #ff2424) border-box;
-  border-radius: 50%;
+  border-radius: var(--rounded-3xl);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
+  font-size: var(--font-3xl);
 }
 
 .leftInfo h3 {
-  font-size: 32px;
-  font-weight: 400;
-  margin-top: 10px;
+  font-size: var(--font-3xl);
+  font-weight: var(--font-normal);
+  margin-top: var(--m-xs);
 }
 
 .leftInfo h3 span {
-  font-size: 32px;
-  font-weight: 700;
+  font-size: var(--font-3xl);
+  font-weight: var(--font-bold);
 }
 
 .rightInfo {
-  border-left: 1px solid #2c2c2e;
-  padding-left: 24px;
+  border-left: var(--border-t);
+  padding-left: var(--p-xl);
   display: flex;
   flex-direction: column;
 }
 
 .rightInfo span:first-child {
-  font-size: 11px;
-  font-weight: 400;
+  font-size: var(--font-xs);
+  font-weight: var(--font-normal);
 }
 
 .rightInfo span {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: var(--font-base);
+  font-weight: var(--font-semibold);
 }
 
 .rightInfo p {
-  font-size: 11px;
-  font-weight: 400;
+  font-size: var(--font-xs);
+  font-weight: var(--font-normal);
   display: flex;
-  gap: 4px;
+  gap: var(--gap-xs);
   flex-wrap: wrap;
   flex-grow: 1;
   align-items: center;
 }
 
 .rightInfo p:not(:last-child) {
-  padding-bottom: 20px;
+  padding-bottom: var(--p-lg);
 }
 
 .profileList {
-  padding: 32px 24px;
-  margin-top: 32px;
+  padding: var(--p-gap);
+  margin-top: var(--m-lg);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -98,40 +98,8 @@
 
 .profileList li {
   border: none;
-  border-bottom: 1px solid #2c2c2e;
-  font-size: 15px;
-  font-weight: 600;
+  border-bottom: var(--border-b);
+  font-size: var(--font-sm);
+  font-weight: var(--font-semibold);
   padding: 20px 20px 20px 0;
 }
-
-/*
-.backBtn {
-  background-color: #2c2c2e;
-  border: 2px solid;
-  border: none;
-  border-radius: 50%;
-  padding: 10px;
-  cursor: pointer;
-  width: 36px;
-  height: 36px;
-  text-align: center;
-}
-
-.backBtn img {
-  width: 10px;
-  height: 15px;
-}
-  
-.signOut {
-  margin-top: 32px;
-  border-bottom: 1px solid #2c2c2e;
-  border-top: 1px solid #2c2c2e;
-  padding: 20px 0;
-}
-
-.signOut a {
-  color: #ff2424;
-  font-size: 17px;
-  font-family: 600;
-  text-decoration: none;
-}*/
