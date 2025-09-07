@@ -1,5 +1,5 @@
 .loginHeader {
-  background-image: url('./../../../assets/pictures/AppPictures/LoginBackground.png');
+  background-image: url('./../../assets/pictures/AppPictures/LoginBackground.png');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -10,32 +10,46 @@
 }
 
 .loginHeader h3 {
-  font-size: 28px;
-  font-weight: 400;
-  padding: 24px;
+  font-size: var(--font-2xl);
+  font-weight: var(--font-noraml);
+  padding: var(--p-xl);
 }
 
 .loginHeader h3 span {
-  font-weight: 700;
+  font-weight: var(--font-bold);
 }
 
 .formSection {
-  padding: 0 24px;
+  padding: var(--p-forma);
   max-width: 100%;
-  margin-top: 30px;
+  margin-top: var(--m-lg);
 }
 
 .formSection form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-bottom: 24px;
+  gap: var(--gap-lg);
+  margin-bottom: var(--m-base);
 }
 
 .errorText {
   position: absolute;
   color: var(--tertiary-btn-text);
-  padding-left: 16px;
-  font-weight: 400;
-  font-size: 11px;
+  padding-left: var(--p-base);
+  font-weight: var(--font-noraml);
+  font-size: var(--font-xs);
+}
+
+@media (min-width: 768px) {
+  .loginHeader {
+    background-position: top center;
+    height: 620px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .loginHeader {
+    background-position: top center;
+    height: 700px;
+  }
 }

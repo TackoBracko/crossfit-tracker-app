@@ -5,8 +5,8 @@
   background-color: rgba(221, 221, 221, 1);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50px;
-  padding: 5px;
+  border-radius: var(--rounded-2xl);
+  padding: var(--rounded-lg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,29 +21,29 @@
 }
 
 .movementInfo {
-  padding: 32px 24px;
+  padding: var(--p-gap);
 }
 
 .movementInfo h1 {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: var(--font-xl);
+  font-weight: var(--font-semibold);
   text-transform: uppercase;
 }
 
 .movementVideo {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: var(--gap-sm);
+  margin-bottom: var(--m-sm);
 }
 
 .subCategoryVideo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 32px;
-  padding-top: 10px;
+  gap: var(--gap-sm);
+  margin-bottom: var(--m-lg);
+  padding-top: var(--p-xs);
 }
 
 .subCategoryVideo.column {
@@ -52,21 +52,20 @@
 
 .movementVideo p,
 .subCategoryVideo p {
-  font-size: 13px;
-  font-weight: 400;
+  font-size: var(--font-xs);
+  font-weight: var(--font-normal);
   color: var(--secondary-text);
 }
 
 .videoDescription {
-  font-size: 15px;
-  font-weight: 400;
-  padding-bottom: 20px;
+  font-size: var(--font-base);
+  font-weight: var(--font-normal);
 }
 
 .subVideoDescription {
-  margin-bottom: 32px;
-  font-size: 15px;
-  font-weight: 400;
+  margin-bottom: var(--m-lg);
+  font-size: var(--font-base);
+  font-weight: var(--font-normal);
   color: var(--primary-text);
 }
 
@@ -82,7 +81,7 @@
   width: 86px;
   height: 29px;
   border: 1px solid #2c2c2e;
-  border-radius: 50px;
+  border-radius: var(--rounded-2xl);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,25 +92,25 @@
 }
 
 .subCategorySection {
-  padding: 32px 24px;
+  padding: var(--p-gap);
 }
 
 .subCategory h3 {
   color: var(--secondary-text);
-  font-size: 15px;
-  padding-bottom: 10px;
+  font-size: var(--font-base);
+  padding-bottom: var(--p-xs);
 }
 
 .subCategoryBox {
-  padding-bottom: 20px;
+  padding-bottom: var(--p-lg);
 }
 
 .subCategoryBox h4 {
-  padding-bottom: 10px;
+  padding-bottom: var(--p-xs);
 }
 
 .subCategoryBox img {
-  border-radius: 12px;
+  border-radius: var(--rounded-xl);
 }
 
 .imgContainer {

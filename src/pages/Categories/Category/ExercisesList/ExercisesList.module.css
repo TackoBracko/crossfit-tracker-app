@@ -1,37 +1,37 @@
 .categoryListHeader {
   display: flex;
   flex-direction: column;
-  padding: 32px 24px;
-  gap: 20px;
+  padding: var(--p-gap);
+  gap: var(--gap-lg);
 }
 
 .categoryHeader {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: var(--gap-lg);
 }
 
 .categoryListHeader h1 {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: var(--font-xl);
+  font-weight: var(--font-bold);
   text-transform: uppercase;
 }
 
 .categoryListHeader p {
-  font-size: 15px;
-  font-weight: 400;
+  font-size: var(--font-base);
+  font-weight: var(--font-normal);
 }
 
 .categoryListSection {
-  padding: 32px 24px;
+  padding: var(--p-gap);
 }
 
 .categoryListSection h3 {
   color: var(--tertiary-text);
   position: absolute;
-  padding-left: 10px;
-  padding-top: 10px;
-  font-size: 15px;
+  padding-left: var(--p-xs);
+  padding-top: var(--p-xs);
+  font-size: var(--font-base);
 }
 
 .exerciseBox {
@@ -44,30 +44,5 @@
 }
 
 .exerciseBox img {
-  border-radius: 12px;
+  border-radius: var(--rounded-xl);
 }
-
-/*
-.imgContainer {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-}
-
-.imgContainer img {
-  width: 300px;
-  height: 200px;
-}
-*/
-
-/*.categoryBackBtn {
-  border: none;
-  border-radius: 50px;
-  background-color: rgba(0, 0, 0, 0.2);
-  width: 32px;
-  padding: 10px;
-}
-
-.categoryBackBtn:hover {
-  background: var(--secondary-btn-hover);
-}*/

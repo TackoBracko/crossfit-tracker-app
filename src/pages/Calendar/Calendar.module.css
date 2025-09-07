@@ -2,15 +2,15 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 32px 24px;
+  padding: var(--p-gap);
   width: 100%;
   max-width: 500px;
   margin: 80px auto 24px;
 }
 
 .calendarHeader h1 {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: var(--font-xl);
+  font-weight: var(--font-bold);
   text-transform: uppercase;
 }
 
@@ -18,7 +18,7 @@
   color: var(--primary-text);
   display: flex;
   flex-direction: column;
-  padding: 0 16px;
+  padding: var(--p-forma);
   /*
   width: 100%;
   max-width: 500px;*/
@@ -30,5 +30,5 @@
   gap: 10px;
   justify-items: center;
   cursor: pointer;
-  padding-bottom: 10px;
+  padding-bottom: var(--p-xs);
 }

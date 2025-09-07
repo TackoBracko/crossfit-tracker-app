@@ -74,7 +74,7 @@ export default function CreateContent({
       {selectedExercise && (
         <>
           <p className={classes.selectedExercise}>Selected exercise: {selectedExercise}</p>
-          <div className={`${classes.inputGroup} ${hasWeight ? classes.fourInputs : classes.threeInputs}`}>
+          <div className={classes.inputGroup}>
             <InputField
               name="sets"
               type="text"

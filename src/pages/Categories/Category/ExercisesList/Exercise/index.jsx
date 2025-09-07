@@ -16,8 +16,6 @@ export default function Exercise() {
     <>
       <header className={classes.movementHeader}>
         <Button variation="secondary" iconLeft={<LeftIcon />} onClick={() => navigate(-1)} />
-        {/*<Link to={`/categories/${categoryId}`}>
-        </Link>*/}
         <img src={selectedExercise.picture} alt={selectedExercise.name} />
       </header>
 
