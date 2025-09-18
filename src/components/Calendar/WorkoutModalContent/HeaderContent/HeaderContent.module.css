@@ -11,10 +11,8 @@
   font-size: var(--font-base);
   border: 2px solid #ccc;
   border-radius: var(--rounded-lg);
-  /*background: #f5f5f5;*/
   transition: 0.3s;
   margin-top: var(--m-xs);
-  /*padding-left: var(--p-base);*/
 }
 
 .workoutInput {

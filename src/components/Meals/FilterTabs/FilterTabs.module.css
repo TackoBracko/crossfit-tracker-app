@@ -1,0 +1,44 @@
+.mealTabs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+  overflow-x: auto;
+  padding-bottom: var(--p-xs);
+  margin-bottom: var(--m-xs);
+}
+
+.mealDescription {
+  text-align: center;
+  font-size: var(--font-sm);
+  font-weight: var(--font-medium);
+}
+
+@media (min-width: 480px) {
+  .mealTabs {
+    flex-direction: row;
+  }
+
+  .mealDescription {
+    font-size: var(--font-base);
+  }
+}
+
+@media (min-width: 768px) {
+  .mealTabs span {
+    font-size: var(--font-xl);
+  }
+
+  .mealDescription {
+    font-size: var(--font-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .mealTabs span {
+    font-size: var(--font-2xl);
+  }
+
+  .mealDescription {
+    font-size: var(--font-2xl);
+  }
+}

@@ -89,7 +89,7 @@
 
 .profileList {
   padding: var(--p-gap);
-  margin-top: var(--m-lg);
+  margin-top: var(--m-base);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

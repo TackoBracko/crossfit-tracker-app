@@ -14,10 +14,12 @@ export default function Onbording() {
   const navigate = useNavigate();
 
   const [userInfoSetup, setUserInfoSetup] = useState({
+    name: user.name,
     birthday: user.birthday,
     weight: user.weight,
     height: user.height,
     gender: user.gender,
+    age: user.age,
   });
 
   const [error, setError] = useState(false);
@@ -35,15 +37,25 @@ export default function Onbording() {
     });
   };
 
+  const calcAge = (birthday) => {
+    const diff = Date.now() - new Date(birthday).getTime();
+    return Math.floor(diff / (365.25 * 24 * 60 * 60 * 1000));
+  };
+
   const handleSetupInfoSubmit = (e) => {
     e.preventDefault();
 
-    if (!userInfoSetup.birthday || !userInfoSetup.weight || !userInfoSetup.height || !userInfoSetup.gender) {
+    if (!userInfoSetup.name || !userInfoSetup.birthday || !userInfoSetup.weight || !userInfoSetup.height || !userInfoSetup.gender) {
       setError(true);
       return;
     }
 
-    handleUserData(userInfoSetup);
+    const userData = {
+      ...userInfoSetup,
+      age: calcAge(userInfoSetup.birthday),
+    };
+
+    handleUserData(userData);
     console.log(userInfoSetup);
     login();
     navigate('/profile');
@@ -60,6 +72,10 @@ export default function Onbording() {
       <section className={classes.infoSetupSection}>
         <Form onSubmit={handleSetupInfoSubmit} noValidate>
           {error ? <p className={classes.errorText}>Please fill out all fields </p> : null}
+
+          <div className={classes.inputDiv}>
+            <InputField label="Your Name" name="name" type="text" value={userInfoSetup.name} onChange={handleSetupInfo} />
+          </div>
 
           <div className={classes.inputDiv}>
             <InputField label="Birthday" name="birthday" type="date" value={userInfoSetup.birthday} onChange={handleSetupInfo} />

@@ -7,7 +7,7 @@ import Onbording from './pages/Onbording';
 import Home from './pages/User/Home';
 import Profile from './pages/User/Profile';
 import EditProfile from './pages/User/Edit';
-import MealPlans from './pages/MealPlans';
+import Meals from './pages/Meals';
 import Category from './pages/Categories/Category';
 import ExercisesList from './pages/Categories/Category/ExercisesList';
 import Exercise from './pages/Categories/Category/ExercisesList/Exercise';
@@ -15,11 +15,13 @@ import SubExercise from './pages/Categories/Category/ExercisesList/Exercise/SubE
 import Calendar from './pages/Calendar';
 import WorkoutDetails from './pages/Workout/Details';
 import Timer from './pages/Workout/Timer';
+import MealDetails from './pages/Meals/Details';
 import { UserDataContextProvider } from './Context/UserContext';
 import { AuthProvider } from './Context/AuthContext';
 import { ProtectedRoutes, PublicRoutes } from './Context/AuthRoutesComponent';
 import { WorkoutDetailsProvider } from './Context/WorkoutDetailsContext';
 import { TimerProvider } from './Context/TimerContext';
+import { RecipeProvider } from './Context/RecipeContext';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,7 +32,7 @@ const router = createBrowserRouter(
           <Route path="category" element={<Category />} />
           <Route path="calendar" element={<Calendar />} />
           <Route path="profile" element={<Profile />} />
-          <Route path="meals" element={<MealPlans />} />
+          <Route path="meals" element={<Meals />} />
           <Route path="/workouts/:id" element={<WorkoutDetails />} />
         </Route>
 
@@ -50,6 +52,7 @@ const router = createBrowserRouter(
         <Route path="/category/:categoryId/exercises/:exerciseId/:subexerciseId" element={<SubExercise />} />
         <Route path="edit" element={<EditProfile />} />
         <Route path="timer" element={<Timer />} />
+        <Route path="/meals/:id" element={<MealDetails />} />
       </Route>
     </>,
   ),
@@ -61,7 +64,9 @@ function App() {
       <UserDataContextProvider>
         <WorkoutDetailsProvider>
           <TimerProvider>
-            <RouterProvider router={router} />
+            <RecipeProvider>
+              <RouterProvider router={router} />
+            </RecipeProvider>
           </TimerProvider>
         </WorkoutDetailsProvider>
       </UserDataContextProvider>
