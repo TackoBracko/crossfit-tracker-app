@@ -15,6 +15,8 @@ export default function Button({ children, variation, iconLeft, iconRight, onCli
     variationStyleBtn = classes.fifth;
   } else if (variation === 'sixth') {
     variationStyleBtn = classes.sixth;
+  } else if (variation === 'seventh') {
+    variationStyleBtn = classes.seventh;
   }
 
   return (

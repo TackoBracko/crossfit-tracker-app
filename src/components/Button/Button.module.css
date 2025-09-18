@@ -21,7 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--secondary-backgroud-btn);
+  background-color: var(--secondary-background-btn);
   width: 36px;
   height: 36px;
   border-radius: var(--rounded-3xl);
@@ -81,4 +81,21 @@
   outline: none;
   display: inline-block;
   padding: 0;
+}
+
+.seventh {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--tertiary-text);
+  width: 36px;
+  height: 36px;
+  font-size: var(--font-base);
+  border-radius: var(--rounded-3xl);
+  cursor: pointer;
+}
+
+.seventh:hover {
+  background-color: var(--primary-btn-hover);
 }

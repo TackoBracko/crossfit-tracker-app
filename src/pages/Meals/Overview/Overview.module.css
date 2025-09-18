@@ -1,0 +1,52 @@
+.mealHeader {
+  margin-top: var(--m-2xl);
+}
+
+.mealHeader h1 {
+  font-size: var(--font-2xl);
+}
+
+.mealHeader h3 {
+  font-size: var(--font-lg);
+  padding-bottom: var(--p-xs);
+}
+
+.mealHeader h3 span {
+  color: var(--primary-background-btn);
+}
+
+.mealSearchForm {
+  display: flex;
+  gap: var(--gap-sm);
+  margin: var(--m-base) 0;
+  width: 100%;
+  max-width: 700px;
+}
+
+.mealSearchWrapper {
+  flex: 1;
+}
+
+.recipeResultsList {
+  font-size: var(--font-sm);
+  padding: var(--p-xs) 0 0 var(--p-xs);
+}
+
+.recipeResultsList a:hover {
+  color: var(--primary-background-btn);
+}
+
+@media (min-width: 1024px) {
+  .mealHeader h1 {
+    font-size: var(--font-4xl);
+  }
+
+  .mealHeader h3,
+  span {
+    font-size: var(--font-3xl);
+  }
+
+  .recipeResultsList {
+    font-size: var(--font-xl);
+  }
+}

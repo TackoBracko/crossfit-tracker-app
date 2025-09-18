@@ -48,3 +48,15 @@ label {
   transition: 0.3s;
   color: var(--tertiary-text);
 }
+
+.inputForMealSearch {
+  flex: 100%;
+  border: 1px solid #2c2c2e;
+  color: var(--primary-text);
+  border-radius: var(--rounded-xl);
+  outline: none;
+}
+
+.inputForMealSearch::placeholder {
+  font-size: var(--font-sm);
+}
