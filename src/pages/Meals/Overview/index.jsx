@@ -39,7 +39,7 @@ export default function MealOverview() {
           )}
         </div>
 
-        <Button variation="seventh" className={classes.mealSearchBtn} onClick={() => handleRecipeSearch(recipeValue)}>
+        <Button variation="seventh" className={classes.mealSearchBtn} onClick={handleSearchSubmit}>
           🔎
         </Button>
       </Form>
