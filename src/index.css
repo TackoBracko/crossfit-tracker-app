@@ -19,6 +19,7 @@
   --font-xl: 20px;
   --font-2xl: 24px;
   --font-3xl: 30px;
+  --font-4xl: 32px;
 
   --font-normal: 400;
   --font-medium: 500;
@@ -43,6 +44,7 @@
   --p-btn: 14px 20px;
   --p-btn-2: 20px 0;
   --p-exercise: 16px 8px;
+  --p-small: 6px 12px;
 
   --m-xs: 10px;
   --m-sm: 20px;
@@ -55,13 +57,6 @@
   --gap-sm: 10px;
   --gap-lg: 20px;
   --gap-xl: 70px;
-
-  --w-base: ;
-  --h-base: ;
-  --min-w: ;
-  --max-w: ;
-  --min-h: ;
-  --max-h: ;
 }
 
 @font-face {

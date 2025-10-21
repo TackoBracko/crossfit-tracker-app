@@ -1,0 +1,78 @@
+.mealDetailsHeader {
+  position: relative;
+  overflow: hidden;
+}
+
+.mealDetailsHeader button {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.mealHeroImage {
+  position: relative;
+}
+
+.mealHeroImage img {
+  display: block;
+  width: 100%;
+  height: clamp(320px, 48vw, 520px);
+  object-fit: cover;
+}
+
+.mealDetailsSection {
+  border-top-left-radius: var(--rounded-xl);
+  border-top-right-radius: var(--rounded-xl);
+  position: relative;
+  margin-top: -80px;
+  z-index: 3;
+  background: rgba(18, 18, 20, 0.6);
+  backdrop-filter: blur(6px);
+  padding: var(--p-base);
+  color: var(--primary-text);
+}
+
+.mealDetailsSection h1 {
+  font-size: var(--font-2xl);
+  color: var(--primary-background-btn);
+  margin-bottom: var(--m-sm);
+}
+
+.ingredientsCard {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: var(--m-base) 0;
+}
+
+.ingredientsCard h3,
+.instructionsCard h3 {
+  margin-bottom: var(--m-xs);
+  font-size: var(--font-lg);
+}
+
+.ingredientsList {
+  gap: var(--gap-xs);
+  font-size: var(--font-sm);
+  line-height: 1.5;
+}
+
+.recipeInstructions {
+  font-size: var(--font-base);
+  margin-bottom: var(--m-lg);
+}
+
+.recipeInstructions li {
+  margin-bottom: var(--m-xs);
+}
+
+.mealVideo p {
+  margin-bottom: var(--m-xs);
+}
+
+.activeMealBtn {
+  margin-bottom: var(--m-xl);
+  margin-top: var(--m-base);
+}

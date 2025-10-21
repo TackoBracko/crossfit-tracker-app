@@ -11,7 +11,7 @@ export default function Profile() {
   const profileInitial = user.name ? user.name.charAt(0).toUpperCase() : '';
 
   return (
-    <>
+    <div className={classes.profileContainer}>
       <header className={classes.profileHeader}>
         <h1>Profile</h1>
       </header>
@@ -55,6 +55,6 @@ export default function Profile() {
           Sign out
         </Button>
       </section>
-    </>
+    </div>
   );
 }

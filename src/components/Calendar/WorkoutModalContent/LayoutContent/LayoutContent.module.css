@@ -5,9 +5,10 @@
   align-items: stretch;
   gap: var(--gap-lg);
   width: var(--font-semibold);
-  max-width: 100%;
+  max-width: 480px;
   max-height: calc(100vh - 32px);
   overflow-y: auto;
+  overflow-x: hidden;
   padding: var(--p-gap);
   background: #3a3a3a;
   border-radius: var(--rounded-xl);
@@ -33,6 +34,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--p-base);
+  overflow: visible;
 }
 
 dialog::backdrop {

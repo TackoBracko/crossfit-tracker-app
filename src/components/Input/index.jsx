@@ -9,6 +9,10 @@ const InputField = forwardRef(function InputRef({ name, label, placeholder, type
     variationStylaInput = classes.inputForModal;
   }
 
+  if (variation === 'inputForMealSearch') {
+    variationStylaInput = classes.inputForMealSearch;
+  }
+
   return (
     <div>
       {label && <label htmlFor="input"> {label}</label>}

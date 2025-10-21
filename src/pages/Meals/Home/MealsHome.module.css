@@ -1,0 +1,63 @@
+.mealPages {
+  padding: var(--p-gap);
+  background: var(--primary-background);
+  color: var(--primary-text);
+}
+
+.mealHeader {
+  margin-top: var(--m-2xl);
+}
+
+.mealHeader h1 {
+  font-size: var(--font-lg);
+  padding-bottom: var(--p-xs);
+}
+
+.mealHeader p {
+  color: var(--secondary-text);
+  font-size: var(--font-sm);
+}
+
+.mealHeader h3 {
+  font-size: var(--font-lg);
+  padding-bottom: var(--p-xs);
+}
+
+.mealHeader h3 span {
+  color: var(--secondary-text);
+}
+
+.mealSearchForm {
+  display: flex;
+  gap: var(--gap-sm);
+  margin: var(--m-base) 0;
+  width: 100%;
+  align-items: center;
+}
+
+.mealSearchWrapper {
+  flex: 1;
+}
+
+.recipeResultsList {
+  font-size: var(--font-sm);
+  padding: var(--p-xs) 0 0 var(--p-xs);
+}
+
+.recipeResultsList a:hover {
+  color: var(--primary-background-btn);
+}
+
+@media (min-width: 1024px) {
+  .mealHeader h1 {
+    font-size: var(--font-4xl);
+  }
+
+  .mealHeader h3 {
+    font-size: var(--font-3xl);
+  }
+
+  .recipeResultsList {
+    font-size: var(--font-xl);
+  }
+}

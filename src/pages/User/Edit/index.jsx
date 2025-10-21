@@ -127,7 +127,6 @@ export default function EditProfile() {
       <section className={classes.editFormSection}>
         <Form className={classes.editForm} onSubmit={handleEditSubmit} noValidate>
           <div className={classes.inputDiv}>
-            {/* {error.newName ? <p className={classes.errorText}>You did not enter any name </p> : null}*/}
             <InputField
               name="name"
               type="text"
@@ -146,7 +145,6 @@ export default function EditProfile() {
 
           <div className={classes.inputDiv}>
             <div className={classes.unitContainer}>
-              {/*{error.newPassword ? <p className={classes.errorText}>Password has to be longer than 6 caracters</p> : null}*/}
               <InputField
                 name="password"
                 type={showPassword ? 'text' : 'password'}
@@ -160,19 +158,11 @@ export default function EditProfile() {
               <span className={`${classes.unit} ${classes.visibility}`} onClick={togglePasswordVisibility}>
                 {showPassword ? <ShowPassword /> : <HidePassword />}
               </span>
-              {/*<span className={`${classes.unit} ${classes.visibility}`}>
-                {showPassword ? (
-                  <img onClick={togglePasswordVisibility} src={showIcon} alt="Icon Show Password" className={classes.eyeIcon} />
-                ) : (
-                  <img onClick={togglePasswordVisibility} src={hideIcon} alt="Icon Hide Password" className={classes.eyeIcon} />
-                )}
-              </span>*/}
             </div>
           </div>
 
           <div className={classes.inputDiv}>
             <div className={classes.unitContainer}>
-              {/*{error.newWeight ? <p className={classes.errorText}>Weight cannot be negative number </p> : null}*/}
               <InputField
                 name="weight"
                 type="number"
@@ -189,7 +179,6 @@ export default function EditProfile() {
 
           <div className={classes.inputDiv}>
             <div className={classes.unitContainer}>
-              {/*{error.newHeight ? <p className={classes.errorText}>Height cannot be negative number </p> : null}*/}
               <InputField
                 name="height"
                 type="number"
@@ -225,7 +214,6 @@ export default function EditProfile() {
           </div>
 
           <div className={classes.inputDiv}>
-            {/*{error.newAge ? <p className={classes.errorText}>Age cannot be negative number </p> : null}*/}
             <InputField
               name="age"
               type="number"
