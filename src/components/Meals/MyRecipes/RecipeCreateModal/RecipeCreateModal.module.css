@@ -1,0 +1,109 @@
+.modalHeader {
+  display: flex;
+  flex-direction: column;
+  border-bottom: var(--border-b);
+  padding-bottom: var(--p-xl);
+}
+
+.modalHeader h1 {
+  font-size: var(--font-lg);
+  color: var(--primary-text);
+}
+
+.modalHeader p {
+  padding-top: var(--p-xs);
+  color: var(--primary-text);
+  font-size: var(--font-sm);
+}
+
+.modalHeader a {
+  color: var(--secondary-text);
+  padding-left: var(--p-xs);
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.mealFilter {
+  position: relative;
+  width: 100%;
+  padding: var(--p-base);
+  font-size: var(--font-sm);
+  border: 2px solid #ccc;
+  border-radius: var(--rounded-lg);
+  background: var(--primary-text);
+  transition: 0.3s;
+  margin-bottom: var(--m-sm);
+}
+
+.recipeInstructions textarea {
+  width: 100%;
+  padding: var(--p-base);
+  margin-bottom: var(--p-sm);
+  border: 2px solid #ccc;
+  border-radius: var(--rounded-lg);
+  background: var(--primary-text);
+  transition: 0.3s;
+  color: var(--tertiary-text);
+  resize: none;
+  font-size: var(--font-sm);
+}
+
+.modalActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+  border-top: var(--border-b);
+  padding-top: var(--p-base);
+}
+
+.previewBox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+  margin-top: var(--m-base);
+  padding: var(--p-base);
+  border-radius: var(--rounded-xl);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+  color: var(--primary-text);
+}
+
+.previewBox h3 {
+  color: var(--secondary-text);
+  font-size: var(--font-base);
+  margin-bottom: var(--m-xs);
+  text-align: center;
+}
+
+.previewBox p {
+  font-size: var(--font-sm);
+  border-bottom: var(--border-b);
+  padding-bottom: var(--p-xs);
+}
+
+.previewBox p:last-of-type {
+  border-bottom: none;
+}
+
+.previewBox button {
+  margin-bottom: var(--m-xl);
+}
+
+@media (min-width: 768px) {
+  .modalActions {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1024px) {
+  .modalHeader h1 {
+    font-size: var(--font-2xl);
+  }
+
+  .modalHeader p {
+    font-size: var(--font-xl);
+  }
+}

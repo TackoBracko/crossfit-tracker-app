@@ -1,6 +1,6 @@
 import classes from './Button.module.css';
 
-export default function Button({ children, variation, iconLeft, iconRight, onClick }) {
+export default function Button({ children, variation, iconLeft, iconRight, onClick, className = '' }) {
   let variationStyleBtn = '';
 
   if (variation === 'primary') {
@@ -17,10 +17,12 @@ export default function Button({ children, variation, iconLeft, iconRight, onCli
     variationStyleBtn = classes.sixth;
   } else if (variation === 'seventh') {
     variationStyleBtn = classes.seventh;
+  } else if (variation === 'tabBtns') {
+    variationStyleBtn = classes.tabBtns;
   }
 
   return (
-    <button className={variation === 'tertiary' ? `${classes.tertiary}` : `${classes.base} ${variationStyleBtn}`} onClick={onClick}>
+    <button className={variation === 'tertiary' ? `${classes.tertiary}` : `${classes.base} ${variationStyleBtn} ${className}`} onClick={onClick}>
       {iconLeft && <span>{iconLeft}</span>}
       <span>{children}</span>
       {iconRight && <span>{iconRight}</span>}

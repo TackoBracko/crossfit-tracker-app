@@ -48,7 +48,7 @@
 }
 
 .ingredientsCard h3,
-.recipeCard h3 {
+.instructionsCard h3 {
   margin-bottom: var(--m-xs);
   font-size: var(--font-lg);
 }
@@ -59,12 +59,20 @@
   line-height: 1.5;
 }
 
-.recipeSteps {
+.recipeInstructions {
   font-size: var(--font-base);
-  line-height: 1.5;
-  margin-bottom: var(--m-xl);
+  margin-bottom: var(--m-lg);
 }
 
-.recipeSteps li {
+.recipeInstructions li {
   margin-bottom: var(--m-xs);
+}
+
+.mealVideo p {
+  margin-bottom: var(--m-xs);
+}
+
+.activeMealBtn {
+  margin-bottom: var(--m-xl);
+  margin-top: var(--m-base);
 }

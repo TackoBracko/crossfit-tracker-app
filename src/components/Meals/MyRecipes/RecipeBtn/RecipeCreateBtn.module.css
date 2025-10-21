@@ -1,0 +1,78 @@
+/*.ingredientsBox {
+  background-color: var(--secondary-background-btn);
+  border-radius: var(--rounded-xl);
+  padding: var(--p-btn);
+  margin-bottom: var(--m-xl);
+}
+
+.ingredientsSection h3 {
+  font-size: var(--font-lg);
+  padding-bottom: var(--p-xs);
+}
+
+.ingredientsBox p {
+  padding-bottom: var(--p-xs);
+}
+
+@media (min-width: 1024px) {
+  .ingredientsSection h3 {
+    font-size: var(--font-3xl);
+  }
+
+  .ingredientsBox p {
+    font-size: var(--font-2xl);
+  }
+}
+*/
+
+.ingredientsSection {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--m-base);
+}
+
+.ingredientsSection h3 {
+  font-size: var(--font-lg);
+  padding-bottom: var(--p-xs);
+}
+
+.ingredientsBox {
+  width: 100%;
+  max-width: 700px;
+  background-color: var(--secondary-background-btn);
+  border-radius: var(--rounded-xl);
+  padding: var(--p-btn);
+  margin-bottom: var(--m-xl);
+}
+
+.ingredientsBox p {
+  padding-bottom: var(--p-xs);
+}
+
+@media (min-width: 768px) {
+  .ingredientsSection h3 {
+    font-size: var(--font-xl);
+  }
+
+  .ingredientsBox p {
+    font-size: var(--font-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ingredientsSection {
+    align-items: center;
+  }
+
+  .ingredientsBox {
+    max-width: 900px;
+  }
+
+  .ingredientsSection h3 {
+    font-size: var(--font-2xl);
+  }
+
+  .ingredientsBox p {
+    font-size: var(--font-xl);
+  }
+}

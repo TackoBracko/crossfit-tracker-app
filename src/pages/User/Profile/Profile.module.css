@@ -103,3 +103,11 @@
   font-weight: var(--font-semibold);
   padding: 20px 20px 20px 0;
 }
+
+/*@media (min-width: 1024px) {
+  .profileContainer {
+    max-width: 768px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}*/

@@ -7,7 +7,6 @@ import Onbording from './pages/Onbording';
 import Home from './pages/User/Home';
 import Profile from './pages/User/Profile';
 import EditProfile from './pages/User/Edit';
-import Meals from './pages/Meals';
 import Category from './pages/Categories/Category';
 import ExercisesList from './pages/Categories/Category/ExercisesList';
 import Exercise from './pages/Categories/Category/ExercisesList/Exercise';
@@ -15,13 +14,18 @@ import SubExercise from './pages/Categories/Category/ExercisesList/Exercise/SubE
 import Calendar from './pages/Calendar';
 import WorkoutDetails from './pages/Workout/Details';
 import Timer from './pages/Workout/Timer';
+import MealsHome from './pages/Meals/Home';
 import MealDetails from './pages/Meals/Details';
+import MealFavorites from './components/Meals/Favorites';
+import MyRecipesList from './pages/Meals/MyRecipes/List';
+import MyRecipeDetails from './pages/Meals/MyRecipes/Details';
 import { UserDataContextProvider } from './Context/UserContext';
 import { AuthProvider } from './Context/AuthContext';
 import { ProtectedRoutes, PublicRoutes } from './Context/AuthRoutesComponent';
 import { WorkoutDetailsProvider } from './Context/WorkoutDetailsContext';
 import { TimerProvider } from './Context/TimerContext';
 import { RecipeProvider } from './Context/RecipeContext';
+import { MyRecipeProvider } from './Context/MyRecipeContext';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,7 +36,7 @@ const router = createBrowserRouter(
           <Route path="category" element={<Category />} />
           <Route path="calendar" element={<Calendar />} />
           <Route path="profile" element={<Profile />} />
-          <Route path="meals" element={<Meals />} />
+          <Route path="meals" element={<MealsHome />} />
           <Route path="/workouts/:id" element={<WorkoutDetails />} />
         </Route>
 
@@ -53,6 +57,9 @@ const router = createBrowserRouter(
         <Route path="edit" element={<EditProfile />} />
         <Route path="timer" element={<Timer />} />
         <Route path="/meals/:id" element={<MealDetails />} />
+        <Route path="/favorites" element={<MealFavorites />} />
+        <Route path="/my-recipes" element={<MyRecipesList />} />
+        <Route path="/my-recipes/:id" element={<MyRecipeDetails />} />
       </Route>
     </>,
   ),
@@ -65,7 +72,9 @@ function App() {
         <WorkoutDetailsProvider>
           <TimerProvider>
             <RecipeProvider>
-              <RouterProvider router={router} />
+              <MyRecipeProvider>
+                <RouterProvider router={router} />
+              </MyRecipeProvider>
             </RecipeProvider>
           </TimerProvider>
         </WorkoutDetailsProvider>

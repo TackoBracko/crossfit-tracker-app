@@ -58,7 +58,6 @@
   background-color: var(--primary-text);
   color: var(--secondary-background-btn);
   width: 100%;
-  transition: background-color 0.2s ease-in-out;
 }
 
 .quaternary:hover {

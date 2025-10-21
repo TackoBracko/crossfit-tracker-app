@@ -5,9 +5,9 @@ export default function MealRecipeList({ recipes }) {
   return (
     <section className={classes.recipeSection}>
       {recipes.map((recipe) => (
-        <NavLink to={`/meals/${recipe.id}`} key={recipe.id} className={classes.recipeBox}>
-          <img src={recipe.image} alt={recipe.title} />
-          <h3>{recipe.title}</h3>
+        <NavLink to={`/meals/${recipe.idMeal}`} key={recipe.idMeal} className={classes.recipeBox}>
+          <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+          <h3>{recipe.strMeal}</h3>
         </NavLink>
       ))}
     </section>
