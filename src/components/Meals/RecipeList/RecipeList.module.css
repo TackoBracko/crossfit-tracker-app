@@ -44,6 +44,10 @@
     width: 350px;
   }
 
+  .recipeBox h3 {
+    font-size: var(--font-2xl);
+  }
+
   .recipeBox img {
     height: 250px;
   }

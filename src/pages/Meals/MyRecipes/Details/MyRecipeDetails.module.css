@@ -109,96 +109,20 @@
   }
 }
 
-/*.recipeDetailsHeader {
-  position: relative;
-  margin-bottom: var(--m-base);
-}
-
-.recipeDetailsHeader button {
-  position: absolute;
-  left: 12px;
-}
-
-.recipeDetails {
-  position: relative;
-  text-align: center;
-  padding-top: var(--p-xl);
-  border-radius: var(--rounded-xl);
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
-}
-
-.recipeDetails h1 {
-  color: var(--secondary-text);
-  margin-top: var(--m-base);
-  margin-bottom: var(--m-sm);
-}
-
-.recipeCategory {
-  display: inline-block;
-  background-color: #3a3a3a;
-  color: var(--secondary-text);
-  padding: var(--p-small);
-  border-radius: var(--rounded-full);
-  font-size: var(--font-sm);
-}
-
-.recipeDetailsBox {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-xs);
-  max-width: 800px;
-  margin: 0 auto;
-  padding: var(--p-base);
-  border-radius: var(--rounded-xl);
-}
-
-.recipeIngredients {
-  background-color: #252525;
-  padding: var(--p-base);
-  border-radius: var(--rounded-lg);
-}
-
-.recipeIngredients h3 {
-  color: var(--secondary-text);
-  margin-bottom: var(--m-sm);
-  font-size: var(--font-lg);
-}
-
-.recipeIngredients ul li {
-  list-style: circle;
-  margin-left: var(--m-base);
-  line-height: 1.6;
-}
-
-.recipeInstructions {
-  background-color: #252525;
-  padding: var(--p-base);
-  border-radius: var(--rounded-lg);
-}
-
-.recipeInstructions h3 {
-  color: var(--secondary-text);
-  margin-bottom: var(--m-sm);
-  font-size: var(--font-lg);
-}
-
-.recipeInstructions p {
-  white-space: pre-line;
-  line-height: 1.8;
-  color: var(--primary-text);
-}
-
-.recipeBtns {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-xs);
-  margin-top: var(--m-base);
-  margin-bottom: var(--m-xl);
-}
-
-@media (min-width: 768px) {
-  .recipeBtns {
-    flex-direction: row;
+@media (min-width: 1024px) {
+  .recipeIngredientsCard h3 {
+    font-size: var(--font-xl);
   }
-}*/
+
+  .recipeIngredientsList li {
+    font-size: var(--font-xl);
+  }
+
+  .recipeInstructionsCard h3 {
+    font-size: var(--font-xl);
+  }
+
+  .recipeInstructionsCard p {
+    font-size: var(--font-xl);
+  }
+}

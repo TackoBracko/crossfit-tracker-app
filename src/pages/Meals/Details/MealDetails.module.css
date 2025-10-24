@@ -60,7 +60,7 @@
 }
 
 .recipeInstructions {
-  font-size: var(--font-base);
+  font-size: var(--font-sm);
   margin-bottom: var(--m-lg);
 }
 
@@ -75,4 +75,24 @@
 .activeMealBtn {
   margin-bottom: var(--m-xl);
   margin-top: var(--m-base);
+}
+
+@media (min-width: 481px) {
+  .ingredientsList li {
+    font-size: var(--font-base);
+  }
+
+  .recipeInstructions li {
+    font-size: var(--font-base);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ingredientsList li {
+    font-size: var(--font-xl);
+  }
+
+  .recipeInstructions li {
+    font-size: var(--font-xl);
+  }
 }
