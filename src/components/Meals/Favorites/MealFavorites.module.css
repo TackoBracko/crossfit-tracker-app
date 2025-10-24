@@ -44,6 +44,14 @@
 }
 
 @media (min-width: 1024px) {
+  .favoritesHeader h1 {
+    font-size: var(--font-2xl);
+  }
+
+  .favoritesSection p {
+    font-size: var(--font-base);
+  }
+
   .favoritesBox {
     width: 350px;
   }

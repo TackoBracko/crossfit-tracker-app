@@ -89,6 +89,7 @@
 }
 
 .previewBox button {
+  margin-top: var(--font-base);
   margin-bottom: var(--m-xl);
 }
 

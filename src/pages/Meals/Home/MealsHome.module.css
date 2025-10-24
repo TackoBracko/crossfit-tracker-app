@@ -57,6 +57,10 @@
     font-size: var(--font-3xl);
   }
 
+  .mealHeader p {
+    font-size: var(--font-lg);
+  }
+
   .recipeResultsList {
     font-size: var(--font-xl);
   }

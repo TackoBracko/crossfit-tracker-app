@@ -8,7 +8,7 @@
 }
 
 .myRecipesHeader h1 {
-  font-size: var(--font-2xl);
+  font-size: var(--font-xl);
   text-align: center;
   color: var(--primary-background-btn);
 }
@@ -115,5 +115,23 @@
 @media (min-width: 768px) {
   .recipesBox {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .myRecipesHeader h1 {
+    font-size: var(--font-3xl);
+  }
+
+  .recipeText h2 {
+    font-size: var(--font-2xl);
+  }
+
+  .recipeText p {
+    font-size: var(--font-xl);
+  }
+
+  .recipeText a {
+    font-size: var(--font-lg);
   }
 }
