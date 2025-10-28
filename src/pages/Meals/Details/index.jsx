@@ -4,6 +4,7 @@ import classes from './MealDetails.module.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { RecipeContext } from '../../../Context/RecipeContext';
+import HeartIcon from '../../../components/Icons/HeartIcon';
 
 export default function MealDetails() {
   const navigate = useNavigate();
@@ -29,7 +30,28 @@ export default function MealDetails() {
       </header>
 
       <section className={classes.mealDetailsSection}>
-        <h1>{recipeDetails.strMeal}</h1>
+        <div className={classes.mealText}>
+          <h1>{recipeDetails.strMeal}</h1>
+
+          <Button
+            variation="iconHeart"
+            onClick={() => (isFavorite ? removeFromFavoriteRecipe(recipeDetails.idMeal) : addToFavoriteRecipe(recipeDetails))}
+            isFavorite={isFavorite}
+            iconRight={<HeartIcon filled={isFavorite} />}
+          />
+        </div>
+
+        {/*<div className={classes.activeMealBtn}>
+          {isFavorite ? (
+            <Button variation="quaternary" onClick={() => removeFromFavoriteRecipe(recipeDetails.idMeal)}>
+              ❌ Remove from Favorites
+            </Button>
+          ) : (
+            <Button variation="primary" onClick={() => addToFavoriteRecipe(recipeDetails)}>
+              ❤️ Add to Favorites
+            </Button>
+          )}
+          </div>*/}
 
         <div className={classes.ingredientsCard}>
           <h3>Ingredients</h3>
@@ -65,18 +87,6 @@ export default function MealDetails() {
                 allowFullScreen
               />
             </div>
-          )}
-        </div>
-
-        <div className={classes.activeMealBtn}>
-          {isFavorite ? (
-            <Button variation="quaternary" onClick={() => removeFromFavoriteRecipe(recipeDetails.idMeal)}>
-              ❌ Remove from Favorites
-            </Button>
-          ) : (
-            <Button variation="primary" onClick={() => addToFavoriteRecipe(recipeDetails)}>
-              ❤️ Add to Favorites
-            </Button>
           )}
         </div>
       </section>

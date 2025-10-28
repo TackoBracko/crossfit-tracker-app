@@ -98,3 +98,9 @@
 .seventh:hover {
   background-color: var(--primary-btn-hover);
 }
+
+.iconHeart {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

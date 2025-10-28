@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 export const RecipeContext = createContext();
 
@@ -95,6 +95,17 @@ export const RecipeProvider = ({ children }) => {
   };
 
   const clearRecipeSearchResults = () => setRecipeSearchResults([]);
+
+  //local storage
+
+  useEffect(() => {
+    const savedFavoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
+    setFavoriteRecipes(savedFavoriteRecipes);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('favoriteRecipes', JSON.stringify(favoriteRecipes));
+  }, [favoriteRecipes]);
 
   return (
     <RecipeContext.Provider
