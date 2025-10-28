@@ -35,9 +35,13 @@
 }
 
 .mealDetailsSection h1 {
-  font-size: var(--font-2xl);
+  font-size: var(--font-xl);
   color: var(--primary-background-btn);
-  margin-bottom: var(--m-sm);
+}
+
+.mealText {
+  display: flex;
+  align-items: center;
 }
 
 .ingredientsCard {
@@ -72,10 +76,14 @@
   margin-bottom: var(--m-xs);
 }
 
-.activeMealBtn {
+.mealVideo {
+  margin-bottom: var(--m-xl);
+}
+
+/*.activeMealBtn {
   margin-bottom: var(--m-xl);
   margin-top: var(--m-base);
-}
+}*/
 
 @media (min-width: 481px) {
   .ingredientsList li {

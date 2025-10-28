@@ -16,9 +16,9 @@ import WorkoutDetails from './pages/Workout/Details';
 import Timer from './pages/Workout/Timer';
 import MealsHome from './pages/Meals/Home';
 import MealDetails from './pages/Meals/Details';
-import MealFavorites from './components/Meals/Favorites';
 import MyRecipesList from './pages/Meals/MyRecipes/List';
 import MyRecipeDetails from './pages/Meals/MyRecipes/Details';
+import AllFavoritesMeals from './pages/Meals/Favorites';
 import { UserDataContextProvider } from './Context/UserContext';
 import { AuthProvider } from './Context/AuthContext';
 import { ProtectedRoutes, PublicRoutes } from './Context/AuthRoutesComponent';
@@ -57,9 +57,9 @@ const router = createBrowserRouter(
         <Route path="edit" element={<EditProfile />} />
         <Route path="timer" element={<Timer />} />
         <Route path="/meals/:id" element={<MealDetails />} />
-        <Route path="/favorites" element={<MealFavorites />} />
         <Route path="/my-recipes" element={<MyRecipesList />} />
         <Route path="/my-recipes/:id" element={<MyRecipeDetails />} />
+        <Route path="/favorites" element={<AllFavoritesMeals />} />
       </Route>
     </>,
   ),

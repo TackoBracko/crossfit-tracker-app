@@ -3,7 +3,7 @@ import InputField from '../../../components/Input';
 import Button from '../../../components/Button';
 import MealFilterTabs from '../../../components/Meals/FilterTabs';
 import MealRecipeList from '../../../components/Meals/RecipeList';
-import MealFavorites from '../../../components/Meals/Favorites';
+import FavoritesMealsPreview from '../../../components/Meals/Favorites';
 import RecipeCreateBtn from '../../../components/Meals/MyRecipes/RecipeBtn';
 import { Form } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
@@ -138,7 +138,7 @@ export default function MealsHome() {
       <section>
         <MealFilterTabs showAllTabs={false} />
         <MealRecipeList recipes={recipesForTab} />
-        <MealFavorites />
+        <FavoritesMealsPreview />
         <RecipeCreateBtn openRecipeCreateModal={openRecipeCreateModal} />
 
         <NavLink to={'/my-recipes'}>

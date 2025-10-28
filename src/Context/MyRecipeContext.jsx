@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { RecipeContext } from './RecipeContext';
 
@@ -22,6 +22,17 @@ export const MyRecipeProvider = ({ children }) => {
   const deleteRecipe = (id) => {
     setMyRecipes((prevData) => prevData.filter((recipe) => recipe.id !== id));
   };
+
+  //local storage
+
+  useEffect(() => {
+    const savedFavoriteMyRecipes = JSON.parse(localStorage.getItem('myRecipes')) || [];
+    setMyRecipes(savedFavoriteMyRecipes);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('myRecipes', JSON.stringify(myRecipes));
+  }, [myRecipes]);
 
   return (
     <MyRecipeContext.Provider

@@ -1,12 +1,35 @@
+.favoritesHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .favoritesHeader h1 {
   font-size: var(--font-xl);
+  padding-bottom: var(--p-xs);
+}
+
+.viewAllFavorites:hover {
+  color: var(--primary-background-btn);
 }
 
 .favoritesSection {
   display: flex;
+  flex-direction: column;
   gap: var(--gap-sm);
   overflow-x: auto;
   margin: var(--m-base) 0;
+}
+
+.favoritesSection p {
+  color: var(--tertiary-btn-text);
+  text-align: center;
+}
+
+.favoritesBlock {
+  display: flex;
+  gap: var(--gap-sm);
+  overflow-x: auto;
 }
 
 .favoritesBox {

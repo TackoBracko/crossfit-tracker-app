@@ -19,6 +19,8 @@ export default function Button({ children, variation, iconLeft, iconRight, onCli
     variationStyleBtn = classes.seventh;
   } else if (variation === 'tabBtns') {
     variationStyleBtn = classes.tabBtns;
+  } else if (variation === 'iconHeart') {
+    variationStyleBtn = classes.iconHeart;
   }
 
   return (
