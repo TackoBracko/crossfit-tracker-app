@@ -6,7 +6,9 @@ export const MyRecipeContext = createContext();
 
 export const MyRecipeProvider = ({ children }) => {
   const { isFavoriteRecipe, updateFavoriteRecipe } = useContext(RecipeContext);
-  const [myRecipes, setMyRecipes] = useState([]);
+  const [myRecipes, setMyRecipes] = useState(() => {
+    return JSON.parse(localStorage.getItem('myRecipes')) || [];
+  });
 
   const createRecipe = (recipe) => {
     setMyRecipes((prevData) => [...prevData, { ...recipe, id: uuidv4() }]);
@@ -24,11 +26,6 @@ export const MyRecipeProvider = ({ children }) => {
   };
 
   //local storage
-
-  useEffect(() => {
-    const savedFavoriteMyRecipes = JSON.parse(localStorage.getItem('myRecipes')) || [];
-    setMyRecipes(savedFavoriteMyRecipes);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem('myRecipes', JSON.stringify(myRecipes));

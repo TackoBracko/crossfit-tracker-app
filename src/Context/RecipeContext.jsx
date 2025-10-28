@@ -6,10 +6,12 @@ export const RecipeProvider = ({ children }) => {
   const [activeTab, setActiveTab] = useState('');
   const [recipesForTab, setRecipesForTab] = useState([]);
   const [recipeSearchResults, setRecipeSearchResults] = useState([]);
-  const [favoriteRecipes, setFavoriteRecipes] = useState([]);
   const [recipeDetails, setRecipeDetails] = useState(null);
   const [recipeIngredients, setRecipeIngredients] = useState([]);
   const [recipeMeasures, setRecipeMeasures] = useState([]);
+  const [favoriteRecipes, setFavoriteRecipes] = useState(() => {
+    return JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
+  });
 
   //find recipe for tabs
   const fetchRecipesForTab = async (category) => {
@@ -97,11 +99,6 @@ export const RecipeProvider = ({ children }) => {
   const clearRecipeSearchResults = () => setRecipeSearchResults([]);
 
   //local storage
-
-  useEffect(() => {
-    const savedFavoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
-    setFavoriteRecipes(savedFavoriteRecipes);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem('favoriteRecipes', JSON.stringify(favoriteRecipes));
